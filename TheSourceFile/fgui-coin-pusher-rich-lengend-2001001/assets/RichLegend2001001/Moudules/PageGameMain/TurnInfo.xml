@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="126,74">
+  <displayList>
+    <image id="n22_8amu" name="n22" src="8amu15k" fileName="Images/PageGameMain/BG/Turn/bg_turn.png" xy="0,0"/>
+    <text id="n23_8amu" name="machineNumber" xy="73,8" size="43,25" font="ui://adoe8w7d8amu15w" fontSize="10" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="5"/>
+    <text id="n24_8amu" name="turnNumber" xy="73,42" size="43,25" font="ui://adoe8w7d8amu15w" fontSize="10" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="5"/>
+  </displayList>
+</component>

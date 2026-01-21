@@ -155,9 +155,9 @@ namespace PusherEmperorsRein
 
 
 
-                    fguiPoolHelper = goGameCtrl.transform.Find("Pool").GetComponent<FguiPoolHelper>();
+                    fguiPoolHelper = goGameCtrl.transform.Find("Pool GameObject").GetComponent<FguiGameObjectPoolHelper>();
 
-                    gObjectPoolHelper = goGameCtrl.transform.Find("GObject Pool").GetComponent<FguiGObjectPoolHelper>();
+                    gObjectPoolHelper = goGameCtrl.transform.Find("Pool GObject").GetComponent<FguiGObjectPoolHelper>();
 
                     callback();
                 });
@@ -492,7 +492,7 @@ namespace PusherEmperorsRein
 
         
         bool isInitPool = false;
-        FguiPoolHelper fguiPoolHelper;
+        FguiGameObjectPoolHelper fguiPoolHelper;
         FguiGObjectPoolHelper gObjectPoolHelper;
 
         SlotMachineController slotMachineCtrl;
@@ -893,7 +893,7 @@ namespace PusherEmperorsRein
             if (slotMachineCtrl != null)
                 slotMachineCtrl.SkipWinLine(true);
 #else
-            OnAstBundleet();
+            OnGameReset();
 #endif
 
             FguiSortingOrderManager.Instance.ClearAll();
@@ -1060,7 +1060,7 @@ namespace PusherEmperorsRein
         IEnumerator GameFreeSpinOnce(Action successCallback, Action<string> errorCallback)
         {
 
-            OnAstBundleet();
+            OnGameReset();
 
             ContentModel.Instance.gameState = GameState.FreeSpin;
 
@@ -1429,7 +1429,7 @@ namespace PusherEmperorsRein
             }
 
 
-            OnAstBundleet();
+            OnGameReset();
 
             ContentModel.Instance.gameState = GameState.Spin;
 
@@ -2137,7 +2137,7 @@ namespace PusherEmperorsRein
 
 
 
-        void OnAstBundleet()
+        void OnGameReset()
         {
             if (coGameIdel != null) mono.StopCoroutine(coGameIdel);
             //mono.StopCoroutine(corEffectSlowMotion);
@@ -3274,7 +3274,7 @@ namespace PusherEmperorsRein
 
         public void SetUIJackpotGameReel()
         {
-            JackpotRes info = ContentModel.Instance.jpAstBundle;
+            JackpotRes info = ContentModel.Instance.jpGameRes;
 
             ContentModel.Instance.uiGrandJP.nowCredit = uiJPGrandCtrl.nowData;
             //ContentModel.Instance.uiMegaJP.nowCredit = uiJPMegaCtrl.nowData;

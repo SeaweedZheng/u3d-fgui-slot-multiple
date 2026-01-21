@@ -9,9 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2321675440190136341}
-  - component: {fileID: 2523946528824890912}
+  - component: {fileID: 8437044875239022674}
   m_Layer: 0
-  m_Name: Pool
+  m_Name: Pool GameObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -31,7 +31,7 @@ Transform:
   m_Father: {fileID: 7885727902272213842}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &2523946528824890912
+--- !u!114 &8437044875239022674
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -40,7 +40,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 511367208024852604}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7fb7441211faf95489ff4df4339a7340, type: 3}
+  m_Script: {fileID: 11500000, guid: 91437250c069cd44294a7e0a2f80d2ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
 --- !u!1 &559845972050953309
@@ -851,7 +851,7 @@ GameObject:
   - component: {fileID: 6708966022373416457}
   - component: {fileID: 5482148094488549907}
   m_Layer: 0
-  m_Name: GObject Pool
+  m_Name: Pool GObject
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1049,7 +1049,6 @@ MonoBehaviour:
   freeSpinAddNum: 0
   isFreeSpinAdd: 0
   m_showFreeSpinRemainTime: 0
-  m_freeOnceCredit: 0
   isBonus1: 0
   hitBallCount: 0
   creditBefore: 0
@@ -1059,6 +1058,7 @@ MonoBehaviour:
   freeSpinTriggerGuid: 
   curGameNumber: 0
   gameNumberFreeSpinTrigger: 0
+  isHitJackpotGame: 0
   m_UIGrandJP:
     name: JPGrand
     id: 0
@@ -1094,6 +1094,8 @@ MonoBehaviour:
     curCredit: 10581
     maxCredit: 30000
     minCredit: 0
+  isHitJpGame3JpGame4: 0
+  isHitJpGame1JpGame2: 0
   _betIndex: 0
   m_BtnSpinState: Stop
   m_TotalBet: 0

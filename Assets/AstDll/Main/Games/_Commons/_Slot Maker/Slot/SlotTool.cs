@@ -4,7 +4,7 @@ namespace SlotMaker
 {
     public class SlotTool
     {
-        public static string GetDeckColRow(List<List<int>> deckColRowList)
+        public static string GetDeckCRsByCRd(List<List<int>> deckColRowList)
         {
             string res = "";
             for (int col = 0; col < deckColRowList.Count; col++)
@@ -22,7 +22,7 @@ namespace SlotMaker
 
         }
 
-        public static string GetDeckRowCol(List<List<int>> deckColRowList)
+        public static string GetDeckRCsByCRl(List<List<int>> deckColRowList)
         {
             string res = "";
             int rowCount = deckColRowList[0].Count;
@@ -41,7 +41,7 @@ namespace SlotMaker
         }
 
 
-        public static List<int> GetDeckColRow(string strDeckRowCol = "1,1,1,1,1#2,2,6,2,2#3,3,3,3,3")
+        public static List<int> GetDeckCRlByRCs(string strDeckRowCol = "1,1,1,1,1#2,2,6,2,2#3,3,3,3,3")
         {
             string[] rows = strDeckRowCol.Split('#');
             int rowNum = rows.Length;
@@ -69,7 +69,7 @@ namespace SlotMaker
             return colrow;
         }
 
-        public static List<List<int>> GetDeckColRow02(string strDeckRowCol = "1,1,1,1,1#2,2,6,2,2#3,3,3,3,3")
+        public static List<List<int>> GetDeckCRdByRCs(string strDeckRowCol = "1,1,1,1,1#2,2,6,2,2#3,3,3,3,3")
         {
             string[] rows = strDeckRowCol.Split('#');
             int rowNum = rows.Length;
@@ -91,7 +91,7 @@ namespace SlotMaker
         }
 
 
-        public static List<int> GetDeckRowCol(string strDeckRowCol = "1,1,1,1,1#2,2,6,2,2#3,3,3,3,3")
+        public static List<int> GetDeckRClByRCs(string strDeckRowCol = "1,1,1,1,1#2,2,6,2,2#3,3,3,3,3")
         {
             string[] rows = strDeckRowCol.Split('#');
             //int rowNum = rows.Length;
@@ -113,7 +113,7 @@ namespace SlotMaker
         }
 
 
-        public static List<List<int>> GetDeckColRow(int[] deckColRow, int colCount, int rowCount)
+        public static List<List<int>> GetDeckCRdByCRl(int[] deckColRow, int colCount, int rowCount)
         {
             List<List<int>> colrowLsts = new List<List<int>>();
             for (int col = 0; col < colCount; col++)
@@ -128,7 +128,7 @@ namespace SlotMaker
             }
             return colrowLsts;
         }
-        public static List<List<int>> GetDeckColRow01(int[] deckRowCol, int colCount, int rowCount)
+        public static List<List<int>> GetDeckCRdByRCl(int[] deckRowCol, int colCount, int rowCount)
         {
             List<List<int>> colrowLsts = new List<List<int>>();
 
@@ -145,7 +145,7 @@ namespace SlotMaker
             return colrowLsts;
         }
 
-        public static List<List<int>> GetDeckRowCol01(int[] deckRowCol, int colCount, int rowCount)
+        public static List<List<int>> GetDeckRCdByRCl(int[] deckRowCol, int colCount, int rowCount)
         {
             List<List<int>> lst = new List<List<int>>();
             for (int row = 0; row < rowCount; row++)
@@ -161,9 +161,30 @@ namespace SlotMaker
 
 
 
+        public static string GetDeckRCsByRCd(List<List<int>> deckRowCol)
+        {
+
+            string res = "";
+
+            for (int row = 0; row < deckRowCol.Count; row++)
+            {
+                for (int col = 0; col < deckRowCol[0].Count; col++)
+                {
+                    res += $"{deckRowCol[row][col]},";
+
+                }
+                res += "#";
+            }
+            res = res.Replace(",#", "#").TrimEnd('#');
+
+            return res;
+
+        }
 
 
-        public static string GetDeckRowCol(int[] deckRowCol, int colCount, int rowCount)
+        // Lrc2Src   Drc2Src
+        // GetDeckSRCByLRC
+        public static string GetDeckRCsByRCl(int[] deckRowCol, int colCount, int rowCount)
         {
 
             string res = "";

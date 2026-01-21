@@ -7,6 +7,9 @@ using System;
 public enum TagPoolGObject
 {
     Default = 0,
+
+    SymbolHit = 1,
+    SymbolAppear = 2,
 }
 public class FguiGObjectPoolHelper : MonoSingleton<FguiGObjectPoolHelper>
 {
@@ -49,13 +52,15 @@ public class FguiGObjectPoolHelper : MonoSingleton<FguiGObjectPoolHelper>
         {
             if (gobj == null || string.IsNullOrEmpty((string)gobj.data)) return false;
             string dataStr = ((string)gobj.data);
-            foreach (string item in exclude)
-            {
-                if (dataStr.Contains(item))
+
+            if(exclude != null)
+                foreach (string item in exclude)
                 {
-                    return false;
+                    if (dataStr.Contains(item))
+                    {
+                        return false;
+                    }
                 }
-            }
             return dataStr.Contains(tag);
         };
         List<GObject> items = FguiUtils.GetAllNode(root, where);

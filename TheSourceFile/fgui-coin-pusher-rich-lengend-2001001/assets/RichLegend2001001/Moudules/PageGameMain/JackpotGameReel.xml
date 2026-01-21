@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="16,28">
+  <displayList>
+    <text id="n0_pq4v" name="step1_0" xy="-3,-8" size="22,44" font="ui://adoe8w7dpq4v14m" fontSize="16" align="center" vAlign="middle" autoSize="shrink" text="8"/>
+    <text id="n2_pq4v" name="step1_0" xy="-3,-15" size="22,44" visible="false" font="ui://adoe8w7dpq4v14m" fontSize="16" align="center" vAlign="middle" autoSize="shrink" text="8"/>
+    <text id="n3_pq4v" name="step1_1" xy="-3,12" size="22,44" visible="false" font="ui://adoe8w7dpq4v14m" fontSize="16" align="center" vAlign="middle" autoSize="shrink" text="9"/>
+    <text id="n4_pq4v" name="step3_0" xy="-3,-30" size="22,44" visible="false" font="ui://adoe8w7dpq4v14m" fontSize="16" align="center" vAlign="middle" autoSize="shrink" text="8"/>
+    <text id="n5_pq4v" name="step3_1" xy="-3,-3" size="22,44" visible="false" font="ui://adoe8w7dpq4v14m" fontSize="16" align="center" vAlign="middle" autoSize="shrink" text="9"/>
+    <text id="n6_pq4v" name="step4_0" xy="-3,-8" size="22,44" visible="false" font="ui://adoe8w7dpq4v14m" fontSize="16" align="center" vAlign="middle" autoSize="shrink" text="9"/>
+  </displayList>
+</component>

@@ -181,7 +181,7 @@ namespace PanelSlot1000000
 
             txtBet = gOwnerPanel.GetChild("bet").asTextField;
             txtBet.text = SBoxModel.Instance.betList[MainModel.Instance.contentMD.betIndex].ToString();
-            spinBtnCtrl.InitParam(gOwnerPanel.GetChild("btnSpin").asCom, "Stop", OnClickSpinButton, goSpinClone);
+            spinBtnCtrl.InitParam(gOwnerPanel.GetChild("btnSpin").asCom,  OnClickSpinButton, goSpinClone);
 
 
             gPayTableWin = gOwnerPanel.GetChild("payTable").asCom;
@@ -225,17 +225,28 @@ namespace PanelSlot1000000
 
 
             btnSound = gMenu.GetChild("btnSound").asButton;
-            btnSound.onClick.Set((EventContext context) =>
+            btnSound.onClick.Clear();
+            btnSound.onClick.Add((EventContext context) =>
             {
                 if (++SBoxModel.Instance.soundLevel > 3)
                     SBoxModel.Instance.soundLevel = 0;
 
-                btnSound.GetController("button").selectedIndex = SBoxModel.Instance.soundLevel;
+                Debug.Log($"i am here: {SBoxModel.Instance.soundLevel}");
+                btnSound.GetController("c1").selectedIndex = SBoxModel.Instance.soundLevel;
                 //GlobalSoundHelper.Instance.PlaySoundEff(GameMaker.SoundKey.NormalClick);
                 context.StopPropagation(); // 停止事件冒泡(不起作用)
             });
             //btnSound.sound = null;
-            btnSound.GetController("button").selectedIndex = SBoxModel.Instance.soundLevel;
+            btnSound.GetController("c1").selectedIndex = SBoxModel.Instance.soundLevel;
+
+
+
+
+            btnHome = gMenu.GetChild("btnHome").asButton;
+            btnHome.onClick.Set((EventContext context) =>
+            {
+                PageUtils.GoBackToLobby();
+            });
 
 
 
@@ -251,8 +262,9 @@ namespace PanelSlot1000000
             if (btnHelp.selected)
             {
                 gOwnerPanel.GetChild("mask").asGraph.visible = true;
-                spinBtnCtrl.goOwnerSpin.GetController("button").selectedPage = "untouchable";
-                spinBtnCtrl.goOwnerSpin.touchable = false;
+                spinBtnCtrl.SetUntouchable();
+                //spinBtnCtrl.goOwnerSpin.GetController("button").selectedPage = "untouchable";
+                //spinBtnCtrl.goOwnerSpin.touchable = false;
             }
             else
             {
@@ -260,8 +272,9 @@ namespace PanelSlot1000000
                 gPayTableWin.visible = false;
                 gOwnerPanel.GetChild("mask").asGraph.visible = false;
 
-                spinBtnCtrl.goOwnerSpin.GetController("button").selectedPage = "stop";
-                spinBtnCtrl.goOwnerSpin.touchable = true;
+                spinBtnCtrl.SetTouchable();
+                //spinBtnCtrl.goOwnerSpin.GetController("button").selectedPage = "stop";
+                //spinBtnCtrl.goOwnerSpin.touchable = true;
             }
         }
 
@@ -370,7 +383,7 @@ namespace PanelSlot1000000
             string changeSpinState = (string)res?.value;
 
             if (changeSpinState == null)
-                changeSpinState = "Stop";
+                changeSpinState = SpinButtonState.Stop;
 
             if (gOwnerPanel == null) return;
 
@@ -379,13 +392,13 @@ namespace PanelSlot1000000
             {
                 case SpinButtonState.Stop:
                     {
-                        spinBtnCtrl.State = "Stop";
+                        spinBtnCtrl.State = SpinButtonState.Stop;
                         ChangButtonNo(false);
                     }
                     break;
                 case SpinButtonState.Spin:
                     {
-                        spinBtnCtrl.State = "Spin";
+                        spinBtnCtrl.State = SpinButtonState.Spin;
                         //if (gOwnerPanel != null)
                         //{
                         //    gOwnerPanel.GetChild("goodLuck").asLoader.visible = false;
@@ -396,7 +409,7 @@ namespace PanelSlot1000000
                     break;
                 case SpinButtonState.Auto:
                     {
-                        spinBtnCtrl.State = "Auto";
+                        spinBtnCtrl.State = SpinButtonState.Auto;
                         //if (gOwnerPanel != null)
                         //{
                         //    gOwnerPanel.GetChild("goodLuck").asLoader.visible = false;
@@ -502,11 +515,8 @@ namespace PanelSlot1000000
         int i = 0;
         public void OnClickSpinButton(bool isLong)
         {
-
-
             EventCenter.Instance.EventTrigger<EventData>(PanelEvent.ON_PANEL_INPUT_EVENT,
                new EventData<bool>(PanelEvent.SpinButtonClick, isLong));
-
         }
 
         #region 置灰
@@ -585,7 +595,7 @@ namespace PanelSlot1000000
 
             ChangeBetButtonInteractable(betIndex, betList.Count);
         }
-        protected GButton btnBetDown, btnBetUp;
+        protected GButton btnBetDown, btnBetUp, btnHome;
 
         protected int curBetIndex = 0;
         protected int curBetListCount = 1;

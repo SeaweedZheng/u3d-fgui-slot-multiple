@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="82,82" pivot="0.5,0.5" extention="Button">
-  <controller name="button" pages="0,t0,1,t1,3,t2,4,t3" selected="0">
+  <controller name="c1" pages="0,t0,1,t1,3,t2,4,t3" selected="0">
     <action type="play_transition" fromPage="" toPage="0" transition="t0"/>
     <action type="play_transition" fromPage="" toPage="1" transition="t1"/>
     <action type="play_transition" fromPage="" toPage="3" transition="t2"/>
@@ -12,7 +12,7 @@
     </image>
     <loader id="n6_ioi7" name="n6" xy="41,410" pivot="0.5,5" anchor="true" size="82,82" url="ui://01yywggtioi7g4" autoSize="true" clearOnPublish="true"/>
   </displayList>
-  <Button downEffect="scale" downEffectValue="0.8"/>
+  <Button/>
   <transition name="t0">
     <item time="0" type="Icon" target="n6_ioi7" value="ui://01yywggtioi7gb"/>
   </transition>

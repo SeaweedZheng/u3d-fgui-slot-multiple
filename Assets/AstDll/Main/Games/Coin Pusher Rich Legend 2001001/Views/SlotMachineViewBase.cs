@@ -12,7 +12,7 @@ public class SlotMachineViewBase : IVSlotMachine
 
 
 
-    SlotMachineConfig config;
+    protected SlotMachineConfig smConfig;
 
     GComponent goSotCover, goReels, goPayLines;
 
@@ -23,25 +23,30 @@ public class SlotMachineViewBase : IVSlotMachine
     List<GTweener> reelTweenLst;
 
 
+    public List<List<int>>  DeckColRowNumber => deckColRowNumber;
 
     public event Action<int> onSymbolPointerEnter;
     public event Action<int> onSymbolPointerExit;
 
 
-    FguiPoolHelper fguiPoolHelper;
+    FguiGameObjectPoolHelper fguiPoolHelper;
 
-    GComponent goExpectation;
 
-    string maskSortOrder = null;
-    public virtual void InitParam(GComponent u, GComponent goExpectation, SlotMachineConfig cf)
+    /// <summary>
+    /// 图标动画显示的层级
+    /// </summary>
+    protected GComponent goAnchorSymbolEffect;
+
+    protected string maskSortOrder = null;
+    public virtual void InitParam(GComponent u, GComponent gAnchorSymbolEffect, SlotMachineConfig cf)
     {
         if (string.IsNullOrEmpty(maskSortOrder))
             maskSortOrder = $"MASK_SORT_ORDER-{Time.unscaledTime}-{UnityEngine.Random.Range(0, 100)}";
 
 
-        config = cf;
+        smConfig = cf;
         ui = u;
-        this.goExpectation = goExpectation;
+        this.goAnchorSymbolEffect = gAnchorSymbolEffect;
 
         goSotCover = ui.GetChild("slotCover").asCom;
         goPayLines = ui.GetChild("playLines").asCom;
@@ -52,7 +57,7 @@ public class SlotMachineViewBase : IVSlotMachine
 
         reelTweenLst = new List<GTweener>();
         anchorSymbolsLst = new List<GComponent>();
-        for (int i = 0; i < config.Column; i++)
+        for (int i = 0; i < smConfig.Column; i++)
         {
             GComponent goReel = goReels.GetChild($"reel{i + 1}").asCom;
             anchorSymbolsLst.Add(goReel.GetChild("symbols").asCom);
@@ -83,7 +88,7 @@ public class SlotMachineViewBase : IVSlotMachine
             {
                 GComponent goSymbol = anchorSymbolsLst[c].GetChildAt(r).asCom;
                 reelSymbols.Add(goSymbol);
-                int symbolNumber = config.SymbolNumbers[UnityEngine.Random.Range(1, config.SymbolCount)];
+                int symbolNumber = smConfig.SymbolNumbers[UnityEngine.Random.Range(1, smConfig.SymbolCount)];
 
                 SetSymbolIcon(goSymbol, symbolNumber);
                 reelDeck.Add(symbolNumber);
@@ -110,7 +115,7 @@ public class SlotMachineViewBase : IVSlotMachine
 
     protected virtual void SetSymbolIcon(GComponent symbol, int symbolNumber)
     {
-        string symbolUrl = config.GetSymbolUrl(symbolNumber);
+        string symbolUrl = smConfig.GetSymbolUrl(symbolNumber);
         //DebugUtils.Log($"symbolUrl = {symbolUrl}");
         symbol.GetChild("animator").asCom.GetChild("image").asLoader.url = symbolUrl;
     }
@@ -143,16 +148,16 @@ public class SlotMachineViewBase : IVSlotMachine
     {
         //这个还要判断特殊图标 如果有还需要改变滚轮滚的次数 还有特殊表现效果
         //模拟图标
-        for (int col = 0; col < config.Column; col++)
+        for (int col = 0; col < smConfig.Column; col++)
         {
             SetReelDeck(col, reelsResultColRowNumber[col]);
         }
     }
     public void SetReelDeck(int reelIndex, List<int> reelResult)
     {
-        for (int i = config.DeckDownStartIndex; i <= config.DeckDownEndIndex; i++)
+        for (int i = smConfig.DeckDownStartIndex; i <= smConfig.DeckDownEndIndex; i++)
         {
-            int symbolNumber = deckColRowNumber[reelIndex][i - config.Row];
+            int symbolNumber = deckColRowNumber[reelIndex][i - smConfig.Row];
             SetSymbolIcon(goSymbolsColRow[reelIndex][i].asCom, symbolNumber);
             deckColRowNumber[reelIndex][i] = symbolNumber;
             // symbolList[i].SetBtnInteractableState(true);
@@ -166,62 +171,72 @@ public class SlotMachineViewBase : IVSlotMachine
     /// <summary> 设置最终结果 </summary>
     public void SetReelEndResult(int reelIndex, List<int> reelResult)
     {
-        for (int i = config.DeckUpStartIndex; i <= config.DeckUpEndIndex; i++)
+        for (int i = smConfig.DeckUpStartIndex; i <= smConfig.DeckUpEndIndex; i++)
         {
             //int symbolNumber = reelsResult[reelIndex][i - config.DeckUpStartIndex];
-            int symbolNumber = reelResult[i - config.DeckUpStartIndex];
+            int symbolNumber = reelResult[i - smConfig.DeckUpStartIndex];
             SetSymbolIcon(goSymbolsColRow[reelIndex][i].asCom, symbolNumber);
             deckColRowNumber[reelIndex][i] = symbolNumber;
         }
     }
 
     // 去除层级
-    public void ReturnSortingOrder() {
+    public virtual void ReturnSortingOrder() {
         FguiSortingOrderManager.Instance.ReturnSortingOrder(maskSortOrder);
     }
 
-    public void ReturnSymbolEffectToPool(int colIndex, int rowIndex, string[] exclude) { }
+    public virtual void ReturnSymbolEffectToPool(int colIndex, int rowIndex, string[] exclude) { 
+    
+        // Return fgui GameObject to pool
+    }
 
 
-    public void HideBaseSymbolIcon(int colIndex, int rowIndex, bool isHide) {
+    public  void HideBaseSymbolIcon(int colIndex, int rowIndex, bool isHide) {
 
         GComponent goSymbol = GetVisibleSymbolFromDeck(colIndex, rowIndex);
         HideBaseSymbolIcon(goSymbol, isHide);
     }
-    protected virtual void HideBaseSymbolIcon(GComponent goSymbol, bool isHide)
+
+    /// <summary>
+    /// 子类重写
+    /// </summary>
+    /// <param name="goSymbol"></param>
+    /// <param name="isHide"></param>
+    public virtual void HideBaseSymbolIcon(GComponent goSymbol, bool isHide)
     {
         goSymbol.GetChild("animator").asCom.GetChild("image").visible = !isHide;
     }
-    public void AddSymbolEffect(int colIndex, int rowIndex, string symbolName, bool isAmin = true)
+
+    public virtual void ShowSymbolHitEffect(int colIndex, int rowIndex, string symbolName, bool isAmin = true)
     {
         GComponent goSymbolHit = fguiPoolHelper.GetObject(TagPoolObject.SymbolHit, symbolName).asCom;
         GComponent goSymbol = GetVisibleSymbolFromDeck(colIndex, rowIndex);
         AddSymbolEffect(goSymbol, goSymbolHit, isAmin);
 
-
         // 设置层级
-        FguiSortingOrderManager.Instance.ChangeSortingOrder(goSymbol, goExpectation, maskSortOrder, null,
-            (self) => rowIndex + config.DeckUpStartIndex);
+        FguiSortingOrderManager.Instance.ChangeSortingOrder(goSymbol, goAnchorSymbolEffect, maskSortOrder, null,
+            (self) => rowIndex + smConfig.DeckUpStartIndex);
     }
-     void AddSymbolEffect(GComponent goSymbol,   GComponent anchorSymbolEffect, bool isAmin = true)
+
+
+    protected void AddSymbolEffect(GComponent goSymbol,   GComponent anchorSymbolEffect, bool isAmin = true)
     {
         
-        /*
-        Animator animatorSpine = null;  //【待完成】  获取Spine的
-        if (animatorSpine != null)
-        {
-            if (isAmin)
-                animatorSpine.speed = 1f;  // 播放
-            else
-                animatorSpine.speed = 0f;  //暂停
-        }*/
+        //Animator animatorSpine = null;  //【待完成】  获取Spine的
+        //if (animatorSpine != null)
+        //{
+        //    if (isAmin)
+        //        animatorSpine.speed = 1f;  // 播放
+        //    else
+        //        animatorSpine.speed = 0f;  //暂停
+        //}
 
         GComponent goAnimator = goSymbol.GetChild("animator").asCom;
         goAnimator.AddChild(anchorSymbolEffect);
         anchorSymbolEffect.xy = new Vector2(goAnimator.width / 2, goAnimator.height / 2);
 
         // 是否隐藏原有图标
-        if (config.IsWEHideBaseSymbol)
+        if (smConfig.IsWEHideBaseSymbol)
         {
             HideBaseSymbolIcon(goSymbol, true);
         }
@@ -229,21 +244,65 @@ public class SlotMachineViewBase : IVSlotMachine
         // 播放动画
     }
 
+  
 
-    public void AddBorderEffect(int colIndex, int rowIndex)
+
+
+    /// <summary> 特殊 Symbol Effect </summary>
+    public void ShowSymbolAppearEffect(int reelIndex)
+    {
+
+        for (int i = smConfig.DeckUpStartIndex; i <= smConfig.DeckUpEndIndex; i++)
+        {
+
+            string symbolNumber = $"{deckColRowNumber[reelIndex][i]}";
+
+            Dictionary<string, string> symbolAppearEffect = smConfig.GetSymbolAppearEffect();
+            DebugUtils.LogError(symbolNumber);
+            bool isHashSymbolAppearNumber = symbolAppearEffect.ContainsKey(symbolNumber);
+
+            if (isHashSymbolAppearNumber)
+            {
+                string symbolName = symbolAppearEffect[symbolNumber];
+                GComponent anchorSymbolEffect = fguiPoolHelper.GetObject(TagPoolObject.SymbolAppear, symbolName).asCom;
+                GComponent goSymbol = goSymbolsColRow[reelIndex][i].asCom;
+                AddSymbolEffect(goSymbol, anchorSymbolEffect);
+
+                //FguiSortingOrderManager.Instance.ChangeSortingOrder(goSymbol, goExpectation, maskSortOrder); 
+
+                int rowIndex = i;
+                // 设置层级
+                FguiSortingOrderManager.Instance.ChangeSortingOrder(goSymbol, goAnchorSymbolEffect, maskSortOrder, null,
+                    (self) => rowIndex + smConfig.DeckUpStartIndex);
+            }
+        }
+    }
+
+
+    public virtual void ShowBorderEffect(int colIndex, int rowIndex)
     {
         GComponent goSymbol = GetVisibleSymbolFromDeck(colIndex, rowIndex);
-        GComponent goBorderEffect = fguiPoolHelper.GetObject(TagPoolObject.SymbolBorder, config.BorderEffect).asCom;
-        _AddBorderEffect(goSymbol, goBorderEffect);
+        GComponent gAnchorBorderEffect = fguiPoolHelper.GetObject(TagPoolObject.SymbolBorder, smConfig.BorderEffect).asCom;
+        //AddBorderEffect(goSymbol, gAnchorBorderEffect);
+
+        GComponent goAnimator = goSymbol.GetChild("animator").asCom;
+        goAnimator.AddChild(gAnchorBorderEffect);  //边长为1的点
+        gAnchorBorderEffect.xy = new Vector2(goAnimator.width / 2, goAnimator.height / 2);
     }
-    void _AddBorderEffect(GComponent goSymbol, GComponent anchorBorderEffect)
+    /*
+    protected void AddBorderEffect(GComponent goSymbol, GComponent gAnchorBorderEffect)
     {
         GComponent goAnimator = goSymbol.GetChild("animator").asCom;
-        goAnimator.AddChild(anchorBorderEffect);  //边长为1的点
-        anchorBorderEffect.xy = new Vector2(goAnimator.width / 2, goAnimator.height / 2);
+        goAnimator.AddChild(gAnchorBorderEffect);  //边长为1的点
+        gAnchorBorderEffect.xy = new Vector2(goAnimator.width / 2, goAnimator.height / 2);
         // 播放动画
-    }
+    }*/
 
+    public virtual void RemoveBorderEffect(int colIndex, int rowIndex)
+    {
+        GComponent goSymbol = GetVisibleSymbolFromDeck(colIndex, rowIndex);
+        // 待完成
+    }
 
 
     public void SetSlotCover(bool isShow) => goSotCover.visible = isShow;
@@ -280,19 +339,19 @@ public class SlotMachineViewBase : IVSlotMachine
     /// <summary> 修改滚轮图标 </summary>
     public void ResetIconData(int reelIndex)
     {
-        for (int i = config.DeckDownStartIndex; i <= config.DeckDownEndIndex; i++)
+        for (int i = smConfig.DeckDownStartIndex; i <= smConfig.DeckDownEndIndex; i++)
         {
-            int symbolNumber = deckColRowNumber[reelIndex][i - config.Row];
+            int symbolNumber = deckColRowNumber[reelIndex][i - smConfig.Row];
             SetSymbolIcon(goSymbolsColRow[reelIndex][i].asCom, symbolNumber);
             deckColRowNumber[reelIndex][i] = symbolNumber;
             //symbolList[i].SetBtnInteractableState(true);
         }
 
-        anchorSymbolsLst[reelIndex].y = - config.ReelMaxOffsetY;  // 拉上去 (这里的方向和ugui是相反的)
+        anchorSymbolsLst[reelIndex].y = - smConfig.ReelMaxOffsetY;  // 拉上去 (这里的方向和ugui是相反的)
 
-        for (int i = config.DeckUpStartIndex; i <= config.DeckUpEndIndex; i++)
+        for (int i = smConfig.DeckUpStartIndex; i <= smConfig.DeckUpEndIndex; i++)
         {
-            int symbolNumber = config.SymbolNumbers[UnityEngine.Random.Range(0, config.SymbolCount)];
+            int symbolNumber = smConfig.SymbolNumbers[UnityEngine.Random.Range(0, smConfig.SymbolCount)];
             SetSymbolIcon(goSymbolsColRow[reelIndex][i].asCom, symbolNumber);
             deckColRowNumber[reelIndex][i] = symbolNumber;
             //symbolList[i].SetBtnInteractableState(true);
@@ -305,7 +364,7 @@ public class SlotMachineViewBase : IVSlotMachine
 
     public int GetVisibleSymbolNumberFromDeck(int colIndex, int rowIndex)
     {
-        return deckColRowNumber[colIndex][rowIndex + config.DeckUpStartIndex];
+        return deckColRowNumber[colIndex][rowIndex + smConfig.DeckUpStartIndex];
     }
 
     public void MoveY(int reelIndex,float yTo  , float duration, Action onFinish)
@@ -321,51 +380,13 @@ public class SlotMachineViewBase : IVSlotMachine
     private Dictionary<GComponent, Transition> transitionTwinkleLst = new Dictionary<GComponent, Transition>();
 
 
-    /// <summary> 特殊 Symbol Effect </summary>
-    public void SymbolAppearEffect(int reelIndex)
+
+
+
+    public virtual void ShowBiggerEffect(int colIndex, int rowIndex)
     {
 
-        for (int i = config.DeckUpStartIndex; i <= config.DeckUpEndIndex; i++)
-        {
-
-            string symbolNumber = $"{deckColRowNumber[reelIndex][i]}";
-
-            Dictionary<string, string> symbolAppearEffect = config.GetSymbolAppearEffect();
-            DebugUtils.LogError(symbolNumber);
-            bool isHashSymbolAppearNumber = symbolAppearEffect.ContainsKey(symbolNumber);
-
-            if (isHashSymbolAppearNumber)
-            {
-                string symbolName = symbolAppearEffect[symbolNumber];
-                GComponent anchorSymbolEffect = fguiPoolHelper.GetObject(TagPoolObject.SymbolAppear, symbolName).asCom;
-                GComponent goSymbol = goSymbolsColRow[reelIndex][i].asCom;
-                AddSymbolEffect(goSymbol, anchorSymbolEffect);
-
-                //FguiSortingOrderManager.Instance.ChangeSortingOrder(goSymbol, goExpectation, maskSortOrder); 
-
-                int rowIndex = i;
-                // 设置层级
-                FguiSortingOrderManager.Instance.ChangeSortingOrder(goSymbol, goExpectation, maskSortOrder, null,
-                    (self) => rowIndex + config.DeckUpStartIndex);
-            }
-        }
-    }
-
-
-    public virtual GComponent AddBorderEffect(GComponent goSymbol, GComponent anchorBorderEffect)
-    {
-        GComponent goAnimator = goSymbol.GetChild("animator").asCom;
-        goAnimator.AddChild(anchorBorderEffect);  //边长为1的点
-        anchorBorderEffect.xy = new Vector2(goAnimator.width / 2, goAnimator.height / 2);
-        // 播放动画
-        return anchorBorderEffect;
-    }
-
-    public void ShowBiggerEffect(int colIndex, int rowIndex)
-        => ShowBiggerEffect(GetVisibleSymbolFromDeck(colIndex, rowIndex));
-
-    public void ShowBiggerEffect(GComponent goSymbol)
-    {
+        GComponent goSymbol = GetVisibleSymbolFromDeck(colIndex, rowIndex);
         if (!transitionBiggerLst.ContainsKey(goSymbol))
             transitionBiggerLst.Add(goSymbol, null);
         transitionBiggerLst[goSymbol] = goSymbol.GetTransition("animBigger");
@@ -373,16 +394,17 @@ public class SlotMachineViewBase : IVSlotMachine
     }
 
 
-    public void ShowTwinkleEffect(int colIndex, int rowIndex)
-        => ShowTwinkleEffect(GetVisibleSymbolFromDeck(colIndex, rowIndex));
 
-    void ShowTwinkleEffect(GComponent goSymbol)
+    public virtual void ShowTwinkleEffect(int colIndex, int rowIndex)
     {
+        GComponent goSymbol = GetVisibleSymbolFromDeck(colIndex, rowIndex);
+
         if (!transitionTwinkleLst.ContainsKey(goSymbol))
             transitionTwinkleLst.Add(goSymbol, null);
         transitionTwinkleLst[goSymbol] = goSymbol.GetTransition("animTwinkle");
         transitionTwinkleLst[goSymbol].Play();
     }
+
 
 
     public void ShowPayLines(SymbolWin symbolWin)
@@ -410,30 +432,159 @@ public class SlotMachineViewBase : IVSlotMachine
         }
     }
 
-    public int GetPayLineIndex(int payLineNumber) => payLineNumber - 1;
-
-    GComponent GetVisibleSymbolFromDeck(int colIndex, int rowIndex)
+    public void ShowPayLines(List<int> lineNumbers )
     {
-        return goSymbolsColRow[colIndex][rowIndex + config.DeckUpStartIndex];
+        foreach (int number in lineNumbers)
+        {
+            int paylineIndex = GetPayLineIndex(number);
+            if (paylineIndex >= 0 && paylineIndex < goPayLines.numChildren)
+            {
+                goPayLines.GetChildAt(paylineIndex).visible = true;
+            }
+        }
     }
 
 
-    public void StopSymbolEffect(int colIndex, int rowIndex) => 
-        StopSymbolEffect(GetVisibleSymbolFromDeck(colIndex, rowIndex));
 
-    void StopSymbolEffect(GComponent goSymbol)
+    public int GetPayLineIndex(int payLineNumber) => payLineNumber - 1;
+
+    protected GComponent GetVisibleSymbolFromDeck(int colIndex, int rowIndex)
     {
-        if (transitionBiggerLst.ContainsKey(goSymbol) && transitionBiggerLst[goSymbol] != null)
-            transitionBiggerLst[goSymbol].Stop();
-        transitionBiggerLst[goSymbol] = null;
+        return goSymbolsColRow[colIndex][rowIndex + smConfig.DeckUpStartIndex];
+    }
+
+
+    public void RemoveSymbolTwinkleEffect(int colIndex, int rowIndex)
+    {
+
+        GComponent goSymbol = GetVisibleSymbolFromDeck(colIndex, rowIndex);
 
         if (transitionTwinkleLst.ContainsKey(goSymbol) && transitionTwinkleLst[goSymbol] != null)
             transitionTwinkleLst[goSymbol].Stop();
         transitionTwinkleLst[goSymbol] = null;
+
     }
 
 
 
+    public void RemoveSymbolBiggerEffect(int colIndex, int rowIndex)
+    {
+
+        GComponent goSymbol = GetVisibleSymbolFromDeck(colIndex, rowIndex);
+
+        if (transitionBiggerLst.ContainsKey(goSymbol) && transitionBiggerLst[goSymbol] != null)
+            transitionBiggerLst[goSymbol].Stop();
+        transitionBiggerLst[goSymbol] = null;
+    }
+
+
+
+
+    public void ShowSymbolEffects(List<Cell> cells, SymbolEffectType effectType, bool isAnim, int? toSymbolNumber = null)
+    {
+        Dictionary<string, string> symbolEffect = null;
+
+        switch (effectType)
+        {
+            case SymbolEffectType.SymbolHit:
+                symbolEffect = smConfig.GetSymbolHitEffect();
+                break;
+            case SymbolEffectType.SymbolAppear:
+                symbolEffect = smConfig.GetSymbolAppearEffect();
+                break;
+        }
+
+        foreach (Cell cel in  cells)
+        {
+            int symbolNumber = deckColRowNumber[cel.columnIndex][cel.rowIndex + smConfig.DeckUpStartIndex];
+
+            int targetSymbolNumber = toSymbolNumber != null ? (int)toSymbolNumber : symbolNumber;
+            string effectName = symbolEffect[$"{targetSymbolNumber}"];  // wild  or symbol;
+            ShowSymbolHitEffect(cel.columnIndex, cel.rowIndex, effectName, isAnim);
+        }
+    }
+
+    public void ShowSymbolEffects(List<int> symbolNumbers, SymbolEffectType effectType, bool isAnim, int? toSymbolNumber = null)
+    {
+
+        Dictionary<string, string> symbolEffect = null;
+
+        switch (effectType)
+        {
+            case SymbolEffectType.SymbolHit:
+                symbolEffect = smConfig.GetSymbolHitEffect();
+                break;
+            case SymbolEffectType.SymbolAppear:
+                symbolEffect = smConfig.GetSymbolAppearEffect();
+                break;
+        }
+
+
+
+        for (int cIdx = 0; cIdx < smConfig.Column; cIdx++)
+        {
+            for (int rIdx = 0; rIdx < smConfig.Row; rIdx++)
+            {
+                //GComponent goSymbol = GetVisibleSymbolFromDeck(cIdx, rIdx);
+                int symbolNumber = deckColRowNumber[cIdx][rIdx + smConfig.DeckUpStartIndex];
+                if (symbolNumbers.Contains(symbolNumber))
+                {
+                    int targetSymbolNumber = toSymbolNumber != null ? (int)toSymbolNumber : symbolNumber;
+                    string effectName = symbolEffect[$"{targetSymbolNumber}"];  // wild  or symbol;
+                    ShowSymbolHitEffect(cIdx, rIdx, effectName, isAnim);
+                }
+            }
+        }
+    }
+
+
+    public void ShowBiggerEffects(List<Cell> cells)
+    {
+        foreach (Cell cel in  cells)
+        {
+            ShowBiggerEffect(cel.columnIndex, cel.rowIndex);
+        }
+
+    }
+    public void ShowTwinkleEffects(List<Cell> cells)
+    {
+        foreach (Cell cel in cells)
+        {
+            ShowTwinkleEffect(cel.columnIndex, cel.rowIndex);
+        }
+    }
+    public void ShowBorderEffects(List<Cell> cells)
+    {
+        foreach (Cell cel in cells)
+        {
+            ShowBorderEffect(cel.columnIndex, cel.rowIndex);
+        }
+    }
+
+
+
+
+
+    public List<Cell> GetSymbolCells(List<int> symbolNumbers)
+    {
+        List <Cell> cells = new List <Cell>();
+        for (int cIdx = 0; cIdx < smConfig.Column; cIdx++)
+        {
+            for (int rIdx = 0; rIdx < smConfig.Row; rIdx++)
+            {
+                int symbolNumber = deckColRowNumber[cIdx][rIdx + smConfig.DeckUpStartIndex];
+                if (symbolNumbers.Contains(symbolNumber))
+                {
+                    cells.Add(new Cell()
+                    {
+                        rowIndex = rIdx,
+                        columnIndex = cIdx,
+                    });
+                }
+            }
+        }
+        return cells;
+    }
 
 
     public Vector2 GetVisibleSymbolCenterWordPos(int colIndex, int rowIndex)

@@ -267,10 +267,10 @@ namespace CoinPusherRichLegend2001001
         #region 额外奖 - 掉球
 
         /// <summary> 额外奖 - 掉球 </summary>
-        public bool isBonus1 = false;
+        //public bool isBonus1 = false;
 
         /// <summary> 掉球个数 </summary>
-        public int hitBallCount = 0;
+        //public int hitBallCount = 0;
 
         #endregion
 
@@ -399,10 +399,10 @@ namespace CoinPusherRichLegend2001001
         }
 
         /// <summary> 本局彩金结果 </summary>
-        public JackpotRes jpAstBundle;
+        public JackpotRes jpGameRes;
 
         /// <summary> 游戏彩金中奖数据 </summary>
-        public List<JackpotWinInfo> jpGameWinLst => jpAstBundle.jpWinLst;
+        public List<JackpotWinInfo> jpGameWinLst => jpGameRes.jpWinLst;
 
         public bool isHitJpGame3JpGame4 = false;
         public bool isHitJpGame1JpGame2 = false;
@@ -414,18 +414,22 @@ namespace CoinPusherRichLegend2001001
             {
                 List<float>  jps = new List<float>()
                 {
-                    jpAstBundle.curJackpotGrand,
-                    jpAstBundle.curJackpotMajor,
-                    jpAstBundle.curJackpotMinior,
-                    jpAstBundle.curJackpotMini,
+                    jpGameRes.curJackpotGrand,
+                    jpGameRes.curJackpotMajor,
+                    jpGameRes.curJackpotMinior,
+                    jpGameRes.curJackpotMini,
                 };
-                foreach (JackpotWinInfo item  in jpAstBundle.jpWinLst)
+                foreach (JackpotWinInfo item  in jpGameRes.jpWinLst)
                 {
                     jps[item.id] = item.whenCredit;
                 }
                 return jps;
             }
         }
+
+        public SymbolWin jpGameSymbolWin;
+
+        public SymbolWin jpOnlineSymbolWin;
 
 
         /// <summary> 大厅彩金中奖数据  </summary>

@@ -675,6 +675,20 @@ public partial class PageManager : MonoBehaviour
         return pagesStack;
     }
 
+    public PageBase GetTopPage()
+    {
+        int cnt = GRoot.inst.numChildren;
+        for (int i = cnt - 1; i >= 0; i--)
+        {
+            PageBase theWindow = GRoot.inst.GetChildAt(i) as PageBase;
+            if ((theWindow is PageBase) && theWindow.isShowing)
+            {
+                return theWindow;
+            }
+        }
+        return null;
+    }
+
 
     int GetPageIndex(PageBase p) => (int)p.pageType * 1000 + p.pageNumb;
     private void FGUI_AdjustModalLayer()

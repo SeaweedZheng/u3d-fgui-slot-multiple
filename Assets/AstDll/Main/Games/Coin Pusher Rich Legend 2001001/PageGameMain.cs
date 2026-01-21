@@ -4,11 +4,12 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameMaker;
 using System;
-
+using SlotMaker;
+using SimpleJSON;
 
 namespace CoinPusherRichLegend2001001
 {
-    public class PageGameMain : MachinePageBase //: PageBase
+    public partial class PageGameMain : MachinePageBase //: PageBase
     {
         public const string pkgName = "RichLegend2001001";
         public const string resName = "PageGameMain";
@@ -19,7 +20,7 @@ namespace CoinPusherRichLegend2001001
 
             base.OnInit();
 
-            int count = 2;
+            int count = 3;
 
             Action callback = () =>
             {
@@ -60,7 +61,8 @@ namespace CoinPusherRichLegend2001001
                 ContentModel model = goGameCtrl.transform.Find("Blackboard/Content Model").GetComponent<ContentModel>();
                 if(model == null)
                     DebugUtils.LogError("ContentModel is null");
-                //mono = goGameCtrl.transform.GetComponent<MonoHelper>();
+                
+                mono = goGameCtrl.transform.GetComponent<MonoHelper>();
                 //DebugUtils.Log(mono);
                 //DebugUtils.LogWarning("i am Game Controller");
 
@@ -75,6 +77,20 @@ namespace CoinPusherRichLegend2001001
             
             });
 
+
+            ResourceManager02.Instance.LoadAsset<TextAsset>(
+            ConfigUtils.GetGameInfoURL(2001001),
+            (TextAsset data) =>
+            {
+                string gameInfoStr = data.text;
+
+                // 游戏信息
+                nodeGameInfo = JSONObject.Parse(gameInfoStr);
+                DeckCreater.Instance.SetNodLines(nodeGameInfo["pay_lines"].ToString());
+
+                callback();
+            });
+
         }
 
         GameObject goGameCtrl;
@@ -85,7 +101,22 @@ namespace CoinPusherRichLegend2001001
         {
             base.OnOpen(name, data);
 
+
+
+            MainModel.Instance.gameID = 2001001;
+
+
+
+
+
+
+
+
+
+
+
             // 添加事件监听
+            EventCenter.Instance.AddEventListener<EventData>(PanelEvent.ON_PANEL_INPUT_EVENT, OnPanelInputEvent);
 
             InitParam();
         }
@@ -93,23 +124,41 @@ namespace CoinPusherRichLegend2001001
 
         public override void OnClose(EventData data = null)
         {
+            OnGameReset();
 
+            EventCenter.Instance.RemoveEventListener<EventData>(PanelEvent.ON_PANEL_INPUT_EVENT, OnPanelInputEvent);
             // 删除事件监听
 
             base.OnClose(data);
         }
 
 
-
+        //string gameInfoStr = null;
         string configStr = null;
 
-        SlotMachineConfig config;
-        SlotMachineViewBase SlotMachineView = new SlotMachineViewBase();
+        SlotMachineConfig smConfig;
+        SlotMachineView2001001 SlotMachineView = new SlotMachineView2001001();
         SlotMachinePresenter slotMachineCtrl;
 
 
-        List<GComponent> lstPayTable;
 
+
+
+
+
+        MonoHelper mono;
+        List<GComponent> lstPayTable;
+        long TotalBet => (long)SBoxModel.Instance.CoinInScale; // ContentModel.Instance.totalBet
+
+        MiniReelGroup uiJPGrandCtrl = new MiniReelGroup();
+        MiniReelGroup uiJPMajorCtrl = new MiniReelGroup();
+        MiniReelGroup uiJPMinorCtrl = new MiniReelGroup();
+        MiniReelGroup uiJPMiniCtrl = new MiniReelGroup();
+
+
+        JSONNode nodeGameInfo;
+
+        WinTipController winTipCtrl = new WinTipController();
         public override void InitParam()
         {
 
@@ -117,12 +166,25 @@ namespace CoinPusherRichLegend2001001
 
             if (!isOpen) return;
 
-            config = new SlotMachineConfig(configStr);
 
+
+
+
+
+
+            smConfig = new SlotMachineConfig(configStr);
             GComponent goSlotMachine = this.contentPane.GetChild("slotMachine").asCom;
-            SlotMachineView.InitParam(goSlotMachine,null,config);
-            slotMachineCtrl.InitParam(SlotMachineView, config);
 
+            GComponent goAnchorSymbolEffect = this.contentPane.GetChild("anchorSymbolEffect").asCom;
+            //GComponent goAnchorSymbolEffect = goSlotMachine.GetChild("slotCover").asCom;  //在画线下
+            //GComponent goAnchorSymbolEffect = goSlotMachine.GetChild("playLines").asCom; //在画线上
+            SlotMachineView.InitParam(goSlotMachine, goAnchorSymbolEffect, smConfig);
+            slotMachineCtrl.InitParam(SlotMachineView, smConfig, true);
+
+
+
+
+            winTipCtrl.InitParam(this.contentPane.GetChild("winTip").asCom, smConfig);
 
 
             MainModel.Instance.contentMD = ContentModel.Instance;
@@ -139,8 +201,136 @@ namespace CoinPusherRichLegend2001001
 
 
 
+        void OnPanelInputEvent(EventData res)
+        {
+            switch (res.name)
+            {
+                case PanelEvent.SpinButtonClick:
+                    {
+                        OnClickSpinButton(res);
+                    }
+                    break;
+                case PanelEvent.TotalSpinsButtonClick:
+                    {
+                        //#seaweed# OnClickTotalSpinsButtonClick(res);
+                    }
+                    break;
+            }
+        }
+
+        void OnClickSpinButton(EventData res)
+        {
+            if (res.name != PanelEvent.SpinButtonClick) return;
+
+            bool isLongClick = (bool)res.value;
+            switch (ContentModel.Instance.btnSpinState)
+            {
+                case SpinButtonState.Stop:
+                    {
+                        if (ContentModel.Instance.isSpin) return; // 已经开始玩直接退出
+
+                        ContentModel.Instance.isSpin = true;
+
+                        Action successCallback = () =>
+                        {
+                            DebugUtils.Log("游戏结束");
+                            ContentModel.Instance.isSpin = false;
+                            ContentModel.Instance.btnSpinState = SpinButtonState.Stop;
+                            ContentModel.Instance.gameState = GameState.Idle;
+                        };
+
+                        if (isLongClick)
+                        {
+                            TestManager.Instance.ShowTip("Spin按钮 - 长按");
+
+                            ContentModel.Instance.isAuto = true;
+                            ContentModel.Instance.btnSpinState = SpinButtonState.Auto;
+
+                            StartGameAuto(successCallback, StopGameWhenError); //自动玩
+                        }
+                        else
+                        {
+                            TestManager.Instance.ShowTip("Spin按钮 - 短按");
+
+                            //ContentModel.Instance.btnSpinState = SpinButtonState.Spin;
+                            //StartGameOnce(successCallback, StopGameWhenError);//开始玩
+
+                            ContentModel.Instance.btnSpinState = SpinButtonState.Spin;
+                            StartGameTotalSpins(successCallback, StopGameWhenError); //开始玩
+                        }
 
 
+                    }
+                    break;
+
+                case SpinButtonState.Spin:
+                    {
+                        // 已经在游戏时，去停止游戏
+                        if (!ContentModel.Instance.isSpin) return; // 已经停止直接退出
+
+                        slotMachineCtrl.isStopImmediately = true; // 去停止游戏  
+
+
+                        smConfig.SelectReelSetting("stop_immediately");
+                        smConfig.SelectWinEffectSetting("stop_immediately");
+            
+
+                        //SlotGameEffectManager.Instance.SetEffect(SlotGameEffect.StopImmediately);
+                    }
+                    break;
+                case SpinButtonState.Auto:
+                    {
+                        //停止自动玩
+                        ContentModel.Instance.isSpin = true;
+                        ContentModel.Instance.isAuto = false;
+                        ContentModel.Instance.btnSpinState = SpinButtonState.Spin;
+                    }
+                    break;
+            }
+        }
+
+
+
+
+        private void StopGameWhenError(object[] data)
+        {
+            int code = (int)data[0];
+            string msg = data[1] as string;
+            ContentModel.Instance.isSpin = false;
+            ContentModel.Instance.isAuto = false;
+            ContentModel.Instance.btnSpinState = SpinButtonState.Stop;
+            ContentModel.Instance.gameState = GameState.Idle;
+
+
+            // 有好酷优先用好酷
+            if (code == ErrorCode.BALANCE_IS_INSUFFICIENT && SBoxModel.Instance.isUseIot)
+            {
+
+                if (!DeviceIOTPayment.Instance.isIOTConneted)
+                {
+                    TipPopupHandler.Instance.OpenPopupOnce(string.Format(I18nMgr.T("IOT connection failed [{0}]"), ErrorCode.DEVICE_IOT_MQTT_NOT_CONNECT));
+                }
+                else if (!DeviceIOTPayment.Instance.isIOTSignInGetQRCode)
+                {
+                    TipPopupHandler.Instance.OpenPopupOnce(string.Format(I18nMgr.T("IOT connection failed [{0}]"), ErrorCode.DEVICE_IOT_NOT_SIGN_IN));
+                }
+                else
+                {
+                    DeviceIOTPayment.Instance.DoQrCoinIn();
+                }
+                return;
+                
+            }
+            else
+            {
+                if (!string.IsNullOrEmpty(msg))
+                {
+                    string massage = I18nMgr.T(msg);
+                    TipPopupHandler.Instance.OpenPopupOnce(massage);
+                }
+            }
+
+        }
 
     }
 }

@@ -8,31 +8,31 @@ namespace SlotMaker
     public class Cell
     {
         /// <summary> 列索引 </summary>
-        public int column;
+        public int columnIndex;
         /// <summary> 行索引 </summary>
-        public int row;
+        public int rowIndex;
         public Cell()
         {
-            column = 0;
-            row = 0;
+            columnIndex = 0;
+            rowIndex = 0;
         }
         
         /// <summary>
         /// 
         /// </summary>
-        /// <param name="column">列索引</param>
-        /// <param name="row">行索引</param>
-        public Cell(int column, int row)
+        /// <param name="columnIndex">列索引</param>
+        /// <param name="rowIndex">行索引</param>
+        public Cell(int columnIndex, int rowIndex)
         {
-            this.column = column;
-            this.row = row;
+            this.columnIndex = columnIndex;
+            this.rowIndex = rowIndex;
         }
 
-        public override int GetHashCode() { return GetHashCode(column, row); }
+        public override int GetHashCode() { return GetHashCode(columnIndex, rowIndex); }
 
-        public static int GetHashCode(int column, int row)
+        public static int GetHashCode(int columnIndex, int rowIndex)
         {
-            return column * 10000 + row;
+            return columnIndex * 10000 + rowIndex;
         }
     }
 }

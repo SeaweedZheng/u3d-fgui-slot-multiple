@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="200,158">
+  <displayList>
+    <movieclip id="n3_ceou" name="clip" src="10cf011u" fileName="Images/PageGameMain/SymbolEffects/SymbolHit3/MVSymbolHit3.jta" xy="100,79" pivot="0.5,0.5" anchor="true" scale="0.58,0.58"/>
+  </displayList>
+  <transition name="hit"/>
+</component>

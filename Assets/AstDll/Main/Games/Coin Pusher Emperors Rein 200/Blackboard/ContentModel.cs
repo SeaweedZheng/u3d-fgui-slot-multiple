@@ -399,10 +399,10 @@ namespace PusherEmperorsRein
         }
 
         /// <summary> 本局彩金结果 </summary>
-        public JackpotRes jpAstBundle;
+        public JackpotRes jpGameRes;
 
         /// <summary> 游戏彩金中奖数据 </summary>
-        public List<JackpotWinInfo> jpGameWinLst => jpAstBundle.jpWinLst;
+        public List<JackpotWinInfo> jpGameWinLst => jpGameRes.jpWinLst;
 
         public bool isHitJpGame3JpGame4 = false;
         public bool isHitJpGame1JpGame2 = false;
@@ -414,12 +414,12 @@ namespace PusherEmperorsRein
             {
                 List<float>  jps = new List<float>()
                 {
-                    jpAstBundle.curJackpotGrand,
-                    jpAstBundle.curJackpotMajor,
-                    jpAstBundle.curJackpotMinior,
-                    jpAstBundle.curJackpotMini,
+                    jpGameRes.curJackpotGrand,
+                    jpGameRes.curJackpotMajor,
+                    jpGameRes.curJackpotMinior,
+                    jpGameRes.curJackpotMini,
                 };
-                foreach (JackpotWinInfo item  in jpAstBundle.jpWinLst)
+                foreach (JackpotWinInfo item  in jpGameRes.jpWinLst)
                 {
                     jps[item.id] = item.whenCredit;
                 }

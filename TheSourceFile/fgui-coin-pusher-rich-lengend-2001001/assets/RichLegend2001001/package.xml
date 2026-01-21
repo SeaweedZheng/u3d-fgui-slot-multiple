@@ -57,7 +57,7 @@
     <image id="10cf0ia" name="Eyu_idle_027.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear1/"/>
     <image id="10cf0ib" name="Eyu_idle_037.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear1/"/>
     <image id="10cf0ic" name="Eyu_idle_050.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear1/"/>
-    <movieclip id="10cf011k" name="SymbolAppear1.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear1/" exported="true" atlas="1"/>
+    <movieclip id="10cf011k" name="MVSymbolAppear1.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear1/" exported="true" atlas="1"/>
     <image id="10cf0id" name="Laohu_idle_000.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear2/"/>
     <image id="10cf0ue" name="Laohu_idle_023.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear2/"/>
     <image id="10cf0uf" name="Laohu_idle_024.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear2/"/>
@@ -138,7 +138,7 @@
     <image id="10cf0wn" name="Laohu_idle_060.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear2/"/>
     <image id="10cf0wo" name="Laohu_idle_061.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear2/"/>
     <image id="10cf0wp" name="Laohu_idle_053.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear2/"/>
-    <movieclip id="10cf011l" name="SymbolAppear2.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear2/" exported="true" atlas="4"/>
+    <movieclip id="10cf011l" name="MVSymbolAppear2.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear2/" exported="true" atlas="4"/>
     <image id="10cf0sl" name="Xiongmao_idle_016.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear3/"/>
     <image id="10cf0sm" name="Xiongmao_idle_018.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear3/"/>
     <image id="10cf0sn" name="Xiongmao_idle_020.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear3/"/>
@@ -164,7 +164,7 @@
     <image id="10cf0w0" name="Xiongmao_idle_002.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear3/"/>
     <image id="10cf0w1" name="Xiongmao_idle_004.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear3/"/>
     <image id="10cf0w2" name="Xiongmao_idle_006.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear3/"/>
-    <movieclip id="10cf011m" name="SymbolAppear3.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear3/" exported="true" atlas="2"/>
+    <movieclip id="10cf011m" name="MVSymbolAppear3.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear3/" exported="true" atlas="2"/>
     <image id="10cf0s0" name="Houzi_idle_021.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear4/"/>
     <image id="10cf0s1" name="Houzi_idle_022.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear4/"/>
     <image id="10cf0s2" name="Houzi_idle_023.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear4/"/>
@@ -180,7 +180,7 @@
     <image id="10cf0sj" name="Houzi_idle_018.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear4/"/>
     <image id="10cf0sk" name="Houzi_idle_017.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear4/"/>
     <image id="10cf0t2" name="Houzi_idle_016.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear4/"/>
-    <movieclip id="10cf011n" name="SymbolAppear4.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear4/" exported="true"/>
+    <movieclip id="10cf011n" name="MVSymbolAppear4.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear4/" exported="true"/>
     <image id="10cf0sa" name="Laoying_idle_021.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear5/"/>
     <image id="10cf0sb" name="Laoying_idle_022.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear5/"/>
     <image id="10cf0sc" name="Laoying_idle_023.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear5/"/>
@@ -201,7 +201,7 @@
     <image id="10cf0tz" name="Laoying_idle_039.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear5/"/>
     <image id="10cf0u0" name="Laoying_idle_030.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear5/"/>
     <image id="10cf0u1" name="Laoying_idle_040.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear5/"/>
-    <movieclip id="10cf011o" name="SymbolAppear5.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear5/" exported="true" atlas="1"/>
+    <movieclip id="10cf011o" name="MVSymbolAppear5.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear5/" exported="true" atlas="1"/>
     <image id="10cf0t7" name="Maotouying_idle_039.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear6/"/>
     <image id="10cf0t8" name="Maotouying_idle_040.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear6/"/>
     <image id="10cf0t9" name="Maotouying_idle_041.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear6/"/>
@@ -227,7 +227,7 @@
     <image id="10cf0u8" name="Maotouying_idle_033.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear6/"/>
     <image id="10cf0u9" name="Maotouying_idle_034.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear6/"/>
     <image id="10cf0ua" name="Maotouying_idle_026.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear6/"/>
-    <movieclip id="10cf011p" name="SymbolAppear6.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear6/" exported="true"/>
+    <movieclip id="10cf011p" name="MVSymbolAppear6.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear6/" exported="true" atlas="5"/>
     <image id="10cf0tj" name="Kongque_idle_000.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear7/"/>
     <image id="10cf0tk" name="Kongque_idle_002.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear7/"/>
     <image id="10cf0tl" name="Kongque_idle_004.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear7/"/>
@@ -253,7 +253,7 @@
     <image id="10cf0107" name="Kongque_idle_048.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear7/"/>
     <image id="10cf010a" name="Kongque_idle_036.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear7/"/>
     <image id="10cf010x" name="Kongque_idle_014.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear7/"/>
-    <movieclip id="10cf011q" name="SymbolAppear7.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear7/" exported="true"/>
+    <movieclip id="10cf011q" name="MVSymbolAppear7.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear7/" exported="true"/>
     <image id="10cf0z7" name="Yingwu_idle_031.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear8/"/>
     <image id="10cf0z8" name="Yingwu_idle_032.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear8/"/>
     <image id="10cf0z9" name="Yingwu_idle_033.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear8/"/>
@@ -282,7 +282,7 @@
     <image id="10cf010c" name="Yingwu_idle_050.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear8/"/>
     <image id="10cf010d" name="Yingwu_idle_051.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear8/"/>
     <image id="10cf0110" name="Yingwu_idle_052.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear8/"/>
-    <movieclip id="10cf011r" name="SymbolAppear8.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear8/" exported="true" atlas="3"/>
+    <movieclip id="10cf011r" name="MVSymbolAppear8.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear8/" exported="true" atlas="5"/>
     <image id="10cf0z5" name="Eyu_win_040.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit1/"/>
     <image id="10cf0z6" name="Eyu_win_039.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit1/"/>
     <image id="10cf010e" name="Eyu_win_021.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit1/"/>
@@ -324,7 +324,7 @@
     <image id="10cf011g" name="Eyu_win_015.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit1/"/>
     <image id="10cf011h" name="Eyu_win_016.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit1/"/>
     <image id="10cf011i" name="Eyu_win_008.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit1/"/>
-    <movieclip id="10cf011s" name="SymbolHit1.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit1/"/>
+    <movieclip id="10cf011s" name="MVSymbolHit1.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit1/" exported="true"/>
     <image id="10cf0wt" name="Laohu_win_024.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit2/"/>
     <image id="10cf0wu" name="Laohu_win_025.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit2/"/>
     <image id="10cf0wv" name="Laohu_win_026.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit2/"/>
@@ -385,7 +385,7 @@
     <image id="10cf0yz" name="Laohu_win_059.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit2/"/>
     <image id="10cf0z3" name="Laohu_win_054.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit2/"/>
     <image id="10cf0z4" name="Laohu_win_000.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit2/"/>
-    <movieclip id="10cf011t" name="SymbolHit2.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit2/"/>
+    <movieclip id="10cf011t" name="MVSymbolHit2.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit2/" exported="true" atlas="3"/>
     <image id="10cf0ks" name="Xiongmao_win_050.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit3/"/>
     <image id="10cf0kt" name="Xiongmao_win_051.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit3/"/>
     <image id="10cf0ku" name="Xiongmao_win_052.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit3/"/>
@@ -440,7 +440,7 @@
     <image id="10cf0z0" name="Xiongmao_win_000.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit3/"/>
     <image id="10cf0z1" name="Xiongmao_win_001.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit3/"/>
     <image id="10cf0z2" name="Xiongmao_win_002.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit3/"/>
-    <movieclip id="10cf011u" name="SymbolHit3.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit3/"/>
+    <movieclip id="10cf011u" name="MVSymbolHit3.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit3/" exported="true" atlas="3"/>
     <image id="10cf0iz" name="Houzi_win_061.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit4/"/>
     <image id="10cf0ji" name="Houzi_win_060.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit4/"/>
     <image id="10cf0kp" name="Houzi_win_059.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit4/"/>
@@ -503,7 +503,7 @@
     <image id="10cf0n1" name="Houzi_win_033.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit4/"/>
     <image id="10cf0n2" name="Houzi_win_034.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit4/"/>
     <image id="10cf0n3" name="Houzi_win_026.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit4/"/>
-    <movieclip id="10cf011v" name="SymbolHit4.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit4/"/>
+    <movieclip id="10cf011v" name="MVSymbolHit4.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit4/" exported="true" atlas="4"/>
     <image id="10cf0ie" name="Laoying_win_021.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit5/"/>
     <image id="10cf0if" name="Laoying_win_022.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit5/"/>
     <image id="10cf0ig" name="Laoying_win_023.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit5/"/>
@@ -560,7 +560,7 @@
     <image id="10cf0ki" name="Laoying_win_054.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit5/"/>
     <image id="10cf0kj" name="Laoying_win_055.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit5/"/>
     <image id="10cf0ko" name="Laoying_win_051.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit5/"/>
-    <movieclip id="10cf011w" name="SymbolHit5.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit5/"/>
+    <movieclip id="10cf011w" name="MVSymbolHit5.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit5/" exported="true" atlas="5"/>
     <image id="10cf0jl" name="Maotouying_win_008.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit6/"/>
     <image id="10cf0jm" name="Maotouying_win_009.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit6/"/>
     <image id="10cf0jn" name="Maotouying_win_010.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit6/"/>
@@ -602,7 +602,7 @@
     <image id="10cf0qh" name="Maotouying_win_040.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit6/"/>
     <image id="10cf0qo" name="Maotouying_win_038.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit6/"/>
     <image id="10cf0rb" name="Maotouying_win_027.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit6/"/>
-    <movieclip id="10cf011x" name="SymbolHit6.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit6/"/>
+    <movieclip id="10cf011x" name="MVSymbolHit6.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit6/" exported="true" atlas="5"/>
     <image id="10cf0pl" name="Kongque_win_010.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit7/"/>
     <image id="10cf0pm" name="Kongque_win_011.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit7/"/>
     <image id="10cf0pn" name="Kongque_win_012.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit7/"/>
@@ -659,7 +659,7 @@
     <image id="10cf0ru" name="Kongque_win_047.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit7/"/>
     <image id="10cf0rv" name="Kongque_win_048.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit7/"/>
     <image id="10cf0rw" name="Kongque_win_040.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit7/"/>
-    <movieclip id="10cf011y" name="SymbolHit7.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit7/"/>
+    <movieclip id="10cf011y" name="MVSymbolHit7.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit7/" exported="true" atlas="4"/>
     <image id="10cf0n7" name="Yingwu_win_041.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit8/"/>
     <image id="10cf0n8" name="Yingwu_win_042.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit8/"/>
     <image id="10cf0n9" name="Yingwu_win_043.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit8/"/>
@@ -709,7 +709,7 @@
     <image id="10cf0r8" name="Yingwu_win_013.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit8/"/>
     <image id="10cf0r9" name="Yingwu_win_014.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit8/"/>
     <image id="10cf0ra" name="Yingwu_win_006.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit8/"/>
-    <movieclip id="10cf011z" name="SymbolHit8.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit8/"/>
+    <movieclip id="10cf011z" name="MVSymbolHit8.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit8/" exported="true" atlas="5"/>
     <image id="10cf0nf" name="Wheel_box-win_00.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit9/"/>
     <image id="10cf0ng" name="Wheel_box-win_01.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit9/"/>
     <image id="10cf0nh" name="Wheel_box-win_02.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit9/"/>
@@ -764,7 +764,7 @@
     <image id="10cf0ph" name="Wheel_box-win_22.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit9/"/>
     <image id="10cf0rx" name="Wheel_box-win_52.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit9/"/>
     <image id="10cf011j" name="Wheel_box-win_53.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit9/"/>
-    <movieclip id="10cf0120" name="SymbolHit9.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit9/"/>
+    <movieclip id="10cf0120" name="MVSymbolHit9.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit9/" exported="true" atlas="2"/>
     <image id="j4eb4" name="symbol3.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
     <image id="j4eb5" name="symbol0.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
     <image id="j4eb6" name="symbol1.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
@@ -777,21 +777,530 @@
     <image id="j4ebd" name="symbol9.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
     <image id="plepc" name="frame_times.png" path="/Images/Panel/"/>
     <image id="10cf0hn" name="bg_bottom.png" path="/Images/Panel/" scale="9grid" scale9grid="256,30,512,60"/>
-    <component id="plepb" name="Panel.xml" path="/Moudules/Panel/"/>
-    <component id="tpfchl" name="PanelItem.xml" path="/Moudules/Panel/"/>
-    <component id="tpfchm" name="ItemCredit.xml" path="/Moudules/Panel/"/>
-    <component id="j4eb1" name="SymbolAnimator.xml" path="/Moudules/SlotMachine/"/>
-    <component id="plep3" name="Symbol.xml" path="/Moudules/SlotMachine/"/>
-    <component id="plep4" name="Reel.xml" path="/Moudules/SlotMachine/"/>
-    <component id="plep5" name="Symbols.xml" path="/Moudules/SlotMachine/"/>
-    <component id="plep6" name="Reels.xml" path="/Moudules/SlotMachine/"/>
-    <component id="plep7" name="SlotMachine.xml" path="/Moudules/SlotMachine/"/>
-    <component id="plep8" name="SlotCover.xml" path="/Moudules/SlotMachine/"/>
-    <component id="plep9" name="PlayLines.xml" path="/Moudules/SlotMachine/"/>
+    <component id="plepb" name="Panel.xml" path="/Panel/"/>
+    <component id="tpfchl" name="PanelItem.xml" path="/Panel/"/>
+    <component id="tpfchm" name="ItemCredit.xml" path="/Panel/"/>
+    <component id="j4eb1" name="SymbolAnimator.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
+    <component id="plep3" name="Symbol.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
+    <component id="plep4" name="Reel.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
+    <component id="plep5" name="Symbols.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
+    <component id="plep6" name="Reels.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
+    <component id="plep7" name="SlotMachine.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
+    <component id="plep8" name="SlotCover.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
+    <component id="plep9" name="PlayLines.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
     <component id="ho3t0" name="PageGameMain.xml" path="/" exported="true"/>
-    <component id="e8ib13h" name="AnchorDefault.xml" path="/Components/"/>
+    <component id="e8ib13h" name="AnchorDefault.xml" path="/Moudules/PageGameMain/Anchors/"/>
     <image id="e8ib13i" name="example_panel1.png" path="/Examples/"/>
-    <component id="e8ib13j" name="AnchorPanel.xml" path="/Components/"/>
+    <component id="e8ib13j" name="AnchorPanel.xml" path="/Moudules/PageGameMain/Anchors/"/>
+    <component id="ceou13l" name="SymbolHit1.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="ceou13m" name="SymbolHit2.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="ceou13n" name="SymbolHit3.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="ceou13o" name="SymbolHit4.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="ceou13p" name="SymbolHit5.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="ceou13q" name="SymbolHit6.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="ceou13r" name="SymbolHit7.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="ceou13s" name="SymbolHit8.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="ceou13t" name="SymbolHit9.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="pq4v13u" name="WinTip.xml" path="/Moudules/PageGameMain/"/>
+    <image id="pq4v13v" name="JP1(1).png" path="/Images/PageGameMain/BG/"/>
+    <image id="pq4v13w" name="JP2(1).png" path="/Images/PageGameMain/BG/"/>
+    <image id="pq4v13x" name="JP3(1).png" path="/Images/PageGameMain/BG/"/>
+    <image id="pq4v14a" name="000.png" path="/Fonts/BonusCredit/"/>
+    <image id="pq4v14b" name="001.png" path="/Fonts/BonusCredit/"/>
+    <image id="pq4v14c" name="002.png" path="/Fonts/BonusCredit/"/>
+    <image id="pq4v14d" name="003.png" path="/Fonts/BonusCredit/"/>
+    <image id="pq4v14e" name="004.png" path="/Fonts/BonusCredit/"/>
+    <image id="pq4v14f" name="005.png" path="/Fonts/BonusCredit/"/>
+    <image id="pq4v14g" name="006.png" path="/Fonts/BonusCredit/"/>
+    <image id="pq4v14h" name="007.png" path="/Fonts/BonusCredit/"/>
+    <image id="pq4v14i" name="008.png" path="/Fonts/BonusCredit/"/>
+    <image id="pq4v14j" name="009.png" path="/Fonts/BonusCredit/"/>
+    <image id="pq4v14k" name="010.png" path="/Fonts/BonusCredit/"/>
+    <image id="pq4v14l" name="011.png" path="/Fonts/BonusCredit/"/>
+    <font id="pq4v14m" name="FontBonusCredit.fnt" path="/Fonts/BonusCredit/" exported="true"/>
+    <component id="pq4v14n" name="JackpotGameReel.xml" path="/Moudules/PageGameMain/"/>
+    <component id="pq4v14o" name="JackpotGameJP1.xml" path="/Moudules/PageGameMain/"/>
+    <component id="pq4v14p" name="JackpotGameJP2.xml" path="/Moudules/PageGameMain/"/>
+    <component id="pq4v14q" name="JackpotGameJP3.xml" path="/Moudules/PageGameMain/"/>
+    <image id="pq4v151" name="010.png" path="/Fonts/GameCredit/"/>
+    <image id="pq4v152" name="011.png" path="/Fonts/GameCredit/"/>
+    <image id="pq4v153" name="bg_credit.png" path="/Images/PageGameMain/BG/Credit/"/>
+    <image id="pq4v154" name="coin_in.png" path="/Images/PageGameMain/BG/Credit/"/>
+    <image id="pq4v155" name="credit.png" path="/Images/PageGameMain/BG/Credit/"/>
+    <image id="8amu156" name="000.png" path="/Fonts/GameCredit/"/>
+    <image id="8amu157" name="001.png" path="/Fonts/GameCredit/"/>
+    <image id="8amu158" name="002.png" path="/Fonts/GameCredit/"/>
+    <image id="8amu159" name="003.png" path="/Fonts/GameCredit/"/>
+    <image id="8amu15a" name="004.png" path="/Fonts/GameCredit/"/>
+    <image id="8amu15b" name="005.png" path="/Fonts/GameCredit/"/>
+    <image id="8amu15c" name="006.png" path="/Fonts/GameCredit/"/>
+    <image id="8amu15d" name="007.png" path="/Fonts/GameCredit/"/>
+    <image id="8amu15e" name="008.png" path="/Fonts/GameCredit/"/>
+    <image id="8amu15f" name="009.png" path="/Fonts/GameCredit/"/>
+    <font id="8amu15g" name="FontGameCredit.fnt" path="/Fonts/GameCredit/" exported="true"/>
+    <component id="8amu15h" name="MyCredit.xml" path="/Moudules/PageGameMain/"/>
+    <component id="8amu15i" name="CoinInCredit.xml" path="/Moudules/PageGameMain/"/>
+    <image id="8amu15j" name="bg_reward_coin.png" path="/Images/PageGameMain/BG/Coin/"/>
+    <image id="8amu15k" name="bg_turn.png" path="/Images/PageGameMain/BG/Turn/"/>
+    <component id="8amu15l" name="RewardCoins.xml" path="/Moudules/PageGameMain/"/>
+    <image id="8amu15m" name="0.png" path="/Fonts/RewardCoins/"/>
+    <image id="8amu15n" name="1.png" path="/Fonts/RewardCoins/"/>
+    <image id="8amu15o" name="2.png" path="/Fonts/RewardCoins/"/>
+    <image id="8amu15p" name="3.png" path="/Fonts/RewardCoins/"/>
+    <image id="8amu15q" name="4.png" path="/Fonts/RewardCoins/"/>
+    <image id="8amu15r" name="5.png" path="/Fonts/RewardCoins/"/>
+    <image id="8amu15s" name="6.png" path="/Fonts/RewardCoins/"/>
+    <image id="8amu15t" name="7.png" path="/Fonts/RewardCoins/"/>
+    <image id="8amu15u" name="8.png" path="/Fonts/RewardCoins/"/>
+    <image id="8amu15v" name="9.png" path="/Fonts/RewardCoins/"/>
+    <font id="8amu15w" name="FontRewardCoins.fnt" path="/Fonts/RewardCoins/" exported="true"/>
+    <component id="8amu15x" name="TurnInfo.xml" path="/Moudules/PageGameMain/"/>
+    <image id="8amu15y" name="cjk_01.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu15z" name="cjk_28.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu160" name="cjk_27.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu161" name="cjk_26.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu162" name="cjk_25.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu163" name="cjk_24.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu164" name="cjk_23.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu165" name="cjk_22.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu166" name="cjk_21.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu167" name="cjk_20.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu168" name="cjk_19.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu169" name="cjk_18.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16a" name="cjk_17.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16b" name="cjk_16.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16c" name="cjk_15.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16d" name="cjk_14.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16e" name="cjk_13.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16f" name="cjk_12.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16g" name="cjk_11.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16h" name="cjk_10.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16i" name="cjk_09.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16j" name="cjk_08.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16k" name="cjk_07.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16l" name="cjk_06.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16m" name="cjk_05.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16n" name="cjk_04.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16o" name="cjk_03.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16p" name="cjk_02.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16q" name="cjk_29.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <image id="8amu16r" name="cjk_30.png" path="/Images/PageGameMain/JackpotBG/"/>
+    <movieclip id="8amu16s" name="MVJackpotBG.jta" path="/Images/PageGameMain/JackpotBG/"/>
+    <component id="8amu16t" name="JackpotGameMega.xml" path="/Moudules/PageGameMain/"/>
+    <image id="8amu16u" name="frame_GRAND01.png" path="/Images/PageGameMain/"/>
+    <image id="8amu16v" name="Wheel_JP1-win_00.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu16w" name="Wheel_JP2-win_45.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu16x" name="Wheel_JP2-win_46.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu16y" name="Wheel_JP2-win_47.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu16z" name="Wheel_JP2-win_48.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu170" name="Wheel_JP2-win_49.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu171" name="Wheel_JP2-win_50.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu172" name="Wheel_JP2-win_51.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu173" name="Wheel_JP3-win_00.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu174" name="Wheel_JP3-win_01.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu175" name="Wheel_JP3-win_02.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu176" name="Wheel_JP3-win_03.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu177" name="Wheel_JP3-win_04.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu178" name="Wheel_JP3-win_05.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu179" name="Wheel_JP3-win_06.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu17a" name="Wheel_JP3-win_07.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu17b" name="Wheel_JP2-win_44.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17c" name="Wheel_JP2-win_43.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17d" name="Wheel_JP2-win_42.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17e" name="Wheel_JP2-win_41.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17f" name="Wheel_JP2-win_25.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17g" name="Wheel_JP2-win_26.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17h" name="Wheel_JP2-win_27.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17i" name="Wheel_JP2-win_28.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17j" name="Wheel_JP2-win_29.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17k" name="Wheel_JP2-win_30.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17l" name="Wheel_JP2-win_31.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17m" name="Wheel_JP3-win_08.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu17n" name="Wheel_JP2-win_32.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17o" name="Wheel_JP2-win_34.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17p" name="Wheel_JP2-win_35.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17q" name="Wheel_JP2-win_36.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17r" name="Wheel_JP2-win_37.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17s" name="Wheel_JP2-win_38.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17t" name="Wheel_JP2-win_39.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17u" name="Wheel_JP2-win_40.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17v" name="Wheel_JP2-win_33.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17w" name="Wheel_JP2-win_24.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu17x" name="Wheel_JP3-win_09.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu17y" name="Wheel_JP3-win_11.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu17z" name="Wheel_JP3-win_32.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu180" name="Wheel_JP3-win_33.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu181" name="Wheel_JP3-win_34.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu182" name="Wheel_JP3-win_35.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu183" name="Wheel_JP3-win_36.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu184" name="Wheel_JP3-win_37.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu185" name="Wheel_JP3-win_38.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu186" name="Wheel_JP3-win_39.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu187" name="Wheel_JP3-win_40.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu188" name="Wheel_JP3-win_41.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu189" name="Wheel_JP3-win_42.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18a" name="Wheel_JP3-win_43.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18b" name="Wheel_JP3-win_44.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18c" name="Wheel_JP3-win_45.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18d" name="Wheel_JP3-win_46.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18e" name="Wheel_JP3-win_31.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18f" name="Wheel_JP3-win_30.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18g" name="Wheel_JP3-win_29.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18h" name="Wheel_JP3-win_28.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18i" name="Wheel_JP3-win_12.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18j" name="Wheel_JP3-win_13.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18k" name="Wheel_JP3-win_14.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18l" name="Wheel_JP3-win_15.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18m" name="Wheel_JP3-win_16.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18n" name="Wheel_JP3-win_17.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18o" name="Wheel_JP3-win_18.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18p" name="Wheel_JP3-win_10.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18q" name="Wheel_JP3-win_19.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18r" name="Wheel_JP3-win_21.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18s" name="Wheel_JP3-win_22.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18t" name="Wheel_JP3-win_23.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18u" name="Wheel_JP3-win_24.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18v" name="Wheel_JP3-win_25.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18w" name="Wheel_JP3-win_26.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18x" name="Wheel_JP3-win_27.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18y" name="Wheel_JP3-win_20.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu18z" name="Wheel_JP3-win_47.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <image id="8amu190" name="Wheel_JP2-win_23.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu191" name="Wheel_JP2-win_21.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu192" name="Wheel_JP1-win_21.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu193" name="Wheel_JP1-win_22.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu194" name="Wheel_JP1-win_23.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu195" name="Wheel_JP1-win_24.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu196" name="Wheel_JP1-win_25.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu197" name="Wheel_JP1-win_26.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu198" name="Wheel_JP1-win_27.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu199" name="Wheel_JP1-win_28.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19a" name="Wheel_JP1-win_29.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19b" name="Wheel_JP1-win_30.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19c" name="Wheel_JP1-win_31.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19d" name="Wheel_JP1-win_32.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19e" name="Wheel_JP1-win_33.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19f" name="Wheel_JP1-win_34.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19g" name="Wheel_JP1-win_35.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19h" name="Wheel_JP1-win_20.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19i" name="Wheel_JP1-win_19.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19j" name="Wheel_JP1-win_18.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19k" name="Wheel_JP1-win_17.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19l" name="Wheel_JP1-win_01.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19m" name="Wheel_JP1-win_02.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19n" name="Wheel_JP1-win_03.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19o" name="Wheel_JP1-win_04.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19p" name="Wheel_JP1-win_05.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19q" name="Wheel_JP1-win_06.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19r" name="Wheel_JP1-win_07.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19s" name="Wheel_JP1-win_36.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19t" name="Wheel_JP1-win_08.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19u" name="Wheel_JP1-win_10.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19v" name="Wheel_JP1-win_11.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19w" name="Wheel_JP1-win_12.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19x" name="Wheel_JP1-win_13.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19y" name="Wheel_JP1-win_14.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu19z" name="Wheel_JP1-win_15.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1a0" name="Wheel_JP1-win_16.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1a1" name="Wheel_JP1-win_09.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1a2" name="Wheel_JP2-win_22.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1a3" name="Wheel_JP1-win_37.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1a4" name="Wheel_JP1-win_39.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1a5" name="Wheel_JP2-win_06.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1a6" name="Wheel_JP2-win_07.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1a7" name="Wheel_JP2-win_08.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1a8" name="Wheel_JP2-win_09.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1a9" name="Wheel_JP2-win_10.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1aa" name="Wheel_JP2-win_11.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1ab" name="Wheel_JP2-win_12.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1ac" name="Wheel_JP2-win_13.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1ad" name="Wheel_JP2-win_14.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1ae" name="Wheel_JP2-win_15.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1af" name="Wheel_JP2-win_16.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1ag" name="Wheel_JP2-win_17.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1ah" name="Wheel_JP2-win_18.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1ai" name="Wheel_JP2-win_19.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1aj" name="Wheel_JP2-win_20.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1ak" name="Wheel_JP2-win_05.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1al" name="Wheel_JP2-win_04.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1am" name="Wheel_JP2-win_03.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1an" name="Wheel_JP2-win_02.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1ao" name="Wheel_JP1-win_40.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1ap" name="Wheel_JP1-win_41.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1aq" name="Wheel_JP1-win_42.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1ar" name="Wheel_JP1-win_43.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1as" name="Wheel_JP1-win_44.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1at" name="Wheel_JP1-win_45.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1au" name="Wheel_JP1-win_46.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1av" name="Wheel_JP1-win_38.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1aw" name="Wheel_JP1-win_47.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1ax" name="Wheel_JP1-win_49.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1ay" name="Wheel_JP1-win_50.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1az" name="Wheel_JP1-win_51.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1b0" name="Wheel_JP1-win_52.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1b1" name="Wheel_JP1-win_53.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1b2" name="Wheel_JP2-win_00.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1b3" name="Wheel_JP2-win_01.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <image id="8amu1b4" name="Wheel_JP1-win_48.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <image id="8amu1b5" name="Wheel_JP3-win_48.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <movieclip id="8amu1b6" name="MVSymbolHit10.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
+    <movieclip id="8amu1b7" name="MVSymbolHit11.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>
+    <movieclip id="8amu1b8" name="MVSymbolHit12.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/"/>
+    <component id="8amu1b9" name="SymbolHit10.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="8amu1ba" name="SymbolHit11.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="8amu1bb" name="SymbolHit12.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <image id="8amu1bc" name="IconAni9_00000.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bd" name="IconAni9_00021.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1be" name="IconAni9_00022.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bf" name="IconAni9_00023.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bg" name="IconAni9_00024.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bh" name="IconAni9_00025.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bi" name="IconAni9_00026.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bj" name="IconAni9_00027.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bk" name="IconAni9_00028.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bl" name="IconAni9_00029.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bm" name="IconAni9_00030.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bn" name="IconAni9_00031.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bo" name="IconAni9_00032.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bp" name="IconAni9_00033.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bq" name="IconAni9_00034.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1br" name="IconAni9_00035.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bs" name="IconAni9_00020.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bt" name="IconAni9_00019.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bu" name="IconAni9_00018.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bv" name="IconAni9_00017.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bw" name="IconAni9_00001.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bx" name="IconAni9_00002.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1by" name="IconAni9_00003.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1bz" name="IconAni9_00004.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1c0" name="IconAni9_00005.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1c1" name="IconAni9_00006.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1c2" name="IconAni9_00007.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1c3" name="IconAni9_00036.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1c4" name="IconAni9_00008.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1c5" name="IconAni9_00010.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1c6" name="IconAni9_00011.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1c7" name="IconAni9_00012.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1c8" name="IconAni9_00013.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1c9" name="IconAni9_00014.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1ca" name="IconAni9_00015.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1cb" name="IconAni9_00016.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1cc" name="IconAni9_00009.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <image id="8amu1cd" name="IconAni9_00037.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <movieclip id="8amu1ce" name="MVSymbolHit13.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/"/>
+    <component id="8amu1cf" name="SymbolHit13.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <image id="8amu1cg" name="symbol10.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <image id="8amu1ch" name="symbol11.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <image id="8amu1ci" name="symbol12.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <image id="8amu1cj" name="symbol13.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <image id="mjx01d1" name="IconAni81_0000.png" path="/Images/PageGameMain/CoinEffect/"/>
+    <image id="mjx01d2" name="IconAni81_0001.png" path="/Images/PageGameMain/CoinEffect/"/>
+    <image id="mjx01d3" name="IconAni81_0002.png" path="/Images/PageGameMain/CoinEffect/"/>
+    <image id="mjx01d4" name="IconAni81_0003.png" path="/Images/PageGameMain/CoinEffect/"/>
+    <image id="mjx01d5" name="IconAni81_0004.png" path="/Images/PageGameMain/CoinEffect/"/>
+    <image id="mjx01d6" name="IconAni81_0005.png" path="/Images/PageGameMain/CoinEffect/"/>
+    <image id="mjx01d7" name="IconAni81_0006.png" path="/Images/PageGameMain/CoinEffect/"/>
+    <image id="mjx01d8" name="IconAni81_0007.png" path="/Images/PageGameMain/CoinEffect/"/>
+    <movieclip id="mjx01d9" name="MVCoinDrop.jta" path="/Images/PageGameMain/CoinEffect/"/>
+    <component id="mjx01da" name="EffectCoinDrop.xml" path="/Moudules/PageGameMain/"/>
+    <component id="mjx01dc" name="PageGameLoading.xml" path="/" exported="true"/>
+    <component id="mjx01dd" name="PageGameLoading_1024_768.xml" path="/"/>
+    <image id="mjx01de" name="game_name.png" path="/Images/PageGameLoading/"/>
+    <component id="mjx00" name="ProgressBar1.xml" path="/Components/LoadingProgressBar/"/>
+    <component id="mjx02" name="Slider2.xml" path="/Components/LoadingProgressBar/"/>
+    <image id="mjx03" name="launch_loading_fg.png" path="/Images/PageGameLoading/LoadingProgressBar/" scale="tile" duplicatePadding="true"/>
+    <image id="mjx01" name="launch_loading_mask.png" path="/Images/PageGameLoading/LoadingProgressBar/" scale="9grid" scale9grid="17,8,17,16"/>
+    <image id="mjx01df" name="launch_loading_bg.png" path="/Images/PageGameLoading/LoadingProgressBar/" scale="9grid" scale9grid="22,9,11,18"/>
+    <component id="mjx01dg" name="PopupJackpotGame_1024_768.xml" path="/"/>
+    <component id="mjx01dh" name="PopupJackpotGame.xml" path="/" exported="true"/>
+    <component id="mjx01di" name="BG.xml" path="/Components/"/>
+    <component id="mjx01dj" name="BG1024_768.xml" path="/Components/"/>
+    <movieclip id="mjx01dk" name="Eff_small_tip.jta" path="/Images/PopupJackpotGame/"/>
+    <image id="mjx01dl" name="ng_Toke_Digital,.png" path="/Fonts/JackpotCredit/"/>
+    <image id="mjx01dm" name="ng_Toke_Digital0.png" path="/Fonts/JackpotCredit/"/>
+    <image id="mjx01dn" name="ng_Toke_Digital1.png" path="/Fonts/JackpotCredit/"/>
+    <image id="mjx01do" name="ng_Toke_Digital2.png" path="/Fonts/JackpotCredit/"/>
+    <image id="mjx01dp" name="ng_Toke_Digital3.png" path="/Fonts/JackpotCredit/"/>
+    <image id="mjx01dq" name="ng_Toke_Digital4.png" path="/Fonts/JackpotCredit/"/>
+    <image id="mjx01dr" name="ng_Toke_Digital5.png" path="/Fonts/JackpotCredit/"/>
+    <image id="mjx01ds" name="ng_Toke_Digital6.png" path="/Fonts/JackpotCredit/"/>
+    <image id="mjx01dt" name="ng_Toke_Digital7.png" path="/Fonts/JackpotCredit/"/>
+    <image id="mjx01du" name="ng_Toke_Digital8.png" path="/Fonts/JackpotCredit/"/>
+    <image id="mjx01dv" name="ng_Toke_Digital9.png" path="/Fonts/JackpotCredit/"/>
+    <image id="mjx01dw" name="ng_Toke_Digitalx.png" path="/Fonts/JackpotCredit/"/>
+    <image id="mjx01dx" name="ng_Toke_Digital_.png" path="/Fonts/JackpotCredit/"/>
+    <font id="mjx01dy" name="FontJackpotCredit.fnt" path="/Fonts/JackpotCredit/" exported="true"/>
+    <component id="mjx01dz" name="JackpotFG.xml" path="/Moudules/"/>
+    <component id="mjx01e0" name="PopupBigWin_1024_768.xml" path="/"/>
+    <component id="mjx01e1" name="PopupBigWin.xml" path="/"/>
+    <component id="mjx01e2" name="PageBonus1_1024_768.xml" path="/"/>
+    <component id="mjx01e3" name="PageBonus1.xml" path="/" exported="true"/>
+    <image id="mjx01e4" name="skeleton-end_00.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01e5" name="skeleton-start_01.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01e6" name="skeleton-start_02.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01e7" name="skeleton-start_03.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01e8" name="skeleton-start_04.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01e9" name="skeleton-start_05.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01ea" name="skeleton-start_06.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01eb" name="skeleton-start_07.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01ec" name="skeleton-start_00.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01ed" name="skeleton-start_08.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01ee" name="skeleton-start_10.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01ef" name="skeleton-start_11.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01eg" name="skeleton-start_12.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01eh" name="skeleton-start_13.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01ei" name="skeleton-start_14.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01ej" name="skeleton-start_15.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01ek" name="skeleton-start_16.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01el" name="skeleton-start_09.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01em" name="skeleton-start_17.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01en" name="skeleton-idle_60.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01eo" name="skeleton-idle_58.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ep" name="skeleton-idle_42.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01eq" name="skeleton-idle_43.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01er" name="skeleton-idle_44.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01es" name="skeleton-idle_45.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01et" name="skeleton-idle_46.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01eu" name="skeleton-idle_47.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ev" name="skeleton-idle_48.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ew" name="skeleton-idle_59.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ex" name="skeleton-idle_49.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ey" name="skeleton-idle_51.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ez" name="skeleton-idle_52.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01f0" name="skeleton-idle_53.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01f1" name="skeleton-idle_54.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01f2" name="skeleton-idle_55.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01f3" name="skeleton-idle_56.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01f4" name="skeleton-idle_57.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01f5" name="skeleton-idle_50.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01f6" name="skeleton-start_18.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01f7" name="skeleton-start_19.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01f8" name="skeleton-start_20.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01f9" name="skeleton-start_42.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fa" name="skeleton-start_43.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fb" name="skeleton-start_44.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fc" name="skeleton-start_45.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fd" name="skeleton-start_46.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fe" name="skeleton-start_47.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01ff" name="skeleton-start_48.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fg" name="skeleton-start_41.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fh" name="skeleton-start_49.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fi" name="skeleton-start_51.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fj" name="skeleton-start_52.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fk" name="skeleton-start_53.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fl" name="skeleton-start_54.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fm" name="skeleton-start_55.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fn" name="skeleton-start_56.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fo" name="skeleton-start_57.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fp" name="skeleton-start_50.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fq" name="skeleton-start_40.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fr" name="skeleton-start_39.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fs" name="skeleton-start_38.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01ft" name="skeleton-start_21.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fu" name="skeleton-start_22.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fv" name="skeleton-start_23.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fw" name="skeleton-start_24.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fx" name="skeleton-start_25.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fy" name="skeleton-start_26.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01fz" name="skeleton-start_27.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01g0" name="skeleton-start_28.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01g1" name="skeleton-start_29.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01g2" name="skeleton-start_30.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01g3" name="skeleton-start_31.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01g4" name="skeleton-start_32.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01g5" name="skeleton-start_33.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01g6" name="skeleton-start_34.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01g7" name="skeleton-start_35.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01g8" name="skeleton-start_36.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01g9" name="skeleton-start_37.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01ga" name="skeleton-idle_41.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01gb" name="skeleton-idle_40.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01gc" name="skeleton-idle_39.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01gd" name="skeleton-idle_38.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ge" name="skeleton-end_22.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gf" name="skeleton-end_23.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gg" name="skeleton-end_24.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gh" name="skeleton-end_25.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gi" name="skeleton-end_26.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gj" name="skeleton-end_27.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gk" name="skeleton-end_28.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gl" name="skeleton-end_21.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gm" name="skeleton-end_29.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gn" name="skeleton-end_31.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01go" name="skeleton-end_32.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gp" name="skeleton-end_33.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gq" name="skeleton-end_34.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gr" name="skeleton-end_35.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gs" name="skeleton-end_36.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gt" name="skeleton-end_37.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gu" name="skeleton-end_30.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gv" name="skeleton-end_20.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gw" name="skeleton-end_19.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gx" name="skeleton-end_18.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gy" name="skeleton-end_01.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01gz" name="skeleton-end_02.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01h0" name="skeleton-end_03.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01h1" name="skeleton-end_04.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01h2" name="skeleton-end_05.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01h3" name="skeleton-end_06.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01h4" name="skeleton-end_07.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01h5" name="skeleton-end_08.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01h6" name="skeleton-end_09.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01h7" name="skeleton-end_10.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01h8" name="skeleton-end_11.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01h9" name="skeleton-end_12.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01ha" name="skeleton-end_13.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01hb" name="skeleton-end_14.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01hc" name="skeleton-end_15.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01hd" name="skeleton-end_16.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01he" name="skeleton-end_17.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01hf" name="skeleton-end_38.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01hg" name="skeleton-start_58.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <image id="mjx01hh" name="skeleton-end_39.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01hi" name="skeleton-idle_00.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01hj" name="skeleton-idle_22.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01hk" name="skeleton-idle_23.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01hl" name="skeleton-idle_24.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01hm" name="skeleton-idle_25.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01hn" name="skeleton-idle_26.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ho" name="skeleton-idle_27.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01hp" name="skeleton-idle_28.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01hq" name="skeleton-idle_21.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01hr" name="skeleton-idle_29.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01hs" name="skeleton-idle_31.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ht" name="skeleton-idle_32.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01hu" name="skeleton-idle_33.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01hv" name="skeleton-idle_34.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01hw" name="skeleton-idle_35.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01hx" name="skeleton-idle_36.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01hy" name="skeleton-idle_37.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01hz" name="skeleton-idle_30.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01i0" name="skeleton-idle_20.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01i1" name="skeleton-idle_19.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01i2" name="skeleton-idle_18.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01i3" name="skeleton-idle_01.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01i4" name="skeleton-idle_02.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01i5" name="skeleton-idle_03.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01i6" name="skeleton-idle_04.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01i7" name="skeleton-idle_05.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01i8" name="skeleton-idle_06.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01i9" name="skeleton-idle_07.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ia" name="skeleton-idle_08.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ib" name="skeleton-idle_09.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ic" name="skeleton-idle_10.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01id" name="skeleton-idle_11.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ie" name="skeleton-idle_12.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01if" name="skeleton-idle_13.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ig" name="skeleton-idle_14.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ih" name="skeleton-idle_15.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ii" name="skeleton-idle_16.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ij" name="skeleton-idle_17.png" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/"/>
+    <image id="mjx01ik" name="skeleton-end_40.png" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/"/>
+    <image id="mjx01il" name="skeleton-start_59.png" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/"/>
+    <movieclip id="mjx01im" name="MVCoinDropEnd.jta" path="/Images/PageGameMain/Bonus1CoinDropEndEffect/" atlas="6"/>
+    <movieclip id="mjx01in" name="MvCoinDropIdle.jta" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/" atlas="7"/>
+    <movieclip id="mjx01io" name="MVCoinDropStart.jta" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/" atlas="8"/>
+    <component id="mjx01ip" name="Bonus1CoinDropEffect.xml" path="/Moudules/"/>
   </resources>
-  <publish name="" path="../../Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/FGUIs" packageCount="2" maxAtlasSize="4096"/>
+  <publish name="" path="../../Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/FGUIs" packageCount="2" maxAtlasSize="8192"/>
 </packageDescription>

@@ -12,11 +12,11 @@
 	"bonus3_reel_strips":null,
 	"custom":{
 		"pkgName": "RichLegend2001001",
-		"symbol_width": 158,
+		"symbol_width": 200,
 		"symbol_height": 158,
 		"column": 3,
 		"row": 3,
-		"symbol_number" : [1, 2, 3, 4, 5, 6, 7, 8, 9],
+		"symbol_number" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
 		"border_effect": "Assets/GameRes/Games/PssOn00152 (1080x1920)/Prefabs/Border.prefab",
 		"symbol_icon":{
 			"1": "ui://RichLegend2001001/symbol1",
@@ -28,28 +28,27 @@
 			"7": "ui://RichLegend2001001/symbol7",
 			"8": "ui://RichLegend2001001/symbol8",
 			"9": "ui://RichLegend2001001/symbol9",
+			"10": "ui://RichLegend2001001/symbol10",
+			"11": "ui://RichLegend2001001/symbol11",
+			"12": "ui://RichLegend2001001/symbol12",
+			"13": "ui://RichLegend2001001/symbol13"
 		},
 		"symbol_hit_effect": {
-			"1":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolHit/SymbolHit1.prefab",
-			"2":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolHit/SymbolHit2.prefab",
-			"3":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolHit/SymbolHit3.prefab",
-			"4":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolHit/SymbolHit4.prefab",
-			"5":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolHit/SymbolHit5.prefab",
-			"6":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolHit/SymbolHit6.prefab",
-			"7":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolHit/SymbolHit7.prefab",
-			"8":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolHit/SymbolHit8.prefab",
-			"9":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolHit/SymbolHit9.prefab",
+			"1":  "ui://RichLegend2001001/SymbolHit1",
+			"2":  "ui://RichLegend2001001/SymbolHit2",
+			"3":  "ui://RichLegend2001001/SymbolHit3",
+			"4":  "ui://RichLegend2001001/SymbolHit4",
+			"5":  "ui://RichLegend2001001/SymbolHit5",
+			"6":  "ui://RichLegend2001001/SymbolHit6",
+			"7":  "ui://RichLegend2001001/SymbolHit7",
+			"8":  "ui://RichLegend2001001/SymbolHit8",
+			"9":  "ui://RichLegend2001001/SymbolHit9",
+			"10":  "ui://RichLegend2001001/SymbolHit10",
+			"11":  "ui://RichLegend2001001/SymbolHit11",
+			"12":  "ui://RichLegend2001001/SymbolHit12",
+			"13":  "ui://RichLegend2001001/SymbolHit13"
 		},
 		"symbol_appear_effect":{
-			"1":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolAppear/SymbolAppear1.prefab",
-			"2":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolAppear/SymbolAppear2.prefab",
-			"3":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolAppear/SymbolAppear3.prefab",
-			"4":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolAppear/SymbolAppear4.prefab",
-			"5":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolAppear/SymbolAppear5.prefab",
-			"6":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolAppear/SymbolAppear6.prefab",
-			"7":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolAppear/SymbolAppear7.prefab",
-			"8":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolAppear/SymbolAppear8.prefab",
-			"9":  "Assets/GameRes/Games/Emperors Rein 200/Prefabs/Symbols/SymbolAppear/SymbolAppear9.prefab",
 		}
 	},
 
@@ -80,21 +79,90 @@
 				"num_reel_turn_gap":1
 			},
 			"reel1": null
+		},
+		"auto": {
+			"default": {
+				"time_turn_start_delay": 0.12,
+				"time_turn_once": 0.12,
+				"time_rebound_start": 0.15,
+				"time_rebound_end": 0.08,
+				"offset_y_rebound_start": -200,
+				"offset_y_rebound_end": 20,
+				"num_reel_turn":1,
+				"num_reel_turn_gap":1
+			},
+			"reel1": null
 		}
 	},
 
 	"win_effect_setting":{
 
-		"default":{
-			"frame": false,
+		"regular":{
+			"frame": true,
 			"line": true,
 			"bigger": true,
-			"twinkle": true,
+			"twinkle": false,
 			"anim": true,
 			"total_win_line": false,
 			"single_win_line": true,
 			"credit": true,
-			"cover": true,
+			"cover": false,
+			"hide_base_symbol": true,
+			"skip_at_stop_immediately": false,
+			"time_s":1
+		},
+		"stop_immediately":{
+			"frame": false,
+			"line": true,
+			"bigger": false,
+			"twinkle": false,
+			"anim": false,
+			"total_win_line": true,
+			"single_win_line": false,
+			"credit": true,
+			"cover": false,
+			"hide_base_symbol": true,
+			"skip_at_stop_immediately": false,
+			"time_s":1
+		},
+		"idle":{
+			"frame": false,
+			"line": true,
+			"bigger": true,
+			"twinkle": false,
+			"anim": true,
+			"total_win_line": false,
+			"single_win_line": true,
+			"credit": true,
+			"cover": false,
+			"hide_base_symbol": true,
+			"skip_at_stop_immediately": false,
+			"time_s":2.5
+		},
+		"auto":{
+			"frame": true,
+			"line": true,
+			"bigger": false,
+			"twinkle": false,
+			"anim": true,
+			"total_win_line": true,
+			"single_win_line": false,
+			"credit": true,
+			"cover": false,
+			"hide_base_symbol": true,
+			"skip_at_stop_immediately": false,
+			"time_s":1
+		},
+		"jackpot_game":{
+			"frame": false,
+			"line": true,
+			"bigger": false,
+			"twinkle": false,
+			"anim": true,
+			"total_win_line": true,
+			"single_win_line": false,
+			"credit": false,
+			"cover": false,
 			"hide_base_symbol": true,
 			"skip_at_stop_immediately": false,
 			"time_s":1

@@ -15,7 +15,7 @@ public  class SlotMachineConfig
     JSONNode config;
 
     string curReelSetting = "regular";
-    string curWinEffectSetting = "default";
+    string curWinEffectSetting = "regular";
 
 
 

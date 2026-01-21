@@ -4,16 +4,21 @@ using UnityEngine;
 
 public static class ErrorCode
 {
-    #region  服务器（通用成功）
+    #region 通用
+
     /// <summary> 响应正常 </summary>
     public static int OK = 0;
-
     /// <summary> 通用失败 </summary>
     public static int ERROR = 1;
+
+    #endregion
+
+    #region  服务器（2-99）
+
     #endregion
 
 
-    #region  Net 0 - 999
+    #region  Net 100 - 999
     #endregion
 
     #region  Hall 1000 - 1999
@@ -32,6 +37,9 @@ public static class ErrorCode
     /// <summary> 联网彩金请求失败 </summary>
     public static int JACKPOT_ONLINE_REQUEST_ERR = 2002;
 
+
+
+
     #endregion
 
 
@@ -39,6 +47,9 @@ public static class ErrorCode
     #region  Machine 3000 - 3999
     /// <summary> 算法卡 加钱响应超时 </summary>
     public static int DEVICE_SBOX_COIN_IN_OVERTIME = 3001;
+
+    /// <summary> 机台余额不足 </summary>
+    public static int BALANCE_IS_INSUFFICIENT = 3002;
     #endregion
 
 

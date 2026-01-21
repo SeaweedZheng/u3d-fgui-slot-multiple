@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1024,768">
+  <displayList>
+    <image id="n0_mjx0" name="n0" src="j4eb2" fileName="Images/PageGameMain/BG/bg.png" xy="0,0"/>
+    <image id="n1_mjx0" name="n1" src="mjx01de" fileName="Images/PageGameLoading/game_name.png" xy="155,86"/>
+    <text id="n2_mjx0" name="ver" xy="347,682" size="330,68" fontSize="40" color="#ffcc00" align="center" vAlign="middle" autoSize="none" bold="true" strokeColor="#000099" strokeSize="2" text="1.1.1"/>
+    <component id="n4_mjx0" name="progress" src="mjx00" fileName="Components/LoadingProgressBar/ProgressBar1.xml" xy="112,641" group="n5_mjx0">
+      <ProgressBar value="1" max="1"/>
+    </component>
+    <image id="n3_mjx0" name="n3" src="mjx01df" fileName="Images/PageGameLoading/LoadingProgressBar/launch_loading_bg.png" xy="109,638" size="805,39" group="n5_mjx0" color="#0000ff"/>
+    <group id="n5_mjx0" name="n5" xy="109,638" size="805,39"/>
+  </displayList>
+  <transition name="t0" autoPlay="true">
+    <item time="0" type="XY" target="n1_mjx0" tween="true" startValue="155,-400" endValue="155,86" duration="36" ease="Back.Out"/>
+  </transition>
+</component>

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <displayList>
+    <graph id="n1_mjx0" name="n1" xy="0,0" size="1080,1920" type="rect" lineSize="0" fillColor="#ff333333">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <component id="n0_mjx0" name="page" src="mjx01e2" fileName="PageBonus1_1024_768.xml" xy="28,576"/>
+  </displayList>
+</component>

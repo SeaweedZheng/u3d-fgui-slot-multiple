@@ -12,7 +12,7 @@ using System.Linq;
 public class SlotMachineHelper:MonoBehaviour
 {
 
-    FguiPoolHelper fguiPoolHelper;
+    FguiGameObjectPoolHelper fguiPoolHelper;
 
 
     JSONNode config;
@@ -48,7 +48,7 @@ public class SlotMachineHelper:MonoBehaviour
     private Dictionary<GComponent, Transition> transitionBiggerLst = new Dictionary<GComponent, Transition>();
     private Dictionary<GComponent, Transition> transitionTwinkleLst = new Dictionary<GComponent, Transition>();
     
-    public void Init(string configStr, GComponent slotMachine, GComponent gExpectation, FguiPoolHelper fguiPoolHelper)
+    public void Init(string configStr, GComponent slotMachine, GComponent gExpectation, FguiGameObjectPoolHelper fguiPoolHelper)
     {
         if (string.IsNullOrEmpty(maskSortOrder))
             maskSortOrder = $"MASK_SORT_ORDER-{Time.unscaledTime}-{UnityEngine.Random.Range(0,100)}";
@@ -623,7 +623,7 @@ public class SlotMachineHelper:MonoBehaviour
         //停止特效显示
         SkipWinLine(false);
 
-        reelsResult = SlotTool.GetDeckColRow02(strDeckRowCol);
+        reelsResult = SlotTool.GetDeckCRdByRCs(strDeckRowCol);
 
         //这个还要判断特殊图标 如果有还需要改变滚轮滚的次数 还有特殊表现效果
         //模拟图标
@@ -683,12 +683,12 @@ public class SlotMachineHelper:MonoBehaviour
         {
             foreach (Cell cel in sw.cells)
             {
-                int symbolNumber = deckColRowNumber[cel.column][cel.row + DeckUpStartIndex];
-                string mark = $"{cel.column}-{cel.row}#{symbolNumber}";
+                int symbolNumber = deckColRowNumber[cel.columnIndex][cel.rowIndex + DeckUpStartIndex];
+                string mark = $"{cel.columnIndex}-{cel.rowIndex}#{symbolNumber}";
 
                 if (bsLst.Contains(mark))
                     continue;
-                cells.Add(new Cell(cel.column, cel.row));
+                cells.Add(new Cell(cel.columnIndex, cel.rowIndex));
                 bsLst.Add(mark);
             }
 
@@ -747,7 +747,7 @@ public class SlotMachineHelper:MonoBehaviour
         foreach (Cell cel in symbolWin.cells)
         {
 
-            int symbolNumberSelf = GetVisibleSymbolNumberFromDeck(cel.column, cel.row);
+            int symbolNumberSelf = GetVisibleSymbolNumberFromDeck(cel.columnIndex, cel.rowIndex);
 
             int symbolNumber = isUseMySelfSymbolNumber ? symbolNumberSelf : symbolWin.symbolNumber;
             
@@ -755,11 +755,11 @@ public class SlotMachineHelper:MonoBehaviour
             
             // 图标动画  
             GComponent goSymbolHit = fguiPoolHelper.GetObject(TagPoolObject.SymbolHit, symbolName).asCom;
-            GComponent goSymbol = GetVisibleSymbolFromDeck(cel.column, cel.row);
+            GComponent goSymbol = GetVisibleSymbolFromDeck(cel.columnIndex, cel.rowIndex);
 
             AddSymbolEffect(goSymbol,goSymbolHit, IsWESymbolAnim);
 
-            int rowIndex = cel.row;
+            int rowIndex = cel.rowIndex;
             // 设置层级
             FguiSortingOrderManager.Instance.ChangeSortingOrder(goSymbol, goExpectation, maskSortOrder,null, 
                 (self) => rowIndex + DeckUpStartIndex); 
@@ -869,7 +869,7 @@ public class SlotMachineHelper:MonoBehaviour
         {
             Cell cel = item.cell;
        
-            int symbolNumberSelf = GetVisibleSymbolNumberFromDeck(cel.column, cel.row);
+            int symbolNumberSelf = GetVisibleSymbolNumberFromDeck(cel.columnIndex, cel.rowIndex);
 
             int symbolNumber = isUseMySelfSymbolNumber ? symbolNumberSelf : item.symbolNumber;
 
@@ -878,12 +878,12 @@ public class SlotMachineHelper:MonoBehaviour
 
             // 图标动画  
             GComponent goSymbolHit = fguiPoolHelper.GetObject(TagPoolObject.SymbolHit, symbolName).asCom;
-            GComponent goSymbol =   GetVisibleSymbolFromDeck(cel.column, cel.row);
+            GComponent goSymbol =   GetVisibleSymbolFromDeck(cel.columnIndex, cel.rowIndex);
             
             AddSymbolEffect(goSymbol, goSymbolHit, IsWESymbolAnim);
 
             
-            int rowIndex = cel.row;
+            int rowIndex = cel.rowIndex;
             // 设置层级
             FguiSortingOrderManager.Instance.ChangeSortingOrder(goSymbol, goExpectation, maskSortOrder,null,
                 (self)=>rowIndex + DeckUpStartIndex);
@@ -923,7 +923,7 @@ public class SlotMachineHelper:MonoBehaviour
 
         SkipWinLine(false);
 
-        reelsResult = SlotTool.GetDeckColRow02(strDeckRowCol);
+        reelsResult = SlotTool.GetDeckCRdByRCs(strDeckRowCol);
 
         yield return ReelsToStopOrTurnOnce(null);
         // 算分
@@ -1039,7 +1039,7 @@ public class SlotMachineHelper:MonoBehaviour
         //停止特效显示
         SkipWinLine(false);
 
-        reelsResult = SlotTool.GetDeckColRow02(strDeckRowCol);
+        reelsResult = SlotTool.GetDeckCRdByRCs(strDeckRowCol);
 
 
         yield return StartTurnReels();

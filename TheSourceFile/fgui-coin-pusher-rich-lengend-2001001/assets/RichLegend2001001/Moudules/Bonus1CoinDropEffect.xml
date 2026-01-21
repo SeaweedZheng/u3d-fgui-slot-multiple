@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1024,768">
+  <displayList>
+    <movieclip id="n3_mjx0" name="n3" src="mjx01im" fileName="Images/PageGameMain/Bonus1CoinDropEndEffect/MVCoinDropEnd.jta" xy="0,0"/>
+    <movieclip id="n2_mjx0" name="n2" src="mjx01in" fileName="Images/PageGameMain/Bonus1CoinDropIdleEffect/MvCoinDropIdle.jta" xy="0,0"/>
+    <movieclip id="n1_mjx0" name="n1" src="mjx01io" fileName="Images/PageGameMain/Bonus1CoinDropStartEffect/MVCoinDropStart.jta" xy="0,0"/>
+  </displayList>
+</component>

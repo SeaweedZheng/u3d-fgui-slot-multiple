@@ -2,6 +2,7 @@ using GameMaker;
 using SlotMaker;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.ConstrainedExecution;
 using UnityEngine;
 
 public partial class SlotMachinePresenter 
@@ -11,12 +12,14 @@ public partial class SlotMachinePresenter
     {
 
         // 打开基础图标
-        for (int c = 0; c < config.Column; c++)
+        for (int cIdx = 0; cIdx < smConfig.Column; cIdx++)
         {
-            for (int r = config.DeckUpStartIndex; r <= config.DeckUpEndIndex; r++)
+            for (int rIdx = 0; rIdx <= smConfig.Row; rIdx++)
             {
-                view.StopSymbolEffect(c, r);
-                view.HideBaseSymbolIcon(c, r, false);
+                view.RemoveSymbolTwinkleEffect(cIdx, rIdx);
+                view.RemoveSymbolBiggerEffect(cIdx, rIdx);
+                view.RemoveBorderEffect(cIdx, rIdx);
+                view.HideBaseSymbolIcon(cIdx, rIdx, false);
             }
         }
 
@@ -26,17 +29,17 @@ public partial class SlotMachinePresenter
         //FguiSortingOrderManager.Instance.ReturnAllSortingOrder();
 
         string[] exclude = isIncludeTag ? new string[] { } : new string[] { };
-        for (int c = 0; c < config.Column; c++)
+        for (int cIdx = 0; cIdx < smConfig.Column; cIdx++)
         {
-            for (int r = config.DeckUpStartIndex; r <= config.DeckUpEndIndex; r++)
+            for (int rIdx = 0; rIdx <= smConfig.Row; rIdx++)
             {
-                view.ReturnSymbolEffectToPool(c, r, exclude);
+                view.ReturnSymbolEffectToPool(cIdx, rIdx, exclude);
             }
         }
 
         view.CloseAllPlayLines();
 
-        onWinEvent?.Invoke(new EventData(SlotMachineEvent.SkipWinLine));
+        OnWinEvent(SlotMachineEvent.ON_WIN_EVENT, new EventData(SlotMachineEvent.SkipWinLine));
     }
 
     public IEnumerator ShowSymbolWinBySetting(SymbolWin symbolWin, bool isUseMySelfSymbolNumber, SpinWinEvent eventType)
@@ -47,18 +50,18 @@ public partial class SlotMachinePresenter
 
 
         // 立马停止时，不播放赢分环节？
-        if (isStopImmediately && config.IsWESkipAtStopImmediately)
+        if (isStopImmediately && smConfig.IsWESkipAtStopImmediately)
             yield break;
 
         //显示遮罩
-        SetSlotCover(config.IsWEShowCover);
+        SetSlotCover(smConfig.IsWEShowCover);
 
-        Dictionary<string, string> symbolHitEffect = config.GetSymbolHitEffect();
+        Dictionary<string, string> symbolHitEffect = smConfig.GetSymbolHitEffect();
 
         foreach (Cell cel in symbolWin.cells)
         {
 
-            int symbolNumberSelf = view.GetVisibleSymbolNumberFromDeck(cel.column, cel.row);
+            int symbolNumberSelf = view.GetVisibleSymbolNumberFromDeck(cel.columnIndex, cel.rowIndex);
 
             int symbolNumber = isUseMySelfSymbolNumber ? symbolNumberSelf : symbolWin.symbolNumber;
 
@@ -79,27 +82,27 @@ public partial class SlotMachinePresenter
             */
 
             // 图标动画
-            view.AddSymbolEffect(cel.column, cel.row, symbolName, config.IsWESymbolAnim);
+            view.ShowSymbolHitEffect(cel.columnIndex, cel.rowIndex, symbolName, smConfig.IsWESymbolAnim);
 
 
 
             // 边框
-            if (config.IsWEFrame)
+            if (smConfig.IsWEFrame)
             {
-                view.AddBorderEffect(cel.column, cel.row);
+                view.ShowBorderEffect(cel.columnIndex, cel.rowIndex);
             }
 
             // 整体变大特效
-            if (config.IsWETwinkle)
-                view.ShowTwinkleEffect(cel.column, cel.row);
-            else if (config.IsWEBigger)
-                view.ShowBiggerEffect(cel.column, cel.row);
+            if (smConfig.IsWETwinkle)
+                view.ShowTwinkleEffect(cel.columnIndex, cel.rowIndex);
+            else if (smConfig.IsWEBigger)
+                view.ShowBiggerEffect(cel.columnIndex, cel.rowIndex);
 
         }
 
 
         // 是否显示线
-        if (config.IsWEShowLine)
+        if (smConfig.IsWEShowLine)
         {
             view.ShowPayLines(symbolWin);
         }
@@ -108,14 +111,14 @@ public partial class SlotMachinePresenter
         // 事件
         if (eventType == SpinWinEvent.TotalWinLine)
         {
-            onWinEvent?.Invoke(new EventData<SymbolWin>(SlotMachineEvent.TotalWinLine, symbolWin));
+            OnWinEvent(SlotMachineEvent.ON_WIN_EVENT, new EventData<SymbolWin>(SlotMachineEvent.TotalWinLine, symbolWin));
         }
         else if (eventType == SpinWinEvent.SingleWinLine)
         {
-            onWinEvent?.Invoke(new EventData<SymbolWin>(SlotMachineEvent.SingleWinLine, symbolWin));
+            OnWinEvent(SlotMachineEvent.ON_WIN_EVENT, new EventData<SymbolWin>(SlotMachineEvent.SingleWinLine, symbolWin));
         }
 
-        yield return SlotWaitForSeconds(config.WETimeS);
+        yield return SlotWaitForSeconds(smConfig.WETimeS);
     }
 
 
@@ -124,10 +127,10 @@ public partial class SlotMachinePresenter
     {
 
         // 立马停止时，不播放赢分环节？
-        if (isStopImmediately && config.IsWESkipAtStopImmediately)
+        if (isStopImmediately && smConfig.IsWESkipAtStopImmediately)
             yield break;
 
-        if (config.IsWETotalWinLine)
+        if (smConfig.IsWETotalWinLine)
         {
             yield return ShowSymbolWinBySetting(GetTotalSymbolWin(winList), true, SpinWinEvent.TotalWinLine);
         }
@@ -141,7 +144,7 @@ public partial class SlotMachinePresenter
                 ++idx;
 
                 // 立马停止时，不播放赢分环节？
-                if (isStopImmediately && config.IsWESkipAtStopImmediately)
+                if (isStopImmediately && smConfig.IsWESkipAtStopImmediately)
                     break;
             }
         }
@@ -161,21 +164,21 @@ public partial class SlotMachinePresenter
         SkipWinLine(false);
 
         //显示遮罩
-        SetSlotCover(config.IsWEShowCover);
+        SetSlotCover(smConfig.IsWEShowCover);
 
-        Dictionary<string, string> symbolHitEffect = config.GetSymbolHitEffect();
+        Dictionary<string, string> symbolHitEffect = smConfig.GetSymbolHitEffect();
 
         foreach (BonusWin item in symbolWin)
         {
             Cell cel = item.cell;
 
-            int symbolNumberSelf = view.GetVisibleSymbolNumberFromDeck(cel.column, cel.row);
+            int symbolNumberSelf = view.GetVisibleSymbolNumberFromDeck(cel.columnIndex, cel.rowIndex);
 
             int symbolNumber = isUseMySelfSymbolNumber ? symbolNumberSelf : item.symbolNumber;
 
             string symbolName = symbolHitEffect[$"{symbolNumber}"];  // wild  or symbol;
 
-            view.AddSymbolEffect(cel.column, cel.row, symbolName, config.IsWESymbolAnim);
+            view.ShowSymbolHitEffect(cel.columnIndex, cel.rowIndex, symbolName, smConfig.IsWESymbolAnim);
 
             /*
             // 图标动画  
@@ -192,22 +195,76 @@ public partial class SlotMachinePresenter
             */
 
             // 边框
-            if (config.IsWEFrame)
+            if (smConfig.IsWEFrame)
             {
                 //GComponent goBorderEffect = fguiPoolHelper.GetObject(TagPoolObject.SymbolBorder, BorderEffect).asCom;
                 //AddBorderEffect(goSymbol, goBorderEffect);
-                view.AddBorderEffect(cel.column, cel.row);
+                view.ShowBorderEffect(cel.columnIndex, cel.rowIndex);
             }
 
             // 整体变大特效
-            if (config.IsWETwinkle)
-                view.ShowTwinkleEffect(cel.column, cel.row);
-            else if (config.IsWEBigger)
-                view.ShowBiggerEffect(cel.column, cel.row);
+            if (smConfig.IsWETwinkle)
+                view.ShowTwinkleEffect(cel.columnIndex, cel.rowIndex);
+            else if (smConfig.IsWEBigger)
+                view.ShowBiggerEffect(cel.columnIndex, cel.rowIndex);
 
         }
     }
 
 
 
+
+
+    /// <summary>
+    /// 空闲模式下-轮流显示线
+    /// </summary>
+    /// <param name="winList"></param>
+    /// <returns></returns>
+    public IEnumerator ShowWinListAwayDuringIdle(List<SymbolWin> winList)
+    {
+        while (winList.Count > 0) //while (idx < winList.Count)
+        {
+            yield return ShowWinListBySetting(winList);
+        }
+    }
+
+
+
+    public void ShowSpecailSymbolEffectBySetting(List<int> symbolNumbers, SymbolEffectType effectType, int? toSymbolNumber = null)
+    {
+        List<Cell> cells = view.GetSymbolCells(symbolNumbers);
+        ShowSpecailSymbolEffectBySetting(cells, effectType, toSymbolNumber);
+    }
+
+    public void ShowSpecailSymbolEffectBySetting(List<Cell> cells, SymbolEffectType effectType, int? toSymbolNumber = null)
+    {
+
+        // 图标特效
+        view.ShowSymbolEffects(cells, effectType, smConfig.IsWESymbolAnim, toSymbolNumber);
+
+        // 边框
+        if (smConfig.IsWEFrame)
+        {
+            view.ShowBorderEffects(cells);
+        }
+
+        // 整体变大特效
+        if (smConfig.IsWETwinkle)
+            view.ShowTwinkleEffects(cells);
+        else if (smConfig.IsWEBigger)
+            view.ShowBiggerEffects(cells);
+    }
+
+    public void ShowSpecailSymbolWinBySetting(SymbolWin winList, SymbolEffectType effectType, int? toSymbolNumber = null)
+    {
+        ShowSpecailSymbolEffectBySetting(winList.cells, effectType, toSymbolNumber) ;
+
+        // 显示中线
+        if (smConfig.IsWEShowLine) 
+            view.ShowPayLines(new List<int> { winList.lineNumber });
+
+
+        //显示遮罩
+        SetSlotCover(smConfig.IsWEShowCover);
+    }
 }

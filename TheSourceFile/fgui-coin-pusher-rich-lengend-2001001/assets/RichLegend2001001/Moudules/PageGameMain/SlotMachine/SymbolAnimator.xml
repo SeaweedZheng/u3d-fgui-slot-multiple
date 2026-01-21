@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="200,158">
+  <displayList>
+    <loader id="n0_j4eb" name="image" xy="100,79" pivot="0.5,0.5" anchor="true" size="200,158" scale="0.58,0.58" url="ui://adoe8w7dj4ebb" align="center" vAlign="middle">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </loader>
+    <movieclip id="n3_ceou" name="border" src="10cf012q" fileName="Images/PageGameMain/BorderEffect/BorderEffect.jta" xy="100,79" pivot="0.5,0.5" anchor="true" size="289,284" visible="false">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </movieclip>
+  </displayList>
+</component>

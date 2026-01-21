@@ -30,12 +30,12 @@ namespace SlotMaker
         public GComponent goReels;
 
         /// <summary>u3d预制体池 </summary>
-        public FguiPoolHelper fguiPoolHelper;  // u3d: 3d模型、Spine、粒子特效
+        public FguiGameObjectPoolHelper fguiPoolHelper;  // u3d: 3d模型、Spine、粒子特效
 
         /// <summary>fugi对象池 </summary>
         public FguiGObjectPoolHelper fguiGObjectPoolHelper; // fgui对象
 
-        public virtual void Init(ICustomModel customModel , GComponent gSlotCover, GComponent gPayLines,GComponent gReels,FguiPoolHelper fguiPoolHelper,FguiGObjectPoolHelper gObjectPoolHelpe)
+        public virtual void Init(ICustomModel customModel , GComponent gSlotCover, GComponent gPayLines,GComponent gReels,FguiGameObjectPoolHelper fguiPoolHelper,FguiGObjectPoolHelper gObjectPoolHelpe)
         {
             this.customModel = customModel;
             this.goPayLines = gPayLines;
@@ -113,7 +113,7 @@ namespace SlotMaker
         {
             foreach (Cell cel in symbolWin.cells)
             {
-                SymbolBase symble = GetVisibleSymbolFromDeck(cel.column, cel.row);
+                SymbolBase symble = GetVisibleSymbolFromDeck(cel.columnIndex, cel.rowIndex);
                 symble.SetSymbolImage(symbolWin.symbolNumber);
             }
         }
@@ -160,8 +160,8 @@ namespace SlotMaker
             //停止特效显示
             SkipWinLine(false);
 
-            int[] deckColRow = SlotTool.GetDeckColRow(strDeckRowCol).ToArray();
-            List<List<int>> colrowLsts = SlotTool.GetDeckColRow(deckColRow,
+            int[] deckColRow = SlotTool.GetDeckCRlByRCs(strDeckRowCol).ToArray();
+            List<List<int>> colrowLsts = SlotTool.GetDeckCRdByCRl(deckColRow,
                 this.column,
                 this.row);
 
@@ -244,8 +244,8 @@ namespace SlotMaker
             //停止特效显示
             SkipWinLine(false);
 
-            int[] deckColRow = SlotTool.GetDeckColRow(strDeckRowCol).ToArray();
-            List<List<int>> colrowLsts = SlotTool.GetDeckColRow(deckColRow,
+            int[] deckColRow = SlotTool.GetDeckCRlByRCs(strDeckRowCol).ToArray();
+            List<List<int>> colrowLsts = SlotTool.GetDeckCRdByCRl(deckColRow,
                 this.column,
                 this.row);
 
@@ -276,8 +276,8 @@ namespace SlotMaker
 
             SkipWinLine(false);
 
-            int[] deckColRow = SlotTool.GetDeckColRow(strDeckRowCol).ToArray();
-            List<List<int>> colrowLsts = SlotTool.GetDeckColRow(deckColRow,
+            int[] deckColRow = SlotTool.GetDeckCRlByRCs(strDeckRowCol).ToArray();
+            List<List<int>> colrowLsts = SlotTool.GetDeckCRdByCRl(deckColRow,
                 this.column,
                 this.row);
 
@@ -616,7 +616,7 @@ namespace SlotMaker
             List<SymbolBase> symbols = new List<SymbolBase>();
             foreach (Cell cel in symbolWin.cells)
             {
-                symbols.Add(GetVisibleSymbolFromDeck(cel.column, cel.row));
+                symbols.Add(GetVisibleSymbolFromDeck(cel.columnIndex, cel.rowIndex));
             }
             return symbols;
         }
@@ -626,7 +626,7 @@ namespace SlotMaker
             List<SymbolBase> symbols = new List<SymbolBase>();
             foreach (Cell cel in cells)
             {
-                symbols.Add(GetVisibleSymbolFromDeck(cel.column, cel.row));
+                symbols.Add(GetVisibleSymbolFromDeck(cel.columnIndex, cel.rowIndex));
             }
             return symbols;
         }
@@ -719,10 +719,10 @@ namespace SlotMaker
             {
                 foreach (Cell cel in sw.cells)
                 {
-                    SymbolBase symble = GetVisibleSymbolFromDeck(cel.column, cel.row);
+                    SymbolBase symble = GetVisibleSymbolFromDeck(cel.columnIndex, cel.rowIndex);
                     if (bsLst.Contains(symble))
                         continue;
-                    cells.Add(new Cell(cel.column, cel.row));
+                    cells.Add(new Cell(cel.columnIndex, cel.rowIndex));
                     bsLst.Add(symble);
                 }
 
@@ -823,7 +823,7 @@ namespace SlotMaker
 
             foreach (Cell cel in symbolWin.cells)
             {
-                SymbolBase symble = GetVisibleSymbolFromDeck(cel.column, cel.row);
+                SymbolBase symble = GetVisibleSymbolFromDeck(cel.columnIndex, cel.rowIndex);
 
                 int symbolNumber = isUseMySelfSymbolNumber ? symble.number : symbolWin.symbolNumber;
 
@@ -951,7 +951,7 @@ namespace SlotMaker
 
             foreach (Cell cel in symbolWin.cells)
             {
-                SymbolBase symble = GetVisibleSymbolFromDeck(cel.column, cel.row);
+                SymbolBase symble = GetVisibleSymbolFromDeck(cel.columnIndex, cel.rowIndex);
 
                 int symbolNumber = isUseMySelfSymbolNumber ? symble.number : symbolWin.symbolNumber;
 

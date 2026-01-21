@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="152,109">
+  <displayList>
+    <image id="n21_8amu" name="n21" src="8amu15j" fileName="Images/PageGameMain/BG/Coin/bg_reward_coin.png" xy="0,0"/>
+    <text id="n22_8amu" name="remainCoins" xy="27,37" size="98,26" font="ui://adoe8w7d8amu15w" fontSize="10" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="500"/>
+    <text id="n23_8amu" name="rewardCoins" xy="25,74" size="102,25" font="ui://adoe8w7d8amu15w" fontSize="10" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="66"/>
+  </displayList>
+</component>

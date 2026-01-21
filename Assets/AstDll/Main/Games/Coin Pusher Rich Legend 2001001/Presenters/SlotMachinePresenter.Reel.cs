@@ -30,11 +30,11 @@ public partial class SlotMachinePresenter
         //停止特效显示
         SkipWinLine(false);
 
-        reelsResult = SlotTool.GetDeckColRow02(strDeckRowCol);
+        reelsResult = SlotTool.GetDeckCRdByRCs(strDeckRowCol);
 
         //这个还要判断特殊图标 如果有还需要改变滚轮滚的次数 还有特殊表现效果
         //模拟图标
-        for (int col = 0; col < config.Column; col++)
+        for (int col = 0; col < smConfig.Column; col++)
         {
             view.SetReelDeck(col, reelsResult[col]);
         }
@@ -54,28 +54,28 @@ public partial class SlotMachinePresenter
     IEnumerator StartTurnReels()
     {
 
-        int reelsCount = config.Column;
+        int reelsCount = smConfig.Column;
 
         bool isNext = false;
 
-        for (int reelIdx = 0; reelIdx < config.Column; reelIdx++)
+        for (int reelIdx = 0; reelIdx < smConfig.Column; reelIdx++)
         {
-            if (config.GetTimeTurnStartDelay(reelIdx) > 0)
+            if (smConfig.GetTimeTurnStartDelay(reelIdx) > 0)
             {
-                yield return new WaitForSeconds(config.GetTimeTurnStartDelay(reelIdx));
+                yield return new WaitForSeconds(smConfig.GetTimeTurnStartDelay(reelIdx));
             }
 
             int _reelIdx = reelIdx;
 
             StartTurn(
                 reelIdx,
-                config.GetNumReelTurn(reelIdx) + reelIdx * config.GetNumReelTurnGap(reelIdx),
+                smConfig.GetNumReelTurn(reelIdx) + reelIdx * smConfig.GetNumReelTurnGap(reelIdx),
                 () =>
                 {
-                    onSlotDetailEvent?.Invoke(new EventData<int>(SlotMachineEvent.PrepareStoppedReel, _reelIdx));
+                    OnSlotDetailEvent(SlotMachineEvent.ON_SLOT_DETAIL_EVENT, new EventData<int>(SlotMachineEvent.PrepareStoppedReel, _reelIdx));
 
                     if (isSymbolAppearEffectWhenReelStop)
-                        view.SymbolAppearEffect(_reelIdx);
+                        view.ShowSymbolAppearEffect(_reelIdx);
 
                     if (--reelsCount <= 0)
                     {
@@ -94,7 +94,7 @@ public partial class SlotMachinePresenter
             reelStateLst[i] = ReelState.Idle;
         }
 
-        onSlotEvent?.Invoke(new EventData(SlotMachineEvent.StoppedSlotMachine));
+        OnSlotEvent(SlotMachineEvent.ON_SLOT_EVENT, new EventData(SlotMachineEvent.StoppedSlotMachine));
 
     }
 
@@ -105,11 +105,11 @@ public partial class SlotMachinePresenter
         bool isNext = false;
         reelStateLst[reelIndex] = ReelState.StartTurn;
 
-        if (config.GetTimeReboundStart(reelIndex) > 0)
+        if (smConfig.GetTimeReboundStart(reelIndex) > 0)
         {
             yield return view.Rebound(reelIndex,
-                config.GetOffsetYReboundStart(reelIndex),
-                config.GetTimeReboundStart(reelIndex)
+                smConfig.GetOffsetYReboundStart(reelIndex),
+                smConfig.GetTimeReboundStart(reelIndex)
             );
         }
 
@@ -124,7 +124,7 @@ public partial class SlotMachinePresenter
                 view.SetReelEndResult(reelIndex, reelsResult[reelIndex]);
             }
 
-            view.MoveY(reelIndex, 0, config.GetTimeTurnOnce(reelIndex), () => { isNext = true; });
+            view.MoveY(reelIndex, 0, smConfig.GetTimeTurnOnce(reelIndex), () => { isNext = true; });
             //reelTweenLst[reelIndex] = TweenUtils.DOLocalMoveY(anchorSymbolsLst[reelIndex], 0, GetTimeTurnOnce(reelIndex), EaseType.Linear, () => { isNext = true; });
 
             yield return new WaitUntil(() => isNext);
@@ -140,12 +140,12 @@ public partial class SlotMachinePresenter
             }
         }
 
-        if (config.GetTimeReboundEnd(reelIndex) > 0)
+        if (smConfig.GetTimeReboundEnd(reelIndex) > 0)
         {
             yield return view.Rebound(
                 reelIndex,
-                config.GetOffsetYReboundEnd(reelIndex),
-                config.GetTimeReboundEnd(reelIndex)
+                smConfig.GetOffsetYReboundEnd(reelIndex),
+                smConfig.GetTimeReboundEnd(reelIndex)
             );
         }
         reelStateLst[reelIndex] = ReelState.EndStop;
@@ -157,11 +157,11 @@ public partial class SlotMachinePresenter
     public IEnumerator ReelsToStopOrTurnOnce(Action finishCallback)
     {
 
-        int reelsCount = config.Column;
+        int reelsCount = smConfig.Column;
 
         bool isNext = false;
 
-        for (int reelIdx = 0; reelIdx < config.Column; reelIdx++)
+        for (int reelIdx = 0; reelIdx < smConfig.Column; reelIdx++)
         {
             if (reelStateLst[reelIdx] == ReelState.EndStop)
             {
@@ -171,9 +171,9 @@ public partial class SlotMachinePresenter
 
             if (reelStateLst[reelIdx] == ReelState.Idle)
             {
-                if (config.GetTimeTurnStartDelay(reelIdx) > 0)
+                if (smConfig.GetTimeTurnStartDelay(reelIdx) > 0)
                 {
-                    yield return new WaitForSeconds(config.GetTimeTurnStartDelay(reelIdx));
+                    yield return new WaitForSeconds(smConfig.GetTimeTurnStartDelay(reelIdx));
                 }
             }
 
@@ -182,10 +182,10 @@ public partial class SlotMachinePresenter
             ReelToStopOrTurnOnce(reelIdx,
                 () =>
                 {
-                    onSlotDetailEvent?.Invoke(new EventData<int>(SlotMachineEvent.PrepareStoppedReel, _reelIdx));
+                    OnSlotDetailEvent(SlotMachineEvent.ON_SLOT_DETAIL_EVENT, new EventData<int>(SlotMachineEvent.PrepareStoppedReel, _reelIdx));
 
                     if (isSymbolAppearEffectWhenReelStop)
-                        view.SymbolAppearEffect(reelIdx);
+                        view.ShowSymbolAppearEffect(reelIdx);
 
                     if (--reelsCount <= 0)
                     {
@@ -204,7 +204,7 @@ public partial class SlotMachinePresenter
             reelStateLst[i] = ReelState.Idle;
         }
 
-        onSlotEvent?.Invoke(new EventData(SlotMachineEvent.StoppedSlotMachine));
+        OnSlotEvent(SlotMachineEvent.ON_SLOT_EVENT, new EventData(SlotMachineEvent.StoppedSlotMachine));
 
         finishCallback?.Invoke();
     }
@@ -251,7 +251,7 @@ public partial class SlotMachinePresenter
 
         view.SetReelEndResult(reelIndex, reelsResult[reelIndex]);
 
-        view.MoveY(reelIndex, 0, config.GetTimeTurnOnce(reelIndex), () => { isNext = true; });
+        view.MoveY(reelIndex, 0, smConfig.GetTimeTurnOnce(reelIndex), () => { isNext = true; });
         //reelTweenLst[reelIndex] = TweenUtils.DOLocalMoveY(anchorSymbolsLst[reelIndex], 0,  GetTimeTurnOnce(reelIndex), EaseType.Linear, () => { isNext = true; });
 
         yield return new WaitUntil(() => isNext);
@@ -260,12 +260,12 @@ public partial class SlotMachinePresenter
 
         view.ClearTween(reelIndex);
 
-        if (config.GetTimeReboundEnd(reelIndex) > 0)
+        if (smConfig.GetTimeReboundEnd(reelIndex) > 0)
         {
             yield return view.Rebound(
                 reelIndex,
-                config.GetOffsetYReboundEnd(reelIndex),
-                config.GetTimeReboundEnd(reelIndex)
+                smConfig.GetOffsetYReboundEnd(reelIndex),
+                smConfig.GetTimeReboundEnd(reelIndex)
             );
         }
 
@@ -281,7 +281,7 @@ public partial class SlotMachinePresenter
 
         SkipWinLine(false);
 
-        reelsResult = SlotTool.GetDeckColRow02(strDeckRowCol);
+        reelsResult = SlotTool.GetDeckCRdByRCs(strDeckRowCol);
 
         yield return ReelsToStopOrTurnOnce(null);
         // 算分
@@ -295,7 +295,7 @@ public partial class SlotMachinePresenter
         //停止特效显示
         SkipWinLine(false);
 
-        reelsResult = SlotTool.GetDeckColRow02(strDeckRowCol);
+        reelsResult = SlotTool.GetDeckCRdByRCs(strDeckRowCol);
 
 
         yield return StartTurnReels();

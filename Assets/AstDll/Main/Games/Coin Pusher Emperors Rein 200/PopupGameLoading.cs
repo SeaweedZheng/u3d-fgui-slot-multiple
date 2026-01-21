@@ -8,7 +8,7 @@ namespace PusherEmperorsRein
 {
 
 
-    public class PopupGameLoading : PageBase
+    public class PopupGameLoading : MachinePageBase
     {
         public const string pkgName = "EmperorsRein";
         public const string resName = "PopupGameLoading";

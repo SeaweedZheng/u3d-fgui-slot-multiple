@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 5186950988054571753}
+  - component: {fileID: 6733360802319128968}
   m_Layer: 0
   m_Name: Game Main Controller
   m_TagString: Untagged
@@ -27,12 +28,32 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 7036426003991637519}
   - {fileID: 5047258371372125990}
   - {fileID: 8573171301839230268}
   - {fileID: 2758414746007780007}
+  - {fileID: 33901773222299346}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6733360802319128968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4767127056582089575}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c3cfbef2a3a50384c8ed34475049f68b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  updateHandle:
+    m_PersistentCalls:
+      m_Calls: []
+  fixeUpdateHandle:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &4926383600468671094
 GameObject:
   m_ObjectHideFlags: 0
@@ -62,7 +83,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5186950988054571753}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &9193150592340023631
 MonoBehaviour:
@@ -77,6 +98,36 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isStopImmediately: 0
+--- !u!1 &6192734080251487792
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7036426003991637519}
+  m_Layer: 0
+  m_Name: Pool GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7036426003991637519
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6192734080251487792}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -0.20927411, y: 0.08225803, z: -0.04499998}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5186950988054571753}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6341406006266280803
 GameObject:
   m_ObjectHideFlags: 0
@@ -106,8 +157,51 @@ Transform:
   m_Children:
   - {fileID: 693388889952624519}
   m_Father: {fileID: 5186950988054571753}
-  m_RootOrder: 1
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &6546589815918992187
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 33901773222299346}
+  - component: {fileID: 2683133826765419296}
+  m_Layer: 0
+  m_Name: Mock
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &33901773222299346
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546589815918992187}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 5186950988054571753}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &2683133826765419296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6546589815918992187}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 05fb138205224ec4e85bcf9c3fca203d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &7305151089425872865
 GameObject:
   m_ObjectHideFlags: 0
@@ -178,8 +272,6 @@ MonoBehaviour:
   freeSpinAddNum: 0
   isFreeSpinAdd: 0
   m_showFreeSpinRemainTime: 0
-  isBonus1: 0
-  hitBallCount: 0
   creditBefore: 0
   creditAfter: 0
   curGameCreatTimeMS: 0
@@ -309,7 +401,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 5186950988054571753}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &4113739018421999976
 MonoBehaviour:
@@ -324,4 +416,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   contentIndex: 0
-  VolumeLevel: 0

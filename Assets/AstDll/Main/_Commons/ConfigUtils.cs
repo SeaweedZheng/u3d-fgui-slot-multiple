@@ -26,7 +26,7 @@ public class ConfigUtils
     };
 
     /// <summary> 游戏配置文件路劲 </summary>
-    public static string GetGameInfoURL(int gameId) => $"Assets/AstBundle/_Commons/Game Maker/ABs/G{gameId}/Datas/game_info_g{gameId}.json";
+    public static string GetGameInfoURL(int gameId) => $"Assets/AstBundle/_Commons/Game Maker/ABs/G{gameId}/game_info_g{gameId}.json";
     //$"Assets/AstBundle/_Commons/Game Maker/ABs/Datas/{gameId}/game_info_g{gameId}.json";
 
     /// <summary> 游戏图片路劲 </summary>
@@ -40,7 +40,7 @@ public class ConfigUtils
 
     /// <summary> 游戏GM文件路劲 </summary>
     public static string GetGameGMURL(int gameId) =>
-        $"Assets/AstBundle/_Commons/Game Maker/ABs/G{gameId}/GM/tmg_mock_gm_{gameId}.json";
+        $"Assets/AstBundle/_Commons/Game Maker/ABs/G{gameId}/tmg_mock_gm_{gameId}.json";
         //$"Assets/AstBundle/_Commons/Game Maker/ABs/{gameId}/Game Icon/Game Avatar {gameId}.png";
     
     /// <summary> 游戏信息 </summary>      

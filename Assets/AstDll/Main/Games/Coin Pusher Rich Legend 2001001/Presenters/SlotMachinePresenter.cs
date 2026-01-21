@@ -7,15 +7,47 @@ using UnityEngine;
 using GameMaker;
 using SlotMaker;
 using Sirenix.OdinInspector;
+
+
+public enum SymbolEffectType
+{
+    SymbolHit,
+    SymbolAppear,
+    SymbolExpectation,
+    SymbolTrigger,
+}
 public interface IVSlotMachine
 {
     void ShowPayLines(SymbolWin symbolWin);
+    void ShowPayLines(List<int> lineNumbers);
+
+    void CloseAllPlayLines();
+
+
     void ShowTwinkleEffect(int colIndex, int rowIndex);
+    void RemoveSymbolTwinkleEffect(int colIndex, int rowIndex);
 
     void ShowBiggerEffect(int colIndex, int rowIndex);
-    void AddBorderEffect(int colIndex, int rowIndex);
-    void AddSymbolEffect(int colIndex, int rowIndex, string symbolName, bool isAmin = true);
-    void SymbolAppearEffect(int reelIndex);
+    void RemoveSymbolBiggerEffect(int colIndex, int rowIndex);
+
+    void ShowBorderEffect(int colIndex, int rowIndex);
+    void RemoveBorderEffect(int colIndex, int rowIndex);
+
+
+    void ShowSymbolHitEffect(int colIndex, int rowIndex, string symbolName, bool isAmin = true);
+    void ShowSymbolAppearEffect(int reelIndex);
+
+    void ShowSymbolEffects(List<int> symbolNumbers, SymbolEffectType effectType, bool isAnim, int? toSymbolNumber = null);
+
+    void ShowSymbolEffects(List<Cell> cells, SymbolEffectType effectType, bool isAnim, int? toSymbolNumber = null);
+
+    void ShowBiggerEffects(List<Cell> cells);
+    void ShowTwinkleEffects(List<Cell> cells);
+    void ShowBorderEffects(List<Cell> cells);
+
+    List<Cell> GetSymbolCells(List<int> symbolNumbers);
+
+
     void ClearTween(int reelIndex);
     void SetReelEndResult(int reelIndex, List<int> reelResult);
     void ResetIconData(int reelIndex);
@@ -25,8 +57,10 @@ public interface IVSlotMachine
 
     //void InitDeck();
 
-   // void SetVisiableDeck(List<List<int>> deckColRowNumber);
-    void CloseAllPlayLines();
+    List<List<int>> DeckColRowNumber {
+        get;
+    }
+
 
     void SetReelsDeck(List<List<int>> reelsResultColRowNumber);
 
@@ -35,7 +69,8 @@ public interface IVSlotMachine
 
     void ReturnSymbolEffectToPool(int colIndex, int rowIndex, string[] exclude);
 
-    void StopSymbolEffect(int colIndex, int rowIndex );
+
+
     void HideBaseSymbolIcon(int colIndex, int rowIndex, bool isHide);
 
 
@@ -54,14 +89,17 @@ public partial class SlotMachinePresenter : MonoBehaviour, IPSlotMachine
 {
 
     IVSlotMachine view;
-    SlotMachineConfig config;
+    SlotMachineConfig smConfig;
 
     bool isInit = false;
     protected bool isSymbolAppearEffectWhenReelStop;
 
     public bool isStopImmediately = false;
 
-    List<List<int>> deckColRowNumber;
+
+    public bool isBroadcastSlotEvent = false;
+
+    List<List<int>> DeckColRowNumber=> view.DeckColRowNumber;
 
     List<bool> isReelPointeringLst;
 
@@ -94,8 +132,9 @@ public partial class SlotMachinePresenter : MonoBehaviour, IPSlotMachine
     }
 
 
-    public void InitParam(IVSlotMachine v, SlotMachineConfig cf)
+    public void InitParam(IVSlotMachine v, SlotMachineConfig cf, bool isBroadcastSlotEvent = false)
     {
+
         Init();
 
         if (view != null)
@@ -105,7 +144,9 @@ public partial class SlotMachinePresenter : MonoBehaviour, IPSlotMachine
         }
 
         view = v;
-        config = cf;
+        smConfig = cf;
+        this.isBroadcastSlotEvent = isBroadcastSlotEvent;
+
 
         isReelPointeringLst = new List<bool>();
         reelStateLst = new List<ReelState>();
@@ -117,7 +158,7 @@ public partial class SlotMachinePresenter : MonoBehaviour, IPSlotMachine
 
         reelStopCallbackLst = new List<Action>();
 
-        for (int i = 0; i < config.Column; i++)
+        for (int i = 0; i < smConfig.Column; i++)
         {
             isReelPointeringLst.Add(false);
             reelStateLst.Add(ReelState.Idle);
@@ -161,12 +202,12 @@ public partial class SlotMachinePresenter : MonoBehaviour, IPSlotMachine
 
 
     #region 事件
-    public void BeginTurn() => onContentEvent?.Invoke(new EventData(SlotMachineEvent.BeginTurn));
+    public void BeginTurn() => OnContentEvent(SlotMachineEvent.ON_CONTENT_EVENT, new EventData(SlotMachineEvent.BeginTurn));
 
     public void BeginSpin()
     {
-        onSlotEvent?.Invoke(new EventData(SlotMachineEvent.SpinSlotMachine));
-        onContentEvent?.Invoke(new EventData(SlotMachineEvent.BeginSpin));
+        OnSlotEvent(SlotMachineEvent.ON_SLOT_EVENT, new EventData(SlotMachineEvent.SpinSlotMachine));
+        OnContentEvent(SlotMachineEvent.ON_CONTENT_EVENT, new EventData(SlotMachineEvent.BeginSpin));
     }
 
     public void SendTotalBonusCreditEvent(long BonusCredit)
@@ -190,7 +231,7 @@ public partial class SlotMachinePresenter : MonoBehaviour, IPSlotMachine
     }
     public void SendTotalWinCreditEvent(long totalWinCredit)
     {
-        onWinEvent?.Invoke(new EventData<long>(SlotMachineEvent.TotalWinCredit, totalWinCredit));
+        OnTotalWinCreditEvent(SlotMachineEvent.ON_WIN_EVENT, new EventData<long>(SlotMachineEvent.TotalWinCredit, totalWinCredit));
     }
 
     public long GetTotalWinCredit(List<SymbolWin> winList)
@@ -210,7 +251,7 @@ public partial class SlotMachinePresenter : MonoBehaviour, IPSlotMachine
             totalWinCredit = totalWinCredit,
             isAddToCredit = isAddToCredit,
         };
-        onPrepareTotalWinCreditEvent?.Invoke(new EventData<PrepareTotalWinCredit>(SlotMachineEvent.PrepareTotalWinCredit, res));
+        OnPrepareTotalWinCreditEvent(SlotMachineEvent.ON_WIN_EVENT, new EventData<PrepareTotalWinCredit>(SlotMachineEvent.PrepareTotalWinCredit, res));
     }
 
 
@@ -237,12 +278,12 @@ public partial class SlotMachinePresenter : MonoBehaviour, IPSlotMachine
         {
             foreach (Cell cel in sw.cells)
             {
-                int symbolNumber = deckColRowNumber[cel.column][cel.row + config.DeckUpStartIndex];
-                string mark = $"{cel.column}-{cel.row}#{symbolNumber}";
+                int symbolNumber = DeckColRowNumber[cel.columnIndex][cel.rowIndex + smConfig.DeckUpStartIndex];
+                string mark = $"{cel.columnIndex}-{cel.rowIndex}#{symbolNumber}";
 
                 if (bsLst.Contains(mark))
                     continue;
-                cells.Add(new Cell(cel.column, cel.row));
+                cells.Add(new Cell(cel.columnIndex, cel.rowIndex));
                 bsLst.Add(mark);
             }
 
@@ -276,10 +317,57 @@ public partial class SlotMachinePresenter : MonoBehaviour, IPSlotMachine
     }
 
 
-    public int GetSymbolIndex(int symbolNumber) => config.SymbolNumbers.IndexOf(symbolNumber);
+    public int GetSymbolIndex(int symbolNumber) => smConfig.SymbolNumbers.IndexOf(symbolNumber);
 
-    public int GetSymbolNumber(int symbolIndex) => config.SymbolNumbers[symbolIndex];
+    public int GetSymbolNumber(int symbolIndex) => smConfig.SymbolNumbers[symbolIndex];
+
+
+
 
 
     #endregion
+
+
+
+
+    void OnWinEvent(string name,EventData data) {
+
+        onWinEvent?.Invoke(data);
+
+        if(isBroadcastSlotEvent)
+            EventCenter.Instance.EventTrigger<EventData>(name, data);
+    }
+    void OnSlotDetailEvent(string name, EventData data) {
+
+        onSlotDetailEvent?.Invoke(data);
+
+        if (isBroadcastSlotEvent)
+            EventCenter.Instance.EventTrigger<EventData>(name, data);
+    }
+    void OnSlotEvent(string name, EventData data) {
+        onSlotEvent?.Invoke(data);
+
+        if (isBroadcastSlotEvent)
+            EventCenter.Instance.EventTrigger<EventData>(name, data);
+    }
+    void OnPrepareTotalWinCreditEvent(string name, EventData data) {
+        onPrepareTotalWinCreditEvent?.Invoke(data);
+
+        if (isBroadcastSlotEvent)
+            EventCenter.Instance.EventTrigger<EventData>(name, data);
+    }
+    void OnTotalWinCreditEvent(string name, EventData data) {
+        onTotalWinCreditEvent?.Invoke(data);
+
+        if (isBroadcastSlotEvent)
+            EventCenter.Instance.EventTrigger<EventData>(name, data);
+    }
+    void OnContentEvent(string name, EventData data) {
+        onContentEvent?.Invoke(data);
+
+        if (isBroadcastSlotEvent)
+            EventCenter.Instance.EventTrigger<EventData>(name, data);
+    }
+
+
 }

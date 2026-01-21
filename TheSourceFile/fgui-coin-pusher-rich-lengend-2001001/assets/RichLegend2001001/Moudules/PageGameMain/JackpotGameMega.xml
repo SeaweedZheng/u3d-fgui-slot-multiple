@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="350,120">
+  <displayList>
+    <movieclip id="n23_8amu" name="n23" src="8amu16s" fileName="Images/PageGameMain/JackpotBG/MVJackpotBG.jta" xy="175,60" pivot="0.5,0.5" anchor="true" scale="0.55,0.55"/>
+    <image id="n25_8amu" name="n25" src="8amu16u" fileName="Images/PageGameMain/frame_GRAND01.png" xy="32,39" scale="0.5,0.5"/>
+    <list id="n26_8amu" name="reels" xy="153,39" size="166,30" layout="row" overflow="scroll" defaultItem="ui://adoe8w7dpq4v14n" align="center" vAlign="middle">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>
