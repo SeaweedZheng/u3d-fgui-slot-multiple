@@ -1,13 +1,13 @@
 {
   "name": "Main",
-  "updated_at": 1769000569062,
+  "updated_at": 1769082748846,
   "hotfix_key": "hf_debug_android_20251216143338",
-  "hotfix_version": "1.0.90",
-  "hash": "84163d1b726412de63ac863cd817f91e",
+  "hotfix_version": "1.0.115",
+  "hash": "9dbbcb13d8af325df3697f2ed4122ba8",
   "asset_bundle": {
     "manifest": {
-      "hash": "235db2d7c7bed19c48eed4025487c957",
-      "size_bytes": 7858
+      "hash": "fc2b5b12dcd961f7d04266869c872aa9",
+      "size_bytes": 8026
     },
     "bundles": {
       "_common/game maker/abs/g152/game icon/game avatar 152.unity3d": {

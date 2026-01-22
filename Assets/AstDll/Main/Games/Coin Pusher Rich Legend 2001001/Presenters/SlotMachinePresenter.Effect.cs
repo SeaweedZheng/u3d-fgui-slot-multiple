@@ -4,6 +4,8 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.ConstrainedExecution;
 using UnityEngine;
+using System;
+using Newtonsoft.Json;
 
 public partial class SlotMachinePresenter 
 {
@@ -257,7 +259,15 @@ public partial class SlotMachinePresenter
 
     public void ShowSpecailSymbolWinBySetting(SymbolWin winList, SymbolEffectType effectType, int? toSymbolNumber = null)
     {
-        ShowSpecailSymbolEffectBySetting(winList.cells, effectType, toSymbolNumber) ;
+        try
+        {
+            ShowSpecailSymbolEffectBySetting(winList.cells, effectType, toSymbolNumber) ;
+        }
+        catch (Exception ex)
+        {
+            Debug.LogError($"winList = {JsonConvert.SerializeObject(winList)}");
+        }
+
 
         // 显示中线
         if (smConfig.IsWEShowLine) 

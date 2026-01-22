@@ -16,9 +16,10 @@
 		"symbol_height": 158,
 		"column": 3,
 		"row": 3,
-		"symbol_number" : [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+		"symbol_number" : [0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
 		"border_effect": "Assets/GameRes/Games/PssOn00152 (1080x1920)/Prefabs/Border.prefab",
 		"symbol_icon":{
+			"0": "ui://RichLegend2001001/symbol0",
 			"1": "ui://RichLegend2001001/symbol1",
 			"2": "ui://RichLegend2001001/symbol2",
 			"3": "ui://RichLegend2001001/symbol3",
@@ -34,6 +35,7 @@
 			"13": "ui://RichLegend2001001/symbol13"
 		},
 		"symbol_hit_effect": {
+			"0":  "ui://RichLegend2001001/SymbolHit0",
 			"1":  "ui://RichLegend2001001/SymbolHit1",
 			"2":  "ui://RichLegend2001001/SymbolHit2",
 			"3":  "ui://RichLegend2001001/SymbolHit3",
@@ -154,6 +156,20 @@
 			"time_s":1
 		},
 		"jackpot_game":{
+			"frame": false,
+			"line": true,
+			"bigger": false,
+			"twinkle": false,
+			"anim": true,
+			"total_win_line": true,
+			"single_win_line": false,
+			"credit": false,
+			"cover": false,
+			"hide_base_symbol": true,
+			"skip_at_stop_immediately": false,
+			"time_s":1
+		},
+		"bonus1":{
 			"frame": false,
 			"line": true,
 			"bigger": false,

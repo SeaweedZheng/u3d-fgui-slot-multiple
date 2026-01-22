@@ -15,7 +15,7 @@ public partial class MachineDataManager02
     private int curPermissions = -1;
 
 
-    int[] jpDefaults = new int[] { 150000, 15000, 1500, 500, 10 };
+    int[] jpDefaults = new int[] { 6000, 5000, 4000, 3000, 2000 };
 
 
     int testActiveMinute = (int)(60f * 24); //1天
@@ -37,11 +37,11 @@ public partial class MachineDataManager02
     const string MOCK_MACHINE_SEVER_PLAYER = "MOCK_MACHINE_SEVER_PLAYER";
 
     /// <summary> 游戏彩金 </summary>
-    const string MOCK_JP_GRAND = "MOCK_JP_GRAND";
-    const string MOCK_JP_MEGA = "MOCK_JP_MEGA";
-    const string MOCK_JP_MAJOR = "MOCK_JP_MAJOR";
-    const string MOCK_JP_MINOR = "MOCK_JP_MINOR";
-    const string MOCK_JP_MINI = "MOCK_JP_MINI";
+    const string MOCK_JP_GRAND = nameof(MOCK_JP_GRAND);// "MOCK_JP_GRAND";
+    const string MOCK_JP_MEGA = nameof(MOCK_JP_MEGA);//"MOCK_JP_MEGA";
+    const string MOCK_JP_MAJOR = nameof(MOCK_JP_MAJOR);//"MOCK_JP_MAJOR";
+    const string MOCK_JP_MINOR = nameof(MOCK_JP_MINOR);//"MOCK_JP_MINOR";
+    const string MOCK_JP_MINI = nameof(MOCK_JP_MINI);//"MOCK_JP_MINI";
 
 
 
@@ -512,6 +512,8 @@ public partial class MachineDataManager02
     void OnMockJackotGame(object req)
     {
 
+        MockJackpotResult jpType = (MockJackpotResult)req;
+
         int grandJPNow = PlayerPrefs.GetInt(MOCK_JP_GRAND, jpDefaults[0]);
         int megaJPNow = PlayerPrefs.GetInt(MOCK_JP_MEGA, jpDefaults[1]);
         int majorJPNow = PlayerPrefs.GetInt(MOCK_JP_MAJOR, jpDefaults[2]);
@@ -534,11 +536,11 @@ public partial class MachineDataManager02
             minorJPNow = minorJPNow == 0 ? jpDefaults[3] : minorJPNow;
             miniJPNow = miniJPNow == 0 ? jpDefaults[4] : miniJPNow;
 
-            grandJPNow += UnityEngine.Random.Range(10, jpDefaults[0] / 4);
-            megaJPNow += UnityEngine.Random.Range(10, jpDefaults[1] / 3);
-            majorJPNow += UnityEngine.Random.Range(10, jpDefaults[2] / 3);
-            minorJPNow += UnityEngine.Random.Range(10, jpDefaults[3] / 2);
-            miniJPNow += UnityEngine.Random.Range(10, jpDefaults[4] / 2);
+            grandJPNow += UnityEngine.Random.Range(10, 50);//jpDefaults[0] / 4);
+            megaJPNow += UnityEngine.Random.Range(10,  50);//jpDefaults[1] / 3);
+            majorJPNow += UnityEngine.Random.Range(10, 50);//jpDefaults[2] / 3);
+            minorJPNow += UnityEngine.Random.Range(10, 50);//jpDefaults[3] / 2);
+            miniJPNow += UnityEngine.Random.Range(10, 50);//jpDefaults[4] / 2);
 
             grandJPNow = grandJPNow > 2 * jpDefaults[0] ? jpDefaults[0] : grandJPNow;
             megaJPNow = megaJPNow > jpDefaults[0] ? jpDefaults[1] : megaJPNow;
@@ -546,9 +548,31 @@ public partial class MachineDataManager02
             minorJPNow = minorJPNow > jpDefaults[2] ? jpDefaults[3] : minorJPNow;
             miniJPNow = miniJPNow > jpDefaults[3] ? jpDefaults[4] : miniJPNow;
 
-
-            // int idx = UnityEngine.Random.Range(0, 10);
             int idx = 100; //不中彩金
+            switch (jpType)
+            {
+                case MockJackpotResult.None:
+                    idx = 100; //不中彩金
+                    break;
+                case MockJackpotResult.Random:
+                    idx = UnityEngine.Random.Range(0, 20); //随机彩金
+                    break;
+                case MockJackpotResult.Jp1:
+                    idx =0;  
+                    break;
+                case MockJackpotResult.Jp2:
+                    idx = 1; 
+                    break;
+                case MockJackpotResult.Jp3:
+                    idx = 2;
+                    break;
+                case MockJackpotResult.Jp4:
+                    idx = 3;
+                    break;
+                case MockJackpotResult.Jp5:
+                    idx = 4;
+                    break;
+            }
 
             isWinGrand = idx == 0;
             isWinMega = idx == 1;
@@ -557,11 +581,11 @@ public partial class MachineDataManager02
             isWinMini = idx == 4;
         }
 
-        List<JackpotWinInfo> jpWinLst = new List<JackpotWinInfo>();
+        Dictionary<int,JackpotWinInfo> jpWinDic = new Dictionary<int, JackpotWinInfo>();
 
         if (isWinGrand)
         {
-            jpWinLst.Add(new JackpotWinInfo()
+            jpWinDic.Add(0,new JackpotWinInfo()
             {
                 id = 0,
                 name = "Grand",
@@ -574,7 +598,7 @@ public partial class MachineDataManager02
 
         if (isWinMega)
         {
-            jpWinLst.Add(new JackpotWinInfo()
+            jpWinDic.Add(1,new JackpotWinInfo()
             {
                 id = 1,
                 name = "Mega",
@@ -587,7 +611,7 @@ public partial class MachineDataManager02
 
         if (isWinMajor)
         {
-            jpWinLst.Add(new JackpotWinInfo()
+            jpWinDic.Add(2,new JackpotWinInfo()
             {
                 id = 2,
                 name = "Major",
@@ -600,7 +624,7 @@ public partial class MachineDataManager02
 
         if (isWinMinor)
         {
-            jpWinLst.Add(new JackpotWinInfo()
+            jpWinDic.Add(3,new JackpotWinInfo()
             {
                 id = 3,
                 name = "Minor",
@@ -614,7 +638,7 @@ public partial class MachineDataManager02
 
         if (isWinMini)
         {
-            jpWinLst.Add(new JackpotWinInfo()
+            jpWinDic.Add(4, new JackpotWinInfo()
             {
                 id = 4,
                 name = "Mini",
@@ -625,19 +649,19 @@ public partial class MachineDataManager02
             miniJPNow = jpDefaults[4];
         }
 
-        JackpotRes res = new JackpotRes()
+        JackpotRes02 res = new JackpotRes02();
+        res.curJackpots = new Dictionary<int, float>()
         {
-            curJackpotGrand = grandJPNow,
-            curJackpotMega = megaJPNow,
-            curJackpotMajor = majorJPNow,
-            curJackpotMinior = minorJPNow,
-            curJackpotMini = miniJPNow,
-            jpWinLst = jpWinLst,
+            [0] = grandJPNow,
+            [1] = megaJPNow,
+            [2] = majorJPNow,
+            [3] = minorJPNow,
+            [4] = miniJPNow,
         };
-
+        res.jpWinDic = jpWinDic;
 
         PlayerPrefs.SetInt(MOCK_JP_GRAND, grandJPNow);
-        PlayerPrefs.SetInt(MOCK_JP_GRAND, megaJPNow);
+        PlayerPrefs.SetInt(MOCK_JP_MEGA, megaJPNow);
         PlayerPrefs.SetInt(MOCK_JP_MAJOR, majorJPNow);
         PlayerPrefs.SetInt(MOCK_JP_MINOR, minorJPNow);
         PlayerPrefs.SetInt(MOCK_JP_MINI, miniJPNow);
@@ -730,4 +754,16 @@ public partial class MachineDataManager02
     {
         EventCenter.Instance.EventTrigger(SBoxEventHandle.SBOX_SADNBOX_PRINTER_RESET, 0);
     }
+}
+
+
+public enum MockJackpotResult
+{
+    None,
+    Random,
+    Jp1,
+    Jp2,
+    Jp3,
+    Jp4,
+    Jp5,
 }

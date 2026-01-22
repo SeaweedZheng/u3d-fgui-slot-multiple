@@ -1,9 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1024,768">
   <displayList>
-    <component id="n0_mjx0" name="n0" src="mjx01dj" fileName="Components/BG1024_768.xml" xy="0,0">
+    <component id="n0_mjx0" name="bg" src="mjx01dj" fileName="Components/BG1024_768.xml" xy="0,0">
       <relation target="" sidePair="width-width,height-height"/>
     </component>
-    <component id="n3_mjx0" name="effect" src="mjx01ip" fileName="Moudules/Bonus1CoinDropEffect.xml" xy="0,0"/>
+    <component id="n4_9kn8" name="anchorBonus1Effect" src="9kn81ir" fileName="Moudules/PageGameMain/Anchors/AnchorBonus1Effect.xml" xy="511,383" touchable="false">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </component>
   </displayList>
 </component>

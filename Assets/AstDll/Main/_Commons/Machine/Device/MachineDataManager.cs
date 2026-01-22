@@ -93,7 +93,7 @@ public partial class MachineDataManager : MonoBehaviour //:MonoSingleton<Machine
         EventCenter.Instance.AddEventListener<SBoxAccount>(SBoxEventHandle.SBOX_GET_ACCOUNT, OnResponseGetPlayerInfo);
 
         // ==游戏彩金
-        EventCenter.Instance.AddEventListener<JackpotRes>(SBoxEventHandle.SBOX_JACKPOT_GAME, OnResponseJackpotGame);
+        EventCenter.Instance.AddEventListener<JackpotRes02>(SBoxEventHandle.SBOX_JACKPOT_GAME, OnResponseJackpotGame);
 
     }
 
@@ -129,7 +129,7 @@ public partial class MachineDataManager : MonoBehaviour //:MonoSingleton<Machine
 
 
         // ==游戏彩金
-        EventCenter.Instance.RemoveEventListener<JackpotRes>(SBoxEventHandle.SBOX_JACKPOT_GAME, OnResponseJackpotGame);
+        EventCenter.Instance.RemoveEventListener<JackpotRes02>(SBoxEventHandle.SBOX_JACKPOT_GAME, OnResponseJackpotGame);
 
     }
 
@@ -303,7 +303,7 @@ public partial class MachineDataManager : MonoBehaviour //:MonoSingleton<Machine
     /// <summary> 获取游戏彩金 </summary>
     public int RequestJackpotGame(Action<object> successCallback, Action<BagelCodeError> errorCallback)
         => severHelper.RequestData(SBoxEventHandle.SBOX_JACKPOT_GAME, null, successCallback, errorCallback);
-    void OnResponseJackpotGame(JackpotRes res) =>
+    void OnResponseJackpotGame(JackpotRes02 res) =>
         severHelper.OnSuccessResponseData(SBoxEventHandle.SBOX_JACKPOT_GAME, res);
 
 

@@ -150,10 +150,10 @@ namespace CoinPusherRichLegend2001001
         List<GComponent> lstPayTable;
         long TotalBet => (long)SBoxModel.Instance.CoinInScale; // ContentModel.Instance.totalBet
 
-        MiniReelGroup uiJPGrandCtrl = new MiniReelGroup();
-        MiniReelGroup uiJPMajorCtrl = new MiniReelGroup();
-        MiniReelGroup uiJPMinorCtrl = new MiniReelGroup();
-        MiniReelGroup uiJPMiniCtrl = new MiniReelGroup();
+        MiniReelGroup uiJP1Ctrl = new MiniReelGroup();
+        MiniReelGroup uiJP2Ctrl = new MiniReelGroup();
+        MiniReelGroup uiJP3Ctrl = new MiniReelGroup();
+        MiniReelGroup uiJPMegaCtrl = new MiniReelGroup();
 
 
         JSONNode nodeGameInfo;
@@ -165,8 +165,6 @@ namespace CoinPusherRichLegend2001001
             if (!isInit) return;
 
             if (!isOpen) return;
-
-
 
 
 
@@ -187,19 +185,40 @@ namespace CoinPusherRichLegend2001001
             winTipCtrl.InitParam(this.contentPane.GetChild("winTip").asCom, smConfig);
 
 
+
+
+            InitUIJackpotGame();
+
+            InitPanel();
+        }
+
+        public void InitUIJackpotGame()
+        {
+            //游戏彩金ui
+            uiJP1Ctrl.Init("JP1", this.contentPane.GetChild("jp1").asCom.GetChild("reels").asList, "N0", 16);
+            uiJP2Ctrl.Init("JP2", this.contentPane.GetChild("jp2").asCom.GetChild("reels").asList, "N0", 16);
+            uiJP3Ctrl.Init("JP3", this.contentPane.GetChild("jp3").asCom.GetChild("reels").asList, "N0", 16);
+            uiJPMegaCtrl.Init("JPMega", this.contentPane.GetChild("jp0").asCom.GetChild("reels").asList, "N0", 16);
+
+            uiJP1Ctrl.SetData(3000);
+            uiJP2Ctrl.SetData(2000);
+            uiJP3Ctrl.SetData(1000);
+            uiJPMegaCtrl.SetData(500);
+        }
+
+        public void InitPanel()
+        {
             MainModel.Instance.contentMD = ContentModel.Instance;
 
             lstPayTable = new List<GComponent>();
             ContentModel.Instance.goPayTableLst = lstPayTable.ToArray();
 
-
+            // 面板
             GComponent gOwnerPanel = this.contentPane.GetChild("anchorPanel").asCom;
             ContentModel.Instance.goAnchorPanel = gOwnerPanel;
             EventCenter.Instance.EventTrigger<EventData>(PanelEvent.ON_PANEL_EVENT,
                 new EventData<GComponent>(PanelEvent.AnchorPanelChange, gOwnerPanel));
         }
-
-
 
         void OnPanelInputEvent(EventData res)
         {

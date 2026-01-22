@@ -1,11 +1,13 @@
 using GameMaker;
 using Newtonsoft.Json;
+using PusherEmperorsRein;
 using SBoxApi;
 using SimpleJSON;
 using SlotMaker;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace CoinPusherRichLegend2001001
@@ -339,10 +341,9 @@ namespace CoinPusherRichLegend2001001
 
             #region 中游戏彩金
 
-            bool isHitJackpot = ContentModel.Instance.jpGameWinLst.Count > 0;
-            List<JackpotWinInfo> jpRes = ContentModel.Instance.jpGameWinLst;
-            List<float> jpCredit = ContentModel.Instance.jpGameWhenCreditLst;
-
+            bool isHitJackpot = ContentModel.Instance.jpGameWinDic.Count > 0;
+            Dictionary<int,JackpotWinInfo> jpRes = ContentModel.Instance.jpGameWinDic;
+            //List<float> jpCredit = ContentModel.Instance.jpGameWhenCreditLst;
 
             if (jpRes.Count > 0)
             {
@@ -355,8 +356,8 @@ namespace CoinPusherRichLegend2001001
                 yield return slotMachineCtrl.SlotWaitForSeconds(1.5f);
 
 
-                JackpotWinInfo jpWin = jpRes[0];
-                jpRes.RemoveAt(0);
+                JackpotWinInfo jpWin = jpRes.ElementAt(0).Value;
+                //jpRes.RemoveAt(0);
 
                 Action onJPPoolSubCredit = () =>
                 {
@@ -369,7 +370,7 @@ namespace CoinPusherRichLegend2001001
                 PageManager.Instance.OpenPageAsync(PageName.RichLegend2001001PopupJackpotGame,
                     new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
                     {
-                        ["jackpotType"] = jpWin.name,
+                        ["jackpotId"] = jpWin.id,
                         ["totalEarnCredit"] = jpWin.winCredit,
                         ["onJPPoolSubCredit"] = onJPPoolSubCredit,
                        // ["jpCredit"] = jpCredit,
@@ -482,6 +483,40 @@ namespace CoinPusherRichLegend2001001
 
 
 
+            // 中小游戏
+            if(ContentModel.Instance.bonusSymbolWin != null)
+            {
+
+                smConfig.SelectWinEffectSetting("bonus1");
+
+
+                slotMachineCtrl.SkipWinLine(true);
+                slotMachineCtrl.ShowSpecailSymbolWinBySetting(ContentModel.Instance.bonusSymbolWin, SymbolEffectType.SymbolHit);
+                yield return slotMachineCtrl.SlotWaitForSeconds(2.5f);
+
+                long earnCoins = (long)ContentModel.Instance.bonusSymbolWin.earnCredit;
+                allWinCredit += earnCoins;
+
+                //DebugUtils.LogError($"中游戏彩金数据： JackpotWinInfo = {JsonConvert.SerializeObject(jpWin)} ");
+                PageManager.Instance.OpenPageAsync(PageName.RichLegend2001001PageBonus1,
+                    new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
+                    {
+                        ["totalEarnCoins"] = earnCoins,
+                        //["onJPPoolSubCredit"] = onJPPoolSubCredit,
+                    }),
+                    (res) =>
+                    {
+                        isNext = true;
+                    });
+
+
+                yield return new WaitUntil(() => isNext == true);
+                isNext = false;
+
+                // 总线赢分（同步？？）
+                slotMachineCtrl.SendTotalWinCreditEvent(allWinCredit);
+
+            }
 
 
 
@@ -606,21 +641,31 @@ namespace CoinPusherRichLegend2001001
                 yield break;
             }
 
-
             if (isBreak) yield break;
 
 
-           // SBoxJackpotData sboxJackpotData = null;
-
-
-
-            /*
-
-            // 彩金数据
-            ERPushMachineDataManager02.Instance.RequestJackpotGame((res) =>
+            SBoxGameState gameState = (SBoxGameState)((int)resNode["gameState"]);
+            MockJackpotResult jpType = MockJackpotResult.None;
+            switch (gameState)
             {
-                JackpotRes info = res as JackpotRes;
-                ContentModel.Instance.jpAstBundle = info;
+                case SBoxGameState.GSJpMega:
+                    jpType = MockJackpotResult.Jp4;
+                    break;
+                case SBoxGameState.GSJp1:
+                    jpType = MockJackpotResult.Jp1;
+                    break;
+                case SBoxGameState.GSJp2:
+                    jpType = MockJackpotResult.Jp2;
+                    break;
+                case SBoxGameState.GSJp3:
+                    jpType = MockJackpotResult.Jp3;
+                    break;
+            }
+            JackpotRes02 jpGameRes = null;
+            MachineDataManager02.Instance.RequestJackpotGame(jpType, (res) =>
+            {
+                jpGameRes = (JackpotRes02)res;
+
                 isNext = true;
             }, (err) =>
             {
@@ -630,23 +675,26 @@ namespace CoinPusherRichLegend2001001
                 isBreak = true;
             });
 
-            */
 
+            yield return new WaitUntil(() => isNext == true);
+            isNext = false;
+
+            if (isBreak) yield break;
 
             // 解析数据
-            MockDataController2001001.Instance.ParseSlotSpin(totalBet, resNode);
+            MockDataController2001001.Instance.ParseSlotSpin(totalBet, resNode, jpGameRes);
 
-            /*
+        
             // 数据入库
-            MachineDataG200Controller.Instance.TestRecord();
+            //MachineDataG200Controller.Instance.TestRecord();
 
             // 游戏彩金滚轮
             SetUIJackpotGameReel();
 
 
             // 数据上报
-            MachineDataG200Controller.Instance.Report();
-            */
+            //MachineDataG200Controller.Instance.Report();
+     
 
             if (successCallback != null)
                 successCallback.Invoke();
@@ -657,26 +705,23 @@ namespace CoinPusherRichLegend2001001
 
         public void SetUIJackpotGameReel()
         {
-            JackpotRes info = ContentModel.Instance.jpGameRes;
+            JackpotRes02 info = ContentModel.Instance.jpGameRes;
 
-            ContentModel.Instance.uiGrandJP.nowCredit = uiJPGrandCtrl.nowData;
-            //ContentModel.Instance.uiMegaJP.nowCredit = uiJPMegaCtrl.nowData;
-            ContentModel.Instance.uiMajorJP.nowCredit = uiJPMajorCtrl.nowData;
-            ContentModel.Instance.uiMinorJP.nowCredit = uiJPMinorCtrl.nowData;
-            ContentModel.Instance.uiMiniJP.nowCredit = uiJPMiniCtrl.nowData;
+            ContentModel.Instance.uiJPGrand.nowCredit = uiJP1Ctrl.nowData;
+            ContentModel.Instance.uiJPMajor.nowCredit = uiJP2Ctrl.nowData;
+            ContentModel.Instance.uiJPMinor.nowCredit = uiJP3Ctrl.nowData;
+            ContentModel.Instance.uiJPMega101.nowCredit = uiJPMegaCtrl.nowData;
 
-            ContentModel.Instance.uiGrandJP.curCredit = info.curJackpotGrand;
-            //ContentModel.Instance.uiMegaJP.curCredit = info.curJackpotMega;
-            ContentModel.Instance.uiMajorJP.curCredit = info.curJackpotMajor;
-            ContentModel.Instance.uiMinorJP.curCredit = info.curJackpotMinior;
-            ContentModel.Instance.uiMiniJP.curCredit = info.curJackpotMini;
+            ContentModel.Instance.uiJPGrand.curCredit = info.GetCurJackpot(0);
+            ContentModel.Instance.uiJPMajor.curCredit = info.GetCurJackpot(1);
+            ContentModel.Instance.uiJPMinor.curCredit = info.GetCurJackpot(2);
+            ContentModel.Instance.uiJPMega101.curCredit = info.GetCurJackpot(3);
 
             // 游戏滚轮显示
-            uiJPGrandCtrl.SetData(ContentModel.Instance.jpGameWhenCreditLst[0]);
-            //uiJPMegaCtrl.SetData(ContentModel.Instance.jpGameWhenCreditLst[1]);
-            uiJPMajorCtrl.SetData(ContentModel.Instance.jpGameWhenCreditLst[1]);
-            uiJPMinorCtrl.SetData(ContentModel.Instance.jpGameWhenCreditLst[2]);
-            uiJPMiniCtrl.SetData(ContentModel.Instance.jpGameWhenCreditLst[3]);
+            uiJP1Ctrl.SetData(ContentModel.Instance.jpGameWhenCreditDic[0]);
+            uiJP2Ctrl.SetData(ContentModel.Instance.jpGameWhenCreditDic[1]);
+            uiJP3Ctrl.SetData(ContentModel.Instance.jpGameWhenCreditDic[2]);
+            uiJPMegaCtrl.SetData(ContentModel.Instance.jpGameWhenCreditDic[3]);
 
         }
 
@@ -764,6 +809,8 @@ namespace CoinPusherRichLegend2001001
         }
 
 
+
+
         private IEnumerator GameIdle(List<SymbolWin> winList)
         {
             if (winList.Count == 0)
@@ -779,20 +826,6 @@ namespace CoinPusherRichLegend2001001
         }
 
 
-        int GetJpSymbolNumber(JackpotWinInfo info)
-        {
-            switch (info.id)
-            {
-                case 0:
-                    return 10;
-                case 1:
-                    return 11;
-                case 2:
-                    return 12;
-                case 3:
-                    return 13;
-            }
-            return -1;
-        }
+
     }
 }

@@ -4,7 +4,6 @@
     <movieclip id="n3_ceou" name="clip" src="10cf011s" fileName="Images/PageGameMain/SymbolEffects/SymbolHit1/MVSymbolHit1.jta" xy="100,79" pivot="0.5,0.5" anchor="true" scale="0.58,0.58">
       <relation target="" sidePair="center-center,middle-middle"/>
     </movieclip>
-    <image id="n4_8amu" name="n4" src="j4eb6" fileName="Images/PageGameMain/Symbols/symbol1.png" xy="100,79" pivot="0.5,0.5" anchor="true" scale="0.58,0.58" visible="false"/>
   </displayList>
   <transition name="hit"/>
 </component>

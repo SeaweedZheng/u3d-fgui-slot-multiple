@@ -43,10 +43,10 @@ namespace SlotMaker
         //totalwin  >= totalbet *  100  =>  "ultra"
 
 
-        public JackpotInfo uiGrandJP { get; }
-        public JackpotInfo uiMajorJP { get; }
-        public JackpotInfo uiMinorJP { get; }
-        public JackpotInfo uiMiniJP { get; }
+        public UIJackpotInfo uiJPGrand { get; }
+        public UIJackpotInfo uiJPMajor { get; }
+        public UIJackpotInfo uiJPMinor { get; }
+        public UIJackpotInfo uiJPMini { get; }
 
     }
 

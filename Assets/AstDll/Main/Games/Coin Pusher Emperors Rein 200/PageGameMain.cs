@@ -3276,17 +3276,17 @@ namespace PusherEmperorsRein
         {
             JackpotRes info = ContentModel.Instance.jpGameRes;
 
-            ContentModel.Instance.uiGrandJP.nowCredit = uiJPGrandCtrl.nowData;
+            ContentModel.Instance.uiJPGrand.nowCredit = uiJPGrandCtrl.nowData;
             //ContentModel.Instance.uiMegaJP.nowCredit = uiJPMegaCtrl.nowData;
-            ContentModel.Instance.uiMajorJP.nowCredit = uiJPMajorCtrl.nowData;
-            ContentModel.Instance.uiMinorJP.nowCredit = uiJPMinorCtrl.nowData;
-            ContentModel.Instance.uiMiniJP.nowCredit = uiJPMiniCtrl.nowData;
+            ContentModel.Instance.uiJPMajor.nowCredit = uiJPMajorCtrl.nowData;
+            ContentModel.Instance.uiJPMinor.nowCredit = uiJPMinorCtrl.nowData;
+            ContentModel.Instance.uiJPMini.nowCredit = uiJPMiniCtrl.nowData;
 
-            ContentModel.Instance.uiGrandJP.curCredit = info.curJackpotGrand;
+            ContentModel.Instance.uiJPGrand.curCredit = info.curJackpotGrand;
             //ContentModel.Instance.uiMegaJP.curCredit = info.curJackpotMega;
-            ContentModel.Instance.uiMajorJP.curCredit = info.curJackpotMajor;
-            ContentModel.Instance.uiMinorJP.curCredit = info.curJackpotMinior;
-            ContentModel.Instance.uiMiniJP.curCredit = info.curJackpotMini;
+            ContentModel.Instance.uiJPMajor.curCredit = info.curJackpotMajor;
+            ContentModel.Instance.uiJPMinor.curCredit = info.curJackpotMinior;
+            ContentModel.Instance.uiJPMini.curCredit = info.curJackpotMini;
 
             // 游戏滚轮显示
             uiJPGrandCtrl.SetData(ContentModel.Instance.jpGameWhenCreditLst[0]);

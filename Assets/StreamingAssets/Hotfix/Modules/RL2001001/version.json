@@ -1,18 +1,18 @@
 {
   "name": "RL2001001",
-  "updated_at": 1769000569062,
+  "updated_at": 1769082748846,
   "hotfix_key": "hf_debug_android_20251216143338",
-  "hotfix_version": "1.0.90",
-  "hash": "d9cfa2c2f2babe2e1073d7345ba44e0a",
+  "hotfix_version": "1.0.115",
+  "hash": "9f2974b9e5b205a956c80c59c0c77349",
   "asset_bundle": {
     "manifest": {
-      "hash": "235db2d7c7bed19c48eed4025487c957",
-      "size_bytes": 7858
+      "hash": "fc2b5b12dcd961f7d04266869c872aa9",
+      "size_bytes": 8026
     },
     "bundles": {
       "games/coin pusher rich legend 2001001/abs/datas/slot_machine_config.unity3d": {
-        "hash": "348c6d57abff17860ed2f7083047a52b",
-        "size_bytes": 1614
+        "hash": "d43b2db25e6f507f64fa9fabdaefd976",
+        "size_bytes": 1630
       },
       "games/coin pusher rich legend 2001001/abs/mock/g2001001__slot_spin__0.unity3d": {
         "hash": "b7ac86a2ddc31e086a779591ff8089d5",
@@ -42,29 +42,53 @@
         "hash": "07016c44ca213b31faeebe1f7dcce07e",
         "size_bytes": 936
       },
+      "games/coin pusher rich legend 2001001/abs/mock/g2001001__slot_spin__bonus1.unity3d": {
+        "hash": "a57c44bf2b9886144663e12c859609d8",
+        "size_bytes": 945
+      },
       "games/coin pusher rich legend 2001001/abs/mock/g2001001__slot_spin__jp1.unity3d": {
-        "hash": "ec401cd47a78379a64b51b85568d6b86",
-        "size_bytes": 940
+        "hash": "61506c136640ecc81cb8d4d20453e4b7",
+        "size_bytes": 942
       },
       "games/coin pusher rich legend 2001001/abs/mock/g2001001__slot_spin__jp2.unity3d": {
-        "hash": "c83fc3c88f4589eeba5f5e5de2f52d9a",
-        "size_bytes": 939
-      },
-      "games/coin pusher rich legend 2001001/abs/mock/g2001001__slot_spin__jp3.unity3d": {
-        "hash": "5057336ff874d65f08707e1d9080298a",
-        "size_bytes": 943
-      },
-      "games/coin pusher rich legend 2001001/abs/mock/g2001001__slot_spin__jpmega.unity3d": {
-        "hash": "32969e3f8747deedd8019a05133b7f57",
+        "hash": "c8b2188aaac011fa7825de88d911426d",
         "size_bytes": 941
       },
+      "games/coin pusher rich legend 2001001/abs/mock/g2001001__slot_spin__jp3.unity3d": {
+        "hash": "29f0712bed4ca227d754d5b393c6b14c",
+        "size_bytes": 945
+      },
+      "games/coin pusher rich legend 2001001/abs/mock/g2001001__slot_spin__jpmega.unity3d": {
+        "hash": "d4fa3d526061c7fdd1293d2fb06c25cb",
+        "size_bytes": 944
+      },
       "games/coin pusher rich legend 2001001/fguis.unity3d": {
-        "hash": "fb8cc0aa70d20db8e4c603f673b51a9e",
-        "size_bytes": 57020351
+        "hash": "87019448fea1e723be3d3143b48da641",
+        "size_bytes": 60397130
       },
       "games/coin pusher rich legend 2001001/prefabs/game controller/game main controller.unity3d": {
-        "hash": "61e50b2cf2d34f56f92b661ab8f03542",
-        "size_bytes": 3908
+        "hash": "790ad674c927d6d2569ddd70c11d733a",
+        "size_bytes": 3919
+      },
+      "games/coin pusher rich legend 2001001/prefabs/page bonus 1/train.unity3d": {
+        "hash": "c0a4019570343a2ffe618202322e5c0a",
+        "size_bytes": 52801246
+      },
+      "games/coin pusher rich legend 2001001/prefabs/popup jackpot game/pop fg jp 1.unity3d": {
+        "hash": "a10eed68758367772a75c0fc43e458b3",
+        "size_bytes": 634914
+      },
+      "games/coin pusher rich legend 2001001/prefabs/popup jackpot game/pop fg jp 2.unity3d": {
+        "hash": "cc3c23002aaf3073e093f19b83f68f4c",
+        "size_bytes": 589883
+      },
+      "games/coin pusher rich legend 2001001/prefabs/popup jackpot game/pop fg jp 3.unity3d": {
+        "hash": "a2d0a20bdb0017b5b3f9bbb4cf12207b",
+        "size_bytes": 622551
+      },
+      "games/coin pusher rich legend 2001001/prefabs/popup jackpot game/pop fg jp mega.unity3d": {
+        "hash": "8d7c2e09211e055394b77cb75609262d",
+        "size_bytes": 535928
       }
     }
   },
@@ -72,8 +96,8 @@
   "asset_dll": {},
   "dependencies": {
     "Main": {
-      "hash": "84163d1b726412de63ac863cd817f91e",
-      "hotfix_version": "1.0.90"
+      "hash": "9dbbcb13d8af325df3697f2ed4122ba8",
+      "hotfix_version": "1.0.115"
     }
   }
 }

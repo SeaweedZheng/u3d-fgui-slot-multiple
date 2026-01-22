@@ -160,7 +160,7 @@ namespace CoinPusherRichLegend2001001
 
         JSONArray nodeLines;
 
-        const int miniNumber = 1;
+        const int miniNumber = 0;
         const int MaxNumber = 13;
 
 

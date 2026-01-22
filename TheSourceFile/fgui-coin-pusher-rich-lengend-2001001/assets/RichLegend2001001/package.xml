@@ -1301,6 +1301,77 @@
     <movieclip id="mjx01in" name="MvCoinDropIdle.jta" path="/Images/PageGameMain/Bonus1CoinDropIdleEffect/" atlas="7"/>
     <movieclip id="mjx01io" name="MVCoinDropStart.jta" path="/Images/PageGameMain/Bonus1CoinDropStartEffect/" atlas="8"/>
     <component id="mjx01ip" name="Bonus1CoinDropEffect.xml" path="/Moudules/"/>
+    <component id="9kn81iq" name="AnchorPopFGJP.xml" path="/Moudules/PageGameMain/Anchors/"/>
+    <component id="9kn81ir" name="AnchorBonus1Effect.xml" path="/Moudules/PageGameMain/Anchors/"/>
+    <image id="9kn81jl" name="ng_HP_Fuweng-win_066.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81jm" name="ng_HP_Fuweng-win_065.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81jo" name="ng_HP_Fuweng-win_064.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81kn" name="ng_HP_Fuweng-win_063.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81ko" name="ng_HP_Fuweng-win_061.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81kp" name="ng_HP_Fuweng-win_028.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81kq" name="ng_HP_Fuweng-win_027.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81kr" name="ng_HP_Fuweng-win_026.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81ks" name="ng_HP_Fuweng-win_025.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81kt" name="ng_HP_Fuweng-win_024.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81ku" name="ng_HP_Fuweng-win_023.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81kv" name="ng_HP_Fuweng-win_022.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81kw" name="ng_HP_Fuweng-win_021.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81kx" name="ng_HP_Fuweng-win_020.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81kz" name="ng_HP_Fuweng-win_019.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81l0" name="ng_HP_Fuweng-win_018.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81l1" name="ng_HP_Fuweng-win_017.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81l2" name="ng_HP_Fuweng-win_016.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81l3" name="ng_HP_Fuweng-win_029.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81l4" name="ng_HP_Fuweng-win_015.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81l5" name="ng_HP_Fuweng-win_013.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81l6" name="ng_HP_Fuweng-win_012.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81l7" name="ng_HP_Fuweng-win_011.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81l8" name="ng_HP_Fuweng-win_010.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81l9" name="ng_HP_Fuweng-win_009.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81la" name="ng_HP_Fuweng-win_008.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lb" name="ng_HP_Fuweng-win_007.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lc" name="ng_HP_Fuweng-win_006.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81ld" name="ng_HP_Fuweng-win_005.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81le" name="ng_HP_Fuweng-win_004.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lf" name="ng_HP_Fuweng-win_003.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lg" name="ng_HP_Fuweng-win_002.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lh" name="ng_HP_Fuweng-win_001.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81li" name="ng_HP_Fuweng-win_000.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lj" name="ng_HP_Fuweng-win_014.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lk" name="ng_HP_Fuweng-win_062.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81ll" name="ng_HP_Fuweng-win_030.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lm" name="ng_HP_Fuweng-win_032.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81ln" name="ng_HP_Fuweng-win_060.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lp" name="ng_HP_Fuweng-win_059.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lq" name="ng_HP_Fuweng-win_058.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lr" name="ng_HP_Fuweng-win_057.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81ls" name="ng_HP_Fuweng-win_056.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lt" name="ng_HP_Fuweng-win_055.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lu" name="ng_HP_Fuweng-win_054.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lv" name="ng_HP_Fuweng-win_053.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lw" name="ng_HP_Fuweng-win_052.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lx" name="ng_HP_Fuweng-win_051.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81ly" name="ng_HP_Fuweng-win_050.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81lz" name="ng_HP_Fuweng-win_049.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81m0" name="ng_HP_Fuweng-win_048.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81m1" name="ng_HP_Fuweng-win_031.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81m2" name="ng_HP_Fuweng-win_047.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81m3" name="ng_HP_Fuweng-win_045.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81m4" name="ng_HP_Fuweng-win_044.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81m5" name="ng_HP_Fuweng-win_043.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81m6" name="ng_HP_Fuweng-win_042.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81m7" name="ng_HP_Fuweng-win_041.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81m8" name="ng_HP_Fuweng-win_040.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81ma" name="ng_HP_Fuweng-win_039.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81mb" name="ng_HP_Fuweng-win_038.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81mc" name="ng_HP_Fuweng-win_037.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81md" name="ng_HP_Fuweng-win_036.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81me" name="ng_HP_Fuweng-win_035.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81mf" name="ng_HP_Fuweng-win_034.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81mg" name="ng_HP_Fuweng-win_033.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <image id="9kn81mh" name="ng_HP_Fuweng-win_046.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <movieclip id="9kn81mj" name="MVSymbolHit0.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/" atlas="4"/>
+    <component id="9kn81mk" name="SymbolHit0.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
   </resources>
   <publish name="" path="../../Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/FGUIs" packageCount="2" maxAtlasSize="8192"/>
 </packageDescription>

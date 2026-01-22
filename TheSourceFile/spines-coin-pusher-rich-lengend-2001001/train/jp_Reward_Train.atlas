@@ -1,0 +1,818 @@
+
+jp_Reward_Train.png
+size: 8192, 8192
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+112
+  rotate: false
+  xy: 2802, 7209
+  size: 154, 185
+  orig: 163, 200
+  offset: 4, 9
+  index: -1
+113
+  rotate: false
+  xy: 6987, 7243
+  size: 103, 165
+  orig: 118, 200
+  offset: 9, 19
+  index: -1
+Radial_001_tex
+  rotate: false
+  xy: 2802, 7079
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+Sparks_002_tex
+  rotate: false
+  xy: 6987, 7113
+  size: 128, 128
+  orig: 128, 128
+  offset: 0, 0
+  index: -1
+bg_huoche_bg_4
+  rotate: false
+  xy: 1050, 7396
+  size: 1980, 768
+  orig: 1980, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_10
+  rotate: false
+  xy: 7652, 3701
+  size: 404, 225
+  orig: 1024, 768
+  offset: 271, 463
+  index: -1
+gold3/coin_11
+  rotate: false
+  xy: 3568, 2702
+  size: 420, 239
+  orig: 1024, 768
+  offset: 260, 463
+  index: -1
+gold3/coin_12
+  rotate: false
+  xy: 464, 4164
+  size: 436, 250
+  orig: 1024, 768
+  offset: 249, 463
+  index: -1
+gold3/coin_13
+  rotate: false
+  xy: 2, 4156
+  size: 460, 258
+  orig: 1024, 768
+  offset: 237, 464
+  index: -1
+gold3/coin_14
+  rotate: false
+  xy: 1028, 4890
+  size: 482, 264
+  orig: 1024, 768
+  offset: 222, 464
+  index: -1
+gold3/coin_15
+  rotate: false
+  xy: 5558, 2669
+  size: 506, 277
+  orig: 1024, 768
+  offset: 206, 454
+  index: -1
+gold3/coin_16
+  rotate: false
+  xy: 2277, 2641
+  size: 531, 305
+  orig: 1024, 768
+  offset: 191, 425
+  index: -1
+gold3/coin_17
+  rotate: false
+  xy: 1724, 2611
+  size: 551, 335
+  orig: 1024, 768
+  offset: 177, 391
+  index: -1
+gold3/coin_18
+  rotate: false
+  xy: 2981, 2583
+  size: 585, 364
+  orig: 1024, 768
+  offset: 161, 353
+  index: -1
+gold3/coin_19
+  rotate: true
+  xy: 7652, 3928
+  size: 621, 408
+  orig: 1024, 768
+  offset: 145, 310
+  index: -1
+gold3/coin_2
+  rotate: false
+  xy: 749, 7187
+  size: 262, 109
+  orig: 1024, 768
+  offset: 362, 463
+  index: -1
+gold3/coin_20
+  rotate: true
+  xy: 7652, 4551
+  size: 658, 469
+  orig: 1024, 768
+  offset: 128, 261
+  index: -1
+gold3/coin_21
+  rotate: true
+  xy: 7605, 5211
+  size: 698, 533
+  orig: 1024, 768
+  offset: 110, 207
+  index: -1
+gold3/coin_22
+  rotate: false
+  xy: 4817, 2567
+  size: 739, 589
+  orig: 1024, 768
+  offset: 91, 148
+  index: -1
+gold3/coin_23
+  rotate: true
+  xy: 7512, 2909
+  size: 783, 652
+  orig: 1024, 768
+  offset: 70, 82
+  index: -1
+gold3/coin_24
+  rotate: false
+  xy: 889, 2666
+  size: 833, 729
+  orig: 1024, 768
+  offset: 45, 6
+  index: -1
+gold3/coin_25
+  rotate: false
+  xy: 2, 2677
+  size: 885, 739
+  orig: 1024, 768
+  offset: 19, 0
+  index: -1
+gold3/coin_26
+  rotate: false
+  xy: 2981, 2949
+  size: 931, 742
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_27
+  rotate: false
+  xy: 2019, 2948
+  size: 960, 744
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_28
+  rotate: true
+  xy: 4850, 3158
+  size: 990, 742
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_29
+  rotate: true
+  xy: 3828, 5355
+  size: 1023, 744
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_3
+  rotate: true
+  xy: 6859, 7112
+  size: 296, 126
+  orig: 1024, 768
+  offset: 338, 462
+  index: -1
+gold3/coin_30
+  rotate: false
+  xy: 3914, 2943
+  size: 901, 748
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_31
+  rotate: false
+  xy: 6564, 2943
+  size: 946, 749
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_32
+  rotate: false
+  xy: 5594, 2948
+  size: 968, 746
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_33
+  rotate: false
+  xy: 1028, 3397
+  size: 989, 745
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_34
+  rotate: true
+  xy: 4852, 4150
+  size: 1011, 743
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_35
+  rotate: false
+  xy: 6626, 3694
+  size: 1024, 730
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_36
+  rotate: false
+  xy: 2786, 3694
+  size: 1024, 725
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_37
+  rotate: false
+  xy: 2, 3418
+  size: 1024, 724
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_38
+  rotate: false
+  xy: 3825, 3693
+  size: 1024, 727
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_39
+  rotate: false
+  xy: 2, 4416
+  size: 1024, 738
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_4
+  rotate: false
+  xy: 4159, 5204
+  size: 315, 149
+  orig: 1024, 768
+  offset: 328, 464
+  index: -1
+gold3/coin_40
+  rotate: false
+  xy: 749, 5899
+  size: 1024, 745
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_41
+  rotate: false
+  xy: 2802, 5905
+  size: 1024, 745
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_42
+  rotate: false
+  xy: 4807, 5907
+  size: 1024, 745
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_43
+  rotate: true
+  xy: 5833, 5359
+  size: 1024, 744
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_44
+  rotate: false
+  xy: 3827, 4422
+  size: 1024, 739
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_45
+  rotate: true
+  xy: 2, 5246
+  size: 1024, 743
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_46
+  rotate: true
+  xy: 4057, 6379
+  size: 1024, 748
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_47
+  rotate: false
+  xy: 3032, 6652
+  size: 1024, 750
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_48
+  rotate: false
+  xy: 2799, 4421
+  size: 1024, 738
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_49
+  rotate: false
+  xy: 1773, 4881
+  size: 1024, 741
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_5
+  rotate: false
+  xy: 3827, 5196
+  size: 330, 157
+  orig: 1024, 768
+  offset: 317, 464
+  index: -1
+gold3/coin_50
+  rotate: true
+  xy: 2053, 3855
+  size: 1024, 731
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_51
+  rotate: false
+  xy: 5597, 3696
+  size: 1024, 727
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_52
+  rotate: false
+  xy: 1028, 4144
+  size: 1024, 735
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_53
+  rotate: false
+  xy: 5600, 4425
+  size: 1024, 740
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_54
+  rotate: false
+  xy: 747, 5156
+  size: 1024, 741
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_55
+  rotate: false
+  xy: 6626, 4426
+  size: 1024, 739
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_56
+  rotate: false
+  xy: 1775, 5624
+  size: 1024, 744
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_57
+  rotate: false
+  xy: 5084, 6654
+  size: 1024, 750
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_58
+  rotate: false
+  xy: 2, 7298
+  size: 1024, 753
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_59
+  rotate: false
+  xy: 7136, 6658
+  size: 1024, 751
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_6
+  rotate: false
+  xy: 5965, 5193
+  size: 343, 164
+  orig: 1024, 768
+  offset: 308, 463
+  index: -1
+gold3/coin_60
+  rotate: true
+  xy: 6109, 6384
+  size: 1024, 748
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_61
+  rotate: false
+  xy: 2801, 5161
+  size: 1024, 742
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_62
+  rotate: false
+  xy: 4574, 5163
+  size: 1024, 742
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_63
+  rotate: false
+  xy: 6859, 5911
+  size: 1024, 745
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_64
+  rotate: true
+  xy: 2, 6272
+  size: 1024, 745
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_65
+  rotate: false
+  xy: 6579, 5167
+  size: 1024, 742
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_66
+  rotate: true
+  xy: 2053, 6370
+  size: 1024, 747
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_67
+  rotate: false
+  xy: 6110, 7410
+  size: 1024, 754
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_68
+  rotate: false
+  xy: 4058, 7405
+  size: 1024, 759
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_69
+  rotate: false
+  xy: 3032, 7404
+  size: 1024, 760
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_7
+  rotate: false
+  xy: 5600, 5187
+  size: 363, 170
+  orig: 1024, 768
+  offset: 299, 464
+  index: -1
+gold3/coin_70
+  rotate: false
+  xy: 5084, 7406
+  size: 1024, 758
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_71
+  rotate: false
+  xy: 7136, 7411
+  size: 1024, 753
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_72
+  rotate: false
+  xy: 1028, 6646
+  size: 1024, 748
+  orig: 1024, 768
+  offset: 0, 0
+  index: -1
+gold3/coin_8
+  rotate: false
+  xy: 4382, 2751
+  size: 377, 190
+  orig: 1024, 768
+  offset: 290, 464
+  index: -1
+gold3/coin_9
+  rotate: false
+  xy: 3990, 2727
+  size: 390, 214
+  orig: 1024, 768
+  offset: 281, 459
+  index: -1
+huoche_1
+  rotate: false
+  xy: 862, 6953
+  size: 111, 107
+  orig: 111, 109
+  offset: 0, 2
+  index: -1
+huoche_10
+  rotate: false
+  xy: 4912, 6863
+  size: 101, 87
+  orig: 102, 88
+  offset: 1, 0
+  index: -1
+huoche_11
+  rotate: false
+  xy: 749, 6829
+  size: 94, 90
+  orig: 95, 91
+  offset: 1, 1
+  index: -1
+huoche_12
+  rotate: false
+  xy: 749, 6829
+  size: 94, 90
+  orig: 95, 91
+  offset: 1, 1
+  index: -1
+huoche_13
+  rotate: false
+  xy: 749, 6829
+  size: 94, 90
+  orig: 95, 91
+  offset: 1, 1
+  index: -1
+huoche_14
+  rotate: false
+  xy: 2932, 7126
+  size: 88, 81
+  orig: 88, 82
+  offset: 0, 1
+  index: -1
+huoche_15
+  rotate: false
+  xy: 7031, 7044
+  size: 93, 67
+  orig: 93, 67
+  offset: 0, 0
+  index: -1
+huoche_16
+  rotate: false
+  xy: 7031, 7044
+  size: 93, 67
+  orig: 93, 67
+  offset: 0, 0
+  index: -1
+huoche_17
+  rotate: false
+  xy: 7031, 7044
+  size: 93, 67
+  orig: 93, 67
+  offset: 0, 0
+  index: -1
+huoche_18
+  rotate: false
+  xy: 7031, 7044
+  size: 93, 67
+  orig: 93, 67
+  offset: 0, 0
+  index: -1
+huoche_19
+  rotate: false
+  xy: 7031, 7044
+  size: 93, 67
+  orig: 93, 67
+  offset: 0, 0
+  index: -1
+huoche_20
+  rotate: false
+  xy: 7031, 7044
+  size: 93, 67
+  orig: 93, 67
+  offset: 0, 0
+  index: -1
+huoche_21
+  rotate: false
+  xy: 7031, 7044
+  size: 93, 67
+  orig: 93, 67
+  offset: 0, 0
+  index: -1
+huoche_22
+  rotate: false
+  xy: 7031, 7044
+  size: 93, 67
+  orig: 93, 67
+  offset: 0, 0
+  index: -1
+huoche_23
+  rotate: false
+  xy: 7031, 7044
+  size: 93, 67
+  orig: 93, 67
+  offset: 0, 0
+  index: -1
+huoche_24
+  rotate: false
+  xy: 7031, 7044
+  size: 93, 67
+  orig: 93, 67
+  offset: 0, 0
+  index: -1
+huoche_25
+  rotate: false
+  xy: 7031, 7044
+  size: 93, 67
+  orig: 93, 67
+  offset: 0, 0
+  index: -1
+huoche_1_2
+  rotate: false
+  xy: 4807, 6884
+  size: 103, 103
+  orig: 103, 103
+  offset: 0, 0
+  index: -1
+huoche_2
+  rotate: false
+  xy: 6859, 6915
+  size: 109, 108
+  orig: 109, 108
+  offset: 0, 0
+  index: -1
+huoche_26
+  rotate: false
+  xy: 454, 8063
+  size: 430, 101
+  orig: 430, 101
+  offset: 0, 0
+  index: -1
+huoche_2_2
+  rotate: false
+  xy: 862, 6848
+  size: 102, 103
+  orig: 102, 103
+  offset: 0, 0
+  index: -1
+huoche_3
+  rotate: false
+  xy: 6970, 6916
+  size: 110, 107
+  orig: 110, 107
+  offset: 0, 0
+  index: -1
+huoche_4
+  rotate: false
+  xy: 2955, 6843
+  size: 75, 185
+  orig: 75, 185
+  offset: 0, 0
+  index: -1
+huoche_5
+  rotate: false
+  xy: 886, 8056
+  size: 101, 93
+  orig: 101, 93
+  offset: 0, 0
+  index: -1
+huoche_6
+  rotate: false
+  xy: 6066, 2660
+  size: 489, 286
+  orig: 489, 286
+  offset: 0, 0
+  index: -1
+huoche_8
+  rotate: false
+  xy: 749, 7062
+  size: 230, 123
+  orig: 294, 166
+  offset: 46, 22
+  index: -1
+huoche_9
+  rotate: false
+  xy: 2, 8053
+  size: 450, 111
+  orig: 472, 131
+  offset: 9, 4
+  index: -1
+laohan/LaoTou_1
+  rotate: false
+  xy: 6970, 6790
+  size: 145, 124
+  orig: 180, 161
+  offset: 28, 25
+  index: -1
+laohan/LaoTou_2
+  rotate: false
+  xy: 2802, 6888
+  size: 160, 73
+  orig: 160, 73
+  offset: 0, 0
+  index: -1
+laohan/LaoTou_3
+  rotate: false
+  xy: 749, 6921
+  size: 111, 139
+  orig: 111, 139
+  offset: 0, 0
+  index: -1
+laohan/LaoTou_4
+  rotate: false
+  xy: 4807, 7144
+  size: 212, 259
+  orig: 212, 259
+  offset: 0, 0
+  index: -1
+laohan/LaoTou_5
+  rotate: false
+  xy: 4842, 6952
+  size: 171, 196
+  orig: 171, 196
+  offset: 0, 0
+  index: -1
+laohan/LaoTou_6
+  rotate: false
+  xy: 4926, 7087
+  size: 156, 187
+  orig: 156, 187
+  offset: 0, 0
+  index: -1
+laohan/LaoTou_7
+  rotate: false
+  xy: 2855, 6963
+  size: 175, 159
+  orig: 175, 159
+  offset: 0, 0
+  index: -1
+laohan/LaoTou_8
+  rotate: false
+  xy: 6859, 6803
+  size: 141, 110
+  orig: 141, 110
+  offset: 0, 0
+  index: -1
+laohan/LaoTou_9
+  rotate: false
+  xy: 6859, 7025
+  size: 170, 85
+  orig: 170, 85
+  offset: 0, 0
+  index: -1
+shadow1
+  rotate: false
+  xy: 886, 8151
+  size: 144, 13
+  orig: 144, 14
+  offset: 0, 1
+  index: -1
+shadow2
+  rotate: true
+  xy: 1032, 8090
+  size: 74, 16
+  orig: 77, 17
+  offset: 2, 1
+  index: -1
+tg1
+  rotate: false
+  xy: 2802, 6839
+  size: 132, 47
+  orig: 132, 47
+  offset: 0, 0
+  index: -1
+tg2
+  rotate: false
+  xy: 2958, 7233
+  size: 66, 161
+  orig: 66, 163
+  offset: 0, 0
+  index: -1

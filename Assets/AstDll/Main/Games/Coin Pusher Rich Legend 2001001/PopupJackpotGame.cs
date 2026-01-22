@@ -16,7 +16,7 @@ namespace CoinPusherRichLegend2001001
 
             base.OnInit();
 
-            int count = 1;
+            int count = 4;
 
             Action callback = () =>
             {
@@ -27,6 +27,37 @@ namespace CoinPusherRichLegend2001001
                 }
             };
 
+            ResourceManager02.Instance.LoadAsset<GameObject>(
+                "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/Prefabs/Popup Jackpot Game/Pop FG JP 1.prefab",
+                (clone) => {
+                    goFgJP1Clone = clone;
+                    //goFgJP1 = GameObject.Instantiate(goFgJP1Clone);
+                    callback();
+                });
+
+            ResourceManager02.Instance.LoadAsset<GameObject>(
+                "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/Prefabs/Popup Jackpot Game/Pop FG JP 2.prefab",
+                (clone) => {
+                    goFgJP2Clone = clone;
+                    //goFgJP2 = GameObject.Instantiate(goFgJP2Clone);
+                    callback();
+                });
+
+            ResourceManager02.Instance.LoadAsset<GameObject>(
+                "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/Prefabs/Popup Jackpot Game/Pop FG JP 3.prefab",
+                (clone) => {
+                    goFgJP3Clone = clone;
+                    //goFgJP3 = GameObject.Instantiate(goFgJP3Clone);
+                    callback();
+                });
+
+            ResourceManager02.Instance.LoadAsset<GameObject>(
+                "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/Prefabs/Popup Jackpot Game/Pop FG JP Mega.prefab",
+                (clone) => {
+                    goFgJPMegaClone = clone;
+                    //goFgJPMega = GameObject.Instantiate(goFgJPMegaClone);
+                    callback();
+                });
             // 异步加载资源
 
             callback();
@@ -34,8 +65,17 @@ namespace CoinPusherRichLegend2001001
         }
 
 
+        GameObject goFgJP1Clone, goFgJP2Clone, goFgJP3Clone, goFgJPMegaClone;
+
+        GameObject goFgJP1, goFgJP2, goFgJP3, goFgJPMega;
+
+
+
         GTextField gtxtNumber;
         GComponent goAnchorJackpot;
+
+
+        GComponent curAnchorJackpot;
         public override void OnOpen(PageName name, EventData data)
         {
             base.OnOpen(name, data);
@@ -81,9 +121,28 @@ namespace CoinPusherRichLegend2001001
                     DoTaskShowNumberEnd();
                 }
 
-                if (argDic.TryGetValue("jackpotType", out var jackpotTypeVal) && jackpotTypeVal is int jackpotType)
+                if (argDic.TryGetValue("jackpotId", out var jackpotIdVal) && jackpotIdVal is int jackpotId)
                 {
-         
+                    if (curAnchorJackpot != null)  
+                        GameCommon.FguiUtils.DeleteWrapper(curAnchorJackpot);
+                    
+                    curAnchorJackpot =  gOwner.GetChild("fg").asCom.GetChild("anchorJackpot").asCom;
+                    switch (jackpotId)
+                    {
+                        case 0:
+                            GameCommon.FguiUtils.AddWrapper(curAnchorJackpot, GameObject.Instantiate(goFgJP1Clone));
+                            // ameCommon.FguiUtils.AddWrapper(curAnchorJackpot, goFgJP1);  // 有bug
+                            break;
+                        case 1:
+                            GameCommon.FguiUtils.AddWrapper(curAnchorJackpot, GameObject.Instantiate(goFgJP2Clone));
+                            break;
+                        case 2:
+                            GameCommon.FguiUtils.AddWrapper(curAnchorJackpot, GameObject.Instantiate(goFgJP3Clone));
+                            break;
+                        case 3:
+                            GameCommon.FguiUtils.AddWrapper(curAnchorJackpot, GameObject.Instantiate(goFgJPMegaClone));
+                            break;
+                    }
                 }
 
 

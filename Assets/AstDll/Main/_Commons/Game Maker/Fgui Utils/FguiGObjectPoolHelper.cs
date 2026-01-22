@@ -27,8 +27,8 @@ public class FguiGObjectPoolHelper : MonoSingleton<FguiGObjectPoolHelper>
     public GObject GetObject(string url) => GetObject(url, TagPoolGObject.Default, "");
     public GObject GetObject(string url, TagPoolGObject tag, string mask)
     {
-        DebugUtils.Log(url);
-        DebugUtils.Log(pool);
+        //DebugUtils.Log(url);
+        //DebugUtils.Log(pool);
         GObject obj = pool.GetObject(url);
 
         obj.data = string.IsNullOrEmpty(mask)? $"{tgPrefix}:{(int)tag}#" : $"{tgPrefix}:{(int)tag}#{mask}#";

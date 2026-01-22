@@ -6,7 +6,6 @@ using UnityEngine;
 using SlotMaker;
 using Newtonsoft.Json;
 using Sirenix.OdinInspector;
-using System;
 
 namespace CoinPusherRichLegend2001001
 {
@@ -313,123 +312,137 @@ namespace CoinPusherRichLegend2001001
         #region Jackpot 参数
 
         [SerializeField]
-        JackpotInfo m_UIGrandJP = new JackpotInfo()
+        UIJackpotInfo m_UIJPGrand = new UIJackpotInfo()
         {
-            name = "JPGrand",
+            name = "JP1",
             id = 0,
             nowCredit = 69000,
             curCredit = 69204,
             maxCredit = 11100000,
             minCredit = 0,
         };
-        public JackpotInfo uiGrandJP
+        public UIJackpotInfo uiJPGrand
         {
-            get => m_UIGrandJP;
-            set => m_UIGrandJP = value;
+            get => m_UIJPGrand;
+            set => m_UIJPGrand = value;
         }
 
 
+
         [SerializeField]
-        JackpotInfo m_UIMegaJP = new JackpotInfo()
+        UIJackpotInfo m_UIJPMajor = new UIJackpotInfo()
         {
-            name = "JPMega",
+            name = "JP2",
             id = 1,
             nowCredit = 15000,
             curCredit = 15134,
             maxCredit = 2500000,
             minCredit = 0,
         };
-        public JackpotInfo uiMegaJP
+        public UIJackpotInfo uiJPMajor
         {
-            get => m_UIMegaJP;
-            set => m_UIMegaJP = value;
+            get => m_UIJPMajor;
+            set => m_UIJPMajor = value;
         }
 
 
 
 
         [SerializeField]
-        JackpotInfo m_UIMajorJP = new JackpotInfo()
+        UIJackpotInfo m_UIJPMinor = new UIJackpotInfo()
         {
-            name = "JPMajor",
-            id = 1,
-            nowCredit = 15000,
-            curCredit = 15134,
-            maxCredit = 2500000,
-            minCredit = 0,
-        };
-        public JackpotInfo uiMajorJP
-        {
-            get => m_UIMajorJP;
-            set => m_UIMajorJP = value;
-        }
-
-
-        [SerializeField]
-        JackpotInfo m_UIMinorJP = new JackpotInfo()
-        {
-            name = "JPMinor",
+            name = "JP3",
             id = 2,
             nowCredit = 240000,
             curCredit = 244073,
             maxCredit = 300000,
             minCredit = 0,
         };
-        public JackpotInfo uiMinorJP
+        public UIJackpotInfo uiJPMinor
         {
-            get => m_UIMinorJP;
-            set => m_UIMinorJP = value;
+            get => m_UIJPMinor;
+            set => m_UIJPMinor = value;
         }
+
+        [SerializeField]
+        UIJackpotInfo m_UIJPMini = new UIJackpotInfo()
+        {
+            name = "JP4",
+            id = 3,
+            nowCredit = 240000,
+            curCredit = 244073,
+            maxCredit = 300000,
+            minCredit = 0,
+        };
+        public UIJackpotInfo uiJPMini
+        {
+            get => m_UIJPMini;
+            set => m_UIJPMini = value;
+        }
+
+
 
 
         [SerializeField]
-        JackpotInfo m_UIMiniJP = new JackpotInfo()
+        UIJackpotInfo m_UIJPMega101 = new UIJackpotInfo()
         {
-            name = "JPMini",
+            name = "JPMega",
             id = 3,
-            nowCredit = 10000,
-            curCredit = 10581,
-            maxCredit = 30000,
+            nowCredit = 15000,
+            curCredit = 15134,
+            maxCredit = 2500000,
             minCredit = 0,
         };
-        public JackpotInfo uiMiniJP
+        public UIJackpotInfo uiJPMega101
         {
-            get => m_UIMiniJP;
-            set => m_UIMiniJP = value;
+            get => m_UIJPMega101;
+            set => m_UIJPMega101 = value;
         }
 
+
+
+
+
+
+
         /// <summary> 本局彩金结果 </summary>
-        public JackpotRes jpGameRes;
+        public JackpotRes02 jpGameRes;
 
         /// <summary> 游戏彩金中奖数据 </summary>
-        public List<JackpotWinInfo> jpGameWinLst => jpGameRes.jpWinLst;
+        //public List<JackpotWinInfo> jpGameWinLst => jpGameRes.jpWinLst;
+
+        public Dictionary<int,JackpotWinInfo> jpGameWinDic => jpGameRes.jpWinDic;
 
         public bool isHitJpGame3JpGame4 = false;
         public bool isHitJpGame1JpGame2 = false;
 
         /// <summary> 中奖前的彩金值 </summary>
-        public List<float> jpGameWhenCreditLst
+        public Dictionary<int,float> jpGameWhenCreditDic
         {
             get
             {
-                List<float>  jps = new List<float>()
+                Dictionary<int, float> dic = new Dictionary<int, float>();
+                foreach (KeyValuePair<int, JackpotWinInfo> item in jpGameRes.jpWinDic)
                 {
-                    jpGameRes.curJackpotGrand,
-                    jpGameRes.curJackpotMajor,
-                    jpGameRes.curJackpotMinior,
-                    jpGameRes.curJackpotMini,
-                };
-                foreach (JackpotWinInfo item  in jpGameRes.jpWinLst)
-                {
-                    jps[item.id] = item.whenCredit;
+                    dic.Add(item.Key, item.Value.whenCredit);
                 }
-                return jps;
+
+                foreach (KeyValuePair<int,float> item in jpGameRes.curJackpots)
+                {
+                    if(!dic.ContainsKey(item.Key))
+                        dic.Add(item.Key,item.Value); 
+                }
+                return dic;
             }
         }
 
         public SymbolWin jpGameSymbolWin;
 
         public SymbolWin jpOnlineSymbolWin;
+
+
+
+        public SymbolWin bonusSymbolWin;
 
 
         /// <summary> 大厅彩金中奖数据  </summary>

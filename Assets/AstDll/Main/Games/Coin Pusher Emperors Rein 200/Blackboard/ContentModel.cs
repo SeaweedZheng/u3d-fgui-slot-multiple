@@ -313,7 +313,7 @@ namespace PusherEmperorsRein
         #region Jackpot 参数
 
         [SerializeField]
-        JackpotInfo m_UIGrandJP = new JackpotInfo()
+        UIJackpotInfo m_UIGrandJP = new UIJackpotInfo()
         {
             name = "JPGrand",
             id = 0,
@@ -322,7 +322,7 @@ namespace PusherEmperorsRein
             maxCredit = 11100000,
             minCredit = 0,
         };
-        public JackpotInfo uiGrandJP
+        public UIJackpotInfo uiJPGrand
         {
             get => m_UIGrandJP;
             set => m_UIGrandJP = value;
@@ -330,7 +330,7 @@ namespace PusherEmperorsRein
 
 
         [SerializeField]
-        JackpotInfo m_UIMegaJP = new JackpotInfo()
+        UIJackpotInfo m_UIMegaJP = new UIJackpotInfo()
         {
             name = "JPMega",
             id = 1,
@@ -339,7 +339,7 @@ namespace PusherEmperorsRein
             maxCredit = 2500000,
             minCredit = 0,
         };
-        public JackpotInfo uiMegaJP
+        public UIJackpotInfo uiMegaJP
         {
             get => m_UIMegaJP;
             set => m_UIMegaJP = value;
@@ -349,7 +349,7 @@ namespace PusherEmperorsRein
 
 
         [SerializeField]
-        JackpotInfo m_UIMajorJP = new JackpotInfo()
+        UIJackpotInfo m_UIMajorJP = new UIJackpotInfo()
         {
             name = "JPMajor",
             id = 1,
@@ -358,7 +358,7 @@ namespace PusherEmperorsRein
             maxCredit = 2500000,
             minCredit = 0,
         };
-        public JackpotInfo uiMajorJP
+        public UIJackpotInfo uiJPMajor
         {
             get => m_UIMajorJP;
             set => m_UIMajorJP = value;
@@ -366,7 +366,7 @@ namespace PusherEmperorsRein
 
 
         [SerializeField]
-        JackpotInfo m_UIMinorJP = new JackpotInfo()
+        UIJackpotInfo m_UIMinorJP = new UIJackpotInfo()
         {
             name = "JPMinor",
             id = 2,
@@ -375,7 +375,7 @@ namespace PusherEmperorsRein
             maxCredit = 300000,
             minCredit = 0,
         };
-        public JackpotInfo uiMinorJP
+        public UIJackpotInfo uiJPMinor
         {
             get => m_UIMinorJP;
             set => m_UIMinorJP = value;
@@ -383,7 +383,7 @@ namespace PusherEmperorsRein
 
 
         [SerializeField]
-        JackpotInfo m_UIMiniJP = new JackpotInfo()
+        UIJackpotInfo m_UIMiniJP = new UIJackpotInfo()
         {
             name = "JPMini",
             id = 3,
@@ -392,7 +392,7 @@ namespace PusherEmperorsRein
             maxCredit = 30000,
             minCredit = 0,
         };
-        public JackpotInfo uiMiniJP
+        public UIJackpotInfo uiJPMini
         {
             get => m_UIMiniJP;
             set => m_UIMiniJP = value;

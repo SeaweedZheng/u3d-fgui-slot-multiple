@@ -34,7 +34,7 @@ namespace GameCommon
             holder.visible = true;
 
             holder.scale = new Vector2(goDesign.scale.x, goDesign.scale.y);
-
+            DebugUtils.Log($"holder x:{holder.size.x} y:{holder.size.y}");
         }
 
 

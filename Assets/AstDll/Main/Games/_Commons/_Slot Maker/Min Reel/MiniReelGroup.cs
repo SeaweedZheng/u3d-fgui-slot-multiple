@@ -24,9 +24,10 @@ public class MiniReelGroup
 
     List<MiniReel> miniReels = new List<MiniReel>();
 
-
-    public void Init(string name, GList reels, string fmt)
+    float defaultReelWidth = 46;
+    public void Init(string name, GList reels, string fmt, float defaultReelWidth = 46)
     {
+        this.defaultReelWidth = defaultReelWidth;
         this.name = name;
         format = fmt;
         glstOwnerReels = reels;
@@ -59,7 +60,7 @@ public class MiniReelGroup
             GOResidualMark grm = goReel.displayObject.gameObject.GetOrAddComponent<GOResidualMark>();
             grm.InitParam(goReel);
             grm.referenceCount++;
-            miniReels[i].Init(goReel);
+            miniReels[i].Init(goReel, this.defaultReelWidth);
 
             //#xuhen#多语言对象残留#
             //DebugUtils.LogError($"{Time.unscaledTime}: MiniReel 对象: name ={name}-{guid}  {goReel.id}  -  {goReel.displayObject.id} - {goReel.displayObject.gameObject.name}");
@@ -146,7 +147,7 @@ public class MiniReelGroup
                     }
                 }
                 //DebugUtils.LogError($"itemRenderer = {index}");
-                miniReels[index].Init(obj.asCom);
+                miniReels[index].Init(obj.asCom, this.defaultReelWidth);
             };
             glstOwnerReels.numItems = dataStr.Count;// 更新列表项数量（关键：触发重新渲染）
         }

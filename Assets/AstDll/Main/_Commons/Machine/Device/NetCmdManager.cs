@@ -519,10 +519,10 @@ public partial class NetCmdManager : MonoSingleton<NetCmdManager>
                         ["bet"] = MainModel.Instance.contentMD.totalBet,
                         ["is_spin"] = MainModel.Instance.contentMD.isSpin,
                         ["is_auto"] = MainModel.Instance.contentMD.isAuto,
-                        ["jp1"] = MainModel.Instance.contentMD.uiGrandJP.curCredit,
-                        ["jp2"] = MainModel.Instance.contentMD.uiMajorJP.curCredit,
-                        ["jp3"] = MainModel.Instance.contentMD.uiMinorJP.curCredit,
-                        ["jp4"] = MainModel.Instance.contentMD.uiMiniJP.curCredit,
+                        ["jp1"] = MainModel.Instance.contentMD.uiJPGrand.curCredit,
+                        ["jp2"] = MainModel.Instance.contentMD.uiJPMajor.curCredit,
+                        ["jp3"] = MainModel.Instance.contentMD.uiJPMinor.curCredit,
+                        ["jp4"] = MainModel.Instance.contentMD.uiJPMini.curCredit,
                     };
 
 

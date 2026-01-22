@@ -53,7 +53,7 @@ public partial class MachineDataManager02: ProxyHelper<MachineDataManager02>
         EventCenter.Instance.AddEventListener<SBoxAccount>(SBoxEventHandle.SBOX_GET_ACCOUNT, OnResponseGetPlayerInfo);
 
         // ==游戏彩金
-        EventCenter.Instance.AddEventListener<JackpotRes>(SBoxEventHandle.SBOX_JACKPOT_GAME, OnResponseJackpotGame);
+        EventCenter.Instance.AddEventListener<JackpotRes02>(SBoxEventHandle.SBOX_JACKPOT_GAME, OnResponseJackpotGame);
 
 
         // ==码表
@@ -105,7 +105,7 @@ public partial class MachineDataManager02: ProxyHelper<MachineDataManager02>
 
 
         // ==游戏彩金
-        EventCenter.Instance.RemoveEventListener<JackpotRes>(SBoxEventHandle.SBOX_JACKPOT_GAME, OnResponseJackpotGame);
+        EventCenter.Instance.RemoveEventListener<JackpotRes02>(SBoxEventHandle.SBOX_JACKPOT_GAME, OnResponseJackpotGame);
 
 
         // ==码表
@@ -542,13 +542,13 @@ public partial class MachineDataManager02: ProxyHelper<MachineDataManager02>
 
 
     /// <summary> 获取游戏彩金 </summary>
-    public int RequestJackpotGame(Action<object> successCallback, Action<BagelCodeError> errorCallback, string mark = null)
+    public int RequestJackpotGame(MockJackpotResult jpType, Action<object> successCallback, Action<BagelCodeError> errorCallback, string mark = null)
     {
         int seqId = OnRequestBefore(SBoxEventHandle.SBOX_JACKPOT_GAME, null, successCallback, errorCallback, mark);
 
         if (isMock)
         {
-            OnMockJackotGame(null);
+            OnMockJackotGame(jpType);
         }
         else
         {
@@ -556,7 +556,7 @@ public partial class MachineDataManager02: ProxyHelper<MachineDataManager02>
         }
         return seqId;
     }
-    void OnResponseJackpotGame(JackpotRes res) => OnResponse(SBoxEventHandle.SBOX_JACKPOT_GAME, res);
+    void OnResponseJackpotGame(JackpotRes02 res) => OnResponse(SBoxEventHandle.SBOX_JACKPOT_GAME, res);
 
 
 

@@ -115,7 +115,7 @@ public class UIRouter
             [PageName.RichLegend2001001PageGameMain] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/FGUIs", "CoinPusherRichLegend2001001.PageGameMain" },
             [PageName.RichLegend2001001PageGameLoading] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/FGUIs", "CoinPusherRichLegend2001001.PageGameLoading" },
             [PageName.RichLegend2001001PopupJackpotGame] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/FGUIs", "CoinPusherRichLegend2001001.PopupJackpotGame" },
-
+            [PageName.RichLegend2001001PageBonus1] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/FGUIs", "CoinPusherRichLegend2001001.PageBonus1" },
         };
     }
 }
@@ -214,6 +214,7 @@ public enum PageName
     RichLegend2001001PageGameMain,
     RichLegend2001001PageGameLoading,
     RichLegend2001001PopupJackpotGame,
+    RichLegend2001001PageBonus1,
 }
 
 

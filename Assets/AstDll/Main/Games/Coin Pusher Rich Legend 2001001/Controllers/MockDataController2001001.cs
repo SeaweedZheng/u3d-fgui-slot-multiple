@@ -9,41 +9,44 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameUtil;
 using JetBrains.Annotations;
+using System.Linq;
 
 namespace CoinPusherRichLegend2001001
 {
+    public enum SBoxGameState
+    {
+        GSNormal = 0,
 
+        GSStart = 1,
+        /// <summary> 普通局且不中线 </summary>
+        GSEnd = 2,
+        /// <summary> 赢线 </summary>
+        GSWinline = 3,
+        /// <summary> 免费游戏 </summary>
+        GSFreeGame = 4,
+        /// <summary> 送球 </summary>
+        GSBonus = 5,
+        /// <summary> 中了中小彩金 </summary>
+        GSJp1 = 6,
+        /// <summary> 中了大彩金</summary>
+        GSJp2 = 7,
+        /// <summary> 中了巨大彩金</summary>
+        GSJp3 = 8,
+
+        GSJpMega = 9,
+
+        GSBonus1 = 10,
+
+        GSOperater = 11
+    }
     public class MockDataController2001001 : MonoSingleton<MockDataController2001001>
     {
 
-        enum SBoxGameState
-        {
-            GSNormal = 0,
 
-            GSStart = 1,
-            /// <summary> 普通局且不中线 </summary>
-            GSEnd = 2,
-            /// <summary> 赢线 </summary>
-            GSWinline = 3,
-            /// <summary> 免费游戏 </summary>
-            GSFreeGame = 4,
-            /// <summary> 送球 </summary>
-            GSBonus = 5,
-            /// <summary> 中了中小彩金 </summary>
-            GSJp1 = 6,
-            /// <summary> 中了大彩金</summary>
-            GSJp2 = 7,
-            /// <summary> 中了巨大彩金</summary>
-            GSJp3 = 8,
-
-            GSJpMega = 9,
-
-            GSOperater = 10
-        }
 
         long TotalBet => (long)SBoxModel.Instance.CoinInScale; // ContentModel.Instance.totalBet
 
-        public void ParseSlotSpin(long totalBet, JSONNode res)
+        public void ParseSlotSpin(long totalBet, JSONNode res, JackpotRes02 jpGameRes = null)
         {
 
             SBoxGameState gameState = (SBoxGameState)((int)res["gameState"]);
@@ -59,77 +62,58 @@ namespace CoinPusherRichLegend2001001
 
 
 
-            // 彩金          
-            JackpotRes jpAstBundle = new JackpotRes();
-            ContentModel.Instance.jpGameRes = jpAstBundle;
-            jpAstBundle.curJackpotGrand = 3000;
-            jpAstBundle.curJackpotMajor = 2000;
-            jpAstBundle.curJackpotMinior = 1000;
+            // 彩金
+            ContentModel.Instance.jpGameRes = jpGameRes;
+
 
             ContentModel.Instance.jpGameSymbolWin = null;
             ContentModel.Instance.jpOnlineSymbolWin = null;
+            ContentModel.Instance.bonusSymbolWin = null;
+
+            List<SymbolWin> winList = new List<SymbolWin>();
+
 
             DeskInfo info = null;
 
             switch (gameState)
             {
-                case SBoxGameState.GSJp1:
+                case SBoxGameState.GSBonus1:
                     {
                         totalEarnCoins += reward;
+                        info = DeckCreater.Instance.CreatDeck(0, 1);
+                        ContentModel.Instance.bonusSymbolWin = info.winList[0];
+                    }
+                    break;
+                case SBoxGameState.GSJp1:
+                    {
+                        reward = (int)jpGameRes.jpWinDic[0].winCredit;
+                        totalEarnCoins += reward;
                         info = DeckCreater.Instance.CreatDeck(10, 1);
-                        jpAstBundle.jpWinLst.Add(new JackpotWinInfo()
-                        {
-                            name = "jp1",
-                            id = 0,
-                            winCredit = 3000,
-                            whenCredit = reward,
-                            curCredit = 0,
-                        });
                         ContentModel.Instance.jpGameSymbolWin = info.winList[0];
                     }
                     break;
                 case SBoxGameState.GSJp2:
                     {
+                        reward = (int)jpGameRes.jpWinDic[1].winCredit;
                         totalEarnCoins += reward;
                         info = DeckCreater.Instance.CreatDeck(11, 1);
-                        jpAstBundle.jpWinLst.Add(new JackpotWinInfo()
-                        {
-                            name = "jp2",
-                            id = 1,
-                            winCredit = 2000,
-                            whenCredit = reward,
-                            curCredit = 0,
-                        });
                         ContentModel.Instance.jpGameSymbolWin = info.winList[0];
                     }
                     break;
                 case SBoxGameState.GSJp3:
                     {
+                        reward = (int)jpGameRes.jpWinDic[2].winCredit;
                         totalEarnCoins += reward;
                         info = DeckCreater.Instance.CreatDeck(12, 1);
-                        jpAstBundle.jpWinLst.Add(new JackpotWinInfo()
-                        {
-                            name = "jp3",
-                            id = 2,
-                            winCredit = 1000,
-                            whenCredit = reward,
-                            curCredit = 0,
-                        });
                         ContentModel.Instance.jpGameSymbolWin = info.winList[0];
                     }
                     break;
                 case SBoxGameState.GSJpMega:
                     {
+                        reward = (int)jpGameRes.jpWinDic[3].winCredit;
                         totalEarnCoins += reward;
                         info = DeckCreater.Instance.CreatDeck(13, 1);
-                        jpAstBundle.jpWinLst.Add(new JackpotWinInfo()
-                        {
-                            name = "mega",
-                            id = 10,
-                            winCredit = 10000,
-                            whenCredit = reward,
-                            curCredit = 0,
-                        });
+                        ContentModel.Instance.jpGameSymbolWin = info.winList[0];
                     }
                     break;
                 default:
@@ -137,25 +121,29 @@ namespace CoinPusherRichLegend2001001
                          info = hitLinesCount > 0 ?
                             DeckCreater.Instance.CreatDeck(hitSymbolNumber, hitLinesCount)
                             : DeckCreater.Instance.CreatNotWinDeck();
+
+
+                            // 普通中线
+                            if (hitLinesCount > 0)
+                            {
+                                winList = info.winList;
+
+
+                                totalEarnCoins += reward;
+
+                                int winCredit = reward / hitLinesCount;
+
+                                foreach (SymbolWin sw in winList)
+                                {
+                                    sw.earnCredit = winCredit;
+                                }
+                            }
+
                     }
                     break;
             }
 
-            List<SymbolWin> winList = new List<SymbolWin>();
-            if (hitLinesCount > 0)
-            {
-                winList = info.winList;
 
-
-                totalEarnCoins += reward;
-
-                int winCredit = reward / hitLinesCount;
-
-                foreach (SymbolWin sw in winList)
-                {
-                    sw.earnCredit = winCredit;
-                }
-            }
 
 
             DebugUtils.LogWarning($"DeskInfo = {JsonConvert.SerializeObject(info)}");
@@ -335,19 +323,19 @@ namespace CoinPusherRichLegend2001001
 
 
             // 彩金数据
-            JackpotRes info = ContentModel.Instance.jpGameRes;
+            JackpotRes02 info = ContentModel.Instance.jpGameRes;
 
 
             // 数据修改：
-            gameSenceData.jpGrand = info.curJackpotGrand;
-            gameSenceData.jpMajor = info.curJackpotMajor;
-            gameSenceData.jpMinor = info.curJackpotMinior;
-            gameSenceData.jpMini = info.curJackpotMini;
+            gameSenceData.jpGrand = info.curJackpots[0];
+            gameSenceData.jpMajor = info.curJackpots[1];
+            gameSenceData.jpMinor = info.curJackpots[2];
+            gameSenceData.jpMini = info.curJackpots[3];
 
-            if (info.jpWinLst != null && info.jpWinLst.Count > 0)
+            if (info.jpWinDic != null && info.jpWinDic.Count > 0)
             {
-                JackpotWinInfo item = info.jpWinLst[0];
-
+                KeyValuePair<int , JackpotWinInfo> kv = info.jpWinDic.ElementAt(0);
+                JackpotWinInfo item = kv.Value;
                 gameSenceData.jpWinInfo = item;
 
                 int winJPCredit = (int)item.winCredit;
@@ -386,10 +374,11 @@ namespace CoinPusherRichLegend2001001
 
         public void Report()
         {
-            JackpotRes info = ContentModel.Instance.jpGameRes;
-            if (info.jpWinLst != null && info.jpWinLst.Count > 0)
+            JackpotRes02 info = ContentModel.Instance.jpGameRes;
+            if (info.jpWinDic != null && info.jpWinDic.Count > 0)
             {
-                JackpotWinInfo item = info.jpWinLst[0];
+                KeyValuePair<int, JackpotWinInfo> kv = info.jpWinDic.ElementAt(0);
+                JackpotWinInfo item = kv.Value;
 
                 Dictionary<string, object> req = new Dictionary<string, object>()
                 {
@@ -500,7 +489,7 @@ namespace CoinPusherRichLegend2001001
                     MachineDataManager02.Instance.testIsHitJackpotOnLine = true;
                     break;
                 case GlobalEvent.GMBonus1:
-                    nextSpin = SpinDataType.Bonus1Ball;
+                    nextSpin = SpinDataType.Bonus1;
                     break;
             }
 
@@ -523,7 +512,7 @@ namespace CoinPusherRichLegend2001001
             Jp3,
             Jp4,
             JpOnline,
-            Bonus1Ball,
+            Bonus1,
         };
 
         private Dictionary<SpinDataType, List<string[]>> spinDatas = new Dictionary<SpinDataType, List<string[]>>()
@@ -550,6 +539,16 @@ namespace CoinPusherRichLegend2001001
             {
                 new string[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/ABs/Mock/g2001001__slot_spin__jp3.json" },
             },
+
+            [SpinDataType.Jp4] = new List<string[]>()
+            {
+                new string[] {"Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/ABs/Mock/g2001001__slot_spin__jpmega.json" },
+            },
+            [SpinDataType.Bonus1] = new List<string[]>()
+            {
+                new string[] {"Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/ABs/Mock/g2001001__slot_spin__bonus1.json"},
+            },
+            
             /*
             [SpinDataType.FreeSpin] = new List<string[]>()
             {
@@ -623,7 +622,15 @@ namespace CoinPusherRichLegend2001001
                     nextSpin = SpinDataType.None;
                     */
                     List<string[]> target = null;
-                    target = nextSpin != SpinDataType.None ? spinDatas[nextSpin] : spinDatas[SpinDataType.Normal];
+
+
+                    if (nextSpin != SpinDataType.None && !spinDatas.ContainsKey(nextSpin))
+                    {
+                        DebugUtils.LogError($"没有key:{nextSpin} 对应的数据");
+                    }
+
+                    target = nextSpin != SpinDataType.None && spinDatas.ContainsKey(nextSpin) ? 
+                        spinDatas[nextSpin] : spinDatas[SpinDataType.Normal];
                     nextSpin = SpinDataType.None;
 
                     string[] strs = target[UnityEngine.Random.Range(0, target.Count)];

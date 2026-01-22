@@ -15,8 +15,10 @@ public class MiniReel
 
     float width = 46;
 
-    public void Init(GComponent reel)
+    public void Init(GComponent reel, float defaultWidth = 46)
     {
+        this.width = defaultWidth;
+
         goOwnerReel = reel;
         if(_tran!=null) 
             _tran.Stop();
