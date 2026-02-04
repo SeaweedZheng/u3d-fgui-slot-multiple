@@ -54,7 +54,7 @@ namespace SlotMaker
         public const string PrepareTotalWinCredit = "PrepareTotalWinCredit";
 
         /// <summary> 所有赢分 - value : Credit , isAnim </summary>
-        public const string PrepareTotalWinCredit02 = "PrepareTotalWinCredit02";
+        //public const string PrepareTotalWinCredit02 = "PrepareTotalWinCredit02";
 
         /// <summary> 显示所有赢分 - value : List<SymbolWin> </summary>
         public const string TotalWinCredit = "TotalWinCredit";
@@ -151,10 +151,12 @@ namespace SlotMaker
 
     public class UpdateNaviCredit
     {
+        public const long NONE = -99999;
+
         /// <summary> 是否要加钱动画 </summary>
         public bool isAnim;
         /// <summary> 加钱前 </summary>
-        public long fromCredit;
+        public long fromCredit = NONE;
         /// <summary> 加钱后 </summary>
         public long toCredit;
     }

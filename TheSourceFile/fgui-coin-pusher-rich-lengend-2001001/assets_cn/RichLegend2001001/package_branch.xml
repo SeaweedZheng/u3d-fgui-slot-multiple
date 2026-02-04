@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<branchDescription>
+  <resources>
+    <component id="px571nb" name="LineName.xml" path="/Moudules/PayTables/"/>
+    <component id="px571nf" name="PayTableName1.xml" path="/Moudules/PayTables/"/>
+    <component id="px571nh" name="PayTableContent1.xml" path="/Moudules/PayTables/"/>
+    <component id="px571nj" name="PayTableName2.xml" path="/Moudules/PayTables/"/>
+  </resources>
+</branchDescription>

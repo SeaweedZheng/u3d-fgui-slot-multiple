@@ -66,12 +66,6 @@ namespace PusherEmperorsRein
 
 
 
-
-            GameSoundHelper.Instance.PlayMusicSingle(SoundKey.RegularBG);
-            GameSoundHelper.Instance.PlaySoundEff(SoundKey.SpinBGIdle);
-
-
-
             InitParam();
         }
 
@@ -79,6 +73,14 @@ namespace PusherEmperorsRein
 
         public override void OnClose(EventData data = null)
         {
+
+
+            OnGameReset();
+
+            GameObject.Destroy(goGameCtrl);
+            goGameCtrl = null;
+
+
             Timers.inst.Remove(GetMyCreditRepeat);
 
            //winTipCtrl.Dispose();
@@ -137,27 +139,8 @@ namespace PusherEmperorsRein
                 "Assets/AstBundle/Games/Coin Pusher Emperors Rein 200/Prefabs/Game Controller/Push Game Main Controller.prefab",
                 (GameObject clone) =>
                 {
-                    goGameCtrl = GameObject.Instantiate(clone);
 
-                    //Debug.LogError("创建 Push Game Main Controller");
-
-                    goGameCtrl.name = "Game Main Controller";
-                    goGameCtrl.transform.SetParent(null);
-
-                    slotMachineCtrl = goGameCtrl.transform.Find("Slot Machine").GetComponent<SlotMachineController>();
-
-                    mono = goGameCtrl.transform.GetComponent<MonoHelper>();
-                    //DebugUtils.Log(mono);
-                    //DebugUtils.LogWarning("i am Game Controller");
-
-
-                   // DebugUtils.LogError("A ContentModel = " + goGameCtrl.transform.Find("Blackboard/Content Model").GetComponent<ContentModel>().transform.name);
-
-
-
-                    fguiPoolHelper = goGameCtrl.transform.Find("Pool GameObject").GetComponent<FguiGameObjectPoolHelper>();
-
-                    gObjectPoolHelper = goGameCtrl.transform.Find("Pool GObject").GetComponent<FguiGObjectPoolHelper>();
+                    cloneGameCtrl = clone;
 
                     callback();
                 });
@@ -449,7 +432,7 @@ namespace PusherEmperorsRein
 
 
         PayTableController payTableController = new PayTableController();
-        GameObject goGameCtrl;
+        GameObject goGameCtrl = null, cloneGameCtrl;
         GComponent gSlotCover, gPlayLines, gFrame;
         GLabel labWinTip;
         Animator animatorKingLion, animatorKing;
@@ -519,12 +502,25 @@ namespace PusherEmperorsRein
         List<GComponent> lstPayTable;
 
 
+
+
+
         public override void InitParam()
         {
      
             if (!isInit) return;
 
+            preLoadedCallback?.Invoke();
+            preLoadedCallback?.RemoveAllListeners();
+
             if (!isOpen) return;
+
+
+
+            InitGameController();
+
+
+
 
             #region 销毁重复创建的对象
 
@@ -558,7 +554,7 @@ namespace PusherEmperorsRein
                 paytable.displayObject.gameObject.GetOrAddComponent<GOResidualMark>().referenceCount++;
             }
 
-            ContentModel.Instance.goPayTableLst = lstPayTable.ToArray();
+            ContentModel.Instance.goPayTableLst = lstPayTable;
             payTableController.Init(lstPayTable);
             //ContentModel.Instance.payLines = new List<List<int>>();
 
@@ -829,6 +825,42 @@ namespace PusherEmperorsRein
 
         }
 
+
+
+        void InitGameController()
+        {
+            if (goGameCtrl != null) return;
+
+            Debug.LogWarning("初始化 ：GameCtrl");
+
+            goGameCtrl = GameObject.Instantiate(cloneGameCtrl);
+
+            //Debug.LogError("创建 Push Game Main Controller");
+
+            goGameCtrl.name = "Game Main Controller";
+            goGameCtrl.transform.SetParent(null);
+
+            slotMachineCtrl = goGameCtrl.transform.Find("Slot Machine").GetComponent<SlotMachineController>();
+
+            mono = goGameCtrl.transform.GetComponent<MonoHelper>();
+            //DebugUtils.Log(mono);
+            //DebugUtils.LogWarning("i am Game Controller");
+
+
+            // DebugUtils.LogError("A ContentModel = " + goGameCtrl.transform.Find("Blackboard/Content Model").GetComponent<ContentModel>().transform.name);
+
+
+
+            fguiPoolHelper = goGameCtrl.transform.Find("Pool GameObject").GetComponent<FguiGameObjectPoolHelper>();
+
+            gObjectPoolHelper = goGameCtrl.transform.Find("Pool GObject").GetComponent<FguiGObjectPoolHelper>();
+
+
+
+            GameSoundHelper.Instance.PlayMusicSingle(SoundKey.RegularBG);
+            GameSoundHelper.Instance.PlaySoundEff(SoundKey.SpinBGIdle);
+
+        }
         void OnTestEvent(string res) {
 
             if (res == GlobalEvent.DestroyPanel)

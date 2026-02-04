@@ -6,7 +6,10 @@ namespace SlotMaker
 {
     public interface IContentModel
     {
-        
+
+
+        public string guid { get; }
+
         public SlotGameEffect targetSlotGameEffect { get; }
 
         public PageName pageName { get; }
@@ -36,7 +39,7 @@ namespace SlotMaker
         public List<PayTableSymbolInfo> payTableSymbolWin { get; set; }
 
 
-        public GComponent[] goPayTableLst { get; }
+        public List<GComponent> goPayTableLst { get; }
         public List<List<int>> payLines { get; set; }
 
         public List<WinMultiple> winLevelMultiple {get; }

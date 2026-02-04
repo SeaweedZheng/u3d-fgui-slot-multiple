@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <displayList>
+    <component id="n1_mjx0" name="n1" src="8eb61mv" fileName="Components/BGPage.xml" xy="0,0" size="1080,1920">
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
+    <component id="n0_mjx0" name="page" src="bhr01ml" fileName="PageBonus2_1024_768.xml" xy="28,576"/>
+  </displayList>
+</component>

@@ -160,7 +160,12 @@ public partial class SlotMachinePresenter
 
 
 
-    public void ShowSymbolWinDeck(List<BonusWin> symbolWin, bool isUseMySelfSymbolNumber)
+    /// <summary>
+    /// 显示单条或多条赢线
+    /// </summary>
+    /// <param name="symbolWin"></param>
+    /// <param name="isUseMySelfSymbolNumber"></param>
+    public virtual void ShowSymbolWinDeck(SymbolWin symbolWin, bool isUseMySelfSymbolNumber)
     {
         //停止特效显示
         SkipWinLine(false);
@@ -170,7 +175,64 @@ public partial class SlotMachinePresenter
 
         Dictionary<string, string> symbolHitEffect = smConfig.GetSymbolHitEffect();
 
-        foreach (BonusWin item in symbolWin)
+        foreach (Cell cel in symbolWin.cells)
+        {
+            int symbolNumberSelf = view.GetVisibleSymbolNumberFromDeck(cel.columnIndex, cel.rowIndex);
+
+            int symbolNumber = isUseMySelfSymbolNumber ? symbolNumberSelf : symbolWin.symbolNumber;
+
+            string symbolName = symbolHitEffect[$"{symbolNumber}"];  // wild  or symbol;
+
+            view.ShowSymbolHitEffect(cel.columnIndex, cel.rowIndex, symbolName, smConfig.IsWESymbolAnim);
+
+
+            // 边框
+            if (smConfig.IsWEFrame)
+            {
+                //GComponent goBorderEffect = fguiPoolHelper.GetObject(TagPoolObject.SymbolBorder, BorderEffect).asCom;
+                //AddBorderEffect(goSymbol, goBorderEffect);
+                view.ShowBorderEffect(cel.columnIndex, cel.rowIndex);
+            }
+
+            // 整体变大特效
+            if (smConfig.IsWETwinkle)
+                view.ShowTwinkleEffect(cel.columnIndex, cel.rowIndex);
+            else if (smConfig.IsWEBigger)
+                view.ShowBiggerEffect(cel.columnIndex, cel.rowIndex);
+        }
+
+        // 是否显示线
+        if (smConfig.IsWEShowLine)
+        {
+            if (symbolWin is TotalSymbolWin)
+            {
+                TotalSymbolWin totalSymbolWin = symbolWin as TotalSymbolWin;
+                view.ShowPayLines(totalSymbolWin.lineNumbers);
+            }
+            else
+            {
+                view.ShowPayLines(new List<int> { symbolWin.lineNumber });
+            }
+        }
+    }
+
+
+    /// <summary>
+    /// 多个独立图标赢
+    /// </summary>
+    /// <param name="bonusWin"></param>
+    /// <param name="isUseMySelfSymbolNumber"></param>
+    public void ShowSymbolWinDeck(List<BonusWin> bonusWin, bool isUseMySelfSymbolNumber)
+    {
+        //停止特效显示
+        SkipWinLine(false);
+
+        //显示遮罩
+        SetSlotCover(smConfig.IsWEShowCover);
+
+        Dictionary<string, string> symbolHitEffect = smConfig.GetSymbolHitEffect();
+
+        foreach (BonusWin item in bonusWin)
         {
             Cell cel = item.cell;
 

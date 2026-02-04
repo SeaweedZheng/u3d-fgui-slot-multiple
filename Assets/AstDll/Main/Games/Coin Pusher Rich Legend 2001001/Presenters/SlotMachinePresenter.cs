@@ -18,6 +18,11 @@ public enum SymbolEffectType
 }
 public interface IVSlotMachine
 {
+
+    void Enable();
+
+    void Disable();
+
     void ShowPayLines(SymbolWin symbolWin);
     void ShowPayLines(List<int> lineNumbers);
 
@@ -229,6 +234,11 @@ public partial class SlotMachinePresenter : MonoBehaviour, IPSlotMachine
         }
         SendTotalWinCreditEvent(totalWinCredit);
     }
+
+    /// <summary>
+    /// 这个总赢，只显示最后的结果
+    /// </summary>
+    /// <param name="totalWinCredit"></param>
     public void SendTotalWinCreditEvent(long totalWinCredit)
     {
         OnTotalWinCreditEvent(SlotMachineEvent.ON_WIN_EVENT, new EventData<long>(SlotMachineEvent.TotalWinCredit, totalWinCredit));
@@ -244,6 +254,11 @@ public partial class SlotMachinePresenter : MonoBehaviour, IPSlotMachine
         return totalWinCredit;
     }
 
+    /// <summary>
+    /// 这个总赢，带“加钱动画”标志位
+    /// </summary>
+    /// <param name="totalWinCredit"></param>
+    /// <param name="isAddToCredit"></param>
     public void SendPrepareTotalWinCreditEvent(long totalWinCredit, bool isAddToCredit = false)
     {
         PrepareTotalWinCredit res = new PrepareTotalWinCredit()

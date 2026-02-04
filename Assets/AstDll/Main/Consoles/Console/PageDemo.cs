@@ -103,10 +103,17 @@ public class PageDemo : PageBase
 
     
 
+
+
     public override void InitParam()
     {
 
         if (!isInit) return;
+
+        OnPreLoaded(); // 其他卡顿的资源实例化
+
+        preLoadedCallback?.Invoke();
+        preLoadedCallback?.RemoveAllListeners();
 
         if (!isOpen) return;
 
@@ -133,5 +140,10 @@ public class PageDemo : PageBase
             }
         }
        */
+    }
+
+    public void OnPreLoaded()
+    {
+
     }
 }

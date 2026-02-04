@@ -243,8 +243,11 @@ public class MainBlackboardController : MonoSingleton<MainBlackboardController>
                     toCredit = MainModel.Instance.myCredit
                 }));
         }
-
     }
+
+
+
+
 
     // 加钱并同步
 
@@ -253,6 +256,24 @@ public class MainBlackboardController : MonoSingleton<MainBlackboardController>
     /// 同步到玩家的真实金额
     /// </summary>
     /// <param name="isEvent">是否发送事件</param>
+    public void SyncMyTempCreditToReal(bool isEvent, bool isAnim)
+    {
+        MainModel.Instance.myCredit = SBoxModel.Instance.myCredit;
+
+        if (isEvent)
+        {
+
+            // 停止之前的“加钱动画”，同步到当前的金额
+            EventCenter.Instance.EventTrigger<EventData>(MetaUIEvent.ON_CREDIT_EVENT,
+                new EventData<UpdateNaviCredit>(MetaUIEvent.UpdateNaviCredit,
+                new UpdateNaviCredit()
+                {
+                    isAnim = SyncCreditAnim(isAnim),
+                    toCredit = MainModel.Instance.myCredit
+                }));
+        }
+    }
+
     public void SyncMyTempCreditToReal(bool isEvent)
     {
         MainModel.Instance.myCredit = SBoxModel.Instance.myCredit;
@@ -270,6 +291,9 @@ public class MainBlackboardController : MonoSingleton<MainBlackboardController>
                 }));
         }
     }
+
+
+
 
     /// <summary>
     /// 同步到当下的玩家金额

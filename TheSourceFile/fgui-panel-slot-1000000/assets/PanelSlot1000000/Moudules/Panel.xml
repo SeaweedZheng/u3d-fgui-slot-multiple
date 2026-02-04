@@ -7,6 +7,7 @@
     <component id="n16_w36x" name="btnHelp" src="ioi7i0" fileName="Components/ButtonHelp.xml" xy="10,68"/>
     <component id="n24_w36x" name="btnBetUp" src="ioi7ig" fileName="Components/Button/ButtonBetUp.xml" xy="337,66"/>
     <component id="n25_w36x" name="btnBetDown" src="ioi7ih" fileName="Components/Button/ButtonBetDown.xml" xy="108,66"/>
+    <component id="n37_8ful" name="btnBack" src="8fulxjr" fileName="Components/Button/ButtonBack.xml" xy="9,68" visible="false"/>
     <text id="n18_w36x" name="bet" xy="181,93" size="145,50" fontSize="37" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" text="100">
       <relation target="" sidePair="center-center"/>
     </text>

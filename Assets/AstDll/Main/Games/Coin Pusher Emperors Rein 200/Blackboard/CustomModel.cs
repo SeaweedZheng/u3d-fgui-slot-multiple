@@ -6,7 +6,7 @@ using UnityEngine;
 namespace PusherEmperorsRein
 {
 
-    public class CustomModel : MonoSingleton<CustomModel>, ICustomModel
+    public class CustomModel : MonoSingleton02<CustomModel>, ICustomModel
     {
 
 

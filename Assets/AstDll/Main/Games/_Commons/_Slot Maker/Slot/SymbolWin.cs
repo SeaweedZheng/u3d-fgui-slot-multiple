@@ -28,7 +28,7 @@ namespace SlotMaker
         public List<int> lineNumbers;
     }
 
-    /// <summary> 单个Bonus赢的数据</summary>
+    /// <summary>独立图标赢的数据</summary>
     public class BonusWin
     {
         public long earnCredit = 0;

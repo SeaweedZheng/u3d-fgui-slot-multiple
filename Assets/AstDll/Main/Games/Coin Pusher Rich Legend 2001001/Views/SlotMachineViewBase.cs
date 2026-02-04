@@ -38,6 +38,21 @@ public class SlotMachineViewBase : IVSlotMachine
     protected GComponent goAnchorSymbolEffect;
 
     protected string maskSortOrder = null;
+
+
+
+
+    public virtual void Enable()
+    {
+
+    }
+
+    public virtual void Disable()
+    {
+
+    }
+
+
     public virtual void InitParam(GComponent u, GComponent gAnchorSymbolEffect, SlotMachineConfig cf)
     {
         if (string.IsNullOrEmpty(maskSortOrder))

@@ -9,10 +9,10 @@ using Sirenix.OdinInspector;
 
 namespace CoinPusherRichLegend2001001
 {
-    public class ContentModel : MonoSingleton<ContentModel>, IContentModel
+    public class ContentModel :  MonoSingleton02<ContentModel>, IContentModel  // MonoBehaviour, IContentModel     //
     {
 
-        /*
+        /*   
         private static object _mutex = new object();
         static ContentModel _instance;
 
@@ -20,7 +20,6 @@ namespace CoinPusherRichLegend2001001
         {
             get
             {
-
                 lock (_mutex)
                 {
                     if (_instance == null)
@@ -35,8 +34,12 @@ namespace CoinPusherRichLegend2001001
                     return _instance;
                 }
             }
-        }
-        */
+            set
+            {
+                _instance = value;
+            }
+        }*/
+     
 
 
 
@@ -54,6 +57,9 @@ namespace CoinPusherRichLegend2001001
             }
         }
 
+
+        public string guid { get => m_Guid; }
+        string m_Guid;
 
 
         public PageName pageName => PageName.PusherEmperorsReinPageGameMain;
@@ -293,8 +299,12 @@ namespace CoinPusherRichLegend2001001
         public string freeSpinTriggerGuid;
 
         /// <summary> 当前本轮游戏编号 </summary>
-        public long curGameNumber;
-
+        public long m_CurGameNumber;
+        public long curGameNumber
+        {
+            get => m_CurGameNumber;
+            set => observable.SetProperty(ref m_CurGameNumber, value);
+        }
         /// <summary>  触发免费游戏的编号 </summary>
         public int gameNumberFreeSpinTrigger;
 
@@ -442,11 +452,14 @@ namespace CoinPusherRichLegend2001001
 
 
 
-        public SymbolWin bonusSymbolWin;
-
-
         /// <summary> 大厅彩金中奖数据  </summary>
         public List<WinJackpotInfo> jpOnlineWin = new List<WinJackpotInfo>();
+
+
+        public SymbolWin bonusSymbolWin;
+
+        /// <summary> bonus数据 </summary>
+        public Dictionary<int, JSONNode> bonusResults = new Dictionary<int, JSONNode>();
 
         #endregion
 
@@ -622,12 +635,12 @@ namespace CoinPusherRichLegend2001001
             }
         }*/
 
-        public GComponent[] goPayTableLst
+        public List<GComponent> goPayTableLst
         {
             get => m_GoPayTable;
             set => m_GoPayTable = value;
         }
-        GComponent[] m_GoPayTable;
+        List<GComponent> m_GoPayTable;
 
         public List<List<int>> payLines
         {
@@ -647,8 +660,7 @@ namespace CoinPusherRichLegend2001001
         #endregion
 
 
-        /// <summary> bonus数据 </summary>
-        public Dictionary<int, JSONNode> bonusResults = new Dictionary<int, JSONNode>();
+
 
 
 
@@ -661,6 +673,11 @@ namespace CoinPusherRichLegend2001001
             DebugUtils.LogError($"payTableSymbolWin = ：{JsonConvert.SerializeObject(payTableSymbolWin)}");
         }
 
+        [Button]
+        void TestShowGComponent()
+        {
+            DebugUtils.LogError($"goPayTableLst.Count = ：{goPayTableLst.Count}");
+        }
     }
         
 

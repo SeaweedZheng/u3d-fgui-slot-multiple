@@ -9,6 +9,10 @@ using UnityEngine.Events;
 using GameMaker;
 using System.Linq;
 
+
+/// <summary>
+/// 【这个脚本即将弃用】
+/// </summary>
 public class SlotMachineHelper:MonoBehaviour
 {
 

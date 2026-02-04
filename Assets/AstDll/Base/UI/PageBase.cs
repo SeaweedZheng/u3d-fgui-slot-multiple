@@ -29,7 +29,8 @@ public class PageBase : Window
     //public PageType pageType = PageType.Page; (这样使用多态有问题)
     public virtual PageType pageType => PageType.Page;
 
-    public UnityEvent preLoadedCallback;
+    // 系统自动掉，或 自己手动调
+    public UnityEvent preLoadedCallback = new UnityEvent();
 
     protected EventData inParams;
 

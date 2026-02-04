@@ -82,7 +82,7 @@ namespace Lobby01
 
         Controller ctrSound;
 
-        CreditController creditCtr = new CreditController();
+        UIMyCreditController creditCtr = new UIMyCreditController();
         public override void InitParam()
         {
 

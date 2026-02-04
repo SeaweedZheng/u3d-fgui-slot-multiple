@@ -11,6 +11,8 @@ namespace PanelSlot1000000
 
     public class PanelBaseController : MonoBehaviour, IPanel
     {
+        const string pkgName = nameof(PanelSlot1000000);
+
         enum PopState
         {
             None,
@@ -25,10 +27,10 @@ namespace PanelSlot1000000
             //setPanel, 
              payTableContent;
 
-        GButton btnSound, btnHelp;
+        GButton btnSound, btnHelp, btnBack;
         protected SpinButtonBaseController spinBtnCtrl = new SpinButtonBaseController();
         protected GButton btnPayTable, btnPrev, btnNext;
-        protected GTextField txtBet, txtWin;
+        protected GTextField txtBet; //, txtWin;
         //protected bool isSet;
 
         GameObject goSpinClone;
@@ -37,16 +39,23 @@ namespace PanelSlot1000000
         public int contentIndex;
 
 
+        GList lstPayTableIndexs;
+
+
+        UIMyCreditController uiMyCreditCtrl = new UIMyCreditController();
+        UIWinNumController uiWinNumCtrl = new UIWinNumController();
         protected virtual int IntroduceIndexMax => 6;
 
         protected virtual void OnEnable()
         {
             EventCenter.Instance.AddEventListener<EventData>(Observer.ON_PROPERTY_CHANGED_EVENT, OnPropertyChange);
-            EventCenter.Instance.AddEventListener<EventData>(SlotMachineEvent.ON_WIN_EVENT, OnTotalWinCredit);
-            EventCenter.Instance.AddEventListener<EventData>(MetaUIEvent.ON_CREDIT_EVENT, OnUpdateNaviCredit);
+            //EventCenter.Instance.AddEventListener<EventData>(SlotMachineEvent.ON_WIN_EVENT, OnTotalWinCredit);
             EventCenter.Instance.AddEventListener<EventData>(PanelEvent.ON_PANEL_EVENT, OnPanelEventAnchorPanelChange);
 
             MainModel.Instance.panel = this;
+
+            uiMyCreditCtrl.Enable();
+            uiWinNumCtrl.Enable();
 
             Init();
         }
@@ -55,10 +64,12 @@ namespace PanelSlot1000000
         protected virtual void OnDisable()
         {
             EventCenter.Instance.RemoveEventListener<EventData>(Observer.ON_PROPERTY_CHANGED_EVENT, OnPropertyChange);
-            EventCenter.Instance.RemoveEventListener<EventData>(SlotMachineEvent.ON_WIN_EVENT, OnTotalWinCredit);
-            EventCenter.Instance.RemoveEventListener<EventData>(MetaUIEvent.ON_CREDIT_EVENT, OnUpdateNaviCredit);
+            //EventCenter.Instance.RemoveEventListener<EventData>(SlotMachineEvent.ON_WIN_EVENT, OnTotalWinCredit);
             EventCenter.Instance.RemoveEventListener<EventData>(PanelEvent.ON_PANEL_EVENT, OnPanelEventAnchorPanelChange);
-            gOwnerPanel.visible = false;
+            //gOwnerPanel.visible = false;
+
+            uiMyCreditCtrl.Disable();
+            uiWinNumCtrl.Disable();
         }
 
 
@@ -89,11 +100,11 @@ namespace PanelSlot1000000
                 }
             };
 
-            string urlStr = $"ui://{nameof(PanelSlot1000000)}/Panel";
+            string urlStr = $"ui://{pkgName}/Panel";
             //Debug.Log("urlStr" + urlStr);
             if (gOwnerPanel != _goAnchorPanel && _goAnchorPanel != null)
             {
-                if (UIPackage.GetByName(nameof(PanelSlot1000000)) == null)
+                if (UIPackage.GetByName(pkgName) == null)
                 {
                     ResourceManager02.Instance.LoadAssetBundleAsync("Assets/AstBundle/Games/Panel Slot 1000000/FGUIs", (ab) =>
                     {
@@ -157,14 +168,17 @@ namespace PanelSlot1000000
         protected virtual void InitParam()
         {
             gOwnerPanel = MainModel.Instance.contentMD.goAnchorPanel.asCom.GetChild("icon").asLoader.component;
-            //setPanel = gOwnerPanel.GetChild("setPanel").asCom;
-            gOwnerPanel.GetChild("credit").asTextField.text = MainModel.Instance.myCredit.ToString(); //SBoxModel.Instance.myCredit.ToString();
 
 
 
+            //gOwnerPanel.GetChild("credit").asTextField.text = MainModel.Instance.myCredit.ToString(); //SBoxModel.Instance.myCredit.ToString();
+            //txtWin = gOwnerPanel.GetChild("win").asTextField;
+            //txtWin.text = 9.ToString();           
+            
+            uiMyCreditCtrl.InitParam(gOwnerPanel.GetChild("credit").asTextField);
+            uiWinNumCtrl.InitParam(gOwnerPanel.GetChild("win").asTextField);
 
-            txtWin = gOwnerPanel.GetChild("win").asTextField;
-            txtWin.text = 9.ToString();
+
 
 
             btnBetUp = gOwnerPanel.GetChild("btnBetUp").asButton;
@@ -187,8 +201,8 @@ namespace PanelSlot1000000
             gPayTableWin = gOwnerPanel.GetChild("payTable").asCom;
 
             payTableContent = gPayTableWin.GetChild("content").asCom;
-            if(MainModel.Instance.contentMD.goPayTableLst.Length > 0)
-                payTableContent.AddChild(MainModel.Instance.contentMD.goPayTableLst[contentIndex]);
+
+
 
             btnPrev = gPayTableWin.GetChild("btnController").asCom.GetChild("btnPrev").asButton;
             btnPrev.onClick.Clear();
@@ -198,6 +212,15 @@ namespace PanelSlot1000000
             btnNext = gPayTableWin.GetChild("btnController").asCom.GetChild("btnNext").asButton;
             btnNext.onClick.Clear();
             btnNext.onClick.Add(OnClickIntroduceR);
+
+
+            lstPayTableIndexs = gPayTableWin.GetChild("btnController").asCom.GetChild("btnIndexs").asList;
+
+            // 说明也返回按钮
+            btnBack = gOwnerPanel.GetChild("btnBack").asButton;
+            btnBack.visible = false;
+            btnBack.onClick.Set(CloseAllPopup);
+
 
 
             btnHelp = gOwnerPanel.GetChild("btnHelp").asButton;
@@ -213,13 +236,16 @@ namespace PanelSlot1000000
             GComponent gMenu = btnHelp.GetChild("menu").asCom;
             btnPayTable = gMenu.GetChild("btnPayTable").asButton;
             btnPayTable.onClick.Clear();
-            btnPayTable.onClick.Add(() =>
+            btnPayTable.onClick.Add((EventContext context) =>
             {
-                IntroduceInit();
+                InitPayTable();
                 GlobalSoundHelper.Instance.PlaySoundEff(GameMaker.SoundKey.PopupOpen);
                 gPayTableWin.visible = true;
-                //setPanel.visible = false;
-                btnHelp.selected = false;
+
+                ClosePanelMenu();
+                context.StopPropagation(); // 停止事件冒泡(不起作用)
+
+                btnBack.visible = true; //返回按钮
             });
 
 
@@ -243,12 +269,19 @@ namespace PanelSlot1000000
 
 
             btnHome = gMenu.GetChild("btnHome").asButton;
-            btnHome.onClick.Set((EventContext context) =>
+            if (PageUtils.HasLobby)
             {
-                PageUtils.GoBackToLobby();
-            });
-
-
+                btnHome.visible = true;
+                btnHome.onClick.Set((EventContext context) =>
+                {
+                    CloseAllPopup();
+                    PageUtils.GoBackToLobby();
+                });
+            }
+            else
+            {
+                btnHome.visible = false;
+            }
 
             OnPropertyChangeBetList();
             OnPropertyChangeTotalBet();
@@ -256,7 +289,7 @@ namespace PanelSlot1000000
             OnPropertyIsConnectMoneyBox();
         }
 
-
+        void ClosePanelMenu() => btnHelp.selected = false;
         protected virtual void OnClickHelp()
         {
             if (btnHelp.selected)
@@ -269,73 +302,105 @@ namespace PanelSlot1000000
             else
             {
 
-                gPayTableWin.visible = false;
-                gOwnerPanel.GetChild("mask").asGraph.visible = false;
-
-                spinBtnCtrl.SetTouchable();
+                CloseAllPopup();
                 //spinBtnCtrl.goOwnerSpin.GetController("button").selectedPage = "stop";
                 //spinBtnCtrl.goOwnerSpin.touchable = true;
             }
         }
 
-        protected virtual void IntroduceInit()
+        void CloseAllPopup()
         {
+            btnBack.visible = false;
+            gPayTableWin.visible = false;
+            gOwnerPanel.GetChild("mask").asGraph.visible = false;
+            spinBtnCtrl.SetTouchable();
+        }
+
+
+        protected virtual void InitPayTable()
+        {
+
+            lstPayTableIndexs.numItems =
+                MainModel.Instance.contentMD.goPayTableLst == null ? 0 : MainModel.Instance.contentMD.goPayTableLst.Count;
+
+            GObject[] childs = lstPayTableIndexs.GetChildren();
+            foreach (GObject child in childs)
+            {
+                child.asButton.selected = false;
+            }
+
+            if (MainModel.Instance.contentMD.goPayTableLst == null || MainModel.Instance.contentMD.goPayTableLst.Count == 0) return;
+
             contentIndex = 0;
             payTableContent.RemoveChildren();
             payTableContent.AddChild(MainModel.Instance.contentMD.goPayTableLst[contentIndex]);
+
+            lstPayTableIndexs.GetChildAt(contentIndex).asButton.selected = true;
+
             btnPrev.touchable = false;
             btnPrev.GetChild("untouch").visible = true;
             btnNext.touchable = true;
             btnNext.GetChild("untouch").visible = false;
-            gPayTableWin.GetChild("btnController").asCom.GetController("c1").selectedIndex = contentIndex;
+
         }
 
         protected virtual void OnClickIntroduceL()
         {
-            IntroduceChange(false);
+            if (MainModel.Instance.contentMD.goPayTableLst == null || MainModel.Instance.contentMD.goPayTableLst.Count == 0) return;
+
+            PayTableChange(false);
             if (contentIndex == 0)
             {
                 btnPrev.touchable = false;
                 btnPrev.GetChild("untouch").visible = true;
             }
-            else
-            {
-                btnNext.GetChild("untouch").visible = false;
-                btnNext.touchable = true;
-            }
+            btnNext.GetChild("untouch").visible = false;
+            btnNext.touchable = true;
         }
 
         protected virtual void OnClickIntroduceR()
         {
-            IntroduceChange(true);
-            if (contentIndex == 6)
+            if (MainModel.Instance.contentMD.goPayTableLst == null || MainModel.Instance.contentMD.goPayTableLst.Count == 0) return;
+
+            PayTableChange(true);
+            if (contentIndex == MainModel.Instance.contentMD.goPayTableLst.Count - 1)
             {
                 btnNext.touchable = false;
                 btnNext.GetChild("untouch").visible = true;
-
             }
-            else
-            {
 
-                btnPrev.touchable = true;
-                btnPrev.GetChild("untouch").visible = false;
-            }
+            btnPrev.touchable = true;
+            btnPrev.GetChild("untouch").visible = false;
+
         }
 
-        protected virtual void IntroduceChange(bool jia)
+        protected virtual void PayTableChange(bool isAdd)
         {
-            if (jia)
+            if (isAdd)
             {
-                contentIndex += 1;
+                if (++contentIndex >= MainModel.Instance.contentMD.goPayTableLst.Count)
+                {
+                    contentIndex = MainModel.Instance.contentMD.goPayTableLst.Count - 1;
+                }
             }
             else
             {
-                contentIndex -= 1;
+                if (--contentIndex < 0)
+                {
+                    contentIndex = 0;
+                }
             }
 
             payTableContent.RemoveChildren();
             payTableContent.AddChild(MainModel.Instance.contentMD.goPayTableLst[contentIndex]);
-            gPayTableWin.GetChild("btnController").asCom.GetController("c1").selectedIndex = contentIndex;
+
+            GObject[] childs = lstPayTableIndexs.GetChildren();
+            foreach (GObject child in childs)
+            {
+                child.asButton.selected = false;
+            }
+            lstPayTableIndexs.GetChildAt(contentIndex).asButton.selected = true;
+
         }
         protected virtual void OnPropertyChange(EventData res = null)
         {
@@ -352,9 +417,9 @@ namespace PanelSlot1000000
                 case "ContentModel/btnSpinState":
                     OnPropertyChangeBtnSpinState(res);
                     break;
-                case "ContentModel/gameState":
+                /*case "ContentModel/gameState":
                     OnPropertyGameState(res);
-                    break;
+                    break;*/
                 case "SBoxModel/isConnectMoneyBox":
                     OnPropertyIsConnectMoneyBox(res);
                     break;
@@ -422,15 +487,18 @@ namespace PanelSlot1000000
 
 
         }
+
+        /*
         protected virtual void OnPropertyGameState(EventData res = null)
         {
             string gameState = (string)res?.value;
 
             if (gameState == GameState.Spin || gameState == GameState.FreeSpin)
             {
-                txtWin.text = 0.ToString();
+               // txtWin.text = 0.ToString();
+
             }
-        }
+        }*/
         protected virtual void OnPropertyIsConnectMoneyBox(EventData res = null)
         {
 
@@ -445,7 +513,7 @@ namespace PanelSlot1000000
             }
         }
 
-
+        /*
         protected virtual void OnTotalWinCredit(EventData receivedEvent)
         {
             if (receivedEvent.name == SlotMachineEvent.TotalWinCredit)
@@ -465,45 +533,8 @@ namespace PanelSlot1000000
 
             }
 
-        }
+        }*/
 
-
-
-        protected virtual void OnUpdateNaviCredit(EventData receivedEvent = null)
-        {
-            if (gOwnerPanel == null) return;
-
-            bool isAmin = false;
-            long fromCredit = 0;
-            long toCredit = 0;
-            if (receivedEvent == null || receivedEvent.value == null)
-            {
-                isAmin = false;
-                toCredit = MainBlackboardController.Instance.myTempCredit;
-            }
-            else
-            {
-                UpdateNaviCredit data = (UpdateNaviCredit)receivedEvent.value;
-
-                isAmin = data.isAnim;
-                fromCredit = data.fromCredit;
-                toCredit = data.toCredit;
-            }
-
-
-            if (isAmin)
-            {
-                NumberAnimation.Instance.AnimateNumber(gOwnerPanel.GetChild("credit").asTextField, fromCredit, toCredit);
-            }
-            else
-            {
-                NumberAnimation.Instance.PauseTextFieldAnimation(gOwnerPanel.GetChild("credit").asTextField);
-                if (gOwnerPanel.GetChild("credit").asTextField != null)
-                {
-                    gOwnerPanel.GetChild("credit").asTextField.text = toCredit.ToString();
-                }
-            }
-        }
 
 
 

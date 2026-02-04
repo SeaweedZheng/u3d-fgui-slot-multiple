@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,93">
+  <controller name="c1" pages="0,paytable1,1,paytable2,2,paytable3,3,paytable4,4,paytable5,5,paytable6,6,paytable7" selected="0"/>
+  <displayList>
+    <component id="n8_j122" name="btnPrev" src="h8ljb" fileName="Components/Button/ButtonL.xml" xy="136,7"/>
+    <component id="n9_j122" name="btnNext" src="h8ljb" fileName="Components/Button/ButtonL.xml" xy="842,7" skew="0,180"/>
+    <list id="n32_9ug1" name="btnIndexs" xy="243,22" size="594,49" layout="flow_hz" overflow="scroll" colGap="20" defaultItem="ui://j12vtpsc9ug11i" align="center" vAlign="middle" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>

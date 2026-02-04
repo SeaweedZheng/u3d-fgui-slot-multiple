@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1,1">
+  <displayList>
+    <image id="n9_ldsc" name="n9" src="h8ljz" fileName="Images/Frame/bg_3.png" xy="-210,-50"/>
+    <image id="n7_ldsc" name="n7" src="h8lj11" fileName="Images/Frame/bg_1.png" xy="-540,-34" size="540,102"/>
+    <image id="n8_ldsc" name="n8" src="h8lj11" fileName="Images/Frame/bg_1.png" xy="540,-34" size="540,102" skew="0,180"/>
+    <image id="n10_ldsc" name="n10" src="h8lj10" fileName="Images/Frame/bg_notice.png" xy="-371,-26"/>
+    <image id="n11_ldsc" name="n11" src="h8lj10" fileName="Images/Frame/bg_notice.png" xy="200,-26"/>
+    <text id="n15_h8lj" name="n15" xy="211,-17" size="88,29" fontSize="20" color="#ffff00" autoSize="none" bold="true" text="CREDIT"/>
+    <text id="n16_h8lj" name="n16" xy="-78,-17" size="139,30" fontSize="20" color="#ffff00" autoSize="none" bold="true" text="WIN COINS"/>
+    <text id="n17_h8lj" name="n17" xy="-362,-17" size="157,31" fontSize="20" color="#ffff00" autoSize="none" bold="true" text="COIN : CREDIT"/>
+  </displayList>
+</component>

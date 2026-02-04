@@ -95,7 +95,7 @@ namespace PusherEmperorsRein
         JackpotEnd,
     }
 
-    public class SoundModel : MonoSingleton<SoundModel>
+    public class SoundModel : MonoSingleton02<SoundModel>
     {
 
 

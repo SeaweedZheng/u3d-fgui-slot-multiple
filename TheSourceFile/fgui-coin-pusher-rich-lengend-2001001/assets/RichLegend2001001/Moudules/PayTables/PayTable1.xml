@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="960,640">
+  <displayList>
+    <component id="n11_v1zk" name="n11" src="px571ne" fileName="Moudules/PayTables/PayTableName1.xml" xy="381,0"/>
+    <component id="n12_v1zk" name="n12" src="px571ng" fileName="Moudules/PayTables/PayTableContent1.xml" xy="10,99"/>
+  </displayList>
+</component>

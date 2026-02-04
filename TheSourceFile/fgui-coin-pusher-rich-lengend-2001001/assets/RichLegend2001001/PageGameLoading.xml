@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1080,1920" bgColor="#333333">
   <displayList>
-    <graph id="n2_mjx0" name="n2" xy="0,0" size="1080,1920" type="rect" lineSize="0" fillColor="#ff333333">
+    <component id="n2_mjx0" name="n2" src="8eb61mv" fileName="Components/BGPage.xml" xy="0,0" size="1080,1920">
       <relation target="" sidePair="width-width,height-height"/>
-    </graph>
+    </component>
     <component id="n0_mjx0" name="page" src="mjx01dd" fileName="PageGameLoading_1024_768.xml" xy="28,576">
       <relation target="" sidePair="center-center,middle-middle"/>
     </component>

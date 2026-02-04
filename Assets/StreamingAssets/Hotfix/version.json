@@ -1,13 +1,13 @@
 {
   "name": "Total",
-  "updated_at": 1769082748846,
+  "updated_at": 1770209081416,
   "hotfix_key": "hf_debug_android_20251216143338",
-  "hotfix_version": "1.0.115",
-  "hash": "4ccf8210b9ddf8cdadddb20cfdc53f00",
+  "hotfix_version": "1.0.160",
+  "hash": "8b6fdab72d66a5a4ba39d4d06693a99d",
   "asset_bundle": {
     "manifest": {
-      "hash": "fc2b5b12dcd961f7d04266869c872aa9",
-      "size_bytes": 8026
+      "hash": "5534cc8657d4e6150e3a64f6a68b7e6c",
+      "size_bytes": 8138
     },
     "bundles": {
       "_common/game maker/abs/g152/game icon/game avatar 152.unity3d": {
@@ -67,8 +67,8 @@
         "size_bytes": 1206
       },
       "_commons/game maker/abs/g2001001/tmg_mock_gm_2001001.unity3d": {
-        "hash": "7bb89af0c95a77104ce4c3bd5bfed5ce",
-        "size_bytes": 1165
+        "hash": "0e6e832d821066d7b9e24ab5aed06685",
+        "size_bytes": 1213
       },
       "_commons/game maker/abs/g300/game_info_g300.unity3d": {
         "hash": "e7fbef8da95fb47de29e6c76c4ad8787",
@@ -211,8 +211,8 @@
         "size_bytes": 4446
       },
       "games/coin pusher emperors rein 200/fguis.unity3d": {
-        "hash": "5c29c6587258e8130ba7609297036d8b",
-        "size_bytes": 8759759
+        "hash": "a1c58d8a565a0374f72dda9b0de0869a",
+        "size_bytes": 9218515
       },
       "games/coin pusher emperors rein 200/prefabs/effects/game jackpot/prefabs/effect.unity3d": {
         "hash": "176fe17e7d566ac6bcf7009ac9a15b60",
@@ -927,8 +927,12 @@
         "size_bytes": 936
       },
       "games/coin pusher rich legend 2001001/abs/mock/g2001001__slot_spin__bonus1.unity3d": {
-        "hash": "a57c44bf2b9886144663e12c859609d8",
-        "size_bytes": 945
+        "hash": "dd6a901656f80c9c411095c4229e12c5",
+        "size_bytes": 946
+      },
+      "games/coin pusher rich legend 2001001/abs/mock/g2001001__slot_spin__bonus2.unity3d": {
+        "hash": "dbec04fc23d3242ff2e115736c6e33a1",
+        "size_bytes": 973
       },
       "games/coin pusher rich legend 2001001/abs/mock/g2001001__slot_spin__jp1.unity3d": {
         "hash": "61506c136640ecc81cb8d4d20453e4b7",
@@ -947,16 +951,24 @@
         "size_bytes": 944
       },
       "games/coin pusher rich legend 2001001/fguis.unity3d": {
-        "hash": "87019448fea1e723be3d3143b48da641",
-        "size_bytes": 60397130
+        "hash": "24faf58173a2ce2bbd0770bcc573282e",
+        "size_bytes": 73486828
       },
       "games/coin pusher rich legend 2001001/prefabs/game controller/game main controller.unity3d": {
-        "hash": "790ad674c927d6d2569ddd70c11d733a",
-        "size_bytes": 3919
+        "hash": "65c94bb5f853ff4f85da6c72c84aaa00",
+        "size_bytes": 4060
       },
-      "games/coin pusher rich legend 2001001/prefabs/page bonus 1/train.unity3d": {
-        "hash": "c0a4019570343a2ffe618202322e5c0a",
-        "size_bytes": 52801246
+      "games/coin pusher rich legend 2001001/prefabs/page game bonus 1/train.unity3d": {
+        "hash": "6f00278a4d2472125aca8a597154dc0b",
+        "size_bytes": 52800321
+      },
+      "games/coin pusher rich legend 2001001/prefabs/page game bonus 2/buttonhand.unity3d": {
+        "hash": "176d6b11ed5a7dc61c4827632e5f7163",
+        "size_bytes": 118110
+      },
+      "games/coin pusher rich legend 2001001/prefabs/page game bonus 2/richmainjump.unity3d": {
+        "hash": "44ca96c13e0c33070daf8a0386760dc5",
+        "size_bytes": 2708022
       },
       "games/coin pusher rich legend 2001001/prefabs/popup jackpot game/pop fg jp 1.unity3d": {
         "hash": "a10eed68758367772a75c0fc43e458b3",
@@ -971,12 +983,16 @@
         "size_bytes": 622551
       },
       "games/coin pusher rich legend 2001001/prefabs/popup jackpot game/pop fg jp mega.unity3d": {
-        "hash": "8d7c2e09211e055394b77cb75609262d",
-        "size_bytes": 535928
+        "hash": "7eae1929416fc2b0c06dcc80ab7144ed",
+        "size_bytes": 536126
       },
       "games/panel coin pusher 02/fguis.unity3d": {
         "hash": "89b28af011da4b908ba9bbda62cf2554",
         "size_bytes": 482816
+      },
+      "games/panel coin pusher 1100000/fguis.unity3d": {
+        "hash": "3a4e6ec431e126860007ee0c4e08c7de",
+        "size_bytes": 155221
       },
       "games/panel slot 01/fguis.unity3d": {
         "hash": "fc49500350b3e3fb9b1404646973556d",
@@ -987,8 +1003,8 @@
         "size_bytes": 57398
       },
       "games/panel slot 1000000/fguis.unity3d": {
-        "hash": "6e36ac677591f442276638f76017c7ee",
-        "size_bytes": 156912
+        "hash": "9c61f70cdfb57f928cf0bfc987842732",
+        "size_bytes": 159035
       },
       "games/panel slot 1000000/prefabs/slot btn spin.unity3d": {
         "hash": "87e07a59c8c9a816f176fdbe171705fe",
@@ -1068,13 +1084,13 @@
   },
   "asset_dll": {
     "Base.dll.bytes": {
-      "hash": "026c9e0e904f7910cdeffbf9e9038520",
-      "size_bytes": 171520,
+      "hash": "c2cf183b390934b777b1a961bc9e36fd",
+      "size_bytes": 172032,
       "level": 0
     },
     "Main.dll.bytes": {
-      "hash": "e1d2fc8ae52584cfad54600096bb4f36",
-      "size_bytes": 1093120,
+      "hash": "47763d938313f1a42644347ff3e0485b",
+      "size_bytes": 1090560,
       "level": 1
     }
   },

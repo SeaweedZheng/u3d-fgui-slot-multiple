@@ -24,4 +24,9 @@ public class PageUtils
             }
         }
     }
+
+    /// <summary>
+    /// 是否存在大厅
+    /// </summary>
+    public static bool HasLobby => PageManager.Instance.IndexOf(PageName.Lobby01PageLobbyMain) != -1;
 }

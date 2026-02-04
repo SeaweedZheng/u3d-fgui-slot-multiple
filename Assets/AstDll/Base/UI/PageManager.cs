@@ -388,9 +388,9 @@ public partial class PageManager : MonoBehaviour
                 onloaded = () =>
                 {
                     onLoadedCallback?.Invoke();
-                    window.preLoadedCallback.RemoveListener(onloaded);
+                    window.preLoadedCallback?.RemoveListener(onloaded);
                 };
-                window.preLoadedCallback.AddListener(onloaded);
+                window.preLoadedCallback?.AddListener(onloaded);
             }
             
             pageCacheDict.Add(pageName, window);

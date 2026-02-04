@@ -97,6 +97,10 @@ namespace GameMaker
         public const string GMJp2 = "GMJp2";
         public const string GMJp3 = "GMJp3";
         public const string GMJp4 = "GMJp4";
+        public const string GMJpConsole1 = "GMJpConsole1";
+        public const string GMJpConsole2 = nameof(GMJpConsole2);
+        public const string GMJpConsole3 = nameof(GMJpConsole3);
+        public const string GMJpConsole4 = nameof(GMJpConsole4);
         public const string GMJpOnline = "GMJpOnline";    
         public const string GMBonus1 = "GMBonus1";     
         public const string GMBonus2 = "GMBonus2";   

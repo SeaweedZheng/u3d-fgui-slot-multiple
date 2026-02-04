@@ -5,7 +5,7 @@
       <relation target="" sidePair="center-center,middle-middle"/>
     </loader>
     <movieclip id="n3_10cf0" name="border" src="10cf012q" fileName="Images/PageGameMain/BorderEffect/BorderEffect.jta" xy="64,68" pivot="0.5,0.5" anchor="true" scale="1.1,1.1" visible="false"/>
-    <component id="n1_tpfc" name="n1" src="tpfchm" fileName="Moudules/Panel/ItemCredit.xml" xy="31,118">
+    <component id="n1_tpfc" name="coins" src="tpfchm" fileName="Panel/ItemCredit.xml" xy="31,118">
       <relation target="" sidePair="center-center,middle-middle"/>
     </component>
   </displayList>

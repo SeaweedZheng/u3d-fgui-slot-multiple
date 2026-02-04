@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1080,1920" designImage="ui://adoe8w7dplep1" designImageOffsetX="28" designImageOffsetY="1152">
   <displayList>
-    <graph id="n6_l458" name="n6" xy="0,0" size="1080,1920" type="rect" lineColor="#ff333333" fillColor="#ff333333">
+    <component id="n6_l458" name="n6" src="8eb61mv" fileName="Components/BGPage.xml" xy="0,0" size="1080,1920">
       <relation target="" sidePair="width-width,height-height,bottom-bottom"/>
-    </graph>
+    </component>
     <image id="n4_plep" name="n4" src="j4eb2" fileName="Images/PageGameMain/BG/bg.png" xy="28,576" group="n5_l458"/>
     <component id="n2_plep" name="slotMachine" src="plep7" fileName="Moudules/PageGameMain/SlotMachine/SlotMachine.xml" xy="142,700" group="n5_l458"/>
     <component id="n3_plep" name="panel" src="plepb" fileName="Panel/Panel.xml" xy="28,1194" group="n5_l458"/>
@@ -17,12 +17,12 @@
     <component id="n19_8amu" name="myCredit" src="8amu15h" fileName="Moudules/PageGameMain/MyCredit.xml" xy="42,593" group="n5_l458">
       <relation target="" sidePair="left-left,top-top"/>
     </component>
-    <component id="n20_8amu" name="coinInCrdit" src="8amu15i" fileName="Moudules/PageGameMain/CoinInCredit.xml" xy="820,593" group="n5_l458">
+    <component id="n20_8amu" name="coinIn" src="8amu15i" fileName="Moudules/PageGameMain/CoinInCredit.xml" xy="820,593" group="n5_l458">
       <relation target="" sidePair="right-right,top-top"/>
     </component>
     <component id="n21_8amu" name="rewardCoins" src="8amu15l" fileName="Moudules/PageGameMain/RewardCoins.xml" xy="853,945" group="n5_l458"/>
-    <component id="n22_8amu" name="turnInfo" src="8amu15x" fileName="Moudules/PageGameMain/TurnInfo.xml" xy="866,1090" group="n5_l458"/>
-    <component id="n24_mjx0" name="effectCoinDrop" src="mjx01da" fileName="EffectCoinDrop.xml" xy="28,576" group="n5_l458" visible="false"/>
+    <component id="n22_8amu" name="turnInfo" src="8amu15x" fileName="Moudules/PageGameMain/TurnInfo.xml" xy="829,1090" group="n5_l458"/>
+    <component id="n24_mjx0" name="effectCoinDrop" src="mjx01da" fileName="Moudules/PageGameMain/EffectCoinDrop.xml" xy="28,576" group="n5_l458" visible="false" touchable="false"/>
     <group id="n5_l458" name="n5" xy="28,576" size="1024,1112" advanced="true"/>
     <component id="n8_e8ib" name="anchorPanel" src="e8ib13j" fileName="Moudules/PageGameMain/Anchors/AnchorPanel.xml" xy="539,1839"/>
   </displayList>

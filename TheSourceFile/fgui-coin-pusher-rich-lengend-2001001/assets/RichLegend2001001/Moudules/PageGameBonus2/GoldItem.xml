@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="100,100" pivot="0.5,0.5" anchor="true">
+  <controller name="GoldNum" exported="true" pages="0,ten,1,twenty,2,thirty,3,fifty,4,Zero,5,forty,6,sixty,7,eighty" selected="0"/>
+  <controller name="GoldState" exported="true" pages="10,none,2,star,1,over,0,idle" selected="3">
+    <action type="play_transition" fromPage="" toPage="2" transition="Star"/>
+    <action type="play_transition" fromPage="" toPage="1" transition="Over"/>
+  </controller>
+  <displayList>
+    <graph id="n0_cil8" name="gold" xy="50,50" pivot="0.5,0.5" anchor="true" size="100,100" type="rect" lineSize="0" fillColor="#00ffffff"/>
+    <movieclip id="n3_jbzr" name="10Idel" src="bhr01" fileName="Images/PageBonus2/CoinEffects/10Idel.jta" xy="-48,-48" pivot="0.5,0.5" scale="0.95,0.95">
+      <gearDisplay controller="GoldNum" pages="0"/>
+      <gearDisplay2 controller="GoldState" pages="0" condition="0"/>
+    </movieclip>
+    <movieclip id="n4_jbzr" name="10Over" src="bhr02" fileName="Images/PageBonus2/CoinEffects/10Over.jta" xy="-78,-78" pivot="0.5,0.5" scale="0.95,0.95" playing="false">
+      <gearDisplay controller="GoldNum" pages="0"/>
+      <gearDisplay2 controller="GoldState" pages="1" condition="0"/>
+    </movieclip>
+    <movieclip id="n5_jbzr" name="10Star" src="bhr03" fileName="Images/PageBonus2/CoinEffects/10Star.jta" xy="-54,-54" pivot="0.5,0.5" scale="0.95,0.95" frame="45" playing="false">
+      <gearDisplay controller="GoldNum" pages="0"/>
+      <gearDisplay2 controller="GoldState" pages="2" condition="0"/>
+    </movieclip>
+    <movieclip id="n6_jbzr" name="20Idel" src="bhr04" fileName="Images/PageBonus2/CoinEffects/20Idel.jta" xy="-48,-48" pivot="0.5,0.5" scale="0.95,0.95">
+      <gearDisplay controller="GoldNum" pages="1"/>
+      <gearDisplay2 controller="GoldState" pages="0" condition="0"/>
+    </movieclip>
+    <movieclip id="n7_jbzr" name="20Over" src="bhr05" fileName="Images/PageBonus2/CoinEffects/20Over.jta" xy="-78,-78" pivot="0.5,0.5" scale="0.95,0.95" playing="false">
+      <gearDisplay controller="GoldNum" pages="1"/>
+      <gearDisplay2 controller="GoldState" pages="1" condition="0"/>
+    </movieclip>
+    <movieclip id="n8_jbzr" name="20Star" src="bhr06" fileName="Images/PageBonus2/CoinEffects/20Star.jta" xy="-54,-54" pivot="0.5,0.5" scale="0.95,0.95" frame="45" playing="false">
+      <gearDisplay controller="GoldNum" pages="1"/>
+      <gearDisplay2 controller="GoldState" pages="2" condition="0"/>
+    </movieclip>
+    <movieclip id="n9_jbzr" name="30Idel" src="bhr07" fileName="Images/PageBonus2/CoinEffects/30Idel.jta" xy="-48,-48" pivot="0.5,0.5" scale="0.95,0.95">
+      <gearDisplay controller="GoldNum" pages="2"/>
+      <gearDisplay2 controller="GoldState" pages="0" condition="0"/>
+    </movieclip>
+    <movieclip id="n10_jbzr" name="30Over" src="bhr08" fileName="Images/PageBonus2/CoinEffects/30Over.jta" xy="-78,-78" pivot="0.5,0.5" scale="0.95,0.95" playing="false">
+      <gearDisplay controller="GoldNum" pages="2"/>
+      <gearDisplay2 controller="GoldState" pages="1" condition="0"/>
+    </movieclip>
+    <movieclip id="n11_jbzr" name="30Star" src="bhr09" fileName="Images/PageBonus2/CoinEffects/30Star.jta" xy="-54,-54" pivot="0.5,0.5" scale="0.95,0.95" frame="45" playing="false">
+      <gearDisplay controller="GoldNum" pages="2"/>
+      <gearDisplay2 controller="GoldState" pages="2" condition="0"/>
+    </movieclip>
+    <movieclip id="n12_jbzr" name="50Idel" src="bhr0a" fileName="Images/PageBonus2/CoinEffects/50Idel.jta" xy="-48,-48" pivot="0.5,0.5" scale="0.95,0.95">
+      <gearDisplay controller="GoldNum" pages="3"/>
+      <gearDisplay2 controller="GoldState" pages="0" condition="0"/>
+    </movieclip>
+    <movieclip id="n13_jbzr" name="50Over" src="bhr0b" fileName="Images/PageBonus2/CoinEffects/50Over.jta" xy="-78,-78" pivot="0.5,0.5" scale="0.95,0.95" playing="false">
+      <gearDisplay controller="GoldNum" pages="3"/>
+      <gearDisplay2 controller="GoldState" pages="1" condition="0"/>
+    </movieclip>
+    <movieclip id="n14_jbzr" name="50Star" src="bhr0c" fileName="Images/PageBonus2/CoinEffects/50Star.jta" xy="-54,-54" pivot="0.5,0.5" scale="0.95,0.95" frame="45" playing="false">
+      <gearDisplay controller="GoldNum" pages="3"/>
+      <gearDisplay2 controller="GoldState" pages="2" condition="0"/>
+    </movieclip>
+    <movieclip id="n15_zn2w" name="out" src="bhr0d" fileName="Images/PageBonus2/CoinEffects/Out.jta" xy="-5,-5" pivot="0.5,0.5" size="110,110" aspect="true">
+      <gearDisplay controller="GoldNum" pages="4"/>
+    </movieclip>
+    <graph id="n2_cil8" name="Chess" xy="50,35" pivot="0.5,0.5" anchor="true" size="50,50" type="rect" lineSize="0" fillColor="#00ffffff"/>
+    <movieclip id="n16_qzdx" name="80Idel" src="bhr0e" fileName="Images/PageBonus2/CoinEffects/80Idel.jta" xy="-48,-48" pivot="0.5,0.5" scale="0.95,0.95">
+      <gearDisplay controller="GoldNum" pages="7"/>
+      <gearDisplay2 controller="GoldState" pages="0" condition="0"/>
+    </movieclip>
+    <movieclip id="n17_qzdx" name="80Over" src="bhr0f" fileName="Images/PageBonus2/CoinEffects/80Over.jta" xy="-78,-78" pivot="0.5,0.5" scale="0.95,0.95" playing="false">
+      <gearDisplay controller="GoldNum" pages="7"/>
+      <gearDisplay2 controller="GoldState" pages="1" condition="0"/>
+    </movieclip>
+    <movieclip id="n18_qzdx" name="80Star" src="bhr0g" fileName="Images/PageBonus2/CoinEffects/80Star.jta" xy="-54,-54" pivot="0.5,0.5" scale="0.95,0.95" playing="false">
+      <gearDisplay controller="GoldNum" pages="7"/>
+      <gearDisplay2 controller="GoldState" pages="2" condition="0"/>
+    </movieclip>
+    <movieclip id="n19_qzdx" name="60Idel" src="bhr0h" fileName="Images/PageBonus2/CoinEffects/60Idel.jta" xy="-48,-48" pivot="0.5,0.5" scale="0.95,0.95">
+      <gearDisplay controller="GoldNum" pages="6"/>
+      <gearDisplay2 controller="GoldState" pages="0" condition="0"/>
+    </movieclip>
+    <movieclip id="n20_qzdx" name="60Over" src="bhr0i" fileName="Images/PageBonus2/CoinEffects/60Over.jta" xy="-78,-78" pivot="0.5,0.5" scale="0.95,0.95" playing="false">
+      <gearDisplay controller="GoldNum" pages="6"/>
+      <gearDisplay2 controller="GoldState" pages="1" condition="0"/>
+    </movieclip>
+    <movieclip id="n21_qzdx" name="60Star" src="bhr0j" fileName="Images/PageBonus2/CoinEffects/60Star.jta" xy="-54,-54" pivot="0.5,0.5" scale="0.95,0.95" playing="false">
+      <gearDisplay controller="GoldNum" pages="6"/>
+      <gearDisplay2 controller="GoldState" pages="2" condition="0"/>
+    </movieclip>
+    <movieclip id="n22_qzdx" name="40Idel" src="bhr0k" fileName="Images/PageBonus2/CoinEffects/40Idel.jta" xy="-48,-48" pivot="0.5,0.5" scale="0.95,0.95">
+      <gearDisplay controller="GoldNum" pages="5"/>
+      <gearDisplay2 controller="GoldState" pages="0" condition="0"/>
+    </movieclip>
+    <movieclip id="n23_qzdx" name="40Over" src="bhr0l" fileName="Images/PageBonus2/CoinEffects/40Over.jta" xy="-78,-78" pivot="0.5,0.5" scale="0.95,0.95" playing="false">
+      <gearDisplay controller="GoldNum" pages="5"/>
+      <gearDisplay2 controller="GoldState" pages="1" condition="0"/>
+    </movieclip>
+    <movieclip id="n24_qzdx" name="40Star" src="bhr0m" fileName="Images/PageBonus2/CoinEffects/40Star.jta" xy="-54,-54" pivot="0.5,0.5" scale="0.95,0.95" playing="false">
+      <gearDisplay controller="GoldNum" pages="5"/>
+      <gearDisplay2 controller="GoldState" pages="2" condition="0"/>
+    </movieclip>
+  </displayList>
+  <transition name="Star" autoPlay="true">
+    <item time="0" type="Animation" target="n11_jbzr" value="0,p"/>
+    <item time="0" type="Animation" target="n14_jbzr" value="0,p"/>
+    <item time="0" type="Animation" target="n18_qzdx" value="0,p"/>
+    <item time="0" type="Animation" target="n21_qzdx" value="0,p"/>
+    <item time="0" type="Animation" target="n24_qzdx" value="0,p"/>
+    <item time="0" type="Animation" target="n5_jbzr" value="0,p"/>
+    <item time="0" type="Animation" target="n8_jbzr" value="0,p"/>
+    <item time="9" type="Animation" target="n11_jbzr" value="95,s"/>
+    <item time="9" type="Animation" target="n14_jbzr" value="95,s"/>
+    <item time="9" type="Animation" target="n18_qzdx" value="95,s"/>
+    <item time="9" type="Animation" target="n21_qzdx" value="95,s"/>
+    <item time="9" type="Animation" target="n24_qzdx" value="95,s"/>
+    <item time="9" type="Animation" target="n5_jbzr" value="95,s"/>
+    <item time="9" type="Animation" target="n8_jbzr" value="95,s"/>
+  </transition>
+  <transition name="Over">
+    <item time="0" type="Animation" target="n10_jbzr" value="0,p"/>
+    <item time="0" type="Animation" target="n13_jbzr" value="0,p"/>
+    <item time="0" type="Animation" target="n17_qzdx" value="0,p"/>
+    <item time="0" type="Animation" target="n20_qzdx" value="0,p"/>
+    <item time="0" type="Animation" target="n23_qzdx" value="0,p"/>
+    <item time="0" type="Animation" target="n4_jbzr" value="0,p"/>
+    <item time="0" type="Animation" target="n7_jbzr" value="0,p"/>
+    <item time="10" type="Animation" target="n10_jbzr" value="0,s"/>
+    <item time="10" type="Animation" target="n13_jbzr" value="0,s"/>
+    <item time="10" type="Animation" target="n17_qzdx" value="0,s"/>
+    <item time="10" type="Animation" target="n20_qzdx" value="0,s"/>
+    <item time="10" type="Animation" target="n23_qzdx" value="0,s"/>
+    <item time="10" type="Animation" target="n4_jbzr" value="0,s"/>
+    <item time="10" type="Animation" target="n7_jbzr" value="0,s"/>
+  </transition>
+</component>

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="800,493" designImage="ui://fhs9z2lrbhr01o" designImageOffsetX="-21" designImageOffsetY="-88" designImageAlpha="0">
+  <displayList>
+    <component id="n0_cil8" name="goldItem0" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="30,61" controller="GoldNum,0,GoldState,2"/>
+    <component id="n1_cil8" name="goldItem1" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="135,61" controller="GoldNum,0,GoldState,2"/>
+    <component id="n2_cil8" name="goldItem2" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="240,61" controller="GoldNum,0,GoldState,2"/>
+    <component id="n3_cil8" name="goldItem3" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="345,61" controller="GoldNum,0,GoldState,2"/>
+    <component id="n4_cil8" name="goldItem4" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="450,61" controller="GoldNum,0,GoldState,2"/>
+    <component id="n5_cil8" name="goldItem5" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="555,61" controller="GoldNum,0,GoldState,2"/>
+    <component id="n6_cil8" name="goldItem6" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="660,61" controller="GoldNum,0,GoldState,2"/>
+    <component id="n7_cil8" name="goldItem7" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="765,61" controller="GoldNum,0,GoldState,2"/>
+    <component id="n8_cil8" name="goldItem8" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="764,166" controller="GoldNum,0,GoldState,2"/>
+    <component id="n9_cil8" name="goldItem9" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="764,271" controller="GoldNum,0,GoldState,2"/>
+    <component id="n10_cil8" name="goldItem10" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="764,376" controller="GoldNum,0,GoldState,2"/>
+    <component id="n11_cil8" name="goldItem11" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="765,482" controller="GoldNum,0,GoldState,2"/>
+    <component id="n21_cil8" name="goldItem12" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="659,481" controller="GoldNum,0,GoldState,2"/>
+    <component id="n22_cil8" name="goldItem13" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="554,481" controller="GoldNum,0,GoldState,2"/>
+    <component id="n23_cil8" name="goldItem14" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="449,481" controller="GoldNum,0,GoldState,2"/>
+    <component id="n24_cil8" name="goldItem15" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="344,481" controller="GoldNum,0,GoldState,2"/>
+    <component id="n25_cil8" name="goldItem16" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="239,481" controller="GoldNum,0,GoldState,2"/>
+    <component id="n26_cil8" name="goldItem17" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="134,481" controller="GoldNum,0,GoldState,2"/>
+    <component id="n27_cil8" name="goldItem18" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="30,481" controller="GoldNum,0,GoldState,2"/>
+    <component id="n28_cil8" name="goldItem19" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="30,376" controller="GoldNum,0,GoldState,2"/>
+    <component id="n29_cil8" name="goldItem20" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="30,271" controller="GoldNum,0,GoldState,2"/>
+    <component id="n30_cil8" name="goldItem21" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="30,166" controller="GoldNum,0,GoldState,2"/>
+    <component id="n38_cil8" name="diceAni" src="bhr0o" fileName="Moudules/PageBonus2/DiceAniCom.xml" xy="264,121" size="375,250" aspect="true"/>
+    <image id="n31_cil8" name="n31" src="bhr0v" fileName="Images/PageBonus2/bg_reward_coins.png" xy="182,168" pivot="0.5,0.5" anchor="true" group="n34_cil8"/>
+    <image id="n32_cil8" name="n32" src="bhr0w" fileName="Images/PageBonus2/win.png" xy="152,130" group="n34_cil8"/>
+    <text id="n33_cil8" name="diceGameScore" xy="183,183" pivot="0.5,0.5" anchor="true" size="91,59" group="n34_cil8" font="ui://adoe8w7dbhr0x" fontSize="9" color="#ffffff" align="center" vAlign="middle" letterSpacing="-6" autoSize="none" text="0"/>
+    <group id="n34_cil8" name="n0" xy="87,120" size="189,95" advanced="true"/>
+    <image id="n35_cil8" name="n35" src="bhr01a" fileName="Images/PageBonus2/clock.png" xy="625,120" group="n37_cil8"/>
+    <text id="n36_cil8" name="CountDown" xy="647,118" size="48,78" group="n37_cil8" font="ui://adoe8w7dbhr01b" fontSize="9" color="#ffffff" align="center" letterSpacing="-6" text="0"/>
+    <group id="n37_cil8" name="n1" xy="625,118" size="91,88"/>
+    <component id="n41_bhr0" name="anchorButtonHand" src="bhr01ms" fileName="Moudules/PageBonus2/Anchors/AnchorButtonHand.xml" xy="613,332" size="1,1"/>
+    <component id="n42_bhr0" name="anchorRichManJump" src="bhr01mu" fileName="Moudules/PageBonus2/Anchors/AnchorRichManJump.xml" xy="34,62"/>
+  </displayList>
+  <transition name="DiceScoreHide">
+    <item time="0" type="XY" target="n34_cil8" tween="true" startValue="87.5,109.5" endValue="807.5,239.5" duration="24"/>
+    <item time="12" type="Alpha" target="n34_cil8" tween="true" startValue="1" endValue="0" duration="12"/>
+  </transition>
+  <transition name="DiceScoreShow">
+    <item time="0" type="Alpha" target="n34_cil8" value="1"/>
+    <item time="0" type="XY" target="n34_cil8" value="87.5,120"/>
+  </transition>
+</component>

@@ -4,6 +4,9 @@ using GameMaker;
 using System.Collections.Generic;
 using UnityEngine;
 
+/// <summary>
+/// 【即将废弃使用】
+/// </summary>
 public class NumberAnimation : Singleton<NumberAnimation>
 {
     // 存储所有运行中的动画实例（包含关联的文本组件）

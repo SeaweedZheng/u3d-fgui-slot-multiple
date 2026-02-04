@@ -10,7 +10,7 @@ using System;
 
 namespace PusherEmperorsRein
 {
-    public class ContentModel : MonoSingleton<ContentModel>, IContentModel
+    public class ContentModel : MonoSingleton02<ContentModel>, IContentModel
     {
 
         /*
@@ -56,7 +56,8 @@ namespace PusherEmperorsRein
         }
 
 
-
+        public string guid { get => m_Guid; }
+        string m_Guid;
         public PageName pageName => PageName.PusherEmperorsReinPageGameMain;
 
 
@@ -605,12 +606,12 @@ namespace PusherEmperorsRein
             }
         }*/
 
-        public GComponent[] goPayTableLst
+        public List<GComponent> goPayTableLst
         {
             get => m_GoPayTable;
             set => m_GoPayTable = value;
         }
-        GComponent[] m_GoPayTable;
+        List<GComponent> m_GoPayTable;
 
         public List<List<int>> payLines
         {
@@ -643,7 +644,11 @@ namespace PusherEmperorsRein
         {
             DebugUtils.LogError($"payTableSymbolWin = ：{JsonConvert.SerializeObject(payTableSymbolWin)}");
         }
-
+        [Button]
+        void TestShowGComponent()
+        {
+            DebugUtils.LogError($"goPayTableLst.Count = ：{goPayTableLst.Count}");
+        }
     }
         
 

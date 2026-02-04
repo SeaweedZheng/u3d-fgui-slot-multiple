@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1024,768" designImage="ui://adoe8w7dbhr01mm">
+  <displayList>
+    <image id="n5_bhr0" name="n5" src="bhr01mp" fileName="Images/PageBonus2/bg_night.png" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <component id="n6_bhr0" name="map" src="bhr0n" fileName="Moudules/PageBonus2/MonopolyGameCom.xml" xy="112,200"/>
+    <component id="n9_bhr0" name="turnInfo" src="8amu15l" fileName="Moudules/PageGameMain/RewardCoins.xml" xy="436,17" visible="false"/>
+    <component id="n11_bhr0" name="myCredit" src="8amu15h" fileName="Moudules/PageGameMain/MyCredit.xml" xy="15,17"/>
+    <component id="n12_bhr0" name="coinIn" src="8amu15i" fileName="Moudules/PageGameMain/CoinInCredit.xml" xy="792,17"/>
+    <component id="n15_bhr0" name="flyCoin" src="bhr00" fileName="Moudules/PageBonus2/GoldItem.xml" xy="65,145"/>
+  </displayList>
+</component>

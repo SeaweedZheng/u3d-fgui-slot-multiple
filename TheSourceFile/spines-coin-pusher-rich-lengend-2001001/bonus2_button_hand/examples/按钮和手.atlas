@@ -1,0 +1,41 @@
+
+按钮和手.png
+size: 458,144
+format: RGBA8888
+filter: Linear,Linear
+repeat: none
+Box
+  rotate: true
+  xy: 278, 38
+  size: 104, 74
+  orig: 104, 74
+  offset: 0, 0
+  index: -1
+Glow_01
+  rotate: false
+  xy: 354, 2
+  size: 102, 69
+  orig: 102, 69
+  offset: 0, 0
+  index: -1
+Hand
+  rotate: false
+  xy: 2, 4
+  size: 153, 138
+  orig: 153, 138
+  offset: 0, 0
+  index: -1
+On
+  rotate: false
+  xy: 354, 73
+  size: 102, 69
+  orig: 102, 69
+  offset: 0, 0
+  index: -1
+Under
+  rotate: true
+  xy: 157, 4
+  size: 138, 119
+  orig: 141, 121
+  offset: 1, 1
+  index: -1

@@ -339,7 +339,7 @@ public class DeviceIOTPayment : MonoSingleton<DeviceIOTPayment>  //MonoBehaviour
         }, 10000));
         */
 
-        MachineDataManager.Instance.RequestCoinIn(data.Num, (Action<object>)((res) =>
+        MachineDataManager02.Instance.RequestCoinIn(data.Num, (Action<object>)((res) =>
         {
 
             DebugUtils.Log($"好酷上分成功 : {credit}");
@@ -667,7 +667,7 @@ public class DeviceIOTPayment : MonoSingleton<DeviceIOTPayment>  //MonoBehaviour
             int creditOut = cacheIOTCoinOutOrder[orderIdIOTCoinOut]["credit"];
             int coinOutNum = cacheIOTCoinOutOrder[orderIdIOTCoinOut]["count"];
 
-            MachineDataManager.Instance.RequestCoinOut(coinOutNum, (Action<object>)((res) =>
+            MachineDataManager02.Instance.RequestCoinOut(coinOutNum, (Action<object>)((res) =>
             {
 
                 DebugUtils.Log($"好酷退票成功 : {creditOut}");

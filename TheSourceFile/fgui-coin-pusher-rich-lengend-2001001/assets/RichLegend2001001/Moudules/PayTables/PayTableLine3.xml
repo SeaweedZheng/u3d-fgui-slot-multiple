@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="68,100">
+  <displayList>
+    <graph id="n0_v1zk" name="s1" xy="2,2" size="20,20" type="rect" lineColor="#00000000" fillColor="#ff666666"/>
+    <graph id="n1_v1zk" name="s2" xy="46,2" size="20,20" type="rect" lineColor="#00000000" fillColor="#ff666666"/>
+    <graph id="n2_v1zk" name="s3" xy="24,2" size="20,20" type="rect" lineColor="#00000000" fillColor="#ff666666"/>
+    <graph id="n4_v1zk" name="s4" xy="2,24" size="20,20" type="rect" lineColor="#00000000" fillColor="#ff666666"/>
+    <graph id="n5_v1zk" name="s5" xy="24,24" size="20,20" type="rect" lineColor="#00000000" fillColor="#ff666666"/>
+    <graph id="n6_v1zk" name="s6" xy="46,24" size="20,20" type="rect" lineColor="#00000000" fillColor="#ff666666"/>
+    <graph id="n7_v1zk" name="s7" xy="2,46" size="20,20" type="rect" lineColor="#00000000" fillColor="#ffff9900"/>
+    <graph id="n8_v1zk" name="s8" xy="24,46" size="20,20" type="rect" lineColor="#00000000" fillColor="#ffff9900"/>
+    <graph id="n9_v1zk" name="s9" xy="46,46" size="20,20" type="rect" lineColor="#00000000" fillColor="#ffff9900"/>
+    <component id="n10_v1zk" name="line" src="v1zk1n0" fileName="Moudules/PayTables/LineName.xml" xy="2,69" size="40,24"/>
+    <text id="n11_v1zk" name="title" xy="42,69" size="24,24" fontSize="16" color="#ff9900" align="center" vAlign="middle" autoSize="none" text="3"/>
+  </displayList>
+</component>

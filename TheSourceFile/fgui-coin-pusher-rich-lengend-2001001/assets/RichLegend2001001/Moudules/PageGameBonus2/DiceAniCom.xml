@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="300,200">
+  <controller name="DiceState" exported="true" pages="0,None,1,One,2,Two,3,Three,4,Four,5,Five,6,Six" selected="0">
+    <action type="play_transition" fromPage="" toPage="1" transition="DiceOne"/>
+    <action type="play_transition" fromPage="" toPage="2" transition="DiceTwo"/>
+    <action type="play_transition" fromPage="" toPage="3" transition="DiceThree"/>
+    <action type="play_transition" fromPage="" toPage="4" transition="DiceFour"/>
+    <action type="play_transition" fromPage="" toPage="5" transition="DiceFive"/>
+    <action type="play_transition" fromPage="" toPage="6" transition="DiceSix"/>
+  </controller>
+  <displayList>
+    <movieclip id="n0_cil8" name="n0" src="bhr0p" fileName="骰子小游戏/DiceAni1.jta" xy="0,0" playing="false">
+      <gearDisplay controller="DiceState" pages="1"/>
+      <relation target="" sidePair="width-width%,height-height%"/>
+    </movieclip>
+    <movieclip id="n1_cil8" name="n1" src="bhr0q" fileName="骰子小游戏/DiceAni2.jta" xy="0,0" playing="false">
+      <gearDisplay controller="DiceState" pages="2"/>
+      <relation target="" sidePair="width-width%,height-height%"/>
+    </movieclip>
+    <movieclip id="n2_cil8" name="n2" src="bhr0r" fileName="骰子小游戏/DiceAni3.jta" xy="0,0" playing="false">
+      <gearDisplay controller="DiceState" pages="3"/>
+      <relation target="" sidePair="width-width%,height-height%"/>
+    </movieclip>
+    <movieclip id="n3_cil8" name="n3" src="bhr0s" fileName="骰子小游戏/DiceAni4.jta" xy="0,0" playing="false">
+      <gearDisplay controller="DiceState" pages="4"/>
+      <relation target="" sidePair="width-width%,height-height%"/>
+    </movieclip>
+    <movieclip id="n4_cil8" name="n4" src="bhr0t" fileName="骰子小游戏/DiceAni5.jta" xy="0,0" playing="false">
+      <gearDisplay controller="DiceState" pages="5"/>
+      <relation target="" sidePair="width-width%,height-height%"/>
+    </movieclip>
+    <movieclip id="n5_cil8" name="n5" src="bhr0u" fileName="骰子小游戏/DiceAni6.jta" xy="0,0" playing="false">
+      <gearDisplay controller="DiceState" pages="6"/>
+      <relation target="" sidePair="width-width%,height-height%"/>
+    </movieclip>
+  </displayList>
+  <transition name="DiceOne" frameRate="60">
+    <item time="0" type="Animation" target="n0_cil8" value="0,p"/>
+    <item time="120" type="Animation" target="n0_cil8" value="124,s"/>
+  </transition>
+  <transition name="DiceTwo" frameRate="60">
+    <item time="0" type="Animation" target="n1_cil8" value="0,p"/>
+    <item time="117" type="Animation" target="n1_cil8" value="117,s"/>
+  </transition>
+  <transition name="DiceThree" frameRate="60">
+    <item time="0" type="Animation" target="n2_cil8" value="0,p"/>
+    <item time="116" type="Animation" target="n2_cil8" value="117,s"/>
+  </transition>
+  <transition name="DiceFour" frameRate="60">
+    <item time="0" type="Animation" target="n3_cil8" value="0,p"/>
+    <item time="117" type="Animation" target="n3_cil8" value="117,s"/>
+  </transition>
+  <transition name="DiceFive" frameRate="60">
+    <item time="0" type="Animation" target="n4_cil8" value="0,p"/>
+    <item time="126" type="Animation" target="n4_cil8" value="131,s"/>
+  </transition>
+  <transition name="DiceSix" frameRate="60">
+    <item time="0" type="Animation" target="n5_cil8" value="0,p"/>
+    <item time="149" type="Animation" target="n5_cil8" value="149,s"/>
+  </transition>
+</component>

@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1254,815">
+  <displayList>
+    <movieclip id="n1_8eb6" name="n1" src="mjx01dk" fileName="Images/PopupJackpotGame/Eff_small_tip.jta" xy="626,289" pivot="0.5,0.5" anchor="true"/>
+    <text id="n2_8eb6" name="coin" xy="626,412" pivot="0.5,0.5" anchor="true" size="559,94" font="ui://adoe8w7dmjx01dy" fontSize="30" align="center" vAlign="middle" autoSize="none" text="1000"/>
+  </displayList>
+</component>

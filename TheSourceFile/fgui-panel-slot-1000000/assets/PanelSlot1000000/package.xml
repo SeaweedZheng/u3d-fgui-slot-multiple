@@ -40,7 +40,7 @@
     <component id="ioi7i2" name="ButtonSpin.xml" path="/Components/" exported="true"/>
     <component id="ioi7i4" name="AnchorSpin.xml" path="/Components/" exported="true"/>
     <image id="ioi7i5" name="BG_001_b.png" path="/Images/PayTable/" exported="true" scale="9grid" scale9grid="62,62,21,17"/>
-    <image id="ioi7i7" name="paytable_bg.png" path="/Images/PayTable/" exported="true" scale="tile" scale9grid="85,80,1,1"/>
+    <image id="ioi7i7" name="paytable_bg.png" path="/Images/PayTable/" exported="true" scale="tile" scale9grid="85,80,1,1" duplicatePadding="true"/>
     <component id="ioi7i9" name="PayTable.xml" path="/Moudules/PayTable/" exported="true"/>
     <image id="ioi7ib" name="circle_24.png" path="/Images/Common/" exported="true" scale="9grid" scale9grid="11,11,2,2"/>
     <component id="ioi7ic" name="UntouchCircle24.xml" path="/Components/Mask/" exported="true"/>
@@ -54,6 +54,8 @@
     <image id="ebguil" name="Frame.png" path="/Images/PayTable/" exported="true"/>
     <image id="x0w1xjp" name="icon_exit.png" path="/Images/Button/"/>
     <image id="heflxjq" name="example_panel1.png" path="/Examples/"/>
+    <component id="8fulxjr" name="ButtonBack.xml" path="/Components/Button/" exported="true"/>
+    <component id="8fulxjs" name="ButtonPayTableIndex.xml" path="/Components/"/>
   </resources>
   <publish name="" path="../../Assets/AstBundle/Games/Panel Slot 1000000/FGUIs" packageCount="2"/>
 </packageDescription>

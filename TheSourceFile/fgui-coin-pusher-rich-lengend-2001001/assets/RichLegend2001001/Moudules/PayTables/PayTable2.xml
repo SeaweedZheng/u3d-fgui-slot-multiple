@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="960,640">
+  <displayList>
+    <component id="n11_v1zk" name="n11" src="px571ni" fileName="Moudules/PayTables/PayTableName2.xml" xy="381,0"/>
+    <component id="n2_v1zk" name="n2" src="v1zk1mz" fileName="Moudules/PayTables/PayTableLine1.xml" xy="33,151" group="n10_v1zk"/>
+    <component id="n3_v1zk" name="n3" src="v1zk1n2" fileName="Moudules/PayTables/PayTableLine2.xml" xy="151,151" group="n10_v1zk"/>
+    <component id="n4_v1zk" name="n4" src="v1zk1n3" fileName="Moudules/PayTables/PayTableLine3.xml" xy="269,151" group="n10_v1zk"/>
+    <component id="n5_v1zk" name="n5" src="v1zk1n4" fileName="Moudules/PayTables/PayTableLine4.xml" xy="387,151" group="n10_v1zk"/>
+    <component id="n6_v1zk" name="n6" src="v1zk1n5" fileName="Moudules/PayTables/PayTableLine5.xml" xy="505,151" group="n10_v1zk"/>
+    <component id="n7_v1zk" name="n7" src="v1zk1n6" fileName="Moudules/PayTables/PayTableLine6.xml" xy="623,151" group="n10_v1zk"/>
+    <component id="n8_v1zk" name="n8" src="v1zk1n7" fileName="Moudules/PayTables/PayTableLine7.xml" xy="741,151" group="n10_v1zk"/>
+    <component id="n9_v1zk" name="n9" src="v1zk1n8" fileName="Moudules/PayTables/PayTableLine8.xml" xy="859,151" group="n10_v1zk"/>
+    <group id="n10_v1zk" name="n10" xy="33,151" size="894,100"/>
+  </displayList>
+</component>

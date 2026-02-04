@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="30,30" extention="Button">
+  <controller name="button" pages="0,up,1,down" selected="0"/>
+  <displayList>
+    <image id="n18_tsjn" name="n18" src="ioi7ht" fileName="Images/PayTable/btn_select_001B.png" xy="0,0">
+      <gearDisplay controller="button" pages="0,1"/>
+    </image>
+    <image id="n19_8ful" name="n19" src="ioi7hs" fileName="Images/PayTable/btn_select_001A.png" xy="0,0">
+      <gearDisplay controller="button" pages="1"/>
+    </image>
+  </displayList>
+  <Button mode="Check"/>
+</component>

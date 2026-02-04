@@ -1,3 +1,4 @@
+using FairyGUI;
 using GameMaker;
 using Newtonsoft.Json;
 using PusherEmperorsRein;
@@ -20,7 +21,7 @@ namespace CoinPusherRichLegend2001001
         Coroutine coInit, coGameOnce, coGameAuto, coGameIdel, coEffectSlowMotion, coReelsTurn;
 
 
-
+        long TotalBet => (long)SBoxModel.Instance.CoinInScale; // ContentModel.Instance.totalBet
 
         void StartGameOnce(Action successCallback = null, Action<object[]> errorCallback = null)
         {
@@ -156,7 +157,7 @@ namespace CoinPusherRichLegend2001001
             if (ApplicationSettings.Instance.isMock)
             {
 
-                yield return RequestSlotSpinFromMock02(() =>
+                yield return RequestSlotSpinFromMock02(TotalBet,() =>
                 {
                     isNext = true;
                 }, (err) =>
@@ -328,10 +329,12 @@ namespace CoinPusherRichLegend2001001
 
                 yield return ShowWinListOnceAtNormalSpin(winList);
 
-                bool isAddToCredit = totalWinLineCredit > TotalBet * 4;
-                slotMachineCtrl.SendPrepareTotalWinCreditEvent(totalWinLineCredit, isAddToCredit);
+               //bool isAddToCredit = totalWinLineCredit > TotalBet * 4;
+               //slotMachineCtrl.SendPrepareTotalWinCreditEvent(totalWinLineCredit, isAddToCredit);
 
                 slotMachineCtrl.SendTotalWinCreditEvent(allWinCredit);
+
+                yield return new WaitForSeconds(0.8f);
 
                 //加钱动画
                 // MainBlackboardController.Instance.AddMyTempCredit(allWinCredit, true, isAddCreditAnim);
@@ -442,7 +445,7 @@ namespace CoinPusherRichLegend2001001
 
 
 
-            // 中大厅彩金
+            // #中大厅彩金
 
             #region 中大厅彩金
 
@@ -483,8 +486,8 @@ namespace CoinPusherRichLegend2001001
 
 
 
-            // 中小游戏
-            if(ContentModel.Instance.bonusSymbolWin != null)
+            // #中小游戏(火车)
+            if(ContentModel.Instance.bonusResults.ContainsKey(1) && ContentModel.Instance.bonusSymbolWin != null)
             {
 
                 smConfig.SelectWinEffectSetting("bonus1");
@@ -498,7 +501,7 @@ namespace CoinPusherRichLegend2001001
                 allWinCredit += earnCoins;
 
                 //DebugUtils.LogError($"中游戏彩金数据： JackpotWinInfo = {JsonConvert.SerializeObject(jpWin)} ");
-                PageManager.Instance.OpenPageAsync(PageName.RichLegend2001001PageBonus1,
+                PageManager.Instance.OpenPageAsync(PageName.RichLegend2001001PageGameBonus1,
                     new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
                     {
                         ["totalEarnCoins"] = earnCoins,
@@ -509,7 +512,6 @@ namespace CoinPusherRichLegend2001001
                         isNext = true;
                     });
 
-
                 yield return new WaitUntil(() => isNext == true);
                 isNext = false;
 
@@ -518,9 +520,47 @@ namespace CoinPusherRichLegend2001001
 
             }
 
+            // 小游戏Bonus - 筛子
+            if (ContentModel.Instance.bonusResults.ContainsKey(2))
+            {
+                smConfig.SelectWinEffectSetting("bonus1");
+
+                slotMachineCtrl.SkipWinLine(true);
+                slotMachineCtrl.ShowSpecailSymbolWinBySetting(ContentModel.Instance.bonusSymbolWin, SymbolEffectType.SymbolHit);
+                yield return slotMachineCtrl.SlotWaitForSeconds(2.5f);
+
+                int earnCoins = (int)ContentModel.Instance.bonusResults[2]["totalWinCoins"];
+                allWinCredit += earnCoins;
+
+                PageManager.Instance.OpenPageAsync(PageName.RichLegend2001001PageGameBonus2,
+                    new EventData<Dictionary<string, object>>("", new Dictionary<string, object>()
+                    {
+                        ["bonusResults"] = ContentModel.Instance.bonusResults[2]
+                    }),
+                    (res) =>
+                {
+                    isNext = true;
+                });
+
+                yield return new WaitUntil(() => isNext == true);
+                isNext = false;
+
+                PageManager.Instance.OpenPageAsync(PageName.RichLegend2001001PopupBigWin, 
+                    new EventData<Dictionary<string,object>>("",new Dictionary<string, object>()
+                    {
+                        ["totalWinCpions"] = (int)earnCoins,
+                    }), 
+                    (res) =>
+                    {
+                        isNext = true;
+                    });
 
 
-            // 小游戏Bonus
+                // 总线赢分（同步？？）
+                slotMachineCtrl.SendTotalWinCreditEvent(allWinCredit);
+            }
+
+
 
             // 本剧同步玩家金钱
             //MainBlackboardController.Instance.SyncMyTempCreditToReal(false);
@@ -528,13 +568,12 @@ namespace CoinPusherRichLegend2001001
 
             //DebugUtils.LogWarning($"结束分数： SBoxModel Credit = {SBoxModel.Instance.myCredit}   uiCredit={MainModel.Instance.myCredit}");
 
-            // 本局掉币
 
 
-            /*
-            ERPushMachineDataManager02.Instance.RequestCoinPushSpinEnd(res1 =>
+
+            // #本局结束
+            MachineDataManagerG2001001.Instance.RequestCoinPushSpinEnd(res1 =>
             {
-
                 JSONNode data = JSONObject.Parse((string)res1);
 
                 int code = (int)data["code"];
@@ -544,19 +583,36 @@ namespace CoinPusherRichLegend2001001
                     DebugUtils.LogError($" CoinPushSpinEnd(20102) : [0]= {code}");
                 }
 
-
                 isNext = true;
             });
 
             yield return new WaitUntil(() => isNext == true);
             isNext = false;
 
-            // 掉币
-            if (winList.Count > 0 || ContentModel.Instance.isHitJpGame3JpGame4)
+
+            // #掉币
+            if (allWinCredit > 0 )
             {
+                CheckCoinHit(allWinCredit);
+
                 yield return ShowWinListCoinCountDown(winList, allWinCredit, isHitJackpot);
+
+                //yield return new WaitForSeconds(1f);
             }
-            */
+
+
+            // #读取玩家积分变化
+            MachineDataManagerG2001001.Instance.RequestGetMyCredit((int)allWinCredit, (object res) =>
+            {
+                skipGetMyCreditTimeS = Time.unscaledTime + 3f;
+
+                int curMyCredit = (int)res;
+                if (SBoxModel.Instance.myCredit != curMyCredit)
+                {
+                    SBoxModel.Instance.myCredit = curMyCredit;
+                    MainBlackboardController.Instance.SyncMyTempCreditToReal(true,true);
+                }
+            });
 
 
             /*
@@ -606,16 +662,16 @@ namespace CoinPusherRichLegend2001001
 
 
 
-        IEnumerator RequestSlotSpinFromMock02(Action successCallback = null, Action<string> errorCallback = null)
+
+        IEnumerator RequestSlotSpinFromMock02(long totalBet, Action successCallback = null, Action<string> errorCallback = null)
         {
             bool isNext = false;
             bool isBreak = false;
 
-            long totalBet = TotalBet;
 
             JSONNode resNode = null;
 
-            MockDataController2001001.Instance.RequestSlotSpinFromMock(TotalBet, (res) =>
+            MockDataManagerG2001001.Instance.RequestSlotSpinFromMock(totalBet, (res) =>
             {
                 resNode = res;
                 isNext = true;
@@ -642,6 +698,10 @@ namespace CoinPusherRichLegend2001001
             }
 
             if (isBreak) yield break;
+
+            // 减去押注积分
+            MachineDataManagerG2001001.Instance.myCreditMock -= (int)totalBet;
+            MainBlackboardController.Instance.MinusMyTempCredit(totalBet, true);
 
 
             SBoxGameState gameState = (SBoxGameState)((int)resNode["gameState"]);
@@ -682,7 +742,7 @@ namespace CoinPusherRichLegend2001001
             if (isBreak) yield break;
 
             // 解析数据
-            MockDataController2001001.Instance.ParseSlotSpin(totalBet, resNode, jpGameRes);
+            MockDataManagerG2001001.Instance.ParseSlotSpin(totalBet, resNode, jpGameRes);
 
         
             // 数据入库
@@ -771,6 +831,11 @@ namespace CoinPusherRichLegend2001001
             //goExpectation.SetActive(false);
             //ComReelEffect2.visible = false;
             slotMachineCtrl.SkipWinLine(true);
+
+
+
+            txtRewardCoins.text = 0.ToString();
+            txtRemainCoins.text = 0.ToString();
         }
 
         IEnumerator ShowWinListOnceAtNormalSpin(List<SymbolWin> winList)
@@ -824,6 +889,120 @@ namespace CoinPusherRichLegend2001001
 
             yield return slotMachineCtrl.ShowWinListAwayDuringIdle(winList);
         }
+
+
+
+
+
+
+
+
+
+
+
+
+        IEnumerator ShowWinListCoinCountDown(List<SymbolWin> winList, long totalWinLineCredit, bool isHitJackpot)
+        {
+            bool isNext = false;
+
+            //if (!isHitJackpot)
+                slotMachineCtrl.ShowSymbolWinDeck(slotMachineCtrl.GetTotalSymbolWin(winList), true);
+
+            yield return ShowCoinCountDown(totalWinLineCredit);
+
+            //停止特效显示
+            slotMachineCtrl.SkipWinLine(false);
+            //显示遮罩
+            slotMachineCtrl.CloseSlotCover();
+
+        }
+
+        IEnumerator ShowCoinCountDown(long totalWinLineCredit)
+        {
+            bool isNext = false;
+            int curCoinCountDown = (int)totalWinLineCredit;
+            int lastCoinCountDown = curCoinCountDown;
+            float lastRunTimeS = Time.unscaledTime;
+
+
+            bool isStart = true;
+            int tryGetStartCount = 50;
+
+
+
+
+            goEffectCoinDrop.visible = true;
+
+            while (Time.unscaledTime - lastRunTimeS < 10) // 10秒     //1800 = 60 * 30 = 30分钟
+            {
+
+                // 防止第一次读到 0 立马退出。（算法卡掉币赋值有延时）
+                while (isStart && --tryGetStartCount > 0)
+                {
+                    MachineDataManagerG2001001.Instance.RequestCoinCountDown((int)totalWinLineCredit, (result) =>
+                    {
+                        curCoinCountDown = (int)result;
+
+                        if (curCoinCountDown != 0)  // 首次读到币
+                        {
+                            isStart = false;
+                            //DebugUtils.Save($" CoinCountDown start cout : {curCoinCountDown}");
+                        }
+
+                        // 金币不发生变化，延时10秒退出循环
+                        if (lastCoinCountDown != curCoinCountDown)
+                        {
+                            lastCoinCountDown = curCoinCountDown;
+                            lastRunTimeS = Time.unscaledTime;
+                        }
+                        txtRewardCoins.text = (totalWinLineCredit-curCoinCountDown).ToString();
+                        txtRemainCoins.text = curCoinCountDown.ToString();
+                        //CollectGoldCoinsController.DiaoJinBin(curCoinCountDown);
+                        isNext = true;
+                    });
+
+                    yield return new WaitUntil(() => isNext == true);
+                    isNext = false;
+                }
+
+
+
+                MachineDataManagerG2001001.Instance.RequestCoinCountDown((int)totalWinLineCredit, (result) =>
+                {
+                    curCoinCountDown = (int)result;
+
+                    // 金币不发生变化，延时10秒退出循环
+                    if (lastCoinCountDown != curCoinCountDown)
+                    {
+                        lastCoinCountDown = curCoinCountDown;
+                        lastRunTimeS = Time.unscaledTime;
+                    }
+
+                    txtRewardCoins.text = (totalWinLineCredit - curCoinCountDown).ToString();
+                    txtRemainCoins.text = curCoinCountDown.ToString();
+                    isNext = true;
+                });
+
+                yield return new WaitUntil(() => isNext == true);
+                isNext = false;
+
+                if (curCoinCountDown == 0)
+                    break;
+            }
+
+            goEffectCoinDrop.visible = false;
+
+            //if (curCoinCountDown > 0) DebugUtils.LogError($"掉币数量没刷新，数值停留在： {curCoinCountDown}");
+
+
+            //CollectGoldCoinsController.Close();
+        }
+
+
+
+
+        void CheckCoinHit(long allWinCredit) => rewardPanelCtrl.winCoins = (int)allWinCredit;
+
 
 
 

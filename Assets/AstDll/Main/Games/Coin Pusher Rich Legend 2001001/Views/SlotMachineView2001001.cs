@@ -9,7 +9,7 @@ namespace CoinPusherRichLegend2001001 {
     public class SlotMachineView2001001 : SlotMachineViewBase
     {
 
-        FguiGObjectPoolHelper gobjPool = new FguiGObjectPoolHelper();
+        //FguiGObjectPoolHelper gobjPool = new FguiGObjectPoolHelper();
 
         const string MARK_POOL_GOBJ_2001001 = nameof(MARK_POOL_GOBJ_2001001);
 

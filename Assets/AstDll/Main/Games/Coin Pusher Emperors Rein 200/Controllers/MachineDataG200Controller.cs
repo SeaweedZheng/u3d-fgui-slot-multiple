@@ -36,7 +36,7 @@ namespace PusherEmperorsRein
         GSOperater = 9
     }
 
-    public class MachineDataG200Controller : MonoSingleton<MachineDataG200Controller>
+    public class MachineDataG200Controller : MonoSingleton02<MachineDataG200Controller>
     {
         public List<SymbolInclude> symbolInclude;
 

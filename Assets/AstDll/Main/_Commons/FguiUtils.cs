@@ -29,12 +29,13 @@ namespace GameCommon
             GLoader goDesign = anchorRoot.GetChild("example").asLoader;  
 
             holder.SetPivot(0.5f, 0.5f, true);
-            holder.size = new Vector2(goDesign.size.x, goDesign.size.y);
-            holder.xy = Vector2.zero;
+            holder.size = new Vector2(goDesign.size.x, goDesign.size.y); // 大小
+            //#seaweed# holder.xy = Vector2.zero;
+            holder.xy = new Vector2(goDesign.x, goDesign.y); // 位置
             holder.visible = true;
 
-            holder.scale = new Vector2(goDesign.scale.x, goDesign.scale.y);
-            DebugUtils.Log($"holder x:{holder.size.x} y:{holder.size.y}");
+            holder.scale = new Vector2(goDesign.scale.x, goDesign.scale.y);// 缩放
+            //DebugUtils.Log($"holder x:{holder.size.x} y:{holder.size.y}");
         }
 
 

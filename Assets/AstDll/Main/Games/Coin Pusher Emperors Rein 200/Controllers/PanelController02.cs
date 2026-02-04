@@ -261,6 +261,25 @@ namespace PusherEmperorsRein
             btnSound.GetController("button").selectedIndex = SBoxModel.Instance.soundLevel;
 
 
+
+
+
+            GButton btnHome = setPanel.GetChild("btnHome").asButton;
+            if (PageUtils.HasLobby)
+            {
+                btnHome.visible = true;
+                btnHome.onClick.Set((EventContext context) =>
+                {
+                    PageUtils.GoBackToLobby();
+                });
+            }
+            else
+            {
+                btnHome.visible = false;
+            }
+
+
+
             OnPropertyChangeBetList();
             OnPropertyChangeTotalBet();
             OnPropertyChangeBtnSpinState();

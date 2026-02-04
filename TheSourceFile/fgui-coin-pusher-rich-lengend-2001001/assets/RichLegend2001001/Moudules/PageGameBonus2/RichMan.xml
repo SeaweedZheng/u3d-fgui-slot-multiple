@@ -1,0 +1,115 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="150,150" pivot="0.5,0.5" anchor="true">
+  <displayList>
+    <movieclip id="n0_zn2w" name="Jump" src="bhr01q" fileName="骰子小游戏/富翁/DoubleJump.jta" xy="0,-32" size="150,169" aspect="true" visible="false" playing="false"/>
+    <movieclip id="n1_zn2w" name="Over1" src="bhr01r" fileName="骰子小游戏/富翁/Over01.jta" xy="0,-32" size="150,169" aspect="true" visible="false" playing="false"/>
+    <movieclip id="n2_zn2w" name="Over2" src="bhr01s" fileName="骰子小游戏/富翁/Over02.jta" xy="0,-32" size="150,169" aspect="true" visible="false" playing="false"/>
+    <movieclip id="n3_zn2w" name="Star" src="bhr01t" fileName="骰子小游戏/富翁/Star.jta" xy="0,-32" size="150,169" aspect="true" playing="false"/>
+  </displayList>
+  <transition name="one" frameRate="30">
+    <item time="0" type="Animation" target="n3_zn2w" value="0,p"/>
+    <item time="0" type="Visible" target="n3_zn2w" value="true"/>
+    <item time="49" type="Animation" target="n1_zn2w" value="0,p"/>
+    <item time="49" type="Animation" target="n3_zn2w" value="0,p"/>
+    <item time="49" type="Visible" target="n1_zn2w" value="true"/>
+    <item time="49" type="Visible" target="n3_zn2w" value="false"/>
+    <item time="102" type="Animation" target="n1_zn2w" value="-,p"/>
+    <item time="102" type="Animation" target="n3_zn2w" value="0,s"/>
+    <item time="102" type="Visible" target="n0_zn2w" value="false"/>
+    <item time="102" type="Visible" target="n1_zn2w" value="false"/>
+    <item time="102" type="Visible" target="n2_zn2w" value="false"/>
+    <item time="102" type="Visible" target="n3_zn2w" value="true"/>
+  </transition>
+  <transition name="two" frameRate="30">
+    <item time="0" type="Animation" target="n3_zn2w" value="0,p"/>
+    <item time="0" type="Visible" target="n1_zn2w" value="false"/>
+    <item time="0" type="Visible" target="n3_zn2w" value="true"/>
+    <item time="49" type="Animation" target="n0_zn2w" value="0,p"/>
+    <item time="49" type="Animation" target="n3_zn2w" value="0,p"/>
+    <item time="49" type="Visible" target="n0_zn2w" value="true"/>
+    <item time="49" type="Visible" target="n3_zn2w" value="false"/>
+    <item time="67" type="Animation" target="n0_zn2w" value="0,s"/>
+    <item time="67" type="Animation" target="n2_zn2w" value="0,p"/>
+    <item time="67" type="Visible" target="n0_zn2w" value="false"/>
+    <item time="67" type="Visible" target="n2_zn2w" value="true"/>
+    <item time="119" type="Animation" target="n2_zn2w" value="89,s"/>
+    <item time="119" type="Animation" target="n3_zn2w" value="0,s"/>
+    <item time="119" type="Visible" target="n0_zn2w" value="false"/>
+    <item time="119" type="Visible" target="n1_zn2w" value="false"/>
+    <item time="119" type="Visible" target="n2_zn2w" value="false"/>
+    <item time="119" type="Visible" target="n3_zn2w" value="true"/>
+  </transition>
+  <transition name="three" frameRate="30">
+    <item time="0" type="Animation" target="n3_zn2w" value="0,p"/>
+    <item time="0" type="Visible" target="n1_zn2w" value="false"/>
+    <item time="0" type="Visible" target="n3_zn2w" value="true"/>
+    <item time="49" type="Animation" target="n0_zn2w" value="0,p"/>
+    <item time="49" type="Animation" target="n3_zn2w" value="0,p"/>
+    <item time="49" type="Visible" target="n0_zn2w" value="true"/>
+    <item time="49" type="Visible" target="n3_zn2w" value="false"/>
+    <item time="85" type="Animation" target="n0_zn2w" value="0,s"/>
+    <item time="85" type="Animation" target="n2_zn2w" value="0,p"/>
+    <item time="85" type="Visible" target="n0_zn2w" value="false"/>
+    <item time="85" type="Visible" target="n2_zn2w" value="true"/>
+    <item time="137" type="Animation" target="n2_zn2w" value="89,s"/>
+    <item time="137" type="Animation" target="n3_zn2w" value="0,s"/>
+    <item time="137" type="Visible" target="n0_zn2w" value="false"/>
+    <item time="137" type="Visible" target="n1_zn2w" value="false"/>
+    <item time="137" type="Visible" target="n2_zn2w" value="false"/>
+    <item time="137" type="Visible" target="n3_zn2w" value="true"/>
+  </transition>
+  <transition name="four" frameRate="30">
+    <item time="0" type="Animation" target="n3_zn2w" value="0,p"/>
+    <item time="0" type="Visible" target="n3_zn2w" value="true"/>
+    <item time="49" type="Animation" target="n0_zn2w" value="0,p"/>
+    <item time="49" type="Animation" target="n3_zn2w" value="0,p"/>
+    <item time="49" type="Visible" target="n0_zn2w" value="true"/>
+    <item time="49" type="Visible" target="n3_zn2w" value="false"/>
+    <item time="103" type="Animation" target="n0_zn2w" value="0,s"/>
+    <item time="103" type="Animation" target="n2_zn2w" value="0,p"/>
+    <item time="103" type="Visible" target="n0_zn2w" value="false"/>
+    <item time="103" type="Visible" target="n2_zn2w" value="true"/>
+    <item time="155" type="Animation" target="n2_zn2w" value="89,s"/>
+    <item time="155" type="Animation" target="n3_zn2w" value="0,s"/>
+    <item time="155" type="Visible" target="n0_zn2w" value="false"/>
+    <item time="155" type="Visible" target="n1_zn2w" value="false"/>
+    <item time="155" type="Visible" target="n2_zn2w" value="false"/>
+    <item time="155" type="Visible" target="n3_zn2w" value="true"/>
+  </transition>
+  <transition name="five" frameRate="30">
+    <item time="0" type="Animation" target="n3_zn2w" value="0,p"/>
+    <item time="0" type="Visible" target="n3_zn2w" value="true"/>
+    <item time="49" type="Animation" target="n0_zn2w" value="0,p"/>
+    <item time="49" type="Animation" target="n3_zn2w" value="0,p"/>
+    <item time="49" type="Visible" target="n0_zn2w" value="true"/>
+    <item time="49" type="Visible" target="n3_zn2w" value="false"/>
+    <item time="121" type="Animation" target="n0_zn2w" value="0,s"/>
+    <item time="121" type="Animation" target="n2_zn2w" value="0,p"/>
+    <item time="121" type="Visible" target="n0_zn2w" value="false"/>
+    <item time="121" type="Visible" target="n2_zn2w" value="true"/>
+    <item time="173" type="Animation" target="n2_zn2w" value="89,s"/>
+    <item time="173" type="Animation" target="n3_zn2w" value="0,s"/>
+    <item time="173" type="Visible" target="n0_zn2w" value="false"/>
+    <item time="173" type="Visible" target="n1_zn2w" value="false"/>
+    <item time="173" type="Visible" target="n2_zn2w" value="false"/>
+    <item time="173" type="Visible" target="n3_zn2w" value="true"/>
+  </transition>
+  <transition name="six" frameRate="30">
+    <item time="0" type="Animation" target="n3_zn2w" value="0,p"/>
+    <item time="0" type="Visible" target="n3_zn2w" value="true"/>
+    <item time="49" type="Animation" target="n0_zn2w" value="0,p"/>
+    <item time="49" type="Animation" target="n3_zn2w" value="0,p"/>
+    <item time="49" type="Visible" target="n0_zn2w" value="true"/>
+    <item time="49" type="Visible" target="n3_zn2w" value="false"/>
+    <item time="139" type="Animation" target="n0_zn2w" value="0,s"/>
+    <item time="139" type="Animation" target="n2_zn2w" value="0,p"/>
+    <item time="139" type="Visible" target="n0_zn2w" value="false"/>
+    <item time="139" type="Visible" target="n2_zn2w" value="true"/>
+    <item time="191" type="Animation" target="n2_zn2w" value="89,s"/>
+    <item time="191" type="Animation" target="n3_zn2w" value="0,s"/>
+    <item time="191" type="Visible" target="n0_zn2w" value="false"/>
+    <item time="191" type="Visible" target="n1_zn2w" value="false"/>
+    <item time="191" type="Visible" target="n2_zn2w" value="false"/>
+    <item time="191" type="Visible" target="n3_zn2w" value="true"/>
+  </transition>
+</component>

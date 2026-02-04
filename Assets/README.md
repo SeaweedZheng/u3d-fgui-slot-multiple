@@ -235,10 +235,11 @@ PopupJackpotGame: 游戏彩金弹窗
 PopupBigWin：  大奖弹窗
 PopupFreeSpinTrigger
 PopupFreeSpinResult
-PageFreeBonusGame1
-PageFreeBonusGame2
-PageFreeBonusGame3
-
+PageGameFreeBonus1
+PageGameFreeBonus2
+PageGameFreeBonus3
+PageGameBonus1
+PageGameBonus2
 
 # ==== 命名规范：
 

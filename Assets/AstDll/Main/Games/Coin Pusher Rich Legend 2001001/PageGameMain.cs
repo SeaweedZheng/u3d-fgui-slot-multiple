@@ -48,31 +48,7 @@ namespace CoinPusherRichLegend2001001
             "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/Prefabs/Game Controller/Game Main Controller.prefab",
             (GameObject clone) =>
             {
-
-                goGameCtrl = GameObject.Instantiate(clone);
-
-                //Debug.LogError("创建 Push Game Main Controller");
-
-                goGameCtrl.name = "Game Main Controller";
-                goGameCtrl.transform.SetParent(null);
-
-                slotMachineCtrl = goGameCtrl.transform.Find("Slot Machine").GetComponent<SlotMachinePresenter>();
-
-                ContentModel model = goGameCtrl.transform.Find("Blackboard/Content Model").GetComponent<ContentModel>();
-                if(model == null)
-                    DebugUtils.LogError("ContentModel is null");
-                
-                mono = goGameCtrl.transform.GetComponent<MonoHelper>();
-                //DebugUtils.Log(mono);
-                //DebugUtils.LogWarning("i am Game Controller");
-
-
-                // DebugUtils.LogError("A ContentModel = " + goGameCtrl.transform.Find("Blackboard/Content Model").GetComponent<ContentModel>().transform.name);
-
-                //fguiPoolHelper = goGameCtrl.transform.Find("Pool").GetComponent<FguiPoolHelper>();
-
-                //gObjectPoolHelper = goGameCtrl.transform.Find("GObject Pool").GetComponent<FguiGObjectPoolHelper>();
-
+                cloneGameCtrl = clone;
                 callback();
             
             });
@@ -93,7 +69,43 @@ namespace CoinPusherRichLegend2001001
 
         }
 
-        GameObject goGameCtrl;
+        GameObject goGameCtrl, cloneGameCtrl;
+
+
+
+
+        public void InitGameCtrl()
+        {
+            if (goGameCtrl != null) return;
+
+
+            goGameCtrl = GameObject.Instantiate(cloneGameCtrl);
+
+            //Debug.LogError("创建 Push Game Main Controller");
+
+            goGameCtrl.name = "Game Main Controller";
+            goGameCtrl.transform.SetParent(null);
+
+            slotMachineCtrl = goGameCtrl.transform.Find("Slot Machine").GetComponent<SlotMachinePresenter>();
+
+            ContentModel model = goGameCtrl.transform.Find("Blackboard/Content Model").GetComponent<ContentModel>();
+            if (model == null)
+                DebugUtils.LogError("ContentModel is null");
+
+            //ContentModel.Instance = model;
+
+            mono = goGameCtrl.transform.GetComponent<MonoHelper>();
+            //DebugUtils.Log(mono);
+            //DebugUtils.LogWarning("i am Game Controller");
+
+
+            // DebugUtils.LogError("A ContentModel = " + goGameCtrl.transform.Find("Blackboard/Content Model").GetComponent<ContentModel>().transform.name);
+
+            //fguiPoolHelper = goGameCtrl.transform.Find("Pool").GetComponent<FguiPoolHelper>();
+
+            //gObjectPoolHelper = goGameCtrl.transform.Find("GObject Pool").GetComponent<FguiGObjectPoolHelper>();
+
+        }
 
 
 
@@ -102,21 +114,17 @@ namespace CoinPusherRichLegend2001001
             base.OnOpen(name, data);
 
 
-
             MainModel.Instance.gameID = 2001001;
-
-
-
-
-
-
-
-
-
-
 
             // 添加事件监听
             EventCenter.Instance.AddEventListener<EventData>(PanelEvent.ON_PANEL_INPUT_EVENT, OnPanelInputEvent);
+            EventCenter.Instance.AddEventListener<EventData>(SlotMachineEvent.ON_WIN_EVENT, OnWinEvent);
+            EventCenter.Instance.AddEventListener<EventData>(Observer.ON_PROPERTY_CHANGED_EVENT, OnPropertyChange);
+
+            SlotMachineView.Enable();
+            rewardPanelCtrl.Enable();
+            creditCtr.Enable();
+
 
             InitParam();
         }
@@ -124,12 +132,42 @@ namespace CoinPusherRichLegend2001001
 
         public override void OnClose(EventData data = null)
         {
-            OnGameReset();
 
             EventCenter.Instance.RemoveEventListener<EventData>(PanelEvent.ON_PANEL_INPUT_EVENT, OnPanelInputEvent);
+            EventCenter.Instance.RemoveEventListener<EventData>(SlotMachineEvent.ON_WIN_EVENT, OnWinEvent);
+            EventCenter.Instance.RemoveEventListener<EventData>(Observer.ON_PROPERTY_CHANGED_EVENT, OnPropertyChange);
+
+            //         OnContentEvent(SlotMachineEvent.ON_CONTENT_EVENT, new EventData(SlotMachineEvent.BeginSpin));
             // 删除事件监听
 
+
+            OnGameReset();
+
+            SlotMachineView.Disable();
+            rewardPanelCtrl.Disable();
+            creditCtr.Disable();
+
+
+            GameObject.Destroy(goGameCtrl);
+            goGameCtrl = null;
+
+
+            // 退出循环读玩家积分
+            Timers.inst.Remove(TaskRepeatGetMayCredit);
+
+
+
             base.OnClose(data);
+        }
+
+
+
+        public override void OnTop()
+        {
+            base.OnTop();
+
+
+            ContentModel.Instance.curGameNumber = MainModel.Instance.gameNumber;
         }
 
 
@@ -144,11 +182,9 @@ namespace CoinPusherRichLegend2001001
 
 
 
-
-
         MonoHelper mono;
         List<GComponent> lstPayTable;
-        long TotalBet => (long)SBoxModel.Instance.CoinInScale; // ContentModel.Instance.totalBet
+
 
         MiniReelGroup uiJP1Ctrl = new MiniReelGroup();
         MiniReelGroup uiJP2Ctrl = new MiniReelGroup();
@@ -159,15 +195,30 @@ namespace CoinPusherRichLegend2001001
         JSONNode nodeGameInfo;
 
         WinTipController winTipCtrl = new WinTipController();
+
+        RewardPanelController rewardPanelCtrl = new RewardPanelController();
+
+
+
+        GComponent goEffectCoinDrop;
+
+        GTextField txtRewardCoins, txtRemainCoins,
+            txtMachineNumber, txtTurnNumber;  //rewardCoins
+
+
+        UIMyCreditController creditCtr = new UIMyCreditController();
         public override void InitParam()
         {
 
             if (!isInit) return;
 
+            preLoadedCallback?.Invoke();
+            preLoadedCallback?.RemoveAllListeners();
+
             if (!isOpen) return;
 
 
-
+            InitGameCtrl();
 
 
             smConfig = new SlotMachineConfig(configStr);
@@ -185,12 +236,41 @@ namespace CoinPusherRichLegend2001001
             winTipCtrl.InitParam(this.contentPane.GetChild("winTip").asCom, smConfig);
 
 
+            goEffectCoinDrop = this.contentPane.GetChild("effectCoinDrop").asCom;
+            goEffectCoinDrop.visible = false;
+            txtRewardCoins = this.contentPane.GetChild("rewardCoins").asCom.GetChild("rewardCoins").asTextField;
+            txtRemainCoins = this.contentPane.GetChild("rewardCoins").asCom.GetChild("remainCoins").asTextField;
+
+            txtMachineNumber = this.contentPane.GetChild("turnInfo").asCom.GetChild("machineNumber").asTextField;
+            txtMachineNumber.text = SBoxModel.Instance.seatId.ToString();
+            txtTurnNumber = this.contentPane.GetChild("turnInfo").asCom.GetChild("turnNumber").asTextField;
+
 
 
             InitUIJackpotGame();
 
             InitPanel();
+
+            rewardPanelCtrl.InitParam(this.contentPane.GetChild("panel").asCom);
+
+            creditCtr.InitParam(this.contentPane.GetChild("myCredit").asCom.GetChild("credit").asTextField);
+
+
+            // 循环读玩家积分
+            DoTaskRepeatGetMayCredit();
+
         }
+        protected override void OnBeforetLanguageChange(I18nLang lang) { 
+        
+            foreach(GComponent tab in ContentModel.Instance.goPayTableLst)
+            {
+                tab.displayObject.gameObject.GetOrAddComponent<GOResidualMark>().referenceCount--;
+            }
+            ContentModel.Instance.goPayTableLst = null;
+
+            DebugUtils.LogError($"@333 ContentModel.Instance.guid = {ContentModel.Instance.guid}");
+        }
+
 
         public void InitUIJackpotGame()
         {
@@ -208,10 +288,28 @@ namespace CoinPusherRichLegend2001001
 
         public void InitPanel()
         {
-            MainModel.Instance.contentMD = ContentModel.Instance;
 
-            lstPayTable = new List<GComponent>();
-            ContentModel.Instance.goPayTableLst = lstPayTable.ToArray();
+
+            //MainModel.Instance.contentMD.goPayTableLst[contentIndex]
+
+
+            if (ContentModel.Instance.goPayTableLst == null)
+            {
+                List<GComponent> lstPayTable = new List<GComponent>();
+
+                for(int i=1; i<=2; i++)
+                {
+                    GComponent paytable = UIPackage.CreateObjectFromURL($"ui://RichLegend2001001/PayTable{i}").asCom;
+                    paytable.displayObject.gameObject.GetOrAddComponent<GOResidualMark>().InitParam(paytable);
+
+                    lstPayTable.Add(paytable);
+                    paytable.displayObject.gameObject.GetOrAddComponent<GOResidualMark>().referenceCount++;
+                }
+                ContentModel.Instance.goPayTableLst = lstPayTable;
+                
+            }
+
+            MainModel.Instance.contentMD = ContentModel.Instance;
 
             // 面板
             GComponent gOwnerPanel = this.contentPane.GetChild("anchorPanel").asCom;
@@ -219,6 +317,8 @@ namespace CoinPusherRichLegend2001001
             EventCenter.Instance.EventTrigger<EventData>(PanelEvent.ON_PANEL_EVENT,
                 new EventData<GComponent>(PanelEvent.AnchorPanelChange, gOwnerPanel));
         }
+
+
 
         void OnPanelInputEvent(EventData res)
         {
@@ -349,6 +449,68 @@ namespace CoinPusherRichLegend2001001
                 }
             }
 
+        }
+
+
+
+
+        float skipGetMyCreditTimeS = 0;
+        void DoTaskRepeatGetMayCredit()
+        {
+            Timers.inst.Remove(TaskRepeatGetMayCredit);
+            Timers.inst.Add(0.8f, 0, TaskRepeatGetMayCredit);
+        }
+
+        void TaskRepeatGetMayCredit(object param)
+        {
+            if (skipGetMyCreditTimeS - Time.unscaledTime > 0) return;
+            
+            // #读取玩家积分
+            MachineDataManagerG2001001.Instance.RequestGetMyCredit(0, (object res) =>
+            {
+                int curMyCredit = (int)res;
+                if (SBoxModel.Instance.myCredit != curMyCredit)
+                {
+                    SBoxModel.Instance.myCredit = curMyCredit;
+                    MainBlackboardController.Instance.SyncMyTempCreditToReal(true);
+                }
+            });
+        }
+
+
+        void OnWinEvent(EventData res)
+        {
+            if (res.name == SlotMachineEvent.TotalWinCredit)
+            {
+                long totalWinCredit = (long)res.value;
+                txtRemainCoins.text = totalWinCredit.ToString();
+            }
+        }
+
+
+        protected virtual void OnPropertyChange(EventData res = null)
+        {
+            //ContentModel
+            string name = res.name;
+            switch (name)
+            {
+                case "SBoxModel/seatId":
+                    {
+                        if(txtMachineNumber != null)
+                        {
+                            txtMachineNumber.text = SBoxModel.Instance.seatId.ToString();
+                        }
+                    }
+                    break;
+                case "ContentModel/curGameNumber":
+                    {
+                        if (txtTurnNumber != null)
+                        {
+                            txtTurnNumber.text = ContentModel.Instance.curGameNumber.ToString();
+                        }
+                    }
+                    break;
+            }
         }
 
     }

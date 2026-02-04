@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1060">
+  <displayList>
+    <image id="n1_ioi7" name="n1" src="h8lj19" fileName="Images/PayTable/paytable_bg.png" xy="0,93" size="1080,966"/>
+    <image id="n0_ioi7" name="n0" src="h8lj1b" fileName="Images/PayTable/Frame.png" xy="0,0"/>
+    <image id="n3_ioi7" name="n3" src="h8lj1a" fileName="Images/PayTable/paytable_mask.png" xy="0,93" size="1080,966" alpha="0.3" color="#00ff00"/>
+    <image id="n2_ioi7" name="n2" src="h8lj18" fileName="Images/PayTable/BG_001_b.png" xy="40,200" size="1000,690"/>
+    <component id="n5_ioi7" name="btnController" src="h8lj1d" fileName="Moudules/PayTable/PayTableBtn.xml" xy="0,902"/>
+    <component id="n6_ioi7" name="content" src="h8lj1c" fileName="Moudules/PayTable/PayTableContent.xml" xy="59,219" size="954,648"/>
+    <text id="n7_x0w1" name="title" xy="411,36" size="251,56" fontSize="30" color="#ffffff" align="center" vAlign="middle" autoSize="none" bold="true" text="玩法说明"/>
+  </displayList>
+</component>
