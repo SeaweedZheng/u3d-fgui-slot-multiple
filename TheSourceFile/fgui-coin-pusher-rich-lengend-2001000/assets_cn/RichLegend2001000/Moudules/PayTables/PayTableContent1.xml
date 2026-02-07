@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="938,481">
+  <displayList>
+    <text id="n12_v1zk" name="n12" xy="0,0" size="938,481" fontSize="30" color="#ffffff" align="center" autoSize="none" text="1. 投入代币，按下启动键，代币由屏幕上方落下。&#xA;&#xA;2. 落下的代币通关钉板上的启动通道&lt;SPIN&gt;，则滚轮开始转动。滚轮停止时，当同个图标出现在中将线上，可获得奖励。&#xA;&#xA;3. 落下的代币通过钉板下方的八个通道，就会使该通道图标的积分数增加 1。"/>
+  </displayList>
+</component>

@@ -357,6 +357,7 @@
     <type fullname="System.EventArgs" preserve="all" />
     <type fullname="System.EventHandler`1" preserve="all" />
     <type fullname="System.Exception" preserve="all" />
+    <type fullname="System.FieldAccessException" preserve="all" />
     <type fullname="System.Func`1" preserve="all" />
     <type fullname="System.Func`2" preserve="all" />
     <type fullname="System.Func`3" preserve="all" />

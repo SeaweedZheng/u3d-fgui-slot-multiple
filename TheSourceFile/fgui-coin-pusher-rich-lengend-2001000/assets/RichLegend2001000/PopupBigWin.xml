@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <displayList>
+    <component id="n3_8eb6" name="n3" src="10zpali" fileName="Components/BG.xml" xy="0,0"/>
+    <component id="n2_8eb6" name="page" src="10zpalk" fileName="PopupBigWin_1024_768.xml" xy="28,581"/>
+  </displayList>
+</component>

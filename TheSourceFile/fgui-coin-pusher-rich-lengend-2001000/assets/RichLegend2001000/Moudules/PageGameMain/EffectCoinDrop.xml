@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1024,768" designImage="ui://tti82dofli602">
+  <displayList>
+    <graph id="n0_mjx0" name="n0" xy="1,0" size="1024,768" touchable="false" type="rect" lineSize="0" fillColor="#00ffffff">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <movieclip id="n1_mjx0" name="coin0" src="li601" fileName="Images/PageGameMain/CoinEffect/MVCoinDrop.jta" xy="71,-166" scale="0.3,0.3"/>
+    <movieclip id="n2_mjx0" name="coin1" src="li601" fileName="Images/PageGameMain/CoinEffect/MVCoinDrop.jta" xy="289,-124" size="234,236" scale="0.3,0.3"/>
+    <movieclip id="n3_mjx0" name="coin2" src="li601" fileName="Images/PageGameMain/CoinEffect/MVCoinDrop.jta" xy="458,-336" scale="0.3,0.3"/>
+    <movieclip id="n4_mjx0" name="coin3" src="li601" fileName="Images/PageGameMain/CoinEffect/MVCoinDrop.jta" xy="668,-168" scale="0.3,0.3"/>
+    <movieclip id="n5_mjx0" name="coin4" src="li601" fileName="Images/PageGameMain/CoinEffect/MVCoinDrop.jta" xy="910,-217" scale="0.3,0.3"/>
+    <movieclip id="n6_mjx0" name="coin5" src="li601" fileName="Images/PageGameMain/CoinEffect/MVCoinDrop.jta" xy="224,-516" scale="0.3,0.3"/>
+    <movieclip id="n7_mjx0" name="coin6" src="li601" fileName="Images/PageGameMain/CoinEffect/MVCoinDrop.jta" xy="731,-524" scale="0.3,0.3"/>
+  </displayList>
+  <transition name="t0" autoPlay="true" autoPlayRepeat="-1">
+    <item time="0" type="XY" target="n1_mjx0" tween="true" startValue="71,-166" endValue="71,800" duration="60" ease="Linear"/>
+  </transition>
+  <transition name="t1" autoPlay="true" autoPlayRepeat="0">
+    <item time="0" type="XY" target="n2_mjx0" tween="true" startValue="289,-124" endValue="289,800" duration="54" ease="Linear" repeat="-1"/>
+  </transition>
+  <transition name="t2" autoPlay="true">
+    <item time="0" type="XY" target="n3_mjx0" tween="true" startValue="458,-336" endValue="458,800" duration="60" ease="Linear" repeat="-1"/>
+  </transition>
+  <transition name="t3" autoPlay="true">
+    <item time="0" type="XY" target="n4_mjx0" tween="true" startValue="668,-168" endValue="668,800" duration="48" ease="Linear" repeat="-1"/>
+  </transition>
+  <transition name="t4" autoPlay="true">
+    <item time="0" type="XY" target="n5_mjx0" tween="true" startValue="910,-217" endValue="910,800" duration="66" ease="Linear" repeat="-1"/>
+  </transition>
+  <transition name="t5" autoPlay="true">
+    <item time="0" type="XY" target="n6_mjx0" tween="true" startValue="224,-516" endValue="224,800" duration="68" ease="Linear" repeat="-1"/>
+  </transition>
+  <transition name="t6" autoPlay="true">
+    <item time="0" type="XY" target="n7_mjx0" tween="true" startValue="731,-524" endValue="731,800" duration="63" ease="Linear" repeat="-1"/>
+  </transition>
+</component>

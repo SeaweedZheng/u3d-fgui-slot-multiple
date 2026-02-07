@@ -1,20 +1,15 @@
 using Newtonsoft.Json;
 using System;
-
-//using System.Text.RegularExpressions;
-//using System;
-//using System.Threading;
+using System.Text;
 using UnityEngine;
 
 
-/// <summary>
-/// 局域网 udp + websocket 链接
-/// </summary>
 public class NetMgr : MonoSingleton<NetMgr>
 {
     private readonly int port = 6222;
+    //#seaweed# 改
     public int broadcastPort = 10122; //10999; //  1220 >> 10122
-    private bool IsHost = false;
+    public bool IsHost = false;
 
     //WebSocket
     ServerWS serverWS;
@@ -26,18 +21,20 @@ public class NetMgr : MonoSingleton<NetMgr>
         serverWS = this.transform.GetComponent<ServerWS>();
         clientWS = this.transform.GetComponent<ClientWS>();
 
-        Messenger.AddListener<WSSrvMsgData>(MessageName.Event_NetworkWSServerData, OnWSServerData); // 客户端发给服务器的数据
-        Messenger.AddListener<byte[]>(MessageName.Event_NetworkClientData, OnClientData);  // 服务器发给客户端的数据
+
+
+        OnRemoveListener();
+
+        Messenger.AddListener<WSSrvMsgData>(MessageName.Event_NetworkWSServerData, OnWSServerData);  // 服务器接收到客户端数据
+        Messenger.AddListener<byte[]>(MessageName.Event_NetworkClientData, OnClientData); // 客户端接收到服务器数据
     }
 
-    /// <summary>
-    /// 新加的接口，发心跳
-    /// </summary>
-    /*public void SendHeartHeatToServer()
+    void OnRemoveListener()
     {
-        if (clientWS != null)
-            clientWS.SendHeartHeat();
-    }*/
+        Messenger.RemoveListener<WSSrvMsgData>(MessageName.Event_NetworkWSServerData, OnWSServerData);
+        Messenger.RemoveListener<byte[]>(MessageName.Event_NetworkClientData, OnClientData);
+    }
+
 
     public void SetLastHeartHeat()
     {
@@ -45,29 +42,35 @@ public class NetMgr : MonoSingleton<NetMgr>
             clientWS.LastHeartHeatTime = Time.time;
     }
 
-
-    /// <summary>
-    /// 服务器发给客户端的数据
-    /// </summary>
-    /// <param name="data"></param>
     void OnClientData(byte[] data)
     {
-        Messenger.Broadcast<byte[]>(MessageName.Event_ClientNetworkRecv, data);  // 直接广播出去
+
+
+
+        // 接受心跳！
+
+        /*
+        string result = Encoding.UTF8.GetString(data);
+        MsgInfo info = JsonConvert.DeserializeObject<MsgInfo>(result);
+        DebugUtils.LogWarning($"接受到彩金后台的数据：{result}");
+        */
+
+        Messenger.Broadcast<byte[]>(MessageName.Event_ClientNetworkRecv, data);
     }
 
     public void SetNetAutoConnect(bool Host)
     {
-        //DebugUtils.LogError($"【UDP-WS】  SetNetAutoConnect: Host = {Host}");
-
+        Debug.LogWarning($"call SetNetAutoConnect host={Host}");
         IsHost = Host;
 
-        if (IsHost)  // 主机
+        Debug.Log($"SetNetAutoConnect: broadcastPort = {broadcastPort}");
+        if (IsHost)
         {
             if (serverWS == null)
                 serverWS = gameObject.AddComponent<ServerWS>();
             serverWS.StartServer(port, broadcastPort);
         }
-        else // 分机
+        else
         {
             if (clientWS == null)
                 clientWS = gameObject.AddComponent<ClientWS>();
@@ -84,11 +87,12 @@ public class NetMgr : MonoSingleton<NetMgr>
     }
 
     //服务器发送数据给客户端
-    public void SendToClient(WebSockets.ClientConnection client,string strMsg)
+    public void SendToClient(WebSockets.ClientConnection client, string strMsg)
     {
         serverWS?.SendToClient(client, strMsg);
 
-        //OnDebug(strMsg, false);
+
+        //OnDebug(strMsg,false);
     }
 
     //服务器给所有客户端发送消息
@@ -96,9 +100,110 @@ public class NetMgr : MonoSingleton<NetMgr>
     {
         serverWS?.SendToAllClient(strMsg);
 
-        //OnDebug(strMsg,false);
+        //OnDebug(strMsg, false);
     }
 
+    //处理WS服务器收到的消息
+    void OnWSServerData(WSSrvMsgData data)
+    {
+        if (data.Data.Length == 0)
+            return;
+        string singlePacket = data.Data;
+        MsgInfo info = null;
+
+        //OnDebug(singlePacket, true);
+        try
+        {
+            info = JsonConvert.DeserializeObject<MsgInfo>(singlePacket);
+        }
+        catch (System.Exception ex)
+        {
+            DebugUtils.LogError("【UDP-WS】MsgInfo error : " + ex.Message);
+        }
+        if (info != null)
+        {
+            switch ((C2S_CMD)info.cmd)
+            {
+                case C2S_CMD.C2S_Heartbeat:
+                    MsgInfo infoR = new MsgInfo();
+                    infoR.cmd = (int)S2C_CMD.S2C_HeartbeatR;
+                    infoR.id = info.id;
+
+                    try
+                    {
+                        HeartbeatInfo res = JsonConvert.DeserializeObject<HeartbeatInfo>(info.jsonData);
+
+                        int code = 0;
+                        string msg = "";
+                        /*
+                        if (IOCanvasModel.Instance.macIdSeatIdMap.ContainsKey(res.macId))
+                        {
+
+                            if (res.groupId != IOCanvasModel.Instance.groupId)
+                            {
+                                code = 1;
+                                msg = "组号错误，请从新登录";
+                            }
+                            else if (res.seatId != IOCanvasModel.Instance.macIdSeatIdMap[res.macId].seatId)
+                            {
+                                code = 1;
+                                msg = "座位号错误，请从新登录";
+                            }
+                            else if (Time.unscaledTime - IOCanvasModel.Instance.macIdSeatIdMap[res.macId].lastHeartbeatTimeS > 15)
+                            {
+                                code = 1;
+                                msg = "心跳超时";
+                            }
+                            else
+                            {
+                                IOCanvasModel.Instance.macIdSeatIdMap[res.macId].lastHeartbeatTimeS = Time.unscaledTime;
+                            }
+
+                            // 同时进行超时踢出服务器
+                            if (Time.unscaledTime - IOCanvasModel.Instance.macIdSeatIdMap[res.macId].lastHeartbeatTimeS > 15)
+                            {
+                                IOCanvasModel.Instance.macIdSeatIdMap.Remove(res.macId);
+                            }
+                        }
+                        else
+                        {
+                            code = 1;
+                            msg = "请先登录服务器";
+                        }
+                        */
+                        infoR.jsonData = JsonConvert.SerializeObject(
+                            new HeartbeatInfoR()
+                            {
+                                macId = res.macId,
+                                code = code,
+                                msg = msg,
+                            }
+                        );
+                    }
+                    catch (Exception ex)
+                    {
+
+                    }
+
+                    SendToClient(data.Client, JsonConvert.SerializeObject(infoR));
+                    break;
+                default:
+                    {
+                        Messenger.Broadcast(MessageName.Event_ServerNetworkRecv, info, data.Client);
+                    }
+                    break;
+            }
+        }
+    }
+
+
+
+    protected override void OnDestroy()
+    {
+        base.OnDestroy();
+        Messenger.RemoveListener<WSSrvMsgData>(MessageName.Event_NetworkWSServerData, OnWSServerData);
+        Messenger.RemoveListener<byte[]>(MessageName.Event_NetworkClientData, OnClientData);
+    }
     /*
     public void OnDebug(string strMsg, bool C2S)
     {
@@ -109,53 +214,9 @@ public class NetMgr : MonoSingleton<NetMgr>
                $"{Enum.GetName(typeof(C2S_CMD), (C2S_CMD)(int.Parse(cmdValue)))} -" :
                 $"{Enum.GetName(typeof(S2C_CMD), (S2C_CMD)(int.Parse(cmdValue)))} -";
 
-            DebugUtils.LogWarning($"【UDP-WS】WS/{rpcName} -  {strMsg}");
+            Debug.LogWarning($"{rpcName} -  {strMsg}");
         }
         catch (Exception ex) { }
     }
     */
-
-
-
-    /// <summary>
-    /// 客户端发给服务器的数据,响应函数
-    /// </summary>
-    /// <param name="data"></param>
-    void OnWSServerData(WSSrvMsgData data)
-    {
-        if (data.Data.Length == 0)
-            return;
-        string singlePacket = data.Data;
-        MsgInfo info = null;
-        try
-        {
-            info = JsonConvert.DeserializeObject<MsgInfo>(singlePacket);
-        }
-        catch (System.Exception ex)
-        {
-            DebugUtils.LogError("【UDP-WS】MsgInfo error : " + ex.Message);
-            return;
-        }
-        if (info != null)
-        {
-            switch ((C2S_CMD)info.cmd)
-            {
-                case C2S_CMD.C2S_HeartHeat:
-                    info.cmd = (int)S2C_CMD.S2C_HeartHeatR;
-                    info.id = info.id;
-                    SendToClient(data.Client, JsonConvert.SerializeObject(info));  // 心跳统一处理
-                    break;
-                default:
-                    Messenger.Broadcast(MessageName.Event_ServerNetworkRecv, info, data.Client);  // 其他请求广播出去
-                    break;
-            }
-        }
-    }
-
-    protected override void OnDestroy()
-    {
-        base.OnDestroy();
-        Messenger.RemoveListener<WSSrvMsgData>(MessageName.Event_NetworkWSServerData, OnWSServerData);
-        Messenger.RemoveListener<byte[]>(MessageName.Event_NetworkClientData, OnClientData);
-    }
 }

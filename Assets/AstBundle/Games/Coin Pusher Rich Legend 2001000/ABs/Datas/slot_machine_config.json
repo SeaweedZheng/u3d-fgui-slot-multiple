@@ -1,0 +1,193 @@
+{
+	"base_reel_strips": {
+		"reel1": [7,4,8,1,9,5,7,2,8,6,9,4,7,3,8,5,9,1,7,6,8,4,9,2,7,5,8,3,9,6],
+		"reel2": [7,4,8,1,9,5,7,2,8,6,9,4,7,3,8,5,9,1,7,6,8,4,9,2,7,5,8,3,9,6],
+		"reel3": [7,4,8,1,9,5,7,2,8,6,9,4,7,3,8,5,9,1,7,6,8,4,9,2,7,5,8,3,9,6],
+		"reel4": [7,4,8,1,9,5,7,2,8,6,9,4,7,3,8,5,9,1,7,6,8,4,9,2,7,5,8,3,9,6],
+		"reel5": [7,4,8,1,9,5,7,2,8,6,9,4,7,3,8,5,9,1,7,6,8,4,9,2,7,5,8,3,9,6]
+	},
+	"free_spin_reel_strips":null,
+	"bonus1_reel_strips":null,
+	"bonus2_reel_strips":null,
+	"bonus3_reel_strips":null,
+	"custom":{
+		"pkgName": "RichLegend2001000",
+		"symbol_width": 158,
+		"symbol_height": 136,
+		"column": 3,
+		"row": 3,
+		"symbol_number" : [0,1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13],
+		"border_effect": "",
+		"symbol_icon":{
+			"0": "ui://RichLegend2001000/symbol0",
+			"1": "ui://RichLegend2001000/symbol1",
+			"2": "ui://RichLegend2001000/symbol2",
+			"3": "ui://RichLegend2001000/symbol3",
+			"4": "ui://RichLegend2001000/symbol4",
+			"5": "ui://RichLegend2001000/symbol5",
+			"6": "ui://RichLegend2001000/symbol6",
+			"7": "ui://RichLegend2001000/symbol7",
+			"8": "ui://RichLegend2001000/symbol8",
+			"9": "ui://RichLegend2001000/symbol9",
+			"10": "ui://RichLegend2001000/symbol10",
+			"11": "ui://RichLegend2001000/symbol11",
+			"12": "ui://RichLegend2001000/symbol12",
+			"13": "ui://RichLegend2001000/symbol13"
+		},
+		"symbol_hit_effect": {
+			"0":  "ui://RichLegend2001000/SymbolHit0",
+			"1":  "ui://RichLegend2001000/SymbolHit1",
+			"2":  "ui://RichLegend2001000/SymbolHit2",
+			"3":  "ui://RichLegend2001000/SymbolHit3",
+			"4":  "ui://RichLegend2001000/SymbolHit4",
+			"5":  "ui://RichLegend2001000/SymbolHit5",
+			"6":  "ui://RichLegend2001000/SymbolHit6",
+			"7":  "ui://RichLegend2001000/SymbolHit7",
+			"8":  "ui://RichLegend2001000/SymbolHit8",
+			"9":  "ui://RichLegend2001000/SymbolHit9",
+			"10":  "ui://RichLegend2001000/SymbolHit10",
+			"11":  "ui://RichLegend2001000/SymbolHit11",
+			"12":  "ui://RichLegend2001000/SymbolHit12",
+			"13":  "ui://RichLegend2001000/SymbolHit13"
+		},
+		"symbol_appear_effect":{
+		}
+	},
+
+	"reel_setting":{
+
+		"regular": {
+			"default": {
+				"time_turn_start_delay": 0.12,
+				"time_turn_once": 0.12,
+				"time_rebound_start":0.15,
+				"time_rebound_end": 0.08,
+				"offset_y_rebound_start": -200,
+				"offset_y_rebound_end": 20,
+				"num_reel_turn":7,
+				"num_reel_turn_gap":1
+			},
+			"reel1": null
+		},
+		"stop_immediately": {
+			"default": {
+				"time_turn_start_delay": 0,
+				"time_turn_once": 0.06,
+				"time_rebound_start":0,
+				"time_rebound_end": 0.04,
+				"offset_y_rebound_start": -200,
+				"offset_y_rebound_end": 20,
+				"num_reel_turn":1,
+				"num_reel_turn_gap":1
+			},
+			"reel1": null
+		},
+		"auto": {
+			"default": {
+				"time_turn_start_delay": 0.12,
+				"time_turn_once": 0.12,
+				"time_rebound_start": 0.15,
+				"time_rebound_end": 0.08,
+				"offset_y_rebound_start": -200,
+				"offset_y_rebound_end": 20,
+				"num_reel_turn":1,
+				"num_reel_turn_gap":1
+			},
+			"reel1": null
+		}
+	},
+
+	"win_effect_setting":{
+
+		"regular":{
+			"frame": true,
+			"line": true,
+			"bigger": true,
+			"twinkle": false,
+			"anim": true,
+			"total_win_line": false,
+			"single_win_line": true,
+			"credit": true,
+			"cover": false,
+			"hide_base_symbol": true,
+			"skip_at_stop_immediately": false,
+			"time_s":1
+		},
+		"stop_immediately":{
+			"frame": false,
+			"line": true,
+			"bigger": false,
+			"twinkle": false,
+			"anim": false,
+			"total_win_line": true,
+			"single_win_line": false,
+			"credit": true,
+			"cover": false,
+			"hide_base_symbol": true,
+			"skip_at_stop_immediately": false,
+			"time_s":1
+		},
+		"idle":{
+			"frame": false,
+			"line": true,
+			"bigger": true,
+			"twinkle": false,
+			"anim": true,
+			"total_win_line": false,
+			"single_win_line": true,
+			"credit": true,
+			"cover": false,
+			"hide_base_symbol": true,
+			"skip_at_stop_immediately": false,
+			"time_s":2.5
+		},
+		"auto":{
+			"frame": true,
+			"line": true,
+			"bigger": false,
+			"twinkle": false,
+			"anim": true,
+			"total_win_line": true,
+			"single_win_line": false,
+			"credit": true,
+			"cover": false,
+			"hide_base_symbol": true,
+			"skip_at_stop_immediately": false,
+			"time_s":1
+		},
+		"jackpot_game":{
+			"frame": false,
+			"line": true,
+			"bigger": false,
+			"twinkle": false,
+			"anim": true,
+			"total_win_line": true,
+			"single_win_line": false,
+			"credit": false,
+			"cover": false,
+			"hide_base_symbol": true,
+			"skip_at_stop_immediately": false,
+			"time_s":1
+		},
+		"bonus1":{
+			"frame": false,
+			"line": true,
+			"bigger": false,
+			"twinkle": false,
+			"anim": true,
+			"total_win_line": true,
+			"single_win_line": false,
+			"credit": false,
+			"cover": false,
+			"hide_base_symbol": true,
+			"skip_at_stop_immediately": false,
+			"time_s":1
+		}
+	}
+}
+
+
+
+
+
+

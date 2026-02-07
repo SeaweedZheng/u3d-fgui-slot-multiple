@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="146,67">
+  <displayList>
+    <image id="n12_pq4v" name="n12" src="li60j8" fileName="Images/PageGameMain/BG/JP1.png" xy="-9,-4"/>
+    <list id="n15_pq4v" name="reels" xy="8,27" size="129,30" layout="flow_hz" overflow="scroll" scroll="horizontal" defaultItem="ui://8bdy3xtlli60io" align="center" vAlign="middle">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>

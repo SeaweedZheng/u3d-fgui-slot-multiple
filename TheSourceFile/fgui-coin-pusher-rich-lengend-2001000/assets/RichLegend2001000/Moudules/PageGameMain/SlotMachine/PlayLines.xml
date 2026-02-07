@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="474,408">
+  <displayList>
+    <movieclip id="n0_uc3k" name="line1" src="uc3kd" fileName="Images/PageGameMain/LineEffect/LineEffect.jta" xy="237,67" pivot="0.5,0.5" anchor="true" visible="false"/>
+    <movieclip id="n1_uc3k" name="line2" src="uc3kd" fileName="Images/PageGameMain/LineEffect/LineEffect.jta" xy="237,203" pivot="0.5,0.5" anchor="true" visible="false"/>
+    <movieclip id="n2_uc3k" name="line3" src="uc3kd" fileName="Images/PageGameMain/LineEffect/LineEffect.jta" xy="237,325" pivot="0.5,0.5" anchor="true" visible="false"/>
+    <movieclip id="n3_uc3k" name="line4" src="uc3kd" fileName="Images/PageGameMain/LineEffect/LineEffect.jta" xy="80,203" pivot="0.5,0.5" anchor="true" visible="false" rotation="90"/>
+    <movieclip id="n4_uc3k" name="line5" src="uc3kd" fileName="Images/PageGameMain/LineEffect/LineEffect.jta" xy="237,203" pivot="0.5,0.5" anchor="true" visible="false" rotation="90"/>
+    <movieclip id="n5_uc3k" name="line6" src="uc3kd" fileName="Images/PageGameMain/LineEffect/LineEffect.jta" xy="394,203" pivot="0.5,0.5" anchor="true" visible="false" rotation="90"/>
+    <movieclip id="n6_uc3k" name="line7" src="uc3kd" fileName="Images/PageGameMain/LineEffect/LineEffect.jta" xy="237,203" pivot="0.5,0.5" anchor="true" visible="false" rotation="36"/>
+    <movieclip id="n7_uc3k" name="line8" src="uc3kd" fileName="Images/PageGameMain/LineEffect/LineEffect.jta" xy="237,203" pivot="0.5,0.5" anchor="true" visible="false" rotation="144"/>
+  </displayList>
+</component>

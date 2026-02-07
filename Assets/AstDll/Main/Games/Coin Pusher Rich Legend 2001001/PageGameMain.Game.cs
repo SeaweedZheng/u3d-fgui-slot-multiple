@@ -555,6 +555,8 @@ namespace CoinPusherRichLegend2001001
                         isNext = true;
                     });
 
+                yield return new WaitUntil(() => isNext == true);
+                isNext = false;
 
                 // 总线赢分（同步？？）
                 slotMachineCtrl.SendTotalWinCreditEvent(allWinCredit);

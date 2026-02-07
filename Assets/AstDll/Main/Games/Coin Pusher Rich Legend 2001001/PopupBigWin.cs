@@ -30,6 +30,21 @@ namespace CoinPusherRichLegend2001001
             // 异步加载资源
 
             callback();
+
+
+
+
+            machineBtnClickHelper = new MachineButtonClickHelper()
+            {
+
+                upClickHandler = new Dictionary<MachineButtonKey, Action<MachineButtonInfo>>()
+                {
+                    [MachineButtonKey.BtnSpin] = (info) =>
+                    {
+                        OnClickSpinButton();
+                    },
+                },
+            };
         }
 
         public override void OnOpen(PageName name, EventData data)
@@ -103,6 +118,7 @@ namespace CoinPusherRichLegend2001001
         enum Step
         {
 
+            In,
             /// <summary> 循环添加到目标值 </summary>
             AddToNumber,
 
@@ -125,6 +141,15 @@ namespace CoinPusherRichLegend2001001
         {
             switch (step)
             {
+                case Step.In:
+                    {
+                        gtxtNumber.text = 0.ToString();
+                        gOwner.GetTransition("in").Play();
+
+                        step = Step.AddToNumber;
+                        Timers.inst.Add(0.2f, 1, TaskToNumber);
+                    }
+                    break;
                 case Step.AddToNumber:
 
                     curNumber += 1;
@@ -185,7 +210,7 @@ namespace CoinPusherRichLegend2001001
 
             DoTaskShowNumberEnd();
 
-            step = Step.AddToNumber;
+            step = Step.In;
             TaskToNumber(null);
         }
 

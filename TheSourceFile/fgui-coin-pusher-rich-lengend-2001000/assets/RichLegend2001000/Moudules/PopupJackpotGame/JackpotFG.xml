@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1253,854">
+  <displayList>
+    <component id="n5_mjx0" name="anchorJackpot" src="10zpan" fileName="Moudules/PageGameMain/Anchors/AnchorPopFGJP.xml" xy="625,178" touchable="false"/>
+    <movieclip id="n1_mjx0" name="n1" src="10zpal7" fileName="Images/PopupJackpotGame/Eff_small_tip.jta" xy="0,39"/>
+    <text id="n2_mjx0" name="coin" xy="363,522" size="526,96" font="ui://8bdy3xtl10zpal8" fontSize="32" align="center" vAlign="middle" autoSize="shrink" text="110"/>
+  </displayList>
+</component>

@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1024,768">
+  <displayList>
+    <component id="n0_mjx0" name="bg" src="10zpalh" fileName="Components/BG1024_768.xml" xy="0,0" size="1024,768">
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
+    <component id="n3_mjx0" name="fg" src="10zpam" fileName="Moudules/JackpotFG.xml" xy="512,463" pivot="0.5,0.5" anchor="true" touchable="false"/>
+  </displayList>
+  <transition name="entry" autoPlay="true">
+    <item time="0" type="Scale" target="n3_mjx0" tween="true" startValue="0,0" endValue="1,1" duration="18" ease="Back.Out"/>
+  </transition>
+  <transition name="bigger">
+    <item time="0" type="Scale" target="n3_mjx0" tween="true" startValue="1,1" endValue="1.5,1.5" duration="9" ease="Linear"/>
+    <item time="9" type="Scale" target="n3_mjx0" tween="true" startValue="1.5,1.5" endValue="1,1" duration="9" ease="Linear"/>
+  </transition>
+</component>

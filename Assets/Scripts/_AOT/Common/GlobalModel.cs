@@ -109,29 +109,30 @@ public static class GlobalModel
     */
 
 
-
-
     /// <summary> 总版本信息 </summary>
+    /// <remarks>
+    /// * 多个app的信息文件
+    /// </remarks>
     public static JObject totalVersion;
+
+
+
+    /* 主版本文件 或 主模块版本文件*/
 
     /// <summary> 版本信息（主版本）（新版：dll+ab版本） </summary>
     static JObject _version;
-
-    /// <summary> 主模块版本信息（新版：dll+ab版本） </summary>
-    static JObject _mainModVersion; 
-
-    /* 主版本文件 或 主模块版本文件*/
+    /// <summary> 主版本文件 </summary>
     public static JObject version
     {
         get => _version;
         set
         {
             //Debug.LogWarning($"@#@# 333 = {value["hotfix_version"].Value<string>()}");
-                _version = value;
+            _version = value;
         }
     }
 
-
+    /// <summary> 主模块版本信息（新版：dll+ab版本） </summary>
     public static JObject mainModVersion
     {
         get => _mainModVersion;
@@ -141,6 +142,8 @@ public static class GlobalModel
             _mainModVersion = value;
         }
     }
+    static JObject _mainModVersion; 
+
 
     /// <summary> 热更版本 </summary>
     public static string hotfixVersion => ApplicationSettings.Instance.isUseMoudle ?

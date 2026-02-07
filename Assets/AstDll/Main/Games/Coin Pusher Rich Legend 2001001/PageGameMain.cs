@@ -67,6 +67,68 @@ namespace CoinPusherRichLegend2001001
                 callback();
             });
 
+
+
+
+
+
+
+            machineBtnClickHelper = new MachineButtonClickHelper()
+            {
+                //shortClickHandler = new Dictionary<MachineButtonKey, Action<MachineButtonInfo>>()
+                //{
+                //    [MachineButtonKey.BtnSpin] = (info) =>
+                //    {
+                //        if (PanelController02.isOpenIntroduce == true)
+                //        {
+                //            return;
+                //        }
+
+                //        //DebugUtils.LogError("游戏接受到机台短按的数据：Spin");
+                //        EventData<bool> res = new EventData<bool>(PanelEvent.SpinButtonClick, false); // isLongClick
+                //        OnClickSpinButton(res);
+
+                //    },
+                //    [MachineButtonKey.BtnSwitch] = (info) =>
+                //    {
+                //        //DebugUtils.LogError("游戏接受到机台短按的数据：Switch");
+                //        NetClineBiz.LoginJpConsoleBiz();
+                //    }
+                //},
+                downClickHandler = new Dictionary<MachineButtonKey, Action<MachineButtonInfo>>()
+                {
+                    [MachineButtonKey.BtnPayTable] = (info) => MainModel.Instance.panel?.OnDownClickHandler(MachineButtonKey.BtnPayTable),
+                    [MachineButtonKey.BtnExit] = (info) =>  MainModel.Instance.panel?.OnDownClickHandler(MachineButtonKey.BtnExit),    
+                    [MachineButtonKey.BtnSpin] = (info) => MainModel.Instance.panel?.OnDownClickHandler(MachineButtonKey.BtnSpin),
+                    [MachineButtonKey.BtnPrev] = (info) =>  MainModel.Instance.panel?.OnDownClickHandler(MachineButtonKey.BtnPrev),
+                    [MachineButtonKey.BtnNext] = (info) =>  MainModel.Instance.panel?.OnDownClickHandler(MachineButtonKey.BtnNext),
+                    //[MachineButtonKey.BtnBetDown] = (info) =>  MainModel.Instance.panel?.OnDownClickHandler(MachineButtonKey.BtnBetDown),
+                    //[MachineButtonKey.BtnBetUp] = (info) => MainModel.Instance.panel?.OnDownClickHandler(MachineButtonKey.BtnBetUp),
+                },
+                upClickHandler = new Dictionary<MachineButtonKey, Action<MachineButtonInfo>>()
+                {
+                    [MachineButtonKey.BtnPayTable] = (info) => MainModel.Instance.panel?.OnUpClickHandler(MachineButtonKey.BtnPayTable),
+                    [MachineButtonKey.BtnSpin] = (info) => MainModel.Instance.panel?.OnUpClickHandler(MachineButtonKey.BtnSpin),
+                    [MachineButtonKey.BtnExit] = (info) => MainModel.Instance.panel?.OnUpClickHandler(MachineButtonKey.BtnExit),
+                    [MachineButtonKey.BtnPrev] = (info) => MainModel.Instance.panel?.OnUpClickHandler(MachineButtonKey.BtnPrev),
+                    [MachineButtonKey.BtnNext] = (info) =>  MainModel.Instance.panel?.OnUpClickHandler(MachineButtonKey.BtnNext),
+                    //[MachineButtonKey.BtnBetUp] = (info) => MainModel.Instance.panel?.OnUpClickHandler(MachineButtonKey.BtnBetUp),
+                    //[MachineButtonKey.BtnBetDown] = (info) =>  MainModel.Instance.panel?.OnUpClickHandler(MachineButtonKey.BtnBetDown),
+                },
+
+                //longClickHandler = new Dictionary<MachineButtonKey, Action<MachineButtonInfo>>()
+                //{
+                //    [MachineButtonKey.BtnSpin] = (info) =>
+                //    {
+                //        DebugUtils.LogError("游戏接受到机台长按的数据：Spin");
+                //        EventData<bool> res = new EventData<bool>(PanelEvent.SpinButtonClick, true); // isLongClick
+                //        OnClickSpinButton(res);
+                //    }
+                //}
+            };
+
+
+
         }
 
         GameObject goGameCtrl, cloneGameCtrl;

@@ -55,7 +55,7 @@
     <image id="plep1o" name="an_animal_eYu_idle_23.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear1/"/>
     <image id="plep1p" name="an_animal_eYu_idle_13.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear1/"/>
     <image id="plep1q" name="an_animal_eYu_idle_50.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear1/"/>
-    <movieclip id="tpfc1s" name="SymbolAppear1.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear1/"/>
+    <movieclip id="tpfc1s" name="MVSymbolAppear1.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear1/" exported="true" atlas="1"/>
     <image id="tpfc1t" name="an_animal_laoHu_idle_01.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear2/"/>
     <image id="tpfc6d" name="an_animal_laoHu_idle_40.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear2/"/>
     <image id="tpfc6x" name="an_animal_laoHu_idle_39.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear2/"/>
@@ -96,7 +96,7 @@
     <image id="tpfc7x" name="an_animal_laoHu_idle_22.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear2/"/>
     <image id="tpfc7y" name="an_animal_laoHu_idle_21.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear2/"/>
     <image id="tpfc7z" name="an_animal_laoHu_idle_19.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear2/"/>
-    <movieclip id="tpfca5" name="SymbolAppear2.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear2/"/>
+    <movieclip id="tpfca5" name="MVSymbolAppear2.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear2/" exported="true"/>
     <image id="tpfca6" name="an_animal_xiongMao_idle_01.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear3/"/>
     <image id="tpfcdt" name="an_animal_xiongMao_idle_35.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear3/"/>
     <image id="tpfcdu" name="an_animal_xiongMao_idle_36.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear3/"/>
@@ -147,7 +147,7 @@
     <image id="tpfcff" name="an_animal_xiongMao_idle_28.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear3/"/>
     <image id="tpfcfg" name="an_animal_xiongMao_idle_29.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear3/"/>
     <image id="tpfcfh" name="an_animal_xiongMao_idle_30.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear3/"/>
-    <movieclip id="tpfche" name="SymbolAppear3.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear3/"/>
+    <movieclip id="tpfche" name="MVSymbolAppear3.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear3/" exported="true"/>
     <image id="tpfce9" name="an_animal_houZi_idle_01.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear4/"/>
     <image id="tpfcea" name="an_animal_houZi_idle_02.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear4/"/>
     <image id="tpfceb" name="an_animal_houZi_idle_03.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear4/"/>
@@ -193,7 +193,7 @@
     <image id="tpfch9" name="an_animal_houZi_idle_43.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear4/"/>
     <image id="tpfcha" name="an_animal_houZi_idle_44.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear4/"/>
     <image id="tpfchb" name="an_animal_houZi_idle_45.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear4/"/>
-    <movieclip id="tpfchf" name="SymbolAppear4.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear4/"/>
+    <movieclip id="tpfchf" name="MVSymbolAppear4.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear4/" exported="true"/>
     <image id="tpfcb3" name="an_animal_laoYing_idle_38.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear5/"/>
     <image id="tpfcb4" name="an_animal_laoYing_idle_39.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear5/"/>
     <image id="tpfcb5" name="an_animal_laoYing_idle_40.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear5/"/>
@@ -234,7 +234,7 @@
     <image id="tpfcgh" name="an_animal_laoYing_idle_03.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear5/"/>
     <image id="tpfcgi" name="an_animal_laoYing_idle_01.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear5/"/>
     <image id="tpfchc" name="an_animal_laoYing_idle_02.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear5/"/>
-    <movieclip id="tpfchg" name="SymbolAppear5.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear5/"/>
+    <movieclip id="tpfchg" name="MVSymbolAppear5.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear5/" exported="true"/>
     <image id="tpfca7" name="an_animal_maoTouYing_idle_31.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear6/"/>
     <image id="tpfca8" name="an_animal_maoTouYing_idle_32.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear6/"/>
     <image id="tpfca9" name="an_animal_maoTouYing_idle_33.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear6/"/>
@@ -285,7 +285,7 @@
     <image id="tpfcbt" name="an_animal_maoTouYing_idle_24.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear6/"/>
     <image id="tpfcbu" name="an_animal_maoTouYing_idle_25.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear6/"/>
     <image id="tpfcbv" name="an_animal_maoTouYing_idle_26.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear6/"/>
-    <movieclip id="tpfchh" name="SymbolAppear6.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear6/"/>
+    <movieclip id="tpfchh" name="MVSymbolAppear6.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear6/" exported="true"/>
     <image id="tpfcar" name="an_animal_kongQue_idle_01.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear7/"/>
     <image id="tpfcas" name="an_animal_kongQue_idle_02.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear7/"/>
     <image id="tpfcat" name="an_animal_kongQue_idle_03.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear7/"/>
@@ -311,7 +311,7 @@
     <image id="tpfcd7" name="an_animal_kongQue_idle_24.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear7/"/>
     <image id="tpfcd8" name="an_animal_kongQue_idle_25.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear7/"/>
     <image id="tpfcdp" name="an_animal_kongQue_idle_11.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear7/"/>
-    <movieclip id="tpfchi" name="SymbolAppear7.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear7/"/>
+    <movieclip id="tpfchi" name="MVSymbolAppear7.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear7/" exported="true"/>
     <image id="tpfcc0" name="an_animal_yingWu_idle_21.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear8/"/>
     <image id="tpfcc1" name="an_animal_yingWu_idle_22.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear8/"/>
     <image id="tpfcc2" name="an_animal_yingWu_idle_23.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear8/"/>
@@ -362,32 +362,242 @@
     <image id="tpfcdo" name="an_animal_yingWu_idle_16.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear8/"/>
     <image id="tpfcgg" name="an_animal_yingWu_idle_49.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear8/"/>
     <image id="tpfchd" name="an_animal_yingWu_idle_50.png" path="/Images/PageGameMain/SymbolEffects/SymbolAppear8/"/>
-    <movieclip id="tpfchj" name="SymbolAppear8.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear8/"/>
-    <image id="j4eb4" name="smbol3.png" path="/Images/PageGameMain/Symbols/"/>
-    <image id="j4eb5" name="symbol0.png" path="/Images/PageGameMain/Symbols/"/>
-    <image id="j4eb6" name="symbol1.png" path="/Images/PageGameMain/Symbols/"/>
-    <image id="j4eb7" name="symbol2.png" path="/Images/PageGameMain/Symbols/"/>
-    <image id="j4eb8" name="symbol4.png" path="/Images/PageGameMain/Symbols/"/>
-    <image id="j4eb9" name="symbol5.png" path="/Images/PageGameMain/Symbols/"/>
-    <image id="j4eba" name="symbol6.png" path="/Images/PageGameMain/Symbols/"/>
-    <image id="j4ebb" name="symbol7.png" path="/Images/PageGameMain/Symbols/"/>
-    <image id="j4ebc" name="symbol8.png" path="/Images/PageGameMain/Symbols/"/>
-    <image id="j4ebd" name="symbol9.png" path="/Images/PageGameMain/Symbols/"/>
+    <movieclip id="tpfchj" name="MVSymbolAppear8.jta" path="/Images/PageGameMain/SymbolEffects/SymbolAppear8/" exported="true"/>
+    <image id="j4eb4" name="symbol3.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <image id="j4eb5" name="symbol0.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <image id="j4eb6" name="symbol1.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <image id="j4eb7" name="symbol2.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <image id="j4eb8" name="symbol4.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <image id="j4eb9" name="symbol5.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <image id="j4eba" name="symbol6.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <image id="j4ebb" name="symbol7.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <image id="j4ebc" name="symbol8.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <image id="j4ebd" name="symbol9.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
     <image id="plepa" name="head_img_bg.png" path="/Images/Panel/"/>
     <image id="plepc" name="frame_times.png" path="/Images/Panel/"/>
-    <component id="plep0" name="BSFrame.xml" path="/Moudules/PageGameMain/"/>
-    <component id="plepb" name="Panel.xml" path="/Moudules/Panel/"/>
-    <component id="tpfchl" name="PanelItem.xml" path="/Moudules/Panel/"/>
-    <component id="tpfchm" name="ItemCredit.xml" path="/Moudules/Panel/"/>
-    <component id="j4eb1" name="SymbolAnimator.xml" path="/Moudules/SlotMachine/"/>
-    <component id="plep3" name="Symbol.xml" path="/Moudules/SlotMachine/"/>
-    <component id="plep4" name="Reel.xml" path="/Moudules/SlotMachine/"/>
-    <component id="plep5" name="Symbols.xml" path="/Moudules/SlotMachine/"/>
-    <component id="plep6" name="Reels.xml" path="/Moudules/SlotMachine/"/>
-    <component id="plep7" name="SlotMachine.xml" path="/Moudules/SlotMachine/"/>
-    <component id="plep8" name="SlotCover.xml" path="/Moudules/SlotMachine/"/>
-    <component id="plep9" name="PlayLines.xml" path="/Moudules/SlotMachine/"/>
+    <component id="j4eb1" name="SymbolAnimator.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
+    <component id="plep3" name="Symbol.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
+    <component id="plep4" name="Reel.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
+    <component id="plep5" name="Symbols.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
+    <component id="plep6" name="Reels.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
+    <component id="plep7" name="SlotMachine.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
+    <component id="plep8" name="SlotCover.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
+    <component id="plep9" name="PlayLines.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
     <component id="ho3t0" name="PageGameMain.xml" path="/" exported="true"/>
+    <movieclip id="uc3kd" name="LineEffect.jta" path="/Images/PageGameMain/LineEffect/"/>
+    <image id="uc3ke" name="fx_zhongJiangKuang_a_01.png" path="/Images/PageGameMain/LineEffect/"/>
+    <image id="uc3kf" name="fx_zhongJiangKuang_a_02.png" path="/Images/PageGameMain/LineEffect/"/>
+    <image id="uc3kg" name="fx_zhongJiangKuang_a_03.png" path="/Images/PageGameMain/LineEffect/"/>
+    <image id="uc3kh" name="fx_zhongJiangKuang_a_04.png" path="/Images/PageGameMain/LineEffect/"/>
+    <image id="uc3ki" name="fx_zhongJiangKuang_a_05.png" path="/Images/PageGameMain/LineEffect/"/>
+    <image id="uc3kj" name="fx_zhongJiangKuang_a_06.png" path="/Images/PageGameMain/LineEffect/"/>
+    <image id="uc3kk" name="fx_zhongJiangKuang_a_07.png" path="/Images/PageGameMain/LineEffect/"/>
+    <image id="uc3kl" name="fx_zhongJiangKuang_a_08.png" path="/Images/PageGameMain/LineEffect/"/>
+    <image id="uc3km" name="fx_zhongJiangKuang_a_09.png" path="/Images/PageGameMain/LineEffect/"/>
+    <image id="uc3kn" name="fx_zhongJiangKuang_a_10.png" path="/Images/PageGameMain/LineEffect/"/>
+    <image id="uc3ko" name="fx_zhongJiangKuang_a_11.png" path="/Images/PageGameMain/LineEffect/"/>
+    <image id="uc3kp" name="fx_zhongJiangKuang_a_12.png" path="/Images/PageGameMain/LineEffect/"/>
+    <image id="uc3kq" name="fx_zhongJiangKuang_a_13.png" path="/Images/PageGameMain/LineEffect/"/>
+    <image id="uc3kr" name="fx_zhongJiangKuang_a_14.png" path="/Images/PageGameMain/LineEffect/"/>
+    <image id="uc3ks" name="fx_zhongJiangKuang_a_15.png" path="/Images/PageGameMain/LineEffect/"/>
+    <image id="uc3k0" name="fx_zhongJiangKuang_c_01.png" path="/Images/PageGameMain/BorderEffect/"/>
+    <image id="uc3k1" name="fx_zhongJiangKuang_c_02.png" path="/Images/PageGameMain/BorderEffect/"/>
+    <image id="uc3k2" name="fx_zhongJiangKuang_c_03.png" path="/Images/PageGameMain/BorderEffect/"/>
+    <image id="uc3k3" name="fx_zhongJiangKuang_c_04.png" path="/Images/PageGameMain/BorderEffect/"/>
+    <image id="uc3k4" name="fx_zhongJiangKuang_c_05.png" path="/Images/PageGameMain/BorderEffect/"/>
+    <image id="uc3k5" name="fx_zhongJiangKuang_c_06.png" path="/Images/PageGameMain/BorderEffect/"/>
+    <image id="uc3k6" name="fx_zhongJiangKuang_c_07.png" path="/Images/PageGameMain/BorderEffect/"/>
+    <image id="uc3k7" name="fx_zhongJiangKuang_c_08.png" path="/Images/PageGameMain/BorderEffect/"/>
+    <image id="uc3k8" name="fx_zhongJiangKuang_c_09.png" path="/Images/PageGameMain/BorderEffect/"/>
+    <image id="uc3k9" name="fx_zhongJiangKuang_c_10.png" path="/Images/PageGameMain/BorderEffect/"/>
+    <image id="uc3ka" name="fx_zhongJiangKuang_c_11.png" path="/Images/PageGameMain/BorderEffect/"/>
+    <image id="uc3kb" name="fx_zhongJiangKuang_c_12.png" path="/Images/PageGameMain/BorderEffect/"/>
+    <movieclip id="uc3kc" name="BorderEffect.jta" path="/Images/PageGameMain/BorderEffect/"/>
+    <component id="uc3khn" name="AnchorDefault.xml" path="/Moudules/"/>
+    <component id="uc3kho" name="AnchorPanel.xml" path="/Moudules/PageGameMain/Anchors/"/>
+    <image id="uc3khp" name="example_panel1.png" path="/Examples/"/>
+    <component id="uc3khq" name="BGPage.xml" path="/Components/"/>
+    <component id="li600" name="Panel.xml" path="/Moudules/Panel/"/>
+    <component id="li602" name="PanelItem.xml" path="/Moudules/Panel/"/>
+    <component id="li605" name="ItemCredit.xml" path="/Moudules/Panel/"/>
+    <image id="li60hr" name="ui_caiJinKuang_01.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60hs" name="ui_caiJinKuang_28.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60ht" name="ui_caiJinKuang_27.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60hu" name="ui_caiJinKuang_26.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60hv" name="ui_caiJinKuang_25.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60hw" name="ui_caiJinKuang_24.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60hx" name="ui_caiJinKuang_23.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60hy" name="ui_caiJinKuang_22.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60hz" name="ui_caiJinKuang_21.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60i0" name="ui_caiJinKuang_20.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60i1" name="ui_caiJinKuang_19.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60i2" name="ui_caiJinKuang_18.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60i3" name="ui_caiJinKuang_17.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60i4" name="ui_caiJinKuang_16.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60i5" name="ui_caiJinKuang_15.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60i6" name="ui_caiJinKuang_14.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60i7" name="ui_caiJinKuang_13.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60i8" name="ui_caiJinKuang_12.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60i9" name="ui_caiJinKuang_11.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60ia" name="ui_caiJinKuang_10.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60ib" name="ui_caiJinKuang_09.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60ic" name="ui_caiJinKuang_08.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60id" name="ui_caiJinKuang_07.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60ie" name="ui_caiJinKuang_06.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60if" name="ui_caiJinKuang_05.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60ig" name="ui_caiJinKuang_04.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60ih" name="ui_caiJinKuang_03.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60ii" name="ui_caiJinKuang_02.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60ij" name="ui_caiJinKuang_29.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li60ik" name="ui_caiJinKuang_30.png" path="/Images/PageGameMain/BGJackpot/"/>
+    <movieclip id="li60il" name="MVBGJackpot.jta" path="/Images/PageGameMain/BGJackpot/"/>
+    <image id="li604" name="000.png" path="/Fonts/JackpotMegaCredit/"/>
+    <image id="li60im" name="001.png" path="/Fonts/JackpotMegaCredit/"/>
+    <image id="li606" name="002.png" path="/Fonts/JackpotMegaCredit/"/>
+    <image id="li607" name="003.png" path="/Fonts/JackpotMegaCredit/"/>
+    <image id="li608" name="004.png" path="/Fonts/JackpotMegaCredit/"/>
+    <image id="li609" name="005.png" path="/Fonts/JackpotMegaCredit/"/>
+    <image id="li60a" name="006.png" path="/Fonts/JackpotMegaCredit/"/>
+    <image id="li60b" name="007.png" path="/Fonts/JackpotMegaCredit/"/>
+    <image id="li60c" name="008.png" path="/Fonts/JackpotMegaCredit/"/>
+    <image id="li60d" name="009.png" path="/Fonts/JackpotMegaCredit/"/>
+    <image id="li60e" name="010.png" path="/Fonts/JackpotMegaCredit/"/>
+    <image id="li60f" name="011.png" path="/Fonts/JackpotMegaCredit/"/>
+    <font id="li603" name="FontBonusCredit.fnt" path="/Fonts/JackpotMegaCredit/" exported="true"/>
+    <image id="li60m" name="frame_GRAND01.png" path="/Images/PageGameMain/"/>
+    <component id="li60in" name="JackpotGameJP1.xml" path="/Moudules/PageGameMain/Jackpot/"/>
+    <component id="li60g" name="JackpotGameJP2.xml" path="/Moudules/PageGameMain/Jackpot/"/>
+    <component id="li60i" name="JackpotGameJP3.xml" path="/Moudules/PageGameMain/Jackpot/"/>
+    <component id="li60k" name="JackpotGameMega.xml" path="/Moudules/PageGameMain/Jackpot/"/>
+    <component id="li60io" name="JackpotGameReel.xml" path="/Moudules/PageGameMain/Jackpot/"/>
+    <image id="li60iq" name="000.png" path="/Fonts/GameCredit/"/>
+    <image id="li60ir" name="001.png" path="/Fonts/GameCredit/"/>
+    <image id="li60is" name="002.png" path="/Fonts/GameCredit/"/>
+    <image id="li60it" name="003.png" path="/Fonts/GameCredit/"/>
+    <image id="li60iu" name="004.png" path="/Fonts/GameCredit/"/>
+    <image id="li60iv" name="005.png" path="/Fonts/GameCredit/"/>
+    <image id="li60iw" name="006.png" path="/Fonts/GameCredit/"/>
+    <image id="li60ix" name="007.png" path="/Fonts/GameCredit/"/>
+    <image id="li60iy" name="008.png" path="/Fonts/GameCredit/"/>
+    <image id="li60iz" name="009.png" path="/Fonts/GameCredit/"/>
+    <image id="li60j0" name="010.png" path="/Fonts/GameCredit/"/>
+    <image id="li60j1" name="011.png" path="/Fonts/GameCredit/"/>
+    <component id="li60j2" name="CoinInCredit.xml" path="/Moudules/PageGameMain/"/>
+    <component id="li60j3" name="MyCredit.xml" path="/Moudules/PageGameMain/"/>
+    <image id="li60j4" name="bg_credit.png" path="/Images/PageGameMain/Credit/"/>
+    <image id="li60j5" name="coin_in.png" path="/Images/PageGameMain/Credit/"/>
+    <image id="li60j6" name="credit.png" path="/Images/PageGameMain/Credit/"/>
+    <font id="li60j7" name="FontGameCredit.fnt" path="/Fonts/GameCredit/" exported="true"/>
+    <image id="li60j8" name="JP1.png" path="/Images/PageGameMain/BG/"/>
+    <image id="li60j9" name="JP2.png" path="/Images/PageGameMain/BG/"/>
+    <image id="li60ja" name="JP3.png" path="/Images/PageGameMain/BG/"/>
+    <image id="li60jb" name="vine_1.png" path="/Images/PageGameMain/BG/"/>
+    <image id="li60jc" name="vine_2.png" path="/Images/PageGameMain/BG/"/>
+    <image id="li60jd" name="flower_1.png" path="/Images/PageGameMain/BG/"/>
+    <image id="li60je" name="flower_2.png" path="/Images/PageGameMain/BG/"/>
+    <image id="li60jf" name="flower_3.png" path="/Images/PageGameMain/BG/"/>
+    <image id="li60jg" name="example_1.png" path="/Examples/"/>
+    <image id="li60jh" name="machine_number.png" path="/Images/PageGameMain/FG/"/>
+    <image id="li60ji" name="turn_number.png" path="/Images/PageGameMain/FG/"/>
+    <image id="li60jj" name="0.png" path="/Fonts/RewardCoins/"/>
+    <image id="li60jk" name="1.png" path="/Fonts/RewardCoins/"/>
+    <image id="li60jl" name="2.png" path="/Fonts/RewardCoins/"/>
+    <image id="li60jm" name="3.png" path="/Fonts/RewardCoins/"/>
+    <image id="li60jn" name="4.png" path="/Fonts/RewardCoins/"/>
+    <image id="li60jo" name="5.png" path="/Fonts/RewardCoins/"/>
+    <image id="li60jp" name="6.png" path="/Fonts/RewardCoins/"/>
+    <image id="li60jq" name="7.png" path="/Fonts/RewardCoins/"/>
+    <image id="li60jr" name="8.png" path="/Fonts/RewardCoins/"/>
+    <image id="li60js" name="9.png" path="/Fonts/RewardCoins/"/>
+    <font id="li60jt" name="FontRewardCoins.fnt" path="/Fonts/RewardCoins/" exported="true"/>
+    <component id="li60ju" name="RewardCoins.xml" path="/Moudules/PageGameMain/"/>
+    <component id="li60jv" name="WinTip.xml" path="/Moudules/PageGameMain/"/>
+    <image id="li60jw" name="game_name.png" path="/Images/PageGameLoading/"/>
+    <image id="li60jx" name="launch_loading_mask.png" path="/Images/PageGameLoading/LoadingProgressBar/" scale="9grid" scale9grid="17,8,17,16"/>
+    <image id="li60jy" name="launch_loading_fg.png" path="/Images/PageGameLoading/LoadingProgressBar/" scale="tile" duplicatePadding="true"/>
+    <image id="li60jz" name="launch_loading_bg.png" path="/Images/PageGameLoading/LoadingProgressBar/" scale="9grid" scale9grid="22,9,11,18"/>
+    <component id="li60k0" name="PageGameLoading.xml" path="/" exported="true"/>
+    <component id="li60k1" name="PageGameLoading_1024_768.xml" path="/"/>
+    <component id="li60k2" name="ProgressBar1.xml" path="/Components/LoadingProgressBar/"/>
+    <component id="li60k3" name="Slider2.xml" path="/Components/LoadingProgressBar/"/>
+    <image id="li60k4" name="bg_reward_coin_2.png" path="/Images/PageGameMain/BG/"/>
+    <movieclip id="li601" name="MVCoinDrop.jta" path="/Images/PageGameMain/CoinEffect/" atlas="1"/>
+    <component id="li60k5" name="EffectCoinDrop.xml" path="/Moudules/PageGameMain/"/>
+    <image id="li60k6" name="IconAni81_0000.png" path="/Images/PageGameMain/CoinEffect/"/>
+    <image id="li60k7" name="IconAni81_0001.png" path="/Images/PageGameMain/CoinEffect/"/>
+    <image id="li60k8" name="IconAni81_0002.png" path="/Images/PageGameMain/CoinEffect/"/>
+    <image id="li60k9" name="IconAni81_0003.png" path="/Images/PageGameMain/CoinEffect/"/>
+    <image id="li60ka" name="IconAni81_0004.png" path="/Images/PageGameMain/CoinEffect/"/>
+    <image id="li60kb" name="IconAni81_0005.png" path="/Images/PageGameMain/CoinEffect/"/>
+    <image id="li60kc" name="IconAni81_0006.png" path="/Images/PageGameMain/CoinEffect/"/>
+    <image id="li60kd" name="IconAni81_0007.png" path="/Images/PageGameMain/CoinEffect/"/>
+    <image id="li60ke" name="symbol10.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <image id="li60kf" name="symbol11.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <image id="li60kg" name="symbol12.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <image id="li60kh" name="symbol13.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
+    <movieclip id="li60ki" name="MVSymbolHit0.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit0/"/>
+    <movieclip id="li60kj" name="MVSymbolHit10.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/" atlas="1"/>
+    <movieclip id="li60kk" name="MVSymbolHit11.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/" atlas="1"/>
+    <movieclip id="li60kl" name="MVSymbolHit12.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit12/" atlas="1"/>
+    <movieclip id="li60km" name="MVSymbolHit13.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit13/" atlas="1"/>
+    <movieclip id="li60kn" name="MVSymbolHit9.jta" path="/Images/PageGameMain/SymbolEffects/SymbolHit9/"/>
+    <component id="li60ko" name="SymbolHit1.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="li60kp" name="SymbolHit2.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="li60kq" name="SymbolHit3.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="li60kr" name="SymbolHit4.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="li60ks" name="SymbolHit5.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="li60kt" name="SymbolHit6.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="li60ku" name="SymbolHit7.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="li60kv" name="SymbolHit8.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="li60kw" name="SymbolHit9.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="li60kx" name="SymbolHit10.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="li60ky" name="SymbolHit11.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="li60kz" name="SymbolHit12.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="li60l0" name="SymbolHit0.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="li60l1" name="SymbolHit13.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
+    <component id="10zpa0" name="PayTable1.xml" path="/Moudules/PayTables/" exported="true"/>
+    <component id="10zpa1" name="PayTableName1.xml" path="/Moudules/PayTables/"/>
+    <component id="10zpa2" name="PayTableContent1.xml" path="/Moudules/PayTables/"/>
+    <component id="10zpa3" name="PayTableLine.xml" path="/Moudules/PayTables/"/>
+    <component id="10zpa4" name="LineName.xml" path="/Moudules/PayTables/"/>
+    <component id="10zpa5" name="PayTableLine1.xml" path="/Moudules/PayTables/"/>
+    <component id="10zpa6" name="PayTableLine2.xml" path="/Moudules/PayTables/"/>
+    <component id="10zpa7" name="PayTableLine3.xml" path="/Moudules/PayTables/"/>
+    <component id="10zpa8" name="PayTableLine4.xml" path="/Moudules/PayTables/"/>
+    <component id="10zpa9" name="PayTableLine5.xml" path="/Moudules/PayTables/"/>
+    <component id="10zpaa" name="PayTableLine6.xml" path="/Moudules/PayTables/"/>
+    <component id="10zpab" name="PayTableLine7.xml" path="/Moudules/PayTables/"/>
+    <component id="10zpac" name="PayTableLine8.xml" path="/Moudules/PayTables/"/>
+    <component id="10zpad" name="PayTable2.xml" path="/Moudules/PayTables/" exported="true"/>
+    <component id="10zpae" name="PayTableName2.xml" path="/Moudules/PayTables/"/>
+    <component id="10zpal6" name="FGPopupBigWin.xml" path="/Moudules/PopupBigWin/"/>
+    <component id="10zpam" name="JackpotFG.xml" path="/Moudules/PopupJackpotGame/"/>
+    <component id="10zpan" name="AnchorPopFGJP.xml" path="/Moudules/PopupJackpotGame/Anchors/"/>
+    <movieclip id="10zpal7" name="Eff_small_tip.jta" path="/Images/PopupJackpotGame/" atlas="1"/>
+    <font id="10zpal8" name="FontJackpotCredit.fnt" path="/Fonts/JackpotCredit/" exported="true"/>
+    <image id="10zpal9" name="ng_Toke_Digital,.png" path="/Fonts/JackpotCredit/"/>
+    <image id="10zpala" name="ng_Toke_Digital0.png" path="/Fonts/JackpotCredit/"/>
+    <image id="10zpalb" name="ng_Toke_Digital1.png" path="/Fonts/JackpotCredit/"/>
+    <image id="10zpalc" name="ng_Toke_Digital2.png" path="/Fonts/JackpotCredit/"/>
+    <image id="10zpald" name="ng_Toke_Digital3.png" path="/Fonts/JackpotCredit/"/>
+    <image id="10zpale" name="ng_Toke_Digital4.png" path="/Fonts/JackpotCredit/"/>
+    <image id="10zpalf" name="ng_Toke_Digital5.png" path="/Fonts/JackpotCredit/"/>
+    <image id="10zpalg" name="ng_Toke_Digital6.png" path="/Fonts/JackpotCredit/"/>
+    <image id="10zpaf" name="ng_Toke_Digital7.png" path="/Fonts/JackpotCredit/"/>
+    <image id="10zpag" name="ng_Toke_Digital8.png" path="/Fonts/JackpotCredit/"/>
+    <image id="10zpah" name="ng_Toke_Digital9.png" path="/Fonts/JackpotCredit/"/>
+    <image id="10zpai" name="ng_Toke_Digital_.png" path="/Fonts/JackpotCredit/"/>
+    <image id="10zpaj" name="ng_Toke_Digitalx.png" path="/Fonts/JackpotCredit/"/>
+    <component id="10zpalh" name="BG1024_768.xml" path="/Components/"/>
+    <component id="10zpali" name="BGPopup.xml" path="/Components/"/>
+    <component id="10zpalj" name="PopupBigWin.xml" path="/" exported="true"/>
+    <component id="10zpalk" name="PopupBigWin_1024_768.xml" path="/"/>
+    <component id="10zpak" name="PopupJackpotGame.xml" path="/" exported="true"/>
+    <component id="10zpal" name="PopupJackpotGame_1024_768.xml" path="/"/>
+    <image id="10zpao" name="example_jackpot_game_0.png" path="/Examples/"/>
+    <image id="10zpaalo" name="bg_popup_tip.png" path="/Images/PageGameMain/BG/"/>
+    <image id="10zpaalp" name="flower_4.png" path="/Images/PageGameMain/BG/"/>
+    <image id="10zpaalq" name="head_img_bg_2.png" path="/Images/Panel/"/>
   </resources>
-  <publish name=""/>
+  <publish name="" path="../../Assets/AstBundle/Games/Coin Pusher Rich Legend 2001000/FGUIs" packageCount="2" maxAtlasSize="8192"/>
 </packageDescription>

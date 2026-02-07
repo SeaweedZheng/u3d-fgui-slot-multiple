@@ -111,7 +111,15 @@ public class UIRouter
             [PageName.SlotEmperorsReinPageERGameMain] = new object[] { "Assets/AstBundle/Games/Coin Pusher Emperors Rein 200/FGUIs", "SlotEmperorsRein.PageGameMainSlot" },
 
 
-            // 富翁传奇
+
+
+            // 富翁传奇 2001000
+            [PageName.RichLegend2001000PageGameMain] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001000/FGUIs", "CoinPusherRichLegend2001000.PageGameMain" },
+            [PageName.RichLegend2001000PageGameLoading] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001000/FGUIs", "CoinPusherRichLegend2001000.PageGameLoading" },
+            [PageName.RichLegend2001000PopupJackpotGame] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001000/FGUIs", "CoinPusherRichLegend2001000.PopupJackpotGame" },
+            [PageName.RichLegend2001000PopupBigWin] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001000/FGUIs", "CoinPusherRichLegend2001000.PopupBigWin" },
+
+            // 富翁传奇 2001001
             [PageName.RichLegend2001001PageGameMain] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/FGUIs", "CoinPusherRichLegend2001001.PageGameMain" },
             [PageName.RichLegend2001001PageGameLoading] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/FGUIs", "CoinPusherRichLegend2001001.PageGameLoading" },
             [PageName.RichLegend2001001PopupJackpotGame] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/FGUIs", "CoinPusherRichLegend2001001.PopupJackpotGame" },
@@ -210,6 +218,11 @@ public enum PageName
     Lobby01PageLobbyMain,
 
 
+    // 富翁传奇2001000
+    RichLegend2001000PageGameMain,
+    RichLegend2001000PageGameLoading,
+    RichLegend2001000PopupJackpotGame,
+    RichLegend2001000PopupBigWin,
 
 
     // 富翁传奇2001001

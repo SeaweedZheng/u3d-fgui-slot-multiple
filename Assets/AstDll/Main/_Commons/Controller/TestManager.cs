@@ -8,7 +8,7 @@ using UnityEngine.Events;
 public class TestManager : Singleton<TestManager>
 {
     GComponent goOwnerTestMgr,
-        goGM, goPages,goCustomButtons, goKV, goAnalysis;
+        goGM, goPages, goCustomButtons, goKV, goAnalysis, goDebugFilter;
 
 
     GButton btnMenu;
@@ -20,6 +20,8 @@ public class TestManager : Singleton<TestManager>
     public const string POP_GMS = "POP_GMS";
     public const string POP_PAGES = "POP_PAGES";
     public const string POP_BUTTONS = "POP_BUTTONS";
+    public const string POP_DEBUG_FILTER = nameof(POP_DEBUG_FILTER);
+    //Filter
 
     string softwareVersion;
 
@@ -28,11 +30,11 @@ public class TestManager : Singleton<TestManager>
     public void Init(string softwareVersion)
     {
         this.softwareVersion = softwareVersion;
-        LoadAssetBundleAsync("Assets/AstBundle/_Commons/Common/FGUIs", (bundle) =>
+        LoadAssetBundleAsync("Assets/AstBundle/_Commons/Common 99000000/FGUIs", (bundle) =>
         {
             UIPackage.AddPackage(bundle);
 
-            goOwnerTestMgr = UIPackage.CreateObject("Common", "TestManager").asCom;
+            goOwnerTestMgr = UIPackage.CreateObject("Common99000000", "TestManager").asCom;
             GRoot.inst.AddChild(goOwnerTestMgr);
             goOwnerTestMgr.sortingOrder = 100;
             goOwnerTestMgr.y = GRoot.inst.height / 4;
@@ -64,6 +66,7 @@ public class TestManager : Singleton<TestManager>
         pops.Add(POP_GMS, goOwnerTestMgr.GetChild("popupGMs").asCom);
         pops.Add(POP_PAGES, goOwnerTestMgr.GetChild("popupPages").asCom);
         pops.Add(POP_BUTTONS, goOwnerTestMgr.GetChild("popupButtons").asCom);
+        pops.Add(POP_DEBUG_FILTER, goOwnerTestMgr.GetChild("popupDebugFilter").asCom);
         ChosePop();
 
         goMenu = goOwnerTestMgr.GetChild("menu").asCom;
@@ -105,7 +108,7 @@ public class TestManager : Singleton<TestManager>
         goGM = glstMenu.GetChildAt(4).asCom;
         goGM.onClick.Clear();
         goGM.onClick.Add(OnClickGMBaseButton);
-        
+
 
         goPages = glstMenu.GetChildAt(5).asCom;
         goPages.onClick.Clear();
@@ -122,6 +125,14 @@ public class TestManager : Singleton<TestManager>
         goAnalysis = glstMenu.GetChild("analysis").asCom;
         goAnalysis.onClick.Clear();
         goAnalysis.onClick.Add(OnClickAnalysis);
+
+
+
+        goDebugFilter = glstMenu.GetChild("debugFilter").asCom;
+        goDebugFilter.onClick.Clear();
+        goDebugFilter.onClick.Add(OnClickDebugFilter);
+
+
 
         //goOwnerTestMgr.visible = isEnableTestTool;
         //goOwnerTestMgr.visible = false;
@@ -154,7 +165,7 @@ public class TestManager : Singleton<TestManager>
     {
         Time.timeScale = 10;
     }
-  
+
     void OnClickSpeedX2()
     {
         Time.timeScale = 2;
@@ -223,12 +234,12 @@ public class TestManager : Singleton<TestManager>
 
 
 
-    Dictionary<string,GComponent> pops = new Dictionary<string,GComponent>();
+    Dictionary<string, GComponent> pops = new Dictionary<string, GComponent>();
     void ChosePop() => ChangePop("");
     private GComponent ChangePop(string popName = "")
     {
         GComponent goPop = null;
-        foreach (KeyValuePair<string,GComponent> kv in pops)
+        foreach (KeyValuePair<string, GComponent> kv in pops)
         {
             if (kv.Key == popName)
             {
@@ -269,11 +280,11 @@ public class TestManager : Singleton<TestManager>
             }
 
             GList glst = goPop.GetChild("menu").asList;
-            if(glst.numChildren < gmNode.Count)
+            if (glst.numChildren < gmNode.Count)
             {
                 glst.numItems = gmNode.Count;
             }
-            
+
             GObject[] items = glst.GetChildren();
             foreach (GObject item in items)
             {
@@ -282,7 +293,7 @@ public class TestManager : Singleton<TestManager>
 
             for (int i = gmNode.Count; i < glst.numChildren; i++)
             {
-                glst.GetChildAt(i).visible =  false;
+                glst.GetChildAt(i).visible = false;
             }
 
             int idx = 0;
@@ -331,7 +342,6 @@ public class TestManager : Singleton<TestManager>
         EventCenter.Instance.EventTrigger<EventData>(GlobalEvent.ON_TOOL_EVENT,
            new EventData<bool>(GlobalEvent.AnalysisTest, isAnalysis));
     }
-
 
     public void OnClickCustomButons()
     {
@@ -411,24 +421,24 @@ public class TestManager : Singleton<TestManager>
 
         if (goPop != null && goPop.visible)
         {
-            
+
             string keyDataGM = $"DATA_GM_{ConfigUtils.curGameId}";
-            
+
             string str = GetValue(keyDataGM);
 
             if (string.IsNullOrEmpty(str))
             {
-                LoadAsset<TextAsset>(ConfigUtils.curGameGMURL, (asset)=>
+                LoadAsset<TextAsset>(ConfigUtils.curGameGMURL, (asset) =>
                 {
-                    SetKV(keyDataGM,asset.text);
+                    SetKV(keyDataGM, asset.text);
 
                     CreatGMPop(goPop, asset.text);
 
-                });                
+                });
             }
             else
             {
-                CreatGMPop(goPop,str);
+                CreatGMPop(goPop, str);
             }
 
         }
@@ -465,8 +475,8 @@ public class TestManager : Singleton<TestManager>
         {
             glst.GetChildAt(i).visible = false;
         }
-        
-        
+
+
         int idx = 0;
         foreach (KeyValuePair<string, JSONNode> item in gmNode)
         {
@@ -487,8 +497,72 @@ public class TestManager : Singleton<TestManager>
             idx++;
         }
     }
-    
-    
+
+
+
+
+    public void OnClickDebugFilter()
+    {
+        if (goDebugFilter == null)
+            return;
+
+        GComponent goPop = ChangePop(POP_DEBUG_FILTER);
+
+        if (goPop != null && goPop.visible)
+        {
+            CreatDebugFilterPop(goPop);
+        }
+    }
+
+
+    /// <summary>
+    /// 日志过滤设置
+    /// </summary>
+    /// <param name="goPop"></param>
+    /// <param name="jsn"></param>
+
+    void CreatDebugFilterPop(GComponent goPop)
+    {
+        GList glst = goPop.GetChild("menu").asList;
+        if (glst.numChildren < DebugFilter.filterSettings.Count)
+        {
+            glst.numItems = DebugFilter.filterSettings.Count;
+        }
+
+        GObject[] items = glst.GetChildren();
+        foreach (GObject item in items)
+        {
+            item.asCom.GetChild("isOn").asButton.onChanged.Clear();
+        }
+
+        for (int i = DebugFilter.filterSettings.Count; i < glst.numChildren; i++)
+        {
+            glst.GetChildAt(i).visible = false;
+        }
+
+        int idx = 0;
+        foreach (FilterInfo item in DebugFilter.filterSettings)
+        {
+            int index = idx;
+            GComponent itm = glst.GetChildAt(idx).asCom;
+            itm.visible = true;
+            itm.GetChild("title").asTextField.text = DebugFilter.filterSettings[index].name;
+
+            GButton btn = itm.GetChild("isOn").asButton;
+            btn.onChanged.Add((EventContext context) =>
+            {
+                //GButton btn = (GButton)context.data;
+                DebugFilter.filterSettings[index].isFiltered = btn.selected;
+
+                DebugFilter.SaveDebugFilterSettings();
+            });
+            btn.selected = DebugFilter.filterSettings[index].isFiltered;
+
+            //OnClickBase();
+            idx++;
+        }
+    }
+
     #endregion
 
 

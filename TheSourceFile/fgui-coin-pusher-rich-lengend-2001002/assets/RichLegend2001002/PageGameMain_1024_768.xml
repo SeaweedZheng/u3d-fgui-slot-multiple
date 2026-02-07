@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1024,768">
+  <displayList>
+    <image id="n3_emqw" name="n3" src="emqw7" fileName="Images/PageGameMain/BG/ng_bg.png" xy="0,0" group="n5_emqw"/>
+    <image id="n11_r7ye" name="n11" src="r7yedy" fileName="Images/PageGameMain/BG/bg_Bottom__frame.png" xy="0,0" group="n5_emqw"/>
+    <component id="n6_emqw" name="n6" src="emqwk" fileName="Moudules/PageGameMain/BGFrame.xml" xy="0,81" group="n5_emqw"/>
+    <component id="n10_emqw" name="slotMachine" src="emqwe" fileName="Moudules/PageGameMain/SlotMachine/SlotMachine.xml" xy="62,137" group="n5_emqw"/>
+    <group id="n5_emqw" name="n5" xy="0,0" size="1024,768"/>
+  </displayList>
+</component>

@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="40,24">
+  <displayList>
+    <text id="n10_v1zk" name="line" xy="0,0" size="40,24" fontSize="16" color="#ff9900" align="center" autoSize="none" text="LINE"/>
+  </displayList>
+</component>

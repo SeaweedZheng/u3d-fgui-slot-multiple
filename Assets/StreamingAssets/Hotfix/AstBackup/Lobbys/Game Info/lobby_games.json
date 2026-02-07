@@ -42,5 +42,27 @@
     "save": false,
     "update_at_launch": true,
     "update_at_launch_once": false
+  },
+  {
+    "id": 1002,
+    "game_name": "RICH LEGEND",
+    "game_type": "CoinPusher",
+    "game_id": 2001000,
+    "module_name": "RL2001000",
+    "enter_page": "RichLegend2001000PageGameLoading",
+    "game_avatar": "Assets/AstBackup/Games/G2001001/Game Avatar/Game Avatar G2001000.png",
+    "lobby_icon_big": "Assets/AstBackup/Lobbys/Game Info/G2001000/Game Lobby Image/Slot Image Big BLC.png",
+    "lobby_icon_small": "Assets/AstBackup/Lobbys/Game Info/G2001000/Game Lobby Image/Slot Image Small BLC.png",
+    "tag": "new#hot",
+    "des": "富翁传奇",
+    "is_available": true,
+    "display_in_lobby": true,
+    "need_active": true,
+    "active": true,
+    "sort": "1.1",
+    "like": false,
+    "save": false,
+    "update_at_launch": true,
+    "update_at_launch_once": false
   }
 ]

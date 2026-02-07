@@ -78,6 +78,8 @@ public static class PathHelper
 
     public static string totalVersionSAPTH => Path.Combine(hotfixDirSAPTH, totalVersionName);
 
+
+    /// <summary> 包内主版本文件路劲 </summary>
     public static string versionSAPTH => Path.Combine(hotfixDirSAPTH, versionName);
 
     public static string mainfestSAPTH => Path.Combine(abDirSAPTH, mainfestBundleName);
@@ -273,6 +275,8 @@ public static class PathHelper
     public static string GetModuleVersionWEBURL(string name) => Path.Combine(hotfixDirWEBURL, name, versionName);
     public static string GetModuleVersionLOCPTH(string name) => Path.Combine(modulesDirLOCPTH, name, versionName);
     public static string GetTmpModuleVersionLOCPTH(string name) => Path.Combine(tmpModulesDirLOCPTH, name, versionName);
+    
+    /// <summary> 包内主模块路劲 </summary>
     public static string mainModVersionSAPTH => Path.Combine(modulesDirSAPTH, mianModuleName, versionName);
 
     public static string mainModVersionWEBURL => Path.Combine(modulesDirWEBURL, mianModuleName, versionName);

@@ -1,0 +1,599 @@
+using FairyGUI;
+using GameMaker;
+using SlotMaker;
+using System.Collections.Generic;
+using UnityEngine;
+using System;
+namespace PanelCoinPusher1001000
+{
+
+    public class PanelBaseController : MonoBehaviour, IPanel
+    {
+        const string pkgName = nameof(PanelCoinPusher1001000);
+        enum PopState
+        {
+            None,
+            Change,
+            Help,
+            Bet,
+            payTable,
+        }
+
+        PopState popState = PopState.None;
+        protected GComponent gOwnerPanel, gPayTableWin,
+             //setPanel, 
+             payTableContent;
+
+        GButton btnSound, btnHelp, btnBack;
+
+
+        //#seaweed#待修改
+        protected PanelSlot1000000.SpinButtonBaseController spinBtnCtrl = new PanelSlot1000000.SpinButtonBaseController();
+        protected GButton btnPayTable, btnPrev, btnNext;
+        protected GTextField txtBet;
+   
+
+        GameObject goSpinClone;
+        bool isInit;
+        /// <summary> 浠嬬粛椤电储寮?</summary>
+        public int contentIndex;
+
+        GList lstPayTableIndexs;
+
+
+        UIMyCreditController uiMyCreditCtrl = new UIMyCreditController();
+        UIWinNumController uiWinNumCtrl = new UIWinNumController();
+        protected virtual int IntroduceIndexMax => 6;
+
+        protected virtual void OnEnable()
+        {
+            EventCenter.Instance.AddEventListener<EventData>(Observer.ON_PROPERTY_CHANGED_EVENT, OnPropertyChange);
+            //EventCenter.Instance.AddEventListener<EventData>(SlotMachineEvent.ON_WIN_EVENT, OnTotalWinCredit);
+            EventCenter.Instance.AddEventListener<EventData>(PanelEvent.ON_PANEL_EVENT, OnPanelEventAnchorPanelChange);
+
+            MainModel.Instance.panel = this;
+
+            uiMyCreditCtrl.Enable();
+            uiWinNumCtrl.Enable();
+
+            Init();
+        }
+
+
+        protected virtual void OnDisable()
+        {
+            EventCenter.Instance.RemoveEventListener<EventData>(Observer.ON_PROPERTY_CHANGED_EVENT, OnPropertyChange);
+            //EventCenter.Instance.RemoveEventListener<EventData>(SlotMachineEvent.ON_WIN_EVENT, OnTotalWinCredit);
+            EventCenter.Instance.RemoveEventListener<EventData>(PanelEvent.ON_PANEL_EVENT, OnPanelEventAnchorPanelChange);
+            //gOwnerPanel.visible = false;
+
+            uiMyCreditCtrl.Disable();
+            uiWinNumCtrl.Disable();
+        }
+
+
+
+
+        public virtual void Init(EventData res = null)
+        {
+
+            GComponent _goAnchorPanel = null;
+            if (res != null)
+                _goAnchorPanel = res.value as GComponent;
+            else if (MainModel.Instance.contentMD != null)
+                _goAnchorPanel = MainModel.Instance.contentMD.goAnchorPanel;
+
+            if (_goAnchorPanel == null)
+            {
+                return;
+            }
+
+
+            int count = 2;
+            Action loadComplete = () =>
+            {
+                if (--count == 0)
+                {
+                    isInit = true;
+                    InitParam();
+                }
+            };
+
+            string urlStr = $"ui://{pkgName}/Panel";
+            //Debug.Log("urlStr" + urlStr);
+            if (gOwnerPanel != _goAnchorPanel && _goAnchorPanel != null)
+            {
+                if (UIPackage.GetByName(pkgName) == null)
+                {
+                    ResourceManager02.Instance.LoadAssetBundleAsync("Assets/AstBundle/Games/Panel Coin Pusher 1001000/FGUIs", (ab) =>
+                    {
+                        UIPackage.AddPackage(ab);
+                        if (_goAnchorPanel.GetChild("icon") == null)
+                        {
+                            Debug.LogError("i null holder");
+                        }
+                        GLoader anchorPanel = _goAnchorPanel.GetChild("icon").asLoader;
+                        GObject[] chlds = _goAnchorPanel.GetChildren();
+                        foreach (GObject ch in chlds)
+                        {
+                            Debug.Log(ch.name);
+                        }
+                        anchorPanel.url = urlStr;
+                        anchorPanel.visible = true;
+
+                        // 获取url实例化后的对象
+                        gOwnerPanel = anchorPanel.component;
+                        gOwnerPanel.touchable = true;
+
+                        loadComplete();
+                    });
+
+                }
+                else
+                {
+                    GLoader anchorPanel = _goAnchorPanel.GetChild("icon").asLoader;
+                    anchorPanel.url = urlStr;
+                    anchorPanel.visible = true;
+
+                    // 获取url实例化后的对象
+                    gOwnerPanel = anchorPanel.component;
+                    gOwnerPanel.touchable = true;
+
+                    loadComplete();
+                }
+            }
+            else
+            {
+                loadComplete();
+            }
+
+            //#seaweed#待修改
+            if (goSpinClone == null)
+                ResourceManager02.Instance.LoadAsset<GameObject>("Assets/AstBundle/Games/Panel Slot 1000000/Prefabs/Slot Btn Spin.prefab",
+                    (GameObject clone) =>
+                    {
+                        goSpinClone = clone;
+                        loadComplete();
+                    });
+            else
+            {
+                loadComplete();
+            }
+
+        }
+
+
+
+        protected virtual void InitParam()
+        {
+            gOwnerPanel = MainModel.Instance.contentMD.goAnchorPanel.asCom.GetChild("icon").asLoader.component;
+
+
+
+            //gOwnerPanel.GetChild("credit").asTextField.text = MainModel.Instance.myCredit.ToString(); //SBoxModel.Instance.myCredit.ToString();
+            //txtWin = gOwnerPanel.GetChild("win").asTextField;
+            //txtWin.text = 9.ToString();           
+
+            uiMyCreditCtrl.InitParam(gOwnerPanel.GetChild("credit").asTextField);
+            uiWinNumCtrl.InitParam(gOwnerPanel.GetChild("win").asTextField);
+
+
+
+            txtBet = gOwnerPanel.GetChild("bet").asTextField;
+            txtBet.text = $"1:{SBoxModel.Instance.CoinInScale}";
+            spinBtnCtrl.InitParam(gOwnerPanel.GetChild("btnSpin").asCom, OnClickSpinButton, goSpinClone);
+
+
+            gPayTableWin = gOwnerPanel.GetChild("payTable").asCom;
+
+            payTableContent = gPayTableWin.GetChild("content").asCom;
+
+
+            btnPrev = gPayTableWin.GetChild("btnController").asCom.GetChild("btnPrev").asButton;
+            btnPrev.onClick.Clear();
+            btnPrev.onClick.Add(OnClickIntroduceL);
+
+
+            btnNext = gPayTableWin.GetChild("btnController").asCom.GetChild("btnNext").asButton;
+            btnNext.onClick.Clear();
+            btnNext.onClick.Add(OnClickIntroduceR);
+
+
+            lstPayTableIndexs = gPayTableWin.GetChild("btnController").asCom.GetChild("btnIndexs").asList;
+
+
+            // 说明也返回按钮
+            btnBack = gOwnerPanel.GetChild("btnBack").asButton;
+            btnBack.visible = false;
+            btnBack.onClick.Set(CloseAllPopup);
+
+            // 帮助按钮
+            btnHelp = gOwnerPanel.GetChild("btnHelp").asButton;
+            btnHelp.GetChild("untouch").visible = false;
+            btnHelp.touchable = true;
+            btnHelp.onClick.Set(() => {
+                //DebugUtils.Log($"i am btnHelp selected:{btnHelp.selected}");
+            });
+            btnHelp.onChanged.Clear();
+            btnHelp.onChanged.Add(OnClickHelp);
+
+
+            GComponent gMenu = btnHelp.GetChild("menu").asCom;
+            btnPayTable = gMenu.GetChild("btnPayTable").asButton;
+            btnPayTable.onClick.Clear();
+            btnPayTable.onClick.Add((EventContext context) =>
+            {
+                InitPayTable();
+                GlobalSoundHelper.Instance.PlaySoundEff(GameMaker.SoundKey.PopupOpen);
+                gPayTableWin.visible = true;
+
+                ClosePanelMenu();
+                context.StopPropagation(); // 停止事件冒泡(不起作用)
+
+                btnBack.visible = true; //返回按钮
+            });
+
+
+
+            btnSound = gMenu.GetChild("btnSound").asButton;
+            btnSound.onClick.Clear();
+            btnSound.onClick.Add((EventContext context) =>
+            {
+                if (++SBoxModel.Instance.soundLevel > 3)
+                    SBoxModel.Instance.soundLevel = 0;
+
+                Debug.Log($"i am here: {SBoxModel.Instance.soundLevel}");
+                btnSound.GetController("c1").selectedIndex = SBoxModel.Instance.soundLevel;
+                //GlobalSoundHelper.Instance.PlaySoundEff(GameMaker.SoundKey.NormalClick);
+                context.StopPropagation(); // 停止事件冒泡(不起作用)
+            });
+            //btnSound.sound = null;
+            btnSound.GetController("c1").selectedIndex = SBoxModel.Instance.soundLevel;
+
+
+
+
+            btnHome = gMenu.GetChild("btnHome").asButton;
+            if (PageUtils.HasLobby)
+            {
+                btnHome.visible = true;
+                btnHome.onClick.Set((EventContext context) =>
+                {
+                    CloseAllPopup();
+                    PageUtils.GoBackToLobby();
+                });
+            }
+            else
+            {
+                btnHome.visible = false;
+            }
+
+            OnPropertyChangeBetList();
+            OnPropertyChangeTotalBet();
+            OnPropertyChangeBtnSpinState();
+            OnPropertyIsConnectMoneyBox();
+        }
+
+
+        void ClosePanelMenu() => btnHelp.selected = false;
+
+
+        protected virtual void OnClickHelp()
+        {
+            if (btnHelp.selected)
+            {
+                gOwnerPanel.GetChild("mask").asGraph.visible = true;
+                spinBtnCtrl.SetUntouchable();
+                //spinBtnCtrl.goOwnerSpin.GetController("button").selectedPage = "untouchable";
+                //spinBtnCtrl.goOwnerSpin.touchable = false;
+            }
+            else
+            {
+                CloseAllPopup();       
+                //spinBtnCtrl.goOwnerSpin.GetController("button").selectedPage = "stop";
+                //spinBtnCtrl.goOwnerSpin.touchable = true;
+            }
+        }
+
+        void CloseAllPopup()
+        {
+            btnBack.visible = false;
+            gPayTableWin.visible = false;
+            gOwnerPanel.GetChild("mask").asGraph.visible = false;
+            spinBtnCtrl.SetTouchable();
+        }
+
+
+        protected virtual void InitPayTable()
+        {
+
+            lstPayTableIndexs.numItems = 
+                MainModel.Instance.contentMD.goPayTableLst == null? 0: MainModel.Instance.contentMD.goPayTableLst.Count;
+
+            GObject[] childs = lstPayTableIndexs.GetChildren();
+            foreach (GObject child in childs)
+            {
+                child.asButton.selected = false;
+            }
+
+            if (MainModel.Instance.contentMD.goPayTableLst== null || MainModel.Instance.contentMD.goPayTableLst.Count == 0) return;
+                   
+            contentIndex = 0;
+            payTableContent.RemoveChildren();
+            payTableContent.AddChild(MainModel.Instance.contentMD.goPayTableLst[contentIndex]);
+
+            lstPayTableIndexs.GetChildAt(contentIndex).asButton.selected = true;
+
+            btnPrev.touchable = false;
+            btnPrev.GetChild("untouch").visible = true;
+            btnNext.touchable = true;
+            btnNext.GetChild("untouch").visible = false;
+
+        }
+
+        protected virtual void OnClickIntroduceL()
+        {
+            if (MainModel.Instance.contentMD.goPayTableLst == null || MainModel.Instance.contentMD.goPayTableLst.Count == 0) return;
+
+            PayTableChange(false);
+            if (contentIndex == 0)
+            {
+                btnPrev.touchable = false;
+                btnPrev.GetChild("untouch").visible = true;
+            }
+            btnNext.GetChild("untouch").visible = false;
+            btnNext.touchable = true;
+        }
+
+        protected virtual void OnClickIntroduceR()
+        {
+            if (MainModel.Instance.contentMD.goPayTableLst == null || MainModel.Instance.contentMD.goPayTableLst.Count == 0) return;
+
+            PayTableChange(true);
+            if (contentIndex == MainModel.Instance.contentMD.goPayTableLst.Count-1)
+            {
+                btnNext.touchable = false;
+                btnNext.GetChild("untouch").visible = true;
+            }
+
+            btnPrev.touchable = true;
+            btnPrev.GetChild("untouch").visible = false;
+
+        }
+
+        protected virtual void PayTableChange(bool isAdd)
+        {
+            if (isAdd)
+            {
+                if (++contentIndex >= MainModel.Instance.contentMD.goPayTableLst.Count)
+                {
+                    contentIndex = MainModel.Instance.contentMD.goPayTableLst.Count - 1;
+                }
+            }
+            else
+            {
+                if (--contentIndex < 0)
+                {
+                    contentIndex = 0;
+                }
+            }
+
+            payTableContent.RemoveChildren();
+            payTableContent.AddChild(MainModel.Instance.contentMD.goPayTableLst[contentIndex]);
+
+            GObject[] childs = lstPayTableIndexs.GetChildren();
+            foreach (GObject child in childs)
+            {
+                child.asButton.selected = false;
+            }
+            lstPayTableIndexs.GetChildAt(contentIndex).asButton.selected = true;
+
+        }
+        protected virtual void OnPropertyChange(EventData res = null)
+        {
+            //ContentModel
+            string name = res.name;
+            switch (name)
+            {
+                case "ContentModel/totalBet":
+                    OnPropertyChangeTotalBet(res);
+                    break;
+                case "SBoxModel/betList":
+                    OnPropertyChangeBetList(res);
+                    break;
+                case "ContentModel/btnSpinState":
+                    OnPropertyChangeBtnSpinState(res);
+                    break;
+                /*case "ContentModel/gameState":
+                    OnPropertyGameState(res);
+                    break;*/
+                case "SBoxModel/isConnectMoneyBox":
+                    OnPropertyIsConnectMoneyBox(res);
+                    break;
+            }
+        }
+
+
+        protected virtual void OnPropertyChangeTotalBet(EventData res = null)
+        {
+            //long totalBet = (long)res?.value;
+
+            //if (totalBet == null)
+            //    totalBet = MainModel.Instance.contentMD.totalBet;
+        }
+
+        protected virtual void OnPropertyChangeBetList(EventData res = null)
+        {
+            List<long> betList = (List<long>)res?.value;
+
+            if (betList == null)
+                betList = SBoxModel.Instance.betList;
+        }
+        protected virtual void OnPropertyChangeBtnSpinState(EventData res = null)
+        {
+            string changeSpinState = (string)res?.value;
+
+            if (changeSpinState == null)
+                changeSpinState = SpinButtonState.Stop;
+
+            if (gOwnerPanel == null) return;
+
+
+            switch (changeSpinState)
+            {
+                case SpinButtonState.Stop:
+                    {
+                        spinBtnCtrl.State = SpinButtonState.Stop;
+                        ChangButtonNo(false);
+                    }
+                    break;
+                case SpinButtonState.Spin:
+                    {
+                        spinBtnCtrl.State = SpinButtonState.Spin;
+                        //if (gOwnerPanel != null)
+                        //{
+                        //    gOwnerPanel.GetChild("goodLuck").asLoader.visible = false;
+                        //    gOwnerPanel.GetChild("win").asCom.visible = true;
+                        //}
+                        ChangButtonNo(true);
+                    }
+                    break;
+                case SpinButtonState.Auto:
+                    {
+                        spinBtnCtrl.State = SpinButtonState.Auto;
+                        //if (gOwnerPanel != null)
+                        //{
+                        //    gOwnerPanel.GetChild("goodLuck").asLoader.visible = false;
+                        //    gOwnerPanel.GetChild("win").asCom.visible = true;
+                        //}
+                        ChangButtonNo(true);
+                    }
+                    break;
+            }
+
+
+        }
+
+        /*
+        protected virtual void OnPropertyGameState(EventData res = null)
+        {
+            string gameState = (string)res?.value;
+
+            if (gameState == GameState.Spin || gameState == GameState.FreeSpin)
+            {
+               // txtWin.text = 0.ToString();
+
+            }
+        }*/
+        protected virtual void OnPropertyIsConnectMoneyBox(EventData res = null)
+        {
+
+        }
+
+
+        protected virtual void OnPanelEventAnchorPanelChange(EventData res = null)
+        {
+            if (res.name == PanelEvent.AnchorPanelChange)
+            {
+                Init();
+            }
+        }
+
+        /*
+        protected virtual void OnTotalWinCredit(EventData receivedEvent)
+        {
+            if (receivedEvent.name == SlotMachineEvent.TotalWinCredit)
+            {
+                long totalWinCredit = (long)receivedEvent.value;
+                //gOwnerPanel.GetChild("win").asCom.GetChild("winSound").asTextField.text = totalWinCredit.ToString();
+                txtWin.text = totalWinCredit.ToString();
+                // uiWin.SetToCredit(totalWinCredit);
+            }
+            else if (receivedEvent.name == SlotMachineEvent.SingleWinBonus)
+            {
+                long totalWinCredit = (long)receivedEvent.value;
+                NumberAnimation.Instance.AnimateNumber(txtWin,
+                                                       long.Parse(txtWin.text),
+                                                       totalWinCredit + long.Parse(txtWin.text),
+                                                       0.4f);
+
+            }
+
+        }*/
+
+
+
+
+        // Spin鎸夐挳
+        //public void OnLongClickSpinButton(string customDataOrState) => OnClickSpinButton(true);
+        //public void OnShortClickSpinButton(string customDataOrState) => OnClickSpinButton(false);
+
+
+        int i = 0;
+        public void OnClickSpinButton(bool isLong)
+        {
+            EventCenter.Instance.EventTrigger<EventData>(PanelEvent.ON_PANEL_INPUT_EVENT,
+               new EventData<bool>(PanelEvent.SpinButtonClick, isLong));
+        }
+
+        #region 置灰
+        public virtual void ChangButtonNo(bool can)
+        {
+            if (can)
+            {
+                //gOwnerPanel.GetChild("ButtonPRIZE").asButton.GetChild("n1").visible = true;
+                //gOwnerPanel.GetChild("ButtonPRIZE").asButton.touchable = false;
+                btnHelp.GetChild("untouch").visible = true;
+                btnHelp.touchable = false;
+
+
+                // ChangeBetButtonInteractable(MainModel.Instance.contentMD.betIndex, SBoxModel.Instance.betList.Count);
+            }
+            else
+            {
+                //gOwnerPanel.GetChild("ButtonPRIZE").asButton.GetChild("n1").visible = false;
+                //gOwnerPanel.GetChild("ButtonPRIZE").asButton.touchable = true;
+                btnHelp.GetChild("untouch").visible = false;
+                btnHelp.touchable = true;
+            }
+
+        }
+        #endregion
+
+
+
+
+        protected GButton  btnHome;
+
+        protected int curBetIndex = 0;
+        protected int curBetListCount = 1;
+
+        public virtual void OnLongClickHandler(MachineButtonKey machineButtonKey) { }
+
+        public virtual void OnShortClickHandler(MachineButtonKey machineButtonKey) { }
+
+        public virtual void OnDownClickHandler(MachineButtonKey machineButtonKey)
+        {
+            switch (machineButtonKey)
+            {
+                case MachineButtonKey.BtnSpin:
+                    {
+                        spinBtnCtrl.TouchSpinBegin();
+                    }
+                    break;
+            }
+        }
+
+        public virtual void OnUpClickHandler(MachineButtonKey machineButtonKey)
+        {
+            switch (machineButtonKey)
+            {
+                case MachineButtonKey.BtnSpin:
+                    {
+                        spinBtnCtrl.TouchSpinEnd();
+                    }
+                    break;
+            }
+        }
+    }
+}

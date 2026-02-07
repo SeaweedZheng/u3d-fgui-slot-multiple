@@ -777,9 +777,9 @@
     <image id="j4ebd" name="symbol9.png" path="/Images/PageGameMain/Symbols/" exported="true"/>
     <image id="plepc" name="frame_times.png" path="/Images/Panel/"/>
     <image id="10cf0hn" name="bg_bottom.png" path="/Images/Panel/" scale="9grid" scale9grid="256,30,512,60"/>
-    <component id="plepb" name="Panel.xml" path="/Panel/"/>
-    <component id="tpfchl" name="PanelItem.xml" path="/Panel/"/>
-    <component id="tpfchm" name="ItemCredit.xml" path="/Panel/"/>
+    <component id="plepb" name="Panel.xml" path="/Moudules/Panel/"/>
+    <component id="tpfchl" name="PanelItem.xml" path="/Moudules/Panel/"/>
+    <component id="tpfchm" name="ItemCredit.xml" path="/Moudules/Panel/"/>
     <component id="j4eb1" name="SymbolAnimator.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
     <component id="plep3" name="Symbol.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
     <component id="plep4" name="Reel.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
@@ -789,7 +789,7 @@
     <component id="plep8" name="SlotCover.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
     <component id="plep9" name="PlayLines.xml" path="/Moudules/PageGameMain/SlotMachine/"/>
     <component id="ho3t0" name="PageGameMain.xml" path="/" exported="true"/>
-    <component id="e8ib13h" name="AnchorDefault.xml" path="/Moudules/PageGameMain/Anchors/"/>
+    <component id="e8ib13h" name="AnchorDefault.xml" path="/Moudules/"/>
     <image id="e8ib13i" name="example_panel1.png" path="/Examples/"/>
     <component id="e8ib13j" name="AnchorPanel.xml" path="/Moudules/PageGameMain/Anchors/"/>
     <component id="ceou13l" name="SymbolHit1.xml" path="/Moudules/PageGameMain/SymbolHitEffects/" exported="true"/>
@@ -818,10 +818,10 @@
     <image id="pq4v14k" name="010.png" path="/Fonts/BonusCredit/"/>
     <image id="pq4v14l" name="011.png" path="/Fonts/BonusCredit/"/>
     <font id="pq4v14m" name="FontBonusCredit.fnt" path="/Fonts/BonusCredit/" exported="true"/>
-    <component id="pq4v14n" name="JackpotGameReel.xml" path="/"/>
-    <component id="pq4v14o" name="JackpotGameJP1.xml" path="/Moudules/PageGameMain/"/>
-    <component id="pq4v14p" name="JackpotGameJP2.xml" path="/Moudules/PageGameMain/"/>
-    <component id="pq4v14q" name="JackpotGameJP3.xml" path="/Moudules/PageGameMain/"/>
+    <component id="pq4v14n" name="JackpotGameReel.xml" path="/Moudules/PageGameMain/Jackpot/"/>
+    <component id="pq4v14o" name="JackpotGameJP1.xml" path="/Moudules/PageGameMain/Jackpot/"/>
+    <component id="pq4v14p" name="JackpotGameJP2.xml" path="/Moudules/PageGameMain/Jackpot/"/>
+    <component id="pq4v14q" name="JackpotGameJP3.xml" path="/Moudules/PageGameMain/Jackpot/"/>
     <image id="pq4v151" name="010.png" path="/Fonts/GameCredit/"/>
     <image id="pq4v152" name="011.png" path="/Fonts/GameCredit/"/>
     <image id="pq4v153" name="bg_credit.png" path="/Images/PageGameMain/BG/Credit/"/>
@@ -886,7 +886,7 @@
     <image id="8amu16q" name="cjk_29.png" path="/Images/PageGameMain/JackpotBG/"/>
     <image id="8amu16r" name="cjk_30.png" path="/Images/PageGameMain/JackpotBG/"/>
     <movieclip id="8amu16s" name="MVJackpotBG.jta" path="/Images/PageGameMain/JackpotBG/"/>
-    <component id="8amu16t" name="JackpotGameMega.xml" path="/Moudules/PageGameMain/"/>
+    <component id="8amu16t" name="JackpotGameMega.xml" path="/Moudules/PageGameMain/Jackpot/"/>
     <image id="8amu16u" name="frame_GRAND01.png" path="/Images/PageGameMain/"/>
     <image id="8amu16v" name="Wheel_JP1-win_00.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit10/"/>
     <image id="8amu16w" name="Wheel_JP2-win_45.png" path="/Images/PageGameMain/SymbolEffects/SymbolHit11/"/>

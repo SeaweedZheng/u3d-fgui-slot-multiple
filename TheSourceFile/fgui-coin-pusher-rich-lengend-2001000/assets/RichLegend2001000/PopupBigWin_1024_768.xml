@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1024,758">
+  <displayList>
+    <component id="n0_8eb6" name="n0" src="10zpalh" fileName="Components/BG1024_768.xml" xy="0,-5"/>
+    <component id="n1_8eb6" name="fg" src="10zpal6" fileName="Moudules/PopupBigWin/FGPopupBigWin.xml" xy="512,379" pivot="0.5,0.5" anchor="true"/>
+  </displayList>
+  <transition name="bigger">
+    <item time="0" type="Scale" target="n1_8eb6" tween="true" startValue="1,1" endValue="1.5,1.5" duration="18"/>
+    <item time="18" type="Scale" target="n1_8eb6" tween="true" startValue="1.5,1.5" endValue="1,1" duration="6"/>
+  </transition>
+  <transition name="in">
+    <item time="0" type="Scale" target="n1_8eb6" tween="true" startValue="0,0" endValue="1,1" duration="18"/>
+  </transition>
+</component>

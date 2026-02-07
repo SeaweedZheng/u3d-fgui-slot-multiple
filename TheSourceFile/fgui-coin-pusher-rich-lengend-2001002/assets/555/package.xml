@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="3gaadqlu">
+  <resources>
+    <font id="r7ye1" name="FontBonusCredit.fnt" path="/" exported="true"/>
+    <image id="r7ye2" name="000.png" path="/"/>
+    <image id="r7ye3" name="001.png" path="/"/>
+    <image id="r7ye4" name="002.png" path="/"/>
+    <image id="r7ye5" name="003.png" path="/"/>
+    <image id="r7ye6" name="004.png" path="/"/>
+    <image id="r7ye7" name="005.png" path="/"/>
+    <image id="r7ye8" name="006.png" path="/"/>
+    <image id="r7ye9" name="007.png" path="/"/>
+    <image id="r7yea" name="008.png" path="/"/>
+    <image id="r7yeb" name="009.png" path="/"/>
+    <image id="r7yec" name="010.png" path="/"/>
+    <image id="r7yed" name="011.png" path="/"/>
+    <image id="r7yem" name="frame_GRAND01.png" path="/"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>

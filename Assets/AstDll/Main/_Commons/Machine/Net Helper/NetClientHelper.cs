@@ -313,7 +313,7 @@ namespace GlobalJackpotConsole
 
                     }
                     return resault;
-                case C2S_CMD.C2S_HeartHeat:
+                case C2S_CMD.C2S_Heartbeat:
                     {
                         // 发送心跳
                         // 模拟接受到心跳
@@ -339,7 +339,7 @@ namespace GlobalJackpotConsole
 
             switch (cmd)
             {
-                case C2S_CMD.C2S_HeartHeat:
+                case C2S_CMD.C2S_Heartbeat:
                     {
                         // 发送心跳
                     }
@@ -429,7 +429,7 @@ namespace GlobalJackpotConsole
             switch (cmd)
             {
 
-                case S2C_CMD.S2C_HeartHeatR:
+                case S2C_CMD.S2C_HeartbeatR:
                     {
 
                         NetMgr.Instance.SetLastHeartHeat();  // 设置心跳时间

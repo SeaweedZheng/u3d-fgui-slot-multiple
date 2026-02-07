@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920" designImage="ui://v2scetzqemqw6" designImageOffsetX="28" designImageOffsetY="576">
+  <displayList>
+    <component id="n1_emqw" name="n1" src="emqw1" fileName="Components/BGPage.xml" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
+    <component id="n3_emqw" name="page" src="r7yej5" fileName="PageGameMain_1024_768.xml" xy="28,576"/>
+    <component id="n2_emqw" name="anchorPanel" src="emqw5" fileName="Moudules/PageGameMain/Anchors/AnchorPanel.xml" xy="539,1839"/>
+  </displayList>
+</component>

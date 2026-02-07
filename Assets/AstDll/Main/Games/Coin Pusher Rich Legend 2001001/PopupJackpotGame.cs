@@ -60,7 +60,17 @@ namespace CoinPusherRichLegend2001001
                 });
             // 异步加载资源
 
-            callback();
+            machineBtnClickHelper = new MachineButtonClickHelper()
+            {
+
+                upClickHandler = new Dictionary<MachineButtonKey, Action<MachineButtonInfo>>()
+                {
+                    [MachineButtonKey.BtnSpin] = (info) =>
+                    {
+                        OnClickSpinButton();
+                    },
+                },
+            };
 
         }
 

@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="218,53">
+  <displayList>
+    <image id="n19_8amu" name="n19" src="li60j4" fileName="Images/PageGameMain/Credit/bg_credit.png" xy="0,0"/>
+    <image id="n21_8amu" name="n21" src="li60j5" fileName="Images/PageGameMain/Credit/coin_in.png" xy="10,8"/>
+    <text id="n22_8amu" name="credit" xy="81,9" size="126,36" font="ui://8bdy3xtlli60j7" fontSize="16" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="4,555.33"/>
+  </displayList>
+</component>

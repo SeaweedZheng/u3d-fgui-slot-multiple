@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="qhfvcw54">
+  <resources>
+    <component id="k1488" name="PageLaunch.xml" path="/" exported="true"/>
+    <image id="k1486" name="logo_emperors_rein.png" path="/Images/GameLogo/" exported="true"/>
+    <image id="k1487" name="launch_loading_bg.png" path="/Images/" scale="9grid" scale9grid="21,9,13,18"/>
+    <image id="k1483" name="launch_loading_fg.png" path="/Images/" scale="tile" duplicatePadding="true"/>
+    <image id="k1482" name="launch_loading_mask.png" path="/Images/" scale="9grid" scale9grid="17,8,17,16"/>
+    <component id="k1485" name="ButtonApplicationQuit.xml" path="/Components/"/>
+    <component id="k1484" name="ProgressBar1.xml" path="/Components/"/>
+    <component id="k1481" name="Slider2.xml" path="/Components/"/>
+    <component id="k1480" name="logo.xml" path="/Components/"/>
+  </resources>
+  <publish name=""/>
+</packageDescription>

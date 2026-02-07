@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="240,34">
+  <displayList>
+    <richtext id="n9_n3fx" name="key" xy="0,0" size="120,34" fontSize="24" color="#ffffff" vAlign="middle" autoSize="shrink" singleLine="true" text="游戏VER: ">
+      <relation target="" sidePair="left-left,top-top"/>
+    </richtext>
+    <richtext id="n10_n3fx" name="value" xy="120,0" size="120,34" fontSize="24" color="#ffffff" vAlign="middle" autoSize="shrink" singleLine="true" autoClearText="true" text="1.0.0">
+      <relation target="" sidePair="left-left,top-top"/>
+    </richtext>
+  </displayList>
+  <customProperty target="key" propertyId="0" label="键"/>
+  <customProperty target="value" propertyId="0" label="值"/>
+</component>

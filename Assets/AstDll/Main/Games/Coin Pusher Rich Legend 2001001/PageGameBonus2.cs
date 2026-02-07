@@ -46,6 +46,21 @@ namespace CoinPusherRichLegend2001001
                 cloneRichMainJump = clone;
                 callback();
             });
+
+
+
+            machineBtnClickHelper = new MachineButtonClickHelper()
+            {
+
+                upClickHandler = new Dictionary<MachineButtonKey, Action<MachineButtonInfo>>()
+                {
+                    [MachineButtonKey.BtnSpin] = (info) =>
+                    {
+                        OnClickSpin();
+                    },
+                },
+            };
+
         }
 
         GameObject cloneButtonHand, cloneRichMainJump;
@@ -241,17 +256,20 @@ namespace CoinPusherRichLegend2001001
             }
         }
 
-
-        /*
+        /// <summary>
+        /// 按下开始丢筛子
+        /// </summary>
         void OnClickSpin()
         {
-            atorButtonHand.Play("End");
-            Timers.inst.Add(2f, 1, (pam) =>
+            if (stepGame == StepGame.CutDowm)
             {
-                CloseSelf(null);
-            });
+                Timers.inst.Remove(TaskGame);
+
+                stepGame = StepGame.UseDice;
+                TaskGame(null);
+            }
         }
-        */
+        
 
 
         void DoTaskGame()

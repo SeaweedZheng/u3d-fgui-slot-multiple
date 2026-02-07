@@ -250,7 +250,7 @@ public class ModulesVersionCheck : MonoBehaviour
 
         ClearRemoteInfo();
 
-        // 获取包内版本
+        // 获取包内版本(主版本、主模块版本、大厅游戏信息文件)
         yield return GetStreamingAssetsVersion();
 
         // 编辑器不使用热更
@@ -276,7 +276,7 @@ public class ModulesVersionCheck : MonoBehaviour
             // 回调
 
 
-            // StreamingAssets里文件改变，也要同步本地大厅游戏信息
+            // StreamingAssets里"大厅游戏信息"文件改变，也要同步本地大厅游戏信息
             LobbyGamesManager.Instance.ChangeLocalInfo(()=>{
                 LobbyGamesManager.Instance.SaveLobbyGameInfoAndHash();
             });
@@ -892,7 +892,7 @@ public class ModulesVersionCheck : MonoBehaviour
 
         bool isNext = false;
 
-        // 所有资源版本
+        // 所有资源版本(主版本)
         GlobalModel.streamingAssetsVersion = null;
         yield return FileUtils.ReadStreamingAsset<string>(PathHelper.versionSAPTH, (obj) =>
         {
@@ -913,7 +913,7 @@ public class ModulesVersionCheck : MonoBehaviour
             throw new System.Exception(err);
         });
 
-
+        // 包内大厅游戏信息
         LobbyGamesManager.Instance.LoadLobbyGamesInfoSA(() =>
         {
             isNext = true;
@@ -1080,7 +1080,7 @@ public class ModulesVersionCheck : MonoBehaviour
             {
                 string moduleName = item["module_name"].Value<string>();
 
-                if (moduleName == PathHelper.mianModuleName)
+                if (moduleName == PathHelper.mianModuleName)  // 主模块文件留到最后
                 {
                     continue;
                 }

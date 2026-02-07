@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<branchDescription>
+  <resources>
+    <component id="10zpal2" name="LineName.xml" path="/Moudules/PayTables/"/>
+    <component id="10zpal3" name="PayTableName1.xml" path="/Moudules/PayTables/"/>
+    <component id="10zpal4" name="PayTableContent1.xml" path="/Moudules/PayTables/"/>
+    <component id="10zpal5" name="PayTableName2.xml" path="/Moudules/PayTables/"/>
+    <image id="10zpaall" name="JP1.png" path="/Images/PageGameMain/BG/"/>
+    <image id="10zpaalm" name="JP2.png" path="/Images/PageGameMain/BG/"/>
+    <image id="10zpaaln" name="JP3.png" path="/Images/PageGameMain/BG/"/>
+  </resources>
+</branchDescription>

@@ -176,9 +176,22 @@ namespace GlobalJackpotConsole
             switch (cmd)
             {
 
-                case S2C_CMD.S2C_HeartHeatR:
+                case S2C_CMD.S2C_HeartbeatR:
                     {
-                        NetMgr.Instance.SetLastHeartHeat();  // 设置心跳时间
+                        try
+                        {
+                            HeartbeatInfoR res = JsonConvert.DeserializeObject<HeartbeatInfoR>(info.jsonData);
+                            if (res.code == 0)
+                            {
+                                NetMgr.Instance.SetLastHeartHeat();  // 设置心跳时间
+                            }
+                        }
+                        catch (Exception e)
+                        {
+
+                        }
+
+                        //NetMgr.Instance.SetLastHeartHeat();  // 设置心跳时间
                     }
                     return;
                 case S2C_CMD.S2C_LoginR:

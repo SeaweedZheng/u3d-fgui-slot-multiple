@@ -71,9 +71,9 @@ public  class LobbyGamesManager
     /// 远端游戏信息文件
     /// </summary>
     /// <remarks>
-    /// * 本地没有的话，获取SA里的数据
-    /// * 不支持用户进行修改
-    /// 
+    /// * 本地没有的话，获取SA里的数据<br/>
+    /// * 不支持用户进行修改<br/>
+    /// * 该文件要下载到本地的“临时路劲”或“本地路劲”才能使用
     /// </remarks>
     public JArray lobbyGamesInfoSever => _lobbyGamesInfoSever;
     JArray _lobbyGamesInfoSever = null;
@@ -91,6 +91,7 @@ public  class LobbyGamesManager
         {
             if (_lobbyGamesInfoLocal == null)
             {
+                // 没有大厅信息缓存，则拷贝服务器大厅信息
                 string jsn = PlayerPrefs.GetString(PARAM_LOBBY_GAMES, JsonConvert.SerializeObject(lobbyGamesInfoSever));
                 _lobbyGamesInfoLocal = JArray.Parse(jsn);
             }
@@ -110,20 +111,23 @@ public  class LobbyGamesManager
 
 
 
-
-    public  void LoadLobbyGamesInfoWhenHotfix(Action<object[]> onFinishCallback = null)
+    /// <summary>
+    /// 加载“从服务器下载的大厅信息文件”或本地的“大厅信息文件”
+    /// </summary>
+    /// <param name="onFinishCallback"></param>
+    public void LoadLobbyGamesInfoWhenHotfix(Action<object[]> onFinishCallback = null)
     {
 
 
         string pthTemp = PathHelper.GetTempAssetBackupLOCPTH(assetLobbyGameFile);
         string pthLocal = PathHelper.GetAssetBackupLOCPTH(assetLobbyGameFile);
 
-        if (File.Exists(pthTemp))
+        if (File.Exists(pthTemp))  // 优先加载临时文件
         {
             string strs = File.ReadAllText(pthTemp, Encoding.UTF8);
             _lobbyGamesInfoSever = JArray.Parse(strs);
         }
-        else if (File.Exists(pthLocal))
+        else if (File.Exists(pthLocal))// 其次加载本地文件
         {
             string strs = File.ReadAllText(pthLocal, Encoding.UTF8);
             _lobbyGamesInfoSever = JArray.Parse(strs);
@@ -161,7 +165,10 @@ public  class LobbyGamesManager
         onFinishCallback?.Invoke();
     }*/
 
-
+    /// <summary>
+    /// 包内大厅游戏信息
+    /// </summary>
+    /// <param name="onFinishCallback"></param>
     public async void LoadLobbyGamesInfoSA(Action onFinishCallback = null)
     {
         string pthSA = PathHelper.GetAssetBackupSAPTH(assetLobbyGameFile);
@@ -178,11 +185,13 @@ public  class LobbyGamesManager
 
 
 
-
+    /// <summary>
+    /// 保存"本地大厅游戏信息"数据到缓存、
+    /// </summary>
     public void SaveLobbyGameInfoAndHash()
     {
         SaveLobbyGameInfo();
-        PlayerPrefs.SetString(PARAM_LOBBY_GAMES_KEYS_HASH, curHash);
+        PlayerPrefs.SetString(PARAM_LOBBY_GAMES_KEYS_HASH, curServerHash);
     }
 
     public void SaveLobbyGameInfo()
@@ -192,24 +201,15 @@ public  class LobbyGamesManager
     }
 
 
+
+    /// <summary>
+    /// 获取服务器大厅信息文件的hash值
+    /// </summary>
+    /// <returns></returns>
     string GetSeverHash()
     {
         int hash = JsonConvert.SerializeObject(lobbyGamesInfoSever).GetHashCode();
         return $"{hash}";
-        /*
-        string content = $"{lobbyGamesInfoSever.Count}";
-        if (lobbyGamesInfoSever.Count > 0)
-        {
-            JObject target = lobbyGamesInfoSever[0] as JObject;
-            foreach (KeyValuePair<string, JToken> kv in target)
-            {
-                content += kv.Key;
-            }
-        }
-
-        string md5 = FileUtils.ComputeMD5ForStr(content);
-        return md5;
-        */
     }
 
     string GetLocHash()
@@ -218,13 +218,14 @@ public  class LobbyGamesManager
         return $"{hash}";
     }
 
-    string curHash = "";
+    string curServerHash = "";
     public void ChangeLocalInfo(Action onChangeCallback)
     {
-        curHash = GetSeverHash();
+        curServerHash = GetSeverHash();
 
-        string lastHash = PlayerPrefs.GetString(PARAM_LOBBY_GAMES_KEYS_HASH, GetLocHash());
-        if (curHash != lastHash)
+        string lastServerHash = PlayerPrefs.GetString(PARAM_LOBBY_GAMES_KEYS_HASH, GetLocHash());  // 这里有问题？？
+
+        if (curServerHash != lastServerHash)
         {
             JArray newInfo = JArray.Parse(JsonConvert.SerializeObject(lobbyGamesInfoSever));  //拷贝
 

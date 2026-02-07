@@ -97,6 +97,8 @@ public class ClientWS : MonoSingleton<ClientWS>
         _ctsUdpRcv?.Cancel();
 
         mUdpclient?.Close();
+        mUdpclient?.Dispose();
+        mUdpclient = null;
 
         checkSeverIPCount = 0;
         ReceiveUdpErrorCount = 0;
@@ -146,6 +148,8 @@ public class ClientWS : MonoSingleton<ClientWS>
     private void ReciveUdpMsg(CancellationToken cancellationToken) //#seaweed
     {
 
+        UdpClient curUdpclient = mUdpclient;
+
         if (++recriveId > 1000)
             recriveId = 0;
         int id = recriveId;
@@ -153,12 +157,19 @@ public class ClientWS : MonoSingleton<ClientWS>
         ReceiveUdpErrorCount = 0;
         DebugUtils.LogWarning($"【UDP-WS】==== <color=red>ReciveUdpMsg Start</color> id: {id}");
 
-        while (!IsStop && mUdpclient != null && !cancellationToken.IsCancellationRequested)
+
+        //#seaweed#新加 关键修改1：设置UdpClient接收超时（5000ms），避免永久阻塞
+        if (curUdpclient != null)
+        {
+            curUdpclient.Client.SetSocketOption(SocketOptionLevel.Socket, SocketOptionName.ReceiveTimeout, 5000);
+        }
+
+        while (!IsStop && curUdpclient != null && !cancellationToken.IsCancellationRequested)
         {
             try
             {
-                byte[] buf = mUdpclient.Receive(ref endpoint);  // 这里会一直卡主,直到读取到数据。
-                if (buf != null)
+                byte[] buf = curUdpclient.Receive(ref endpoint);  // 这里会一直卡主,直到读取到数据。
+                if (buf != null && buf.Length > 0)
                 {
                     string msg = Encoding.UTF8.GetString(buf);
                     DebugUtils.Log($"【UDP-WS】<color=yellow>UDP down</color>: {msg} ");
@@ -175,7 +186,7 @@ public class ClientWS : MonoSingleton<ClientWS>
             catch (Exception e)
             {
                 DebugUtils.LogWarning("【UDP-WS】Recive Udp error: " + e.Message);
-                if(++ReceiveUdpErrorCount > MAX_RECEIVE_UDP_ERROR_COUNT) 
+                if (++ReceiveUdpErrorCount > MAX_RECEIVE_UDP_ERROR_COUNT)
                 {
                     // 【bug】针对问题：“远程主机强迫关闭了一个现有的连接”。
                     DebugUtils.LogError($"【UDP-WS】 持续try-catch失败！！ err count: {ReceiveUdpErrorCount}");
@@ -191,13 +202,15 @@ public class ClientWS : MonoSingleton<ClientWS>
     }
 
 
-     //解决子线程失效的问题
+    //解决子线程失效的问题
     CancellationTokenSource _ctsUdpRcv;
+
+
+
     void StartThreadReciveUdpMsg()
     {
         // 关闭上个线程
         _ctsUdpRcv?.Cancel();
-
 
         // 初始化取消标记源
         _ctsUdpRcv = new CancellationTokenSource();
@@ -249,23 +262,24 @@ public class ClientWS : MonoSingleton<ClientWS>
     /// <param name="loopTimes"></param>
     void CheckHostServerInfo(int loopTimes)
     {
-
         //DebugUtils.Log($"【UDP-WS】 IsConnected: {IsConnected} ; serverinfo is null: {serverinfo == null}  ;  GetHost：{GetHost}");
 
         if (!IsConnected && serverinfo != null) // 没有链接websocket重新连接
         {
             checkSeverIPCount = 0;
             DebugUtils.Log("【UDP-WS】<color=green>Init Socket</color> ");
-            // 获取到端口和地址，建立ws连接
+            // 【建立ws连接】获取到端口和地址，建立ws连接
             InitSocket(serverinfo.IP, serverinfo.port);
-            StopUdp();  // 【bug】如果一开始彩金已连接，之后彩金断开重连。能知道彩金的"IP"和"端口"（此时udp已经被关闭！）
+
+            StopUdpRcvThread();  // 【bug】如果一开始彩金已连接，之后彩金断开重连。能知道彩金的"IP"和"端口"（此时udp已经被关闭！）
+
         }
         else if (serverinfo == null) // 走udp,获取服务器ip和端口
         {
             string msg = "";
 
             //走udp获取服务数据，多次没收到则重连起udp
-            if(++checkSeverIPCount > MAX_CHECK_SEVER_IP_FAIL_COUNT)
+            if (++checkSeverIPCount > MAX_CHECK_SEVER_IP_FAIL_COUNT)
             {
                 checkSeverIPCount = 0;
                 Loom.QueueOnMainThread((obj) =>
@@ -277,6 +291,7 @@ public class ClientWS : MonoSingleton<ClientWS>
 
             try
             {
+                // 发送本地信息，获取服务器的ws地址
                 ServerInfo clientInfo = new ServerInfo
                 {
                     IP = Utils.LocalIP(), // 发送本机ip
@@ -295,11 +310,19 @@ public class ClientWS : MonoSingleton<ClientWS>
         }
     }
 
-    void StopUdp()
+    void StopUdpRcvThread()
     {
+        _ctsUdpRcv?.Cancel();
+
+
+#if false
+
+        // 报错 Thread suspension is obsoltet and not supported on IL2CPP
 #pragma warning disable CS0618 // 类型或成员已过时
         RcvThread?.Suspend();
 #pragma warning restore CS0618 // 类型或成员已过时
+
+#endif
     }
 
 
@@ -355,9 +378,18 @@ public class ClientWS : MonoSingleton<ClientWS>
     //给服务器发送心跳
     public void SendHeartHeat()
     {
+        int machineId = int.Parse(SBoxModel.Instance.MachineId);
         MsgInfo cmd = new MsgInfo();
-        cmd.cmd = (int)C2S_CMD.C2S_HeartHeat;
-        //cmd.id = Model.Instance.macId;
+        cmd.cmd = (int)C2S_CMD.C2S_Heartbeat;
+        cmd.id = machineId;
+        cmd.jsonData = JsonConvert.SerializeObject(
+            new HeartbeatInfo()
+            {
+                macId = machineId,
+                groupId = SBoxModel.Instance.groupId,
+                seatId = SBoxModel.Instance.seatId,
+            }
+         );
         SendToServer(JsonConvert.SerializeObject(cmd));
     }
 
@@ -371,7 +403,7 @@ public class ClientWS : MonoSingleton<ClientWS>
                 //直接发给服务器了，不需要放进队列里等待发送。
                 mSocket.SendAsync(strData);
 
-                OnDebug(strData,true);
+                OnDebug(strData, true);
             }
 
         }
@@ -418,7 +450,7 @@ public class ClientWS : MonoSingleton<ClientWS>
         IsConnected = true;
         canHeart = true;
         SendHeartHeat();
-        //## PopTips.Instance.ShowSystemTips("Connected");
+
         //DebugUtils.LogWarning("【UDP-WS】Connected");
 
         // 这里进行登录
@@ -433,6 +465,15 @@ public class ClientWS : MonoSingleton<ClientWS>
         }
         else if (e.IsText)
         {
+
+
+            /*
+                string result = Encoding.UTF8.GetString(data);
+                MsgInfo info = JsonConvert.DeserializeObject<MsgInfo>(result);
+                DebugUtils.LogWarning($"接受到彩金后台的数据：{result}");
+            */
+
+
             //DebugUtils.Log(string.Format("Receive: {0}", e.Data));
             //TODO 添加消息处理
             Messenger.Broadcast<byte[]>(MessageName.Event_NetworkClientData, Encoding.UTF8.GetBytes(e.Data));
@@ -467,7 +508,7 @@ public class ClientWS : MonoSingleton<ClientWS>
     }
 
     public void CloseSocket()
-    {   
+    {
         DebugUtils.Log("【UDP-WS】CloseSocket");
 
         serverinfo = null;
@@ -490,7 +531,7 @@ public class ClientWS : MonoSingleton<ClientWS>
     private new void OnDestroy()
     {
         canHeart = false;
-        StopUdp();
+        StopUdpRcvThread();
         MyTimer.CancelAllRegisteredTimers();
         if (mSocket != null)
         {

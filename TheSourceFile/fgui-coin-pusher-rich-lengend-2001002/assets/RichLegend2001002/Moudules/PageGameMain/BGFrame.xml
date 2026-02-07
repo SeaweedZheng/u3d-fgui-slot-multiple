@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="725,600">
+  <displayList>
+    <image id="n6_emqw" name="n6" src="emqw8" fileName="Images/PageGameMain/BG/ng_Scroll _frame.png" xy="543,300" pivot="0.5,0.5" anchor="true"/>
+    <image id="n7_emqw" name="n7" src="emqw8" fileName="Images/PageGameMain/BG/ng_Scroll _frame.png" xy="181,300" pivot="0.5,0.5" anchor="true" skew="0,180"/>
+    <movieclip id="n8_peuh" name="n8" src="peuhbc" fileName="Images/PageGameMain/FrameEffect/MVFrameSweepLight.jta" xy="-139,-99"/>
+  </displayList>
+</component>

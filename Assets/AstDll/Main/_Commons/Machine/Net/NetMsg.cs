@@ -116,8 +116,19 @@ public class LoginInfo : RequestBase
 public class LoginInfoR : ResponseBase { }
 
 
+/**/
+public class HeartbeatInfo : RequestBase
+{
+    /// <summary> 机台id </summary>
+    public int macId;
+    public int seatId;
+    public int groupId;
+}
 
-
+public class HeartbeatInfoR : ResponseBase
+{
+    public int macId;
+}
 
 
 /// <summary> 读取彩金后台数据 </summary>

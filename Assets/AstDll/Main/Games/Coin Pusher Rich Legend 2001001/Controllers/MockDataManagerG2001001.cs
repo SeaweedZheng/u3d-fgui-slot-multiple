@@ -571,7 +571,7 @@ namespace CoinPusherRichLegend2001001
                 new string[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/ABs/Mock/g2001001__slot_spin__jp3.json" },
             },
 
-            [SpinDataType.Jp4] = new List<string[]>()
+            [SpinDataType.JpConsole1] = new List<string[]>()
             {
                 new string[] {"Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/ABs/Mock/g2001001__slot_spin__jpmega.json" },
             },

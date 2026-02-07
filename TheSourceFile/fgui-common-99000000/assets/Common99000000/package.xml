@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="uoikilaq">
+  <resources>
+    <component id="ayu90" name="ButtonTestMenu.xml" path="/components/"/>
+    <component id="ayu91" name="ButtonTestSpeed.xml" path="/components/"/>
+    <component id="ayu92" name="AnchorRootDefault.xml" path="/components/" exported="true"/>
+    <component id="ayu93" name="ToggleIsOn.xml" path="/components/"/>
+    <component id="ayu94" name="PopMenu.xml" path="/moudules/"/>
+    <component id="ayu95" name="TestItemName.xml" path="/moudules/"/>
+    <component id="ayu96" name="TestItemKeyInput.xml" path="/moudules/"/>
+    <component id="ayu97" name="TestItemSpeed.xml" path="/moudules/"/>
+    <component id="ayu98" name="TestItemGM.xml" path="/moudules/"/>
+    <component id="ayu99" name="TestItemPages.xml" path="/moudules/"/>
+    <component id="ayu9a" name="TestItemButtons.xml" path="/moudules/"/>
+    <component id="ayu9b" name="TestItemAnalysis.xml" path="/moudules/"/>
+    <component id="ayu9c" name="TestItemDebugFilter.xml" path="/moudules/"/>
+    <component id="ayu9d" name="PopSelectLst.xml" path="/moudules/"/>
+    <component id="ayu9e" name="TestSelectItem.xml" path="/moudules/"/>
+    <component id="ayu9f" name="TestManager.xml" path="/moudules/" exported="true"/>
+    <component id="ayu9g" name="PopToggleLst.xml" path="/moudules/"/>
+    <component id="ayu9h" name="ToggleSelectItem.xml" path="/moudules/"/>
+    <component id="ayu9i" name="PopupSystemTip.xml" path="/" exported="true"/>
+    <component id="ayu9j" name="TestPage.xml" path="/"/>
+  </resources>
+  <publish name="" path="../../Assets/AstBundle/_Commons/Common 99000000/FGUIs" packageCount="2"/>
+</packageDescription>
