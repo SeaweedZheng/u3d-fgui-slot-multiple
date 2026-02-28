@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1000,56">
+  <displayList>
+    <graph id="n55_i938" name="n55" xy="0,-1" size="1000,56" visible="false" type="rect" lineSize="0" fillColor="#ff114550">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <richtext id="n50_i938" name="title" xy="8,7" size="241,42" fontSize="30" color="#ffffff" vAlign="middle" autoSize="none" text="Module"/>
+    <component id="n52_i938" name="staff" src="cwuo2e" fileName="components/ToggleBetList.xml" xy="355,12" visible="false"/>
+    <component id="n53_i938" name="manager" src="cwuo2e" fileName="components/ToggleBetList.xml" xy="587,12" visible="false"/>
+    <component id="n54_i938" name="admin" src="cwuo2e" fileName="components/ToggleBetList.xml" xy="819,12" visible="false"/>
+    <richtext id="n57_i938" name="staff" xy="271,7" size="200,42" fontSize="30" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="Staff"/>
+    <richtext id="n58_i938" name="manager" xy="503,7" size="200,42" fontSize="30" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="Manager"/>
+    <richtext id="n59_i938" name="admin" xy="735,7" size="200,42" fontSize="30" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="Admin"/>
+    <graph id="n60_i938" name="n60" xy="0,-2" size="1000,2" type="rect" lineSize="0"/>
+    <graph id="n61_i938" name="n61" xy="0,56" size="1000,2" type="rect" lineSize="0"/>
+  </displayList>
+</component>

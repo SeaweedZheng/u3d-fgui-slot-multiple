@@ -27,7 +27,7 @@ public class Test : MonoBehaviour
 
             FairyGUI.UIPanel panel = this.gameObject.AddComponent<FairyGUI.UIPanel>();// UnityEngine.UIPanel同名，因此要前缀 
 
-            panel.packageName = "Console";
+            panel.packageName = "ConsoleSlot98000000";
 
             panel.componentName = "PageConsoleMain";
 
@@ -66,7 +66,7 @@ public class Test : MonoBehaviour
 
         FairyGUI.UIPanel panel = this.gameObject.AddComponent<FairyGUI.UIPanel>();// UnityEngine.UIPanel同名，因此要前缀 
             
-        panel.packageName = "Console";
+        panel.packageName = "ConsoleSlot98000000";
 
         panel.componentName = "PageConsoleMain"; 
 

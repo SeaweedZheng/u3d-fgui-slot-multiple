@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1178" restrictSize="540,0,0,0">
+  <displayList>
+    <component id="n25_cwuo" name="flipScreen" src="cwuo3a" fileName="moudules/ItemLongButton.xml" xy="0,0" group="n20_cwuo">
+      <property target="btn" propertyId="0" value="Flip Screen"/>
+      <property target="btn" propertyId="1" value="ui://xp0b9yqdos7y3r"/>
+    </component>
+    <group id="n20_cwuo" name="left" xy="0,0" size="540,76" advanced="true">
+      <relation target="" sidePair="width-width"/>
+    </group>
+  </displayList>
+</component>

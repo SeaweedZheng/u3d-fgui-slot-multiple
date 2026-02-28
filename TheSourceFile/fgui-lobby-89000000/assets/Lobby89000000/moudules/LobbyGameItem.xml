@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="200,424" pivot="0.5,0.5" extention="Button">
+  <displayList>
+    <loader id="n0_ml44" name="icon" xy="0,0" size="200,424" url="ui://rc5uleh0ml441"/>
+    <image id="n1_ml44" name="select" src="ml44b" fileName="images/frame/Lobby Slot Favorite Frame.png" xy="-14,-13" size="229,450" visible="false"/>
+    <component id="n2_cptj" name="like" src="cptj3s" fileName="components/ButtonTagLike.xml" xy="166,-18"/>
+  </displayList>
+  <Button downEffect="scale" downEffectValue="0.8"/>
+</component>

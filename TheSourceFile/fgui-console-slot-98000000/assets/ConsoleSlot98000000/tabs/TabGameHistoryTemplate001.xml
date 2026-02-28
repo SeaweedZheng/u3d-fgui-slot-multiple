@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1100">
+  <displayList>
+    <list id="n5_npu5" name="deck" xy="107,0" size="865,468" layout="flow_hz" lineItemCount="6" defaultItem="ui://xp0b9yqdh3mk1" autoItemSize="true" align="center" vAlign="middle" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <list id="n25_uiid" name="kvs" xy="152,528" size="774,336" layout="flow_vt" overflow="scroll" colGap="100" defaultItem="ui://xp0b9yqdh3mk3" align="center" vAlign="middle" autoClearItems="true">
+      <item>
+        <property target="key" propertyId="0" value="Game Number:"/>
+        <property target="value" propertyId="0" value="0"/>
+      </item>
+      <item>
+        <property target="key" propertyId="0" value="Game Date:"/>
+        <property target="value" propertyId="0" value="2026/01/09 15:13:00"/>
+      </item>
+      <item>
+        <property target="key" propertyId="0" value="Total Bet:"/>
+        <property target="value" propertyId="0" value="0"/>
+      </item>
+      <item>
+        <property target="key" propertyId="0" value="Win Credit:"/>
+        <property target="value" propertyId="0" value="0"/>
+      </item>
+      <item>
+        <property target="key" propertyId="0" value="Credit Before:"/>
+        <property target="value" propertyId="0" value="0"/>
+      </item>
+      <item>
+        <property target="key" propertyId="0" value="Credit After:"/>
+        <property target="value" propertyId="0" value="0"/>
+      </item>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <richtext id="n22_npu5" name="title" xy="91,468" size="896,60" fontSize="30" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="XXX Game Recall 1 of 100"/>
+    <richtext id="n27_uiid" name="n27" xy="152,864" size="774,226" fontSize="30" color="#ffffff" align="center" vAlign="middle" ubb="true" autoSize="shrink" autoClearText="true" text="基础游戏赢分:2000。&#xA;中联网彩金：2200。&#xA;中小游戏1，获得彩金1000。&#xA;中12局免费游戏。"/>
+  </displayList>
+</component>

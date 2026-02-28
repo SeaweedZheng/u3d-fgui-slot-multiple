@@ -1,19 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="1080,1920" designImage="ui://adoe8w7dplep1" designImageOffsetX="28" designImageOffsetY="1152">
   <displayList>
-    <component id="n6_l458" name="n6" src="8eb61mv" fileName="Components/BGPage.xml" xy="0,0" size="1080,1920">
+    <component id="n6_l458" name="n6" src="8eb61mv" fileName="Components/BGPage.xml" xy="2,0" size="1080,1920">
       <relation target="" sidePair="width-width,height-height,bottom-bottom"/>
     </component>
     <image id="n4_plep" name="n4" src="j4eb2" fileName="Images/PageGameMain/BG/bg.png" xy="28,576" group="n5_l458"/>
     <component id="n2_plep" name="slotMachine" src="plep7" fileName="Moudules/PageGameMain/SlotMachine/SlotMachine.xml" xy="142,700" group="n5_l458"/>
-    <component id="n3_plep" name="panel" src="plepb" fileName="Panel/Panel.xml" xy="28,1194" group="n5_l458"/>
-    <component id="n10_pq4v" name="anchorSymbolEffect" src="e8ib13h" fileName="Moudules/PageGameMain/Anchors/AnchorDefault.xml" xy="552,1687" group="n5_l458"/>
-    <component id="n9_ceou" name="anchorExpectation" src="e8ib13h" fileName="Moudules/PageGameMain/Anchors/AnchorDefault.xml" xy="539,959" group="n5_l458"/>
+    <component id="n3_plep" name="panel" src="plepb" fileName="Moudules/Panel/Panel.xml" xy="28,1194" group="n5_l458"/>
+    <component id="n10_pq4v" name="anchorSymbolEffect" src="e8ib13h" fileName="Moudules/AnchorDefault.xml" xy="552,1687" group="n5_l458"/>
+    <component id="n9_ceou" name="anchorExpectation" src="e8ib13h" fileName="Moudules/AnchorDefault.xml" xy="539,959" group="n5_l458"/>
     <component id="n11_pq4v" name="winTip" src="pq4v13u" fileName="Moudules/PageGameMain/WinTip.xml" xy="242,862" group="n5_l458"/>
-    <component id="n23_8amu" name="jp0" src="8amu16t" fileName="Moudules/PageGameMain/JackpotGameMega.xml" xy="365,581" group="n5_l458"/>
-    <component id="n12_pq4v" name="jp1" src="pq4v14o" fileName="Moudules/PageGameMain/JackpotGameJP1.xml" xy="856,676" group="n5_l458"/>
-    <component id="n17_pq4v" name="jp2" src="pq4v14p" fileName="Moudules/PageGameMain/JackpotGameJP2.xml" xy="856,758" group="n5_l458"/>
-    <component id="n18_pq4v" name="jp3" src="pq4v14q" fileName="Moudules/PageGameMain/JackpotGameJP3.xml" xy="856,840" group="n5_l458"/>
+    <component id="n23_8amu" name="jp0" src="8amu16t" fileName="Moudules/PageGameMain/Jackpot/JackpotGameMega.xml" xy="365,581" group="n5_l458"/>
+    <component id="n12_pq4v" name="jp1" src="pq4v14o" fileName="Moudules/PageGameMain/Jackpot/JackpotGameJP1.xml" xy="856,676" group="n5_l458"/>
+    <component id="n17_pq4v" name="jp2" src="pq4v14p" fileName="Moudules/PageGameMain/Jackpot/JackpotGameJP2.xml" xy="856,758" group="n5_l458"/>
+    <component id="n18_pq4v" name="jp3" src="pq4v14q" fileName="Moudules/PageGameMain/Jackpot/JackpotGameJP3.xml" xy="856,840" group="n5_l458"/>
     <component id="n19_8amu" name="myCredit" src="8amu15h" fileName="Moudules/PageGameMain/MyCredit.xml" xy="42,593" group="n5_l458">
       <relation target="" sidePair="left-left,top-top"/>
     </component>

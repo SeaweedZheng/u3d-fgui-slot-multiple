@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1178">
+  <displayList>
+    <graph id="n49_g3lh" name="n49" xy="40,74" size="1000,2" type="rect" lineSize="0"/>
+    <graph id="n59_g3lh" name="n59" xy="40,131" size="1000,2" type="rect" lineSize="0"/>
+    <component id="n66_g3lh" name="date" src="g3lh58" fileName="moudules/ItemDateSelect.xml" xy="0,0"/>
+    <text id="n92_g3lh" name="jackpot" xy="0,76" size="108,57" group="n98_g3lh" fontSize="26" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="Jackpot"/>
+    <text id="n93_g3lh" name="gameNumber" xy="108,76" size="162,57" group="n98_g3lh" fontSize="26" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="Game Number"/>
+    <text id="n94_g3lh" name="credit" xy="270,76" size="108,57" group="n98_g3lh" fontSize="26" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="Credit"/>
+    <text id="n95_g3lh" name="beforeCredit" xy="378,76" size="162,57" group="n98_g3lh" fontSize="26" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="Before Credit"/>
+    <text id="n96_g3lh" name="afterCredit" xy="540,76" size="162,57" group="n98_g3lh" fontSize="26" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="After Credit"/>
+    <text id="n97_g3lh" name="date" xy="702,76" size="378,57" group="n98_g3lh" fontSize="26" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="Date"/>
+    <group id="n98_g3lh" name="tableName" xy="0,76" size="1080,57" advanced="true"/>
+    <component id="n99_g3lh" name="row0" src="g3lh5k" fileName="moudules/ItemCoinInOutItem.xml" xy="0,133"/>
+    <component id="n106_g3lh" name="row1" src="g3lh5k" fileName="moudules/ItemCoinInOutItem.xml" xy="0,209"/>
+    <component id="n107_g3lh" name="row2" src="g3lh5k" fileName="moudules/ItemCoinInOutItem.xml" xy="0,285"/>
+    <component id="n108_g3lh" name="row3" src="g3lh5k" fileName="moudules/ItemCoinInOutItem.xml" xy="0,361"/>
+    <component id="n109_g3lh" name="row4" src="g3lh5k" fileName="moudules/ItemCoinInOutItem.xml" xy="0,437"/>
+    <component id="n110_g3lh" name="row5" src="g3lh5k" fileName="moudules/ItemCoinInOutItem.xml" xy="0,513"/>
+    <component id="n111_g3lh" name="row6" src="g3lh5k" fileName="moudules/ItemCoinInOutItem.xml" xy="0,589"/>
+    <component id="n112_g3lh" name="row7" src="g3lh5k" fileName="moudules/ItemCoinInOutItem.xml" xy="0,665"/>
+    <component id="n113_g3lh" name="row8" src="g3lh5k" fileName="moudules/ItemCoinInOutItem.xml" xy="0,741"/>
+    <component id="n114_g3lh" name="row9" src="g3lh5k" fileName="moudules/ItemCoinInOutItem.xml" xy="0,817"/>
+    <component id="n116_kc0c" name="row10" src="g3lh5k" fileName="moudules/ItemCoinInOutItem.xml" xy="0,893"/>
+    <component id="n117_kc0c" name="row11" src="g3lh5k" fileName="moudules/ItemCoinInOutItem.xml" xy="0,969"/>
+    <component id="n118_kc0c" name="row12" src="g3lh5k" fileName="moudules/ItemCoinInOutItem.xml" xy="0,1045"/>
+  </displayList>
+</component>

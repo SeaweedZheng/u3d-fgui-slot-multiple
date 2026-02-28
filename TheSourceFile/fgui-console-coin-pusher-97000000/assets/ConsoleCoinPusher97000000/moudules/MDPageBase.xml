@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <displayList>
+    <component id="n0_paul" name="n0" src="paul2" fileName="components/CompPageBG.xml" xy="-1,0"/>
+    <richtext id="n1_paul" name="title" xy="40,34" size="162,49" fontSize="36" color="#ffffff" singleLine="true" text="/游戏主页">
+      <relation target="" sidePair="left-left,top-top"/>
+    </richtext>
+    <component id="n8_n3fx" name="seatId" src="n3fx1k" fileName="components/ButtomItem.xml" xy="27,1832">
+      <property target="key" propertyId="0" value="Seat ID:"/>
+    </component>
+    <component id="n9_n3fx" name="groupId" src="n3fx1k" fileName="components/ButtomItem.xml" xy="27,1872">
+      <property target="key" propertyId="0" value="Group ID:"/>
+    </component>
+    <component id="n10_n3fx" name="hardwareVer" src="n3fx1k" fileName="components/ButtomItem.xml" xy="308,1832">
+      <property target="key" propertyId="0" value="Hardware Ver:"/>
+    </component>
+    <component id="n11_n3fx" name="algorithmVer" src="n3fx1k" fileName="components/ButtomItem.xml" xy="568,1832">
+      <property target="key" propertyId="0" value="Algorithm Ver:"/>
+    </component>
+    <component id="n12_n3fx" name="softwareVer" src="n3fx1k" fileName="components/ButtomItem.xml" xy="828,1832">
+      <property target="key" propertyId="0" value="Software Ver:"/>
+    </component>
+  </displayList>
+  <customProperty target="title" propertyId="0" label="标题"/>
+</component>

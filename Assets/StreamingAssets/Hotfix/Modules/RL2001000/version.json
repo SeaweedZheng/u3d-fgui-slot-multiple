@@ -1,0 +1,87 @@
+{
+  "name": "RL2001000",
+  "updated_at": 1772284573087,
+  "hotfix_key": "hf_debug_android_20251216143338",
+  "hotfix_version": "1.0.222",
+  "hash": "a4df847802066807d10c9e7a3c5d98d3",
+  "asset_bundle": {
+    "manifest": {
+      "hash": "363259bc205697f342972198dc906734",
+      "size_bytes": 8520
+    },
+    "bundles": {
+      "games/coin pusher rich legend 2001000/abs/datas/slot_machine_config.unity3d": {
+        "hash": "88b1a8e01c7c6eb9a6a51298a89238a7",
+        "size_bytes": 1589
+      },
+      "games/coin pusher rich legend 2001000/abs/mock/g2001000__slot_spin__0.unity3d": {
+        "hash": "6dcf6a4a78232bcf2d584623ab3c181d",
+        "size_bytes": 934
+      },
+      "games/coin pusher rich legend 2001000/abs/mock/g2001000__slot_spin__1.unity3d": {
+        "hash": "d4c0e52a1aff969ef8eae73fed756976",
+        "size_bytes": 941
+      },
+      "games/coin pusher rich legend 2001000/abs/mock/g2001000__slot_spin__2.unity3d": {
+        "hash": "dc64f08d9f6b4441a12464cdb1d0d5ba",
+        "size_bytes": 942
+      },
+      "games/coin pusher rich legend 2001000/abs/mock/g2001000__slot_spin__3.unity3d": {
+        "hash": "f450c12fd3be2b919eb4724e713ceeff",
+        "size_bytes": 935
+      },
+      "games/coin pusher rich legend 2001000/abs/mock/g2001000__slot_spin__4.unity3d": {
+        "hash": "18945b67815b84038f17fd46010b951d",
+        "size_bytes": 942
+      },
+      "games/coin pusher rich legend 2001000/abs/mock/g2001000__slot_spin__5.unity3d": {
+        "hash": "7f2eee596313242ef641b992773b3b85",
+        "size_bytes": 942
+      },
+      "games/coin pusher rich legend 2001000/abs/mock/g2001000__slot_spin__6.unity3d": {
+        "hash": "bd9a8a4e7a0ab091120d3fe8db5581dc",
+        "size_bytes": 942
+      },
+      "games/coin pusher rich legend 2001000/abs/mock/g2001000__slot_spin__bonus1.unity3d": {
+        "hash": "8ec107fae1d3455ee06c491799401b29",
+        "size_bytes": 946
+      },
+      "games/coin pusher rich legend 2001000/abs/mock/g2001000__slot_spin__bonus2.unity3d": {
+        "hash": "ec27d7c598200dcc670d7bdbb49cb3de",
+        "size_bytes": 977
+      },
+      "games/coin pusher rich legend 2001000/abs/mock/g2001000__slot_spin__jp1.unity3d": {
+        "hash": "bfe5a8b131a9f495c3a028f0949bca6a",
+        "size_bytes": 945
+      },
+      "games/coin pusher rich legend 2001000/abs/mock/g2001000__slot_spin__jp2.unity3d": {
+        "hash": "db764b06f9cfacd5b337348efcc81447",
+        "size_bytes": 945
+      },
+      "games/coin pusher rich legend 2001000/abs/mock/g2001000__slot_spin__jp3.unity3d": {
+        "hash": "9c634c29d470b2701033948e5977ffcf",
+        "size_bytes": 942
+      },
+      "games/coin pusher rich legend 2001000/abs/mock/g2001000__slot_spin__jpmega.unity3d": {
+        "hash": "ffdd79ecaf1e26cfa4151e371c7a6cff",
+        "size_bytes": 945
+      },
+      "games/coin pusher rich legend 2001000/fguis.unity3d": {
+        "hash": "1dcb7e0534e262cd673f7345012a6b5a",
+        "size_bytes": 35225910
+      },
+      "games/coin pusher rich legend 2001000/prefabs/game controller/game main controller.unity3d": {
+        "hash": "2f3897220376a23d3576f04ee1b5686f",
+        "size_bytes": 4086
+      }
+    }
+  },
+  "asset_backup": {},
+  "asset_dll": {},
+  "dependencies": {
+    "Main": {
+      "hash": "6c97a502583df7fe00f55382fb47cdd4",
+      "hotfix_version": "1.0.222"
+    }
+  }
+}

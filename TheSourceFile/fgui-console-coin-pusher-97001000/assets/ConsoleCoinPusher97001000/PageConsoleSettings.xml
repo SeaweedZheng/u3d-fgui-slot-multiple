@@ -1,151 +1,147 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1080,1920">
+<component size="1024,768">
   <displayList>
     <component id="n1_paul" name="base" src="paul3" fileName="moudules/MDPageBase.xml" xy="0,0">
       <relation target="" sidePair="width-width,height-height"/>
       <property target="title" propertyId="0" value="/Setting"/>
     </component>
-    <list id="n12_ggbp" name="tab1" xy="49,126" size="980,1670" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960paul7">
+    <list id="n12_ggbp" name="tab1" xy="21,70" size="980,598" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960ze6n1p">
       <relation target="" sidePair="center-center,middle-middle"/>
-      <item name="lineID" title="Line ID:">
+      <item title="Line ID:" name="lineID">
         <property target="title" propertyId="0" value="Line ID:"/>
         <property target="value" propertyId="0" value="1110"/>
       </item>
-      <item name="machineID" title="Machine ID:">
+      <item title="Machine ID:" name="machineID">
         <property target="title" propertyId="0" value="Machine ID:"/>
         <property target="value" propertyId="0" value="11109001"/>
       </item>
-      <item name="pid" title="Seat ID:">
+      <item title="Seat ID:" name="pid">
         <property target="title" propertyId="0" value="Seat ID:"/>
         <property target="value" propertyId="0" value="0"/>
       </item>
-      <item name="groupId" title="Group ID:">
+      <item title="Group ID:" name="groupId">
         <property target="title" propertyId="0" value="Group ID:"/>
         <property target="value" propertyId="0" value="1"/>
       </item>
-      <item name="active" title="Active">
+      <item title="Active" name="active">
         <property target="title" propertyId="0" value="Active"/>
         <property target="value" propertyId="0" value=""/>
       </item>
-      <item name="user" title="Change Shift Password">
+      <item title="Change Shift Password" name="user">
         <property target="title" propertyId="0" value="Change Shift Password"/>
         <property target="value" propertyId="0" value=""/>
       </item>
-      <item name="manager" title="Change Manager Password">
+      <item title="Change Manager Password" name="manager">
         <property target="title" propertyId="0" value="Change Manager Password"/>
         <property target="value" propertyId="0" value=""/>
       </item>
-      <item name="admin" title="Change Admin Password">
+      <item title="Change Admin Password" name="admin">
         <property target="title" propertyId="0" value="Change Admin Password"/>
         <property target="value" propertyId="0" value=""/>
       </item>
-      <item name="remoteCtrlEnable" title="OFF">
+      <item title="OFF" name="remoteCtrlEnable">
         <property target="title" propertyId="0" value="Remote Control:"/>
         <property target="value" propertyId="0" value="OFF"/>
       </item>
-      <item name="remoteCtrlIP" title="Remote Control Setting:">
+      <item title="Remote Control Setting:" name="remoteCtrlIP">
         <property target="title" propertyId="0" value="Remote Control Setting:"/>
         <property target="value" propertyId="0" value="192.168.3.27:1883"/>
       </item>
-      <item name="remoteCtrlAccount" title="test123/123456">
+      <item title="test123/123456" name="remoteCtrlAccount">
         <property target="title" propertyId="0" value="Remote Control Account/Password:"/>
         <property target="value" propertyId="0" value="test123/123456"/>
       </item>
-      <item name="next" title="Next Page">
+      <item title="Next Page" name="next">
         <property target="title" propertyId="0" value="Next Page"/>
         <property target="value" propertyId="0" value=""/>
       </item>
-      <item name="exit" title="Return">
+      <item title="Return" name="exit">
         <property target="title" propertyId="0" value="Return"/>
         <property target="value" propertyId="0" value=""/>
       </item>
     </list>
-    <list id="n13_ydll" name="tab2" xy="50,125" size="980,1670" visible="false" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960paul7">
+    <list id="n13_ydll" name="tab2" xy="22,70" size="980,598" visible="false" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960ze6n1p">
       <relation target="" sidePair="center-center,middle-middle"/>
-      <item name="coinOutScale" title="Coin Out Scale(Ticket : Credit):">
+      <item title="Coin Out Scale(Ticket : Credit):" name="coinOutScale">
         <property target="title" propertyId="0" value="Coin Out Scale(Ticket : Credit):"/>
         <property target="value" propertyId="0" value="1:100"/>
       </item>
-      <item name="coinInScale" title="Coin In Scale(Coin : Credit):">
+      <item title="Coin In Scale(Coin : Credit):" name="coinInScale">
         <property target="title" propertyId="0" value="Coin In Scale(Coin : Credit):"/>
         <property target="value" propertyId="0" value="1:100"/>
       </item>
-      <item name="scoreScale" title="Score Short Click Scale(Time : Credit):">
+      <item title="Score Short Click Scale(Time : Credit):" name="scoreScale">
         <property target="title" propertyId="0" value="Score Short Click Scale(Time : Credit):"/>
         <property target="value" propertyId="0" value="1:10000"/>
       </item>
-      <item name="ballRewardScale" title="Reward Ball Ratio:">
+      <item title="Reward Ball Ratio:" name="ballRewardScale">
         <property target="title" propertyId="0" value="Reward Ball Ratio:"/>
         <property target="value" propertyId="0" value="1:1"/>
       </item>
-      <item name="maxCoinInOutRecord" title="Max Coin In Out Record:">
+      <item title="Max Coin In Out Record:" name="maxCoinInOutRecord">
         <property target="title" propertyId="0" value="Max Coin In Out Record:"/>
         <property target="value" propertyId="0" value="1000"/>
       </item>
-      <item name="maxGameRecord" title="Max Game Record:">
+      <item title="Max Game Record:" name="maxGameRecord">
         <property target="title" propertyId="0" value="Max Game Record:"/>
         <property target="value" propertyId="0" value="1000"/>
       </item>
-      <item name="maxEventRecord" title="Max Event Record:">
+      <item title="Max Event Record:" name="maxEventRecord">
         <property target="title" propertyId="0" value="Max Event Record:"/>
         <property target="value" propertyId="0" value="1000"/>
       </item>
-      <item name="maxErrorRecord" title="Max Warning Record:">
+      <item title="Max Warning Record:" name="maxErrorRecord">
         <property target="title" propertyId="0" value="Max Warning Record:"/>
         <property target="value" propertyId="0" value="1000"/>
       </item>
-      <item name="maxBusinessDayRecord" title="Max Business Day Record:">
+      <item title="Max Business Day Record:" name="maxBusinessDayRecord">
         <property target="title" propertyId="0" value="Max Business Day Record:"/>
         <property target="value" propertyId="0" value="1000"/>
       </item>
-      <item name="prev" title="Prev Page">
+      <item title="Prev Page" name="prev">
         <property target="title" propertyId="0" value="Prev Page"/>
         <property target="value" propertyId="0" value=""/>
       </item>
-      <item name="next" title="Next Page">
+      <item title="Next Page" name="next">
         <property target="title" propertyId="0" value="Next Page"/>
         <property target="value" propertyId="0" value=""/>
       </item>
-      <item name="exit" title="Return">
+      <item title="Return" name="exit">
         <property target="title" propertyId="0" value="Return"/>
         <property target="value" propertyId="0" value=""/>
       </item>
     </list>
-    <list id="n15_prej" name="tab3" xy="50,125" size="980,1670" visible="false" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960paul7">
+    <list id="n15_prej" name="tab3" xy="22,70" size="980,598" visible="false" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960ze6n1p">
       <relation target="" sidePair="center-center,middle-middle"/>
-      <item name="coinOutScale" title="Coin Out Scale(Ticket : Credit):">
+      <item title="Coin Out Scale(Ticket : Credit):" name="coinOutScale">
         <property target="title" propertyId="0" value="Coin Out Scale(Ticket : Credit):"/>
         <property target="value" propertyId="0" value="1:100"/>
       </item>
-      <item name="coinInScale" title="Coin In Scale(Coin : Credit):">
+      <item title="Coin In Scale(Coin : Credit):" name="coinInScale">
         <property target="title" propertyId="0" value="Coin In Scale(Coin : Credit):"/>
         <property target="value" propertyId="0" value="1:100"/>
       </item>
-      <item name="scoreScale" title="Score Short Click Scale(Time : Credit):">
+      <item title="Score Short Click Scale(Time : Credit):" name="scoreScale">
         <property target="title" propertyId="0" value="Score Short Click Scale(Time : Credit):"/>
         <property target="value" propertyId="0" value="1:10000"/>
       </item>
-      <item name="maxEventRecord" title="Max Event Record:">
+      <item title="Max Event Record:" name="maxEventRecord">
         <property target="title" propertyId="0" value="Max Event Record:"/>
         <property target="value" propertyId="0" value="1000"/>
       </item>
-      <item name="maxErrorRecord" title="Max Warning Record:">
+      <item title="Max Warning Record:" name="maxErrorRecord">
         <property target="title" propertyId="0" value="Max Warning Record:"/>
         <property target="value" propertyId="0" value="1000"/>
       </item>
-      <item name="prev" title="Prev Page">
+      <item title="Prev Page" name="prev">
         <property target="title" propertyId="0" value="Prev Page"/>
         <property target="value" propertyId="0" value=""/>
       </item>
-      <item name="exit" title="Return">
+      <item title="Return" name="exit">
         <property target="title" propertyId="0" value="Return"/>
         <property target="value" propertyId="0" value=""/>
       </item>
     </list>
-    <list id="n14_ydll" name="footer" xy="174,1766" size="732,24" touchable="false" layout="row" overflow="hidden" colGap="20" defaultItem="ui://tdkeq960ydllx" align="center" vAlign="middle">
-      <item/>
-      <item/>
-      <item/>
-    </list>
+    <component id="n16_j0k6" name="footer" src="ze6n1m" fileName="components/Footer.xml" xy="112,701"/>
   </displayList>
 </component>

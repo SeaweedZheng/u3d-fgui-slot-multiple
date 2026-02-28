@@ -45,8 +45,16 @@ public class PageBase : Window
     {
         _GetSubPkgNameResName();
 
-        // 初始化窗口通用设置     
-        this.contentPane = UIPackage.CreateObject(_subPkgName, _subResName).asCom;
+        try
+        {
+            // 初始化窗口通用设置     
+            this.contentPane = UIPackage.CreateObject(_subPkgName, _subResName).asCom;
+        }
+        catch (Exception ex)
+        {
+            DebugUtils.LogError($"error: _subPkgName= {_subPkgName} _subResName= {_subResName}");
+        }
+
 
         this.Center();
         this.modal = true; //模态

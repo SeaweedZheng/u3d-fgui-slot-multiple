@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1080,1920">
+<component size="1024,768">
   <displayList>
-    <component id="n1_paul" name="base" src="paul3" fileName="moudules/MDPageBase.xml" xy="1,-1">
+    <component id="n1_paul" name="base" src="paul3" fileName="moudules/MDPageBase.xml" xy="0,0">
       <relation target="" sidePair="width-width,height-height"/>
       <property target="title" propertyId="0" value="/Admin"/>
     </component>
-    <list id="n12_ggbp" name="tab1" xy="49,126" size="980,1670" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960paul7">
+    <list id="n16_ze6n" name="tab1" xy="22,70" size="980,599" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960ze6n1p">
       <relation target="" sidePair="center-center,middle-middle"/>
       <item title="Install Ver:" name="installVer">
         <property target="title" propertyId="0" value="Install Ver:"/>
@@ -31,18 +31,37 @@
         <property target="title" propertyId="0" value="Auto Hotfix Address:"/>
         <property target="value" propertyId="0" value="http://"/>
       </item>
-      <item title="ON" name="isDebugLog">
+      <item name="isDebugLog">
         <property target="title" propertyId="0" value="Is Debug Log:"/>
         <property target="value" propertyId="0" value="ON"/>
       </item>
-      <item title="ON" name="enableDebugTool">
+      <item name="enableDebugTool">
         <property target="title" propertyId="0" value="Use Debug Tool:"/>
         <property target="value" propertyId="0" value="ON"/>
       </item>
-      <item title="ON" name="enableReporterPage">
+      <item name="enableReporterPage">
         <property target="title" propertyId="0" value="Use Reporter Page:"/>
         <property target="value" propertyId="0" value="ON"/>
       </item>
+      <item name="isUseMqttDefault">
+        <property target="title" propertyId="0" value="Use MQTT Default Configuration:"/>
+        <property target="value" propertyId="0" value="OFF"/>
+      </item>
+      <item name="fguiInputMethod">
+        <property target="title" propertyId="0" value="Fgui input method:"/>
+        <property target="value" propertyId="0" value="Touch"/>
+      </item>
+      <item title="Next Page" name="next">
+        <property target="title" propertyId="0" value="Next Page"/>
+        <property target="value" propertyId="0" value=""/>
+      </item>
+      <item title="Return" name="exit">
+        <property target="title" propertyId="0" value="Return"/>
+        <property target="value" propertyId="0" value=""/>
+      </item>
+    </list>
+    <list id="n17_ze6n" name="tab2" xy="22,70" size="980,560" visible="false" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960ze6n1p">
+      <relation target="" sidePair="center-center,middle-middle"/>
       <item title="OFF" name="pauseAtPopupFreeSpinTrigger">
         <property target="title" propertyId="0" value="Pause At Popup Free Spin Trigger:"/>
         <property target="value" propertyId="0" value="OFF"/>
@@ -59,17 +78,9 @@
         <property target="title" propertyId="0" value="Pause At Popup Jackpot Online:"/>
         <property target="value" propertyId="0" value="OFF"/>
       </item>
-      <item title="OFF" name="isUseAllConsolePage">
-        <property target="title" propertyId="0" value="Display All Console Pages:"/>
-        <property target="value" propertyId="0" value="OFF"/>
-      </item>
-      <item title="OFF" name="isUseMqttDefault">
-        <property target="title" propertyId="0" value="Use MQTT Default Configuration:"/>
-        <property target="value" propertyId="0" value="OFF"/>
-      </item>
-      <item title="Touch" name="fguiInputMethod">
-        <property target="title" propertyId="0" value="Fgui input method:"/>
-        <property target="value" propertyId="0" value="Touch"/>
+      <item name="prev">
+        <property target="title" propertyId="0" value="Prev Page"/>
+        <property target="value" propertyId="0" value=""/>
       </item>
       <item title="Next Page" name="next">
         <property target="title" propertyId="0" value="Next Page"/>
@@ -80,28 +91,8 @@
         <property target="value" propertyId="0" value=""/>
       </item>
     </list>
-    <list id="n13_ydll" name="tab2" xy="50,130" size="980,1670" visible="false" overflow="scroll" lineGap="10" defaultItem="ui://tdkeq960paul7">
+    <list id="n13_ydll" name="tab3" xy="22,70" size="980,560" visible="false" overflow="scroll" lineGap="10" defaultItem="ui://tdkeq960ze6n1p">
       <relation target="" sidePair="center-center,middle-middle"/>
-      <item title="OFF" name="pauseAtPopupGameLoadingOnce">
-        <property target="title" propertyId="0" value="Pause At Game Loading Page Once:"/>
-        <property target="value" propertyId="0" value="OFF"/>
-      </item>
-      <item title="OFF" name="deletePanel">
-        <property target="title" propertyId="0" value="Destroy Panel At Startup:"/>
-        <property target="value" propertyId="0" value="OFF"/>
-      </item>
-      <item title="OFF" name="deleteReels">
-        <property target="title" propertyId="0" value="Destroy Reels At Startup:"/>
-        <property target="value" propertyId="0" value="OFF"/>
-      </item>
-      <item title="OK" name="destroyPanel">
-        <property target="title" propertyId="0" value="Destroy Panel:"/>
-        <property target="value" propertyId="0" value="Confirm"/>
-      </item>
-      <item title="OK" name="destroyReels">
-        <property target="title" propertyId="0" value="Destroy Reels:"/>
-        <property target="value" propertyId="0" value="Confirm"/>
-      </item>
       <item title="Prev Page" name="prev">
         <property target="title" propertyId="0" value="Prev Page"/>
         <property target="value" propertyId="0" value=""/>
@@ -115,10 +106,6 @@
         <property target="value" propertyId="0" value=""/>
       </item>
     </list>
-    <list id="n14_ydll" name="footer" xy="174,1766" size="732,24" touchable="false" layout="row" overflow="scroll" colGap="20" defaultItem="ui://tdkeq960ydllx" align="center" vAlign="middle">
-      <item/>
-      <item/>
-      <item/>
-    </list>
+    <component id="n14_ydll" name="footer" src="ze6n1m" fileName="components/Footer.xml" xy="112,690"/>
   </displayList>
 </component>

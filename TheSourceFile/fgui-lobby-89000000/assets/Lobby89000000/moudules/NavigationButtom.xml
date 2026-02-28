@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,82">
+  <displayList>
+    <image id="n22_zbsa" name="n22" src="zbsa1l" fileName="images/navigation/frame_down _02.png" xy="539,82" pivot="0.5,1" anchor="true" scale="1,1.5"/>
+    <image id="n23_zbsa" name="n23" src="zbsa1m" fileName="images/navigation/frame_down _03.png" xy="159,82" pivot="0.5,1" anchor="true" size="319,50" scale="1,1.5"/>
+    <image id="n24_zbsa" name="n24" src="zbsa1m" fileName="images/navigation/frame_down _03.png" xy="920,82" pivot="0.5,1" anchor="true" size="319,50" scale="1,1.5"/>
+    <image id="n27_zbsa" name="n27" src="zbsa1d" fileName="images/navigation/frame_id.png" xy="788,20" size="270,39"/>
+    <loader id="n28_zbsa" name="wifi" xy="119,9" size="80,80" scale="0.8,0.8" url="ui://rc5uleh0ml44l" autoSize="true" color="#00ff00"/>
+    <image id="n29_zbsa" name="n29" src="zbsa27" fileName="images/navigation/icon_coin.png" xy="766,14"/>
+    <richtext id="n33_zbsa" name="credit" xy="822,26" size="160,29" fontSize="20" color="#ffffff" autoSize="shrink" bold="true" singleLine="true" text="1111,000.99"/>
+    <component id="n34_gvge" name="btnMore" src="gvge3m" fileName="moudules/ButtonMorre.xml" xy="25,8"/>
+    <component id="n36_cptj" name="n36" src="cptj3w" fileName="components/ButtonAvatar.xml" xy="992,-25"/>
+  </displayList>
+</component>

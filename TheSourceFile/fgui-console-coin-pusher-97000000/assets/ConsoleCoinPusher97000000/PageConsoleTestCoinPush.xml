@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <displayList>
+    <component id="n1_paul" name="base" src="paul3" fileName="moudules/MDPageBase.xml" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+      <property target="title" propertyId="0" value="/Coin Pusher Test"/>
+    </component>
+    <list id="n10_paul" name="items" xy="50,125" size="980,1670" overflow="hidden" defaultItem="ui://tdkeq960paul9">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <item name="coinPush" title="Ratio">
+        <property target="title" propertyId="0" value="Start"/>
+        <property target="value1" propertyId="0" value="Falling Coins"/>
+        <property target="value2" propertyId="0" value="Reward Coins"/>
+        <property target="value3" propertyId="0" value="Ratio"/>
+      </item>
+      <item name="reset" title="Reset Data">
+        <property target="title" propertyId="0" value="Reset Data"/>
+        <property target="value1" propertyId="0" value="0"/>
+        <property target="value2" propertyId="0" value="0"/>
+        <property target="value3" propertyId="0" value="0"/>
+      </item>
+      <item name="exit" title="Return">
+        <property target="title" propertyId="0" value="Return"/>
+        <property target="value1" propertyId="0" value=""/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+    </list>
+  </displayList>
+</component>

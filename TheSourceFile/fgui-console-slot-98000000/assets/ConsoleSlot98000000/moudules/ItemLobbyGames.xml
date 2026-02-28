@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1000,228" mask="n41_hzti">
+  <displayList>
+    <image id="n40_hzti" name="n40" src="vqlx68" fileName="images/common/circle_24.png" xy="1,0" size="1000,228" color="#114550">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n41_hzti" name="mask" src="vqlx68" fileName="images/common/circle_24.png" xy="0,0" size="1000,228">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <loader id="n38_hzti" name="avatar" xy="0,0" size="240,228" url="ui://xp0b9yqdhzti8e" align="right" vAlign="bottom" fill="scaleMatchHeight" useResize="true"/>
+    <component id="n54_hzti" name="updateSize" src="hzti8h" fileName="moudules/ItemW360H50TitleName.xml" xy="602,114" visible="false">
+      <property target="key" propertyId="0" value="Update Size:"/>
+      <property target="value" propertyId="0" value="2MB"/>
+    </component>
+    <component id="n47_hzti" name="name" src="hzti8h" fileName="moudules/ItemW360H50TitleName.xml" xy="241,14" group="n58_hzti">
+      <property target="key" propertyId="0" value="Name:"/>
+      <property target="value" propertyId="0" value="RICH LENGEND"/>
+    </component>
+    <component id="n49_hzti" name="gameType" src="hzti8h" fileName="moudules/ItemW360H50TitleName.xml" xy="241,64" group="n58_hzti">
+      <property target="key" propertyId="0" value="Game Type:"/>
+      <property target="value" propertyId="0" value="Slot"/>
+    </component>
+    <component id="n57_hzti" name="gameId" src="hzti8h" fileName="moudules/ItemW360H50TitleName.xml" xy="241,114" group="n58_hzti">
+      <property target="key" propertyId="0" value="Game Id:"/>
+      <property target="value" propertyId="0" value="200"/>
+    </component>
+    <component id="n59_mbbq" name="active" src="hzti8k" fileName="moudules/ItemW360H50TitlesButton.xml" xy="241,164" group="n58_hzti">
+      <property target="key" propertyId="0" value="Active:"/>
+      <property target="value" propertyId="0" value="&lt;img src=&apos;ui://Console/icon_active4aff00&apos; width=&apos;20&apos; height=&apos;20&apos;/&gt;"/>
+    </component>
+    <component id="n48_hzti" name="verSoftware" src="hzti8h" fileName="moudules/ItemW360H50TitleName.xml" xy="601,14" group="n58_hzti">
+      <property target="key" propertyId="0" value="Software Version:"/>
+      <property target="value" propertyId="0" value="2.0.1"/>
+    </component>
+    <component id="n55_hzti" name="verAlgorithm" src="hzti8h" fileName="moudules/ItemW360H50TitleName.xml" xy="601,64" group="n58_hzti">
+      <property target="key" propertyId="0" value="Algorithm Version:"/>
+      <property target="value" propertyId="0" value="2.0.1"/>
+    </component>
+    <component id="n51_hzti" name="updateAtLaunch" src="hzti8j" fileName="moudules/ItemW360H50TitlesToggle.xml" xy="601,114" group="n58_hzti">
+      <property target="key" propertyId="0" value="Update At Launch:"/>
+    </component>
+    <component id="n52_hzti" name="startUpdate" src="hzti8k" fileName="moudules/ItemW360H50TitlesButton.xml" xy="601,164" group="n58_hzti">
+      <property target="key" propertyId="0" value="Start Update:"/>
+      <property target="value" propertyId="0" value="Confirm"/>
+    </component>
+    <group id="n58_hzti" name="n58" xy="241,14" size="720,200"/>
+  </displayList>
+</component>

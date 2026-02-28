@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="250,250" pivot="0.5,0.5" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <image id="n3_oibk" name="n3" src="oibke" fileName="images/mian/btn_bg 1.png" xy="0,0" size="250,250">
+      <gearDisplay controller="button" pages="0,1,2,3"/>
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <richtext id="n6_os7y" name="title" xy="11,188" size="228,46" fontSize="30" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="Business Record">
+      <relation target="" sidePair="center-center,bottom-bottom"/>
+    </richtext>
+    <loader id="n4_w8hk" name="icon" xy="49,28" size="150,150" aspect="true" url="ui://xp0b9yqdi9388q" align="center" vAlign="middle" autoSize="true">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </loader>
+    <loader id="n7_os7y" name="icon2" xy="203,7" size="37,37" aspect="true" url="ui://xp0b9yqdos7y3h" align="center" vAlign="middle" fill="scale" clearOnPublish="true">
+      <relation target="" sidePair="width-width,height-height"/>
+    </loader>
+  </displayList>
+  <Button downEffect="scale" downEffectValue="0.8"/>
+  <customProperty target="title" propertyId="0" label="标题"/>
+  <customProperty target="icon" propertyId="1" label="图标"/>
+</component>

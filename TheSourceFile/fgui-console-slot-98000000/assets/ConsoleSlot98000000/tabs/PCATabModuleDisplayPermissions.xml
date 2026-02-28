@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1178" restrictSize="540,0,0,0">
+  <displayList>
+    <component id="n54_i938" name="head" src="i938a0" fileName="moudules/ItemDisplayPermissionsTitle.xml" xy="40,61"/>
+    <list id="n53_i938" name="lst" xy="5,123" size="1070,965" overflow="hidden" lineGap="5" defaultItem="ui://xp0b9yqdi9389y" autoItemSize="false" align="center">
+      <item title="Machine:" name="settingMachine">
+        <property target="title" propertyId="0" value="Machine:"/>
+      </item>
+      <item title="Games:" name="settingGames">
+        <property target="title" propertyId="0" value="Games:"/>
+      </item>
+      <item title="IN-OUT:" name="settingInOut">
+        <property target="title" propertyId="0" value="IN-OUT:"/>
+      </item>
+      <item title="Record:" name="settingRecord">
+        <property target="title" propertyId="0" value="Record:"/>
+      </item>
+      <item title="Scree:" name="settingScreen">
+        <property target="title" propertyId="0" value="Screen:"/>
+      </item>
+      <item title="Bill Validator:" name="settingBillValidator">
+        <property target="title" propertyId="0" value="Bill Validator:"/>
+      </item>
+      <item title="Printer:" name="settingPrinter">
+        <property target="title" propertyId="0" value="Printer:"/>
+      </item>
+      <item title="Remote Control:" name="settingRemoteControl">
+        <property target="title" propertyId="0" value="Remote Control:"/>
+      </item>
+      <item title="IOT:" name="settingIOT">
+        <property target="title" propertyId="0" value="IOT:"/>
+      </item>
+      <item title="Sas:" name="settingSas">
+        <property target="title" propertyId="0" value="Sas:"/>
+      </item>
+      <item title="Jackpot Online:" name="settingJackpotOnline">
+        <property target="title" propertyId="0" value="Jackpot Online:"/>
+      </item>
+      <item title="ATM:" name="settingATM">
+        <property target="title" propertyId="0" value="ATM:"/>
+      </item>
+      <item title="Digit Counter:" name="settingDigitCounter">
+        <property target="title" propertyId="0" value="Digit Counter:"/>
+      </item>
+    </list>
+    <component id="n60_hfr9" name="btnReset" src="cwuo3a" fileName="moudules/ItemLongButton.xml" xy="540,1102">
+      <property target="btn" propertyId="0" value="Reset Permissions"/>
+      <property target="btn" propertyId="1" value="ui://xp0b9yqdos7y3y"/>
+    </component>
+  </displayList>
+</component>

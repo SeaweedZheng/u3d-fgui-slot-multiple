@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="85,447">
+  <displayList>
+    <image id="n32_zbsa" name="n32" src="zbsa2e" fileName="images/sidebar/frame_class_base 1.png" xy="0,0" group="n36_cptj"/>
+    <list id="n34_zbsa" name="menu" xy="9,21" size="68,413" group="n36_cptj" layout="flow_vt" colGap="20" defaultItem="ui://rc5uleh0zbsa2j" align="center" vAlign="middle">
+      <item name="all">
+        <property target="bg" propertyId="1" value="ui://rc5uleh0zbsa2d"/>
+        <property target="icon" propertyId="1" value="ui://rc5uleh0zbsa1u"/>
+        <property target="title" propertyId="0" value="ALL"/>
+      </item>
+      <item name="fav">
+        <property target="icon" propertyId="1" value="ui://rc5uleh0zbsa1w"/>
+        <property target="title" propertyId="0" value="FAV"/>
+      </item>
+      <item name="slot">
+        <property target="icon" propertyId="1" value="ui://rc5uleh0zbsa1z"/>
+        <property target="title" propertyId="0" value="SLOT"/>
+      </item>
+      <item name="bingo">
+        <property target="icon" propertyId="1" value="ui://rc5uleh0zbsa1v"/>
+        <property target="title" propertyId="0" value="BINGO"/>
+      </item>
+      <item name="keno">
+        <property target="icon" propertyId="1" value="ui://rc5uleh0zbsa1x"/>
+        <property target="title" propertyId="0" value="KENO"/>
+      </item>
+      <item name="jacks">
+        <property target="icon" propertyId="1" value="ui://rc5uleh0zbsa1y"/>
+        <property target="title" propertyId="0" value="JACKS"/>
+      </item>
+    </list>
+    <component id="n35_zbsa" name="btnFold" src="zbsa2i" fileName="components/ButtonSideBar.xml" xy="82,188" group="n36_cptj"/>
+    <group id="n36_cptj" name="all" xy="0,0" size="123,447" advanced="true"/>
+  </displayList>
+  <transition name="unfold">
+    <item time="0" type="XY" target="n36_cptj" tween="true" startValue="0,0" endValue="88,0" duration="18"/>
+  </transition>
+  <transition name="fold">
+    <item time="0" type="XY" target="n36_cptj" tween="true" startValue="88,0" endValue="0,0" duration="18"/>
+  </transition>
+</component>

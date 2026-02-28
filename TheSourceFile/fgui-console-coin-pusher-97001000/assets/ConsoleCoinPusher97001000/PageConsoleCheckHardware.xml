@@ -1,183 +1,262 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1080,1920">
+<component size="1024,768">
   <displayList>
-    <component id="n1_paul" name="base" src="paul3" fileName="moudules/MDPageBase.xml" xy="0,0">
+    <component id="n1_paul" name="base" src="paul3" fileName="moudules/MDPageBase.xml" xy="0,0" size="1024,768">
       <relation target="" sidePair="width-width,height-height"/>
       <property target="title" propertyId="0" value="/Hardware Test"/>
     </component>
-    <list id="n10_paul" name="items" xy="50,568" size="980,1215" overflow="hidden" defaultItem="ui://tdkeq960paul9">
+    <list id="n10_paul" name="items" xy="17,244" size="990,460" overflow="hidden" defaultItem="ui://tdkeq960paul9">
       <relation target="" sidePair="center-center,middle-middle"/>
-      <item name="lightSpin" title="OFF">
-        <property target="title" propertyId="0" value="Spin Button Light"/>
-        <property target="value1" propertyId="0" value="OFF"/>
-        <property target="value2" propertyId="0" value=""/>
-        <property target="value3" propertyId="0" value=""/>
-      </item>
-      <item name="lightWiperOFF" title="OFF">
-        <property target="title" propertyId="0" value="Wiper Button Light"/>
-        <property target="value1" propertyId="0" value="OFF"/>
-        <property target="value2" propertyId="0" value=""/>
-        <property target="value3" propertyId="0" value=""/>
-      </item>
-      <item name="_title1" title="Count">
+      <item title="Count" name="_title1">
         <property target="title" propertyId="0" value=""/>
         <property target="value1" propertyId="0" value="State"/>
         <property target="value2" propertyId="0" value="Sensor"/>
         <property target="value3" propertyId="0" value="Count"/>
       </item>
-      <item name="topCoinIn" title="OFF">
+      <item title="OFF" name="topCoinIn">
         <property target="title" propertyId="0" value="Drop Coins"/>
         <property target="value1" propertyId="0" value="OFF"/>
         <property target="value2" propertyId="0" value="OFF"/>
         <property target="value3" propertyId="0" value="0"/>
       </item>
-      <item name="ballIn" title="OFF">
+      <item title="OFF" name="ballIn">
         <property target="title" propertyId="0" value="Drop The Ball"/>
         <property target="value1" propertyId="0" value="OFF"/>
         <property target="value2" propertyId="0" value="OFF"/>
         <property target="value3" propertyId="0" value="0"/>
       </item>
-      <item name="collectCoin" title="OFF">
+      <item title="OFF" name="collectCoin">
         <property target="title" propertyId="0" value="Reward Coin Device"/>
         <property target="value1" propertyId="0" value="OFF"/>
         <property target="value2" propertyId="0" value="OFF"/>
         <property target="value3" propertyId="0" value="0"/>
       </item>
-      <item name="ticketer" title="OFF">
-        <property target="title" propertyId="0" value="Ticket"/>
+      <item name="collectBall">
+        <property target="title" propertyId="0" value="Reward Ball Device"/>
         <property target="value1" propertyId="0" value="OFF"/>
         <property target="value2" propertyId="0" value="OFF"/>
-        <property target="value3" propertyId="0" value="2"/>
+        <property target="value3" propertyId="0" value="0"/>
       </item>
-      <item name="_title2" title="Sensor2">
+      <item title="Sensor2" name="_title2">
         <property target="title" propertyId="0" value=""/>
         <property target="value1" propertyId="0" value="State"/>
-        <property target="value2" propertyId="0" value="Sensor1"/>
-        <property target="value3" propertyId="0" value="Sensor2"/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
       </item>
-      <item name="wiper" title="OFF">
+      <item title="OFF" name="wiper">
         <property target="title" propertyId="0" value="Wiper"/>
         <property target="value1" propertyId="0" value="OFF"/>
-        <property target="value2" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value=""/>
         <property target="value3" propertyId="0" value=""/>
       </item>
-      <item name="pushPlate" title="OFF">
+      <item title="OFF" name="pushPlate">
         <property target="title" propertyId="0" value="Push Tray"/>
         <property target="value1" propertyId="0" value="OFF"/>
-        <property target="value2" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value=""/>
         <property target="value3" propertyId="0" value=""/>
       </item>
-      <item name="bell" title="OFF">
+      <item title="OFF" name="bell">
         <property target="title" propertyId="0" value="Swing Channel"/>
         <property target="value1" propertyId="0" value="OFF"/>
-        <property target="value2" propertyId="0" value="OFF"/>
-        <property target="value3" propertyId="0" value="OFF"/>
-      </item>
-      <item name="channelLight1" title="Channel Light 1">
-        <property target="title" propertyId="0" value="Channel Light 1"/>
-        <property target="value1" propertyId="0" value=""/>
         <property target="value2" propertyId="0" value=""/>
         <property target="value3" propertyId="0" value=""/>
       </item>
-      <item name="channelLight2" title="Channel Light 2">
-        <property target="title" propertyId="0" value="Channel Light 2"/>
-        <property target="value1" propertyId="0" value=""/>
-        <property target="value2" propertyId="0" value=""/>
-        <property target="value3" propertyId="0" value=""/>
-      </item>
-      <item name="channelLight3" title="Channel Light 3">
-        <property target="title" propertyId="0" value="Channel Light 3"/>
-        <property target="value1" propertyId="0" value=""/>
-        <property target="value2" propertyId="0" value=""/>
-        <property target="value3" propertyId="0" value=""/>
-      </item>
-      <item name="channelLight4" title="Channel Light 4">
-        <property target="title" propertyId="0" value="Channel Light 4"/>
-        <property target="value1" propertyId="0" value=""/>
-        <property target="value2" propertyId="0" value=""/>
-        <property target="value3" propertyId="0" value=""/>
-      </item>
-      <item name="channelLight5" title="Channel Light 5">
-        <property target="title" propertyId="0" value="Channel Light 5"/>
-        <property target="value1" propertyId="0" value=""/>
-        <property target="value2" propertyId="0" value=""/>
-        <property target="value3" propertyId="0" value=""/>
-      </item>
-      <item name="channelLight6" title="Channel Light 6">
-        <property target="title" propertyId="0" value="Channel Light 6"/>
-        <property target="value1" propertyId="0" value=""/>
-        <property target="value2" propertyId="0" value=""/>
-        <property target="value3" propertyId="0" value=""/>
-      </item>
-      <item name="channelLight7" title="Channel Light 7">
-        <property target="title" propertyId="0" value="Channel Light 7"/>
-        <property target="value1" propertyId="0" value=""/>
-        <property target="value2" propertyId="0" value=""/>
-        <property target="value3" propertyId="0" value=""/>
-      </item>
-      <item name="channelLight8" title="Channel Light 8">
-        <property target="title" propertyId="0" value="Channel Light 8"/>
-        <property target="value1" propertyId="0" value=""/>
-        <property target="value2" propertyId="0" value=""/>
-        <property target="value3" propertyId="0" value=""/>
-      </item>
-      <item name="exit" title="Return">
+      <item title="Return" name="exit">
         <property target="title" propertyId="0" value="Return"/>
         <property target="value1" propertyId="0" value=""/>
         <property target="value2" propertyId="0" value=""/>
         <property target="value3" propertyId="0" value=""/>
       </item>
     </list>
-    <list id="n13_86hh" name="items2" xy="50,125" size="980,443" layout="flow_hz" overflow="hidden" lineGap="10" colGap="12" defaultItem="ui://tdkeq96086hhc">
-      <item name="coinIn" title="Coin In">
-        <property target="title" propertyId="0" value="Coin In"/>
-        <property target="value" propertyId="0" value="0"/>
-      </item>
-      <item name="coinObtain" title="Reward Coins">
-        <property target="title" propertyId="0" value="Reward Coins"/>
-        <property target="value" propertyId="0" value="0"/>
-      </item>
-      <item name="coinBlock" title="Coin Full">
-        <property target="title" propertyId="0" value="Coin Full"/>
-      </item>
-      <item name="shake" title="Swing">
+    <list id="n13_86hh" name="items2" xy="17,70" size="990,173" layout="flow_hz" overflow="hidden" lineGap="10" colGap="12" defaultItem="ui://tdkeq960j0k61t">
+      <item title="Swing" name="shake">
         <property target="title" propertyId="0" value="Swing"/>
       </item>
-      <item name="sp1" title="SP1">
+      <item title="SP1" name="sp1">
         <property target="title" propertyId="0" value="SP1"/>
       </item>
-      <item name="sp2" title="SP2">
-        <property target="title" propertyId="0" value="SP2"/>
-      </item>
-      <item name="brnSpin" title="Spin Button">
+      <item title="Spin Button" name="brnSpin">
         <property target="title" propertyId="0" value="Spin Button"/>
       </item>
-      <item name="btnWiper" title="Wiper Button">
+      <item title="Wiper Button" name="btnWiper">
         <property target="title" propertyId="0" value="Wiper Button"/>
       </item>
-      <item name="channel1" title="Channel 1">
+      <item title="Ticket Out Button" name="btnTicketOut">
+        <property target="title" propertyId="0" value="Ticket Out Button"/>
+      </item>
+      <item title="Channel 1" name="channel1">
         <property target="title" propertyId="0" value="Channel 1"/>
       </item>
-      <item name="channel2" title="Channel 2">
+      <item title="Channel 2" name="channel2">
         <property target="title" propertyId="0" value="Channel 2"/>
       </item>
-      <item name="channel3" title="Channel 3">
+      <item title="Channel 3" name="channel3">
         <property target="title" propertyId="0" value="Channel 3"/>
       </item>
-      <item name="channel4" title="Channel 4">
+      <item title="Channel 4" name="channel4">
         <property target="title" propertyId="0" value="Channel 4"/>
       </item>
-      <item name="channel5" title="Channel 5">
+      <item title="Channel 5" name="channel5">
         <property target="title" propertyId="0" value="Channel 5"/>
       </item>
-      <item name="channel6" title="Channel 6">
+      <item title="Channel 6" name="channel6">
         <property target="title" propertyId="0" value="Channel 6"/>
       </item>
-      <item name="channel7" title="Channel 7">
+      <item title="Channel 7" name="channel7">
         <property target="title" propertyId="0" value="Channel 7"/>
       </item>
-      <item name="channel8" title="Channel 8">
+      <item title="Channel 8" name="channel8">
         <property target="title" propertyId="0" value="Channel 8"/>
+      </item>
+      <item name="turntableCoinIn">
+        <property target="title" propertyId="0" value="Turntable Coin In"/>
+      </item>
+      <item name="turntableCoinOut">
+        <property target="title" propertyId="0" value="Turntable Coin Out"/>
+      </item>
+      <item name="aCoinInUp">
+        <property target="title" propertyId="0" value="A: Coin In Up"/>
+      </item>
+      <item name="aCoinInDown">
+        <property target="title" propertyId="0" value="A: Coin In Down"/>
+      </item>
+      <item name="aTurntable">
+        <property target="title" propertyId="0" value="A: Turntable"/>
+      </item>
+      <item name="bCoinInUp">
+        <property target="title" propertyId="0" value="B: Coin In Up"/>
+      </item>
+      <item name="bCoinInDown">
+        <property target="title" propertyId="0" value="B: Coin In Down"/>
+      </item>
+      <item name="bTurntable">
+        <property target="title" propertyId="0" value="B: Turntable"/>
+      </item>
+      <item name="turntableReset">
+        <property target="title" propertyId="0" value="Turntable Reset"/>
+      </item>
+    </list>
+    <list id="n16_j0k6" name="items-old" xy="-5,-1" size="980,1215" visible="false" overflow="hidden" defaultItem="ui://tdkeq960paul9">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <item title="OFF" name="lightSpin">
+        <property target="title" propertyId="0" value="Spin Button Light"/>
+        <property target="value1" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+      <item title="OFF" name="lightWiperOFF">
+        <property target="title" propertyId="0" value="Wiper Button Light"/>
+        <property target="value1" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+      <item title="Count" name="_title1">
+        <property target="title" propertyId="0" value=""/>
+        <property target="value1" propertyId="0" value="State"/>
+        <property target="value2" propertyId="0" value="Sensor"/>
+        <property target="value3" propertyId="0" value="Count"/>
+      </item>
+      <item title="OFF" name="topCoinIn">
+        <property target="title" propertyId="0" value="Drop Coins"/>
+        <property target="value1" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value="OFF"/>
+        <property target="value3" propertyId="0" value="0"/>
+      </item>
+      <item title="OFF" name="ballIn">
+        <property target="title" propertyId="0" value="Drop The Ball"/>
+        <property target="value1" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value="OFF"/>
+        <property target="value3" propertyId="0" value="0"/>
+      </item>
+      <item title="OFF" name="collectCoin">
+        <property target="title" propertyId="0" value="Reward Coin Device"/>
+        <property target="value1" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value="OFF"/>
+        <property target="value3" propertyId="0" value="0"/>
+      </item>
+      <item title="OFF" name="ticketer">
+        <property target="title" propertyId="0" value="Ticket"/>
+        <property target="value1" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value="OFF"/>
+        <property target="value3" propertyId="0" value="2"/>
+      </item>
+      <item title="Sensor2" name="_title2">
+        <property target="title" propertyId="0" value=""/>
+        <property target="value1" propertyId="0" value="State"/>
+        <property target="value2" propertyId="0" value="Sensor1"/>
+        <property target="value3" propertyId="0" value="Sensor2"/>
+      </item>
+      <item title="OFF" name="wiper">
+        <property target="title" propertyId="0" value="Wiper"/>
+        <property target="value1" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value="OFF"/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+      <item title="OFF" name="pushPlate">
+        <property target="title" propertyId="0" value="Push Tray"/>
+        <property target="value1" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value="OFF"/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+      <item title="OFF" name="bell">
+        <property target="title" propertyId="0" value="Swing Channel"/>
+        <property target="value1" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value="OFF"/>
+        <property target="value3" propertyId="0" value="OFF"/>
+      </item>
+      <item title="Channel Light 1" name="channelLight1">
+        <property target="title" propertyId="0" value="Channel Light 1"/>
+        <property target="value1" propertyId="0" value=""/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+      <item title="Channel Light 2" name="channelLight2">
+        <property target="title" propertyId="0" value="Channel Light 2"/>
+        <property target="value1" propertyId="0" value=""/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+      <item title="Channel Light 3" name="channelLight3">
+        <property target="title" propertyId="0" value="Channel Light 3"/>
+        <property target="value1" propertyId="0" value=""/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+      <item title="Channel Light 4" name="channelLight4">
+        <property target="title" propertyId="0" value="Channel Light 4"/>
+        <property target="value1" propertyId="0" value=""/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+      <item title="Channel Light 5" name="channelLight5">
+        <property target="title" propertyId="0" value="Channel Light 5"/>
+        <property target="value1" propertyId="0" value=""/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+      <item title="Channel Light 6" name="channelLight6">
+        <property target="title" propertyId="0" value="Channel Light 6"/>
+        <property target="value1" propertyId="0" value=""/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+      <item title="Channel Light 7" name="channelLight7">
+        <property target="title" propertyId="0" value="Channel Light 7"/>
+        <property target="value1" propertyId="0" value=""/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+      <item title="Channel Light 8" name="channelLight8">
+        <property target="title" propertyId="0" value="Channel Light 8"/>
+        <property target="value1" propertyId="0" value=""/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+      <item title="Return" name="exit">
+        <property target="title" propertyId="0" value="Return"/>
+        <property target="value1" propertyId="0" value=""/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
       </item>
     </list>
   </displayList>

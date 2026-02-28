@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1178">
+  <displayList>
+    <component id="n32_os7y" name="useSas" src="cwuo2d" fileName="moudules/ItemTitleSwitch.xml" xy="0,38" group="n27_cwuo">
+      <property target="key" propertyId="0" value="Use Sas:"/>
+    </component>
+    <component id="n34_os7y" name="sasConnection" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,114" group="n27_cwuo">
+      <property target="key" propertyId="0" value="Sas Connection:"/>
+      <property target="value" propertyId="0" value="0.005"/>
+    </component>
+    <component id="n50_i938" name="sasAccount" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,190" group="n27_cwuo">
+      <property target="key" propertyId="0" value="Sas Account:"/>
+      <property target="value" propertyId="0" value="0.005"/>
+    </component>
+    <component id="n51_i938" name="sasScale" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,266" group="n27_cwuo">
+      <property target="key" propertyId="0" value="Sas In Out Scale(Bill:Credit):"/>
+      <property target="value" propertyId="0" value="0.005"/>
+    </component>
+    <group id="n27_cwuo" name="left" xy="0,38" size="540,304" advanced="true"/>
+  </displayList>
+</component>

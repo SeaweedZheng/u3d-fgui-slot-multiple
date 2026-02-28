@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1178" restrictSize="540,0,0,0">
+  <displayList>
+    <component id="n29_i938" name="gameType" src="g3lh58" fileName="moudules/ItemDateSelect.xml" xy="0,0">
+      <property target="key" propertyId="0" value="Game Type:"/>
+    </component>
+    <component id="n18_cwuo" name="search" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="540,0" size="540,76">
+      <property target="key" propertyId="0" value="Search:"/>
+      <property target="value" propertyId="0" value="&lt;img src=&apos;ui://Console/icon_search&apos; width=&apos;40&apos; height=&apos;40&apos; /&gt;"/>
+    </component>
+    <component id="n28_i938" name="game0" src="hzti8d" fileName="moudules/ItemLobbyGames.xml" xy="38,130"/>
+    <component id="n30_i938" name="game1" src="hzti8d" fileName="moudules/ItemLobbyGames.xml" xy="38,368"/>
+    <component id="n31_i938" name="game2" src="hzti8d" fileName="moudules/ItemLobbyGames.xml" xy="38,606"/>
+    <component id="n32_i938" name="game3" src="hzti8d" fileName="moudules/ItemLobbyGames.xml" xy="38,844"/>
+  </displayList>
+</component>

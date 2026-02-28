@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <displayList>
+    <component id="n1_paul" name="base" src="paul3" fileName="moudules/MDPageBase.xml" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+      <property target="title" propertyId="0" value="/"/>
+    </component>
+    <list id="n10_paul" name="items" xy="50,400" size="980,1396" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960paul5">
+      <item name="record" title="Record">
+        <property target="title" propertyId="0" value="Record"/>
+      </item>
+      <item name="checkHardware" title="Hardware Test">
+        <property target="title" propertyId="0" value="Hardware Test"/>
+      </item>
+      <item name="checkCoinPush" title="Coin Pusher Test">
+        <property target="title" propertyId="0" value="Coin Pusher Test"/>
+      </item>
+      <item name="settings" title="Settings">
+        <property target="title" propertyId="0" value="Settings"/>
+      </item>
+      <item name="admin" title="Admin">
+        <property target="title" propertyId="0" value="Admin"/>
+      </item>
+      <item url="ui://tdkeq960paul7" name="language" title="Simplified Chinese">
+        <property target="title" propertyId="0" value="Language"/>
+        <property target="value" propertyId="0" value="Simplified Chinese"/>
+      </item>
+      <item name="exit" title="Return">
+        <property target="title" propertyId="0" value="Return"/>
+      </item>
+    </list>
+    <component id="n11_86hh" name="keyboard" src="86hhp" fileName="moudules/Keyboard01.xml" xy="50,125"/>
+    <component id="n17_86hh" name="tip" src="86hhj" fileName="components/ItemTip2.xml" xy="50,327"/>
+  </displayList>
+</component>

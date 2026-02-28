@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1178" restrictSize="540,0,0,0">
+  <displayList>
+    <component id="n27_os7y" name="checkColor" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,0" size="540,76" group="n20_cwuo">
+      <property target="key" propertyId="0" value="Check Color:"/>
+      <property target="value" propertyId="0" value="Start"/>
+    </component>
+    <component id="n28_hfr9" name="touchScreen" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,76" size="540,76" group="n20_cwuo">
+      <property target="key" propertyId="0" value="Touch Screen:"/>
+      <property target="value" propertyId="0" value="Start"/>
+    </component>
+    <group id="n20_cwuo" name="left" xy="0,0" size="540,152" advanced="true">
+      <relation target="" sidePair="width-width"/>
+    </group>
+  </displayList>
+</component>

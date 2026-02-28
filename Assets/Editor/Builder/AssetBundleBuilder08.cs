@@ -7,8 +7,6 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using YamlDotNet.Serialization.NamingConventions;
 using YamlDotNet.Serialization;
-using UnityEngine.XR;
-using SimpleJSON;
 
 
 
@@ -76,6 +74,16 @@ public partial class AssetBundleBuilder08 : EditorWindow
     }
 
 
+    [MenuItem("NewBuild/拷贝资源StreamingAssets目录AstBackup 下并修改版本文件")]
+    public static void AstBackup()
+    {
+        CopyAstBackup();
+
+        // 刷新版本号
+        UpdateVersionData__old();
+
+        AssetDatabase.Refresh();
+    }
 
 
     [MenuItem("NewBuild/打包1001")]
@@ -126,17 +134,34 @@ public partial class AssetBundleBuilder08 : EditorWindow
     }
 
 
-
-    [MenuItem("NewBuild/拷贝资源StreamingAssets目录AstBackup 下并修改版本文件")]
-    public static void AstBackup()
+    [MenuItem("NewBuild/打包1001-并裁剪非包内游戏资源")]
+    public static void BuildPigSlotAstBundleource003()
     {
-        CopyAstBackup();
+        BuildPigSlotAstBundleource002();        
+        
+        // 拷贝所有资源
+        CopyHotfixFolderToTempHotfixFolder();
 
-        // 刷新版本号
-        UpdateVersionData__old();
+        // 删除非跟包资源
+        DeleteExcludeInBuildMoudle();
 
         AssetDatabase.Refresh();
+
+        Debug.Log("恭喜,游戏裁剪成功");
     }
+
+
+    [MenuItem("NewBuild/恢复裁剪前的热更资源")]
+    public static void RecoverHotfixAsset()
+    {
+        // 拷贝所有资源
+        CopyTempHotfixFolderToHotfixFolder();
+
+        AssetDatabase.Refresh();
+
+        Debug.Log("恢复完成");
+    }
+
     public static void CopyAstBackup()
     {
         string toDirPath = PathHelper.backupDirSAPTH;
@@ -932,6 +957,7 @@ public partial class AssetBundleBuilder08 : EditorWindow
 {
 
     static Dictionary<string,JObject> allModules = new Dictionary<string, JObject>();
+    static Dictionary<string, ModulelInfo> excludeInBuildModules = new Dictionary<string, ModulelInfo>();
 
     [MenuItem("NewBuild/testAssetPth")]
     static void testAssetPth()
@@ -942,7 +968,8 @@ public partial class AssetBundleBuilder08 : EditorWindow
     static void PKModules()
     {
         allModules.Clear();
-        string pthModulesCfg = Application.dataPath + "/modules.json";
+        excludeInBuildModules.Clear();
+        string pthModulesCfg = PathHelper.modulePackageSettingsFile;
         string content = File.ReadAllText(pthModulesCfg);
         JArray nodeModulesCfg = JArray.Parse(content);
 
@@ -974,16 +1001,27 @@ public partial class AssetBundleBuilder08 : EditorWindow
                     if (dpValue != "")
                         dependencies = dpValue.Split('#');
 
+                    string moduleName = item["modules_name"].Value<string>();
 
                     UpdateModuleVersionData(
-                        item["modules_name"].Value<string>(),
+                        moduleName,
                         assetBundlesDir,
                         assetBackupDir,
                         assetDllDir,
                         dependencies
                     );
 
-
+                    // apk构建时，该模块打入包中
+                    if (!item["include_in_build"].Value<bool>())
+                    {
+                        excludeInBuildModules.Add(moduleName, new ModulelInfo()
+                        {
+                            moudleName = moduleName,
+                            assetBundlesDir = assetBundlesDir,
+                            assetBackupDir = assetBackupDir,
+                            assetDllDir = assetDllDir,
+                        });
+                    }
                 }
             } 
         }
@@ -1392,4 +1430,141 @@ public partial class AssetBundleBuilder08 : EditorWindow
         serverHash 和 calculatedCRC 如何比较*/
     }
 
+
+
+    private  static void CopyHotfixFolderToTempHotfixFolder()
+    {
+        string toDirPath = PathHelper.tmpHotfixDirSAPTH;
+
+        // 递归删除文件夹及其所有内容
+        if (Directory.Exists(toDirPath))
+        {
+            Directory.Delete(toDirPath, recursive: true);
+        }
+
+        if (Directory.Exists(toDirPath) == false)  // 判断是否存在，不存在创建
+        {
+            Directory.CreateDirectory(toDirPath); // 根据文件夹路径创建文件夹
+        }
+
+        string folderPthLst = PathHelper.hotfixDirSAPTH; //E:/work4/u3d-dll-po/Assets
+
+        FileUtils.CopyDirectory(folderPthLst,toDirPath,true);
+
+        /*
+        List<string> targetPathLst = new List<string>();
+        targetPathLst.AddRange(GetTargetFilePath(PathHelper.hotfixDirSAPTH, ".*"));
+
+        foreach (var pth in targetPathLst)
+        {
+            string sourcePath = pth;
+            string destinaltionPaht = PathHelper.GetAssetTmpHotfixDirSAPTH(pth);
+            if (File.Exists(sourcePath))
+            {
+                try
+                {
+                    string destDirectory = Path.GetDirectoryName(destinaltionPaht);
+                    if (destDirectory == null)
+                    {
+                        Debug.LogError("错误：无法解析目标目录路径！");
+                        return;
+                    }
+
+                    if (!Directory.Exists(destDirectory))
+                    {
+                        Directory.CreateDirectory(destDirectory);
+                    }
+
+                    File.Copy(sourcePath, destinaltionPaht, overwrite: true);
+                }
+                catch (Exception e)
+                {
+                    Debug.LogError(e);
+                }
+            }
+            else
+            {
+                Debug.Log("要拷贝的文件不存在" + sourcePath);
+            }
+            Debug.Log(destinaltionPaht);
+        }
+        */
+    }
+
+    private static void CopyTempHotfixFolderToHotfixFolder()
+    {
+        string toDirPath = PathHelper.hotfixDirSAPTH; 
+
+        // 递归删除文件夹及其所有内容
+        if (Directory.Exists(toDirPath))
+        {
+            Directory.Delete(toDirPath, recursive: true);
+        }
+
+        if (Directory.Exists(toDirPath) == false)  // 判断是否存在，不存在创建
+        {
+            Directory.CreateDirectory(toDirPath); // 根据文件夹路径创建文件夹
+        }
+
+        string folderPthLst =  PathHelper.tmpHotfixDirSAPTH;//E:/work4/u3d-dll-po/Assets
+
+        FileUtils.CopyDirectory(folderPthLst, toDirPath, true);
+
+    }
+
+
+
+
+
+
+    private static void DeleteExcludeInBuildMoudle()
+    {
+        List<string> targetPathLst = new List<string>();
+        targetPathLst.AddRange(GetTargetFilePath(PathHelper.hotfixDirSAPTH, ".*"));
+
+        
+
+        foreach (KeyValuePair<string, ModulelInfo> kv in excludeInBuildModules)
+        {
+            foreach (string dir in kv.Value.assetBundlesDir)
+            {
+                string pth = PathHelper.GetAssetBundleSubDirSAPTH(dir);
+                FileUtils.DeleteDirectory(pth);
+                File.Delete(pth + ".meta");
+
+                Debug.Log($"删除：{pth}");
+            }
+
+            foreach (string dir in kv.Value.assetBackupDir)
+            {
+
+                string pth = PathHelper.GetAssetBackupSubDirSAPTH(dir);
+                FileUtils.DeleteDirectory(pth);
+                File.Delete(pth + ".meta");
+
+                Debug.Log($"删除：{pth}");
+            }
+
+            foreach (string dllName in kv.Value.assetDllDir)
+            {
+                FileUtils.DeleteDirectory(PathHelper.GetDllSAPTH(dllName));
+                Debug.Log($"删除：{PathHelper.GetDllSAPTH(dllName)}");
+            }
+
+            string moduleDir = PathHelper.modulesDirSAPTH + "/" + kv.Value.moudleName;
+            FileUtils.DeleteDirectory(moduleDir);
+            File.Delete(moduleDir + ".meta");
+            Debug.Log($"删除：{moduleDir}");
+        }
+    }
+
+}
+
+
+public class ModulelInfo
+{
+    public string moudleName;
+    public string[] assetBundlesDir;
+    public string[] assetBackupDir;
+    public string[] assetDllDir;
 }

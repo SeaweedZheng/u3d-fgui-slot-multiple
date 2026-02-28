@@ -12,6 +12,13 @@ namespace CoinPusherRichLegend2001001
         public const string pkgName = "RichLegend2001001";
         public const string resName = "PageGameLoading";
 
+        public static void OnBeforeCreat(Action onFinishCallback)
+        {
+            // 添加模块
+            ModuleDownloadManager.Instance.AddModeToRuning("RL2001001");
+
+            onFinishCallback?.Invoke();
+        }
         protected override void OnInit()
         {
 

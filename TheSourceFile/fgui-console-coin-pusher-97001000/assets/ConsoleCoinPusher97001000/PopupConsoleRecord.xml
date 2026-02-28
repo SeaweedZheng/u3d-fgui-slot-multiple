@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1080,1920">
+<component size="1024,768">
   <displayList>
-    <component id="n0_rh4e" name="base" src="paul3" fileName="moudules/MDPageBase.xml" xy="0,0">
+    <component id="n0_rh4e" name="base" src="paul3" fileName="moudules/MDPageBase.xml" xy="0,0" size="968,0">
       <relation target="" sidePair="width-width,height-height"/>
       <property target="title" propertyId="0" value="/Record"/>
     </component>
-    <richtext id="n1_rh4e" name="info" xy="19,113" size="1039,1569" fontSize="30" color="#ffffff" autoSize="shrink" autoClearText="true" text="免费游戏：152-626-1759023621486-1248652-626-1759023621486-1248652-626-1759023621486-1248652-626-1759023621486-1248652-626-1759023621486-1248652-626-1759023621486-1248652-626-1759023621486-1248652-626-1759023621486-1248652-626-1759023621486-1248652-626-1759023621486-12486v52-626-1759023621486-12486"/>
-    <list id="n2_rh4e" name="items" xy="50,1710" size="980,64" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960paul5">
-      <item name="exit" title="Return">
+    <richtext id="n1_rh4e" name="info" xy="22,61" size="980,590" fontSize="30" color="#ffffff" autoSize="shrink" autoClearText="true" text="免费游戏：152-626-1759023621486-1248652-626-1759023621486-1248652-626-1759023621486-1248652-626-1759023621486-1248652-626-1759023621486-1248652-626-1759023621486-1248652-626-1759023621486-1248652-626-1759023621486-1248652-626-1759023621486-1248652-626-1759023621486-12486v52-626-1759023621486-12486"/>
+    <list id="n2_rh4e" name="items" xy="22,663" size="980,64" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960paul5">
+      <item title="Return" name="exit">
         <property target="title" propertyId="0" value="Return"/>
       </item>
     </list>

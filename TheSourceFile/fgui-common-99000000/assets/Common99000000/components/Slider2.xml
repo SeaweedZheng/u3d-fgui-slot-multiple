@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="800,33" mask="n0_nimz">
+  <displayList>
+    <image id="n0_nimz" name="n0" src="lxzz4" fileName="images/launch_loading_mask.png" xy="0,0" size="800,33">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <image id="n3_x9qz" name="bar" src="lxzz6" fileName="images/launch_loading_fg.png" xy="-74,0" size="1000,33"/>
+  </displayList>
+  <transition name="t0" autoPlay="true" autoPlayRepeat="-1">
+    <item time="0" type="XY" target="n3_x9qz" tween="true" startValue="-74,0" endValue="0,0" duration="12" ease="Linear" repeat="-1"/>
+  </transition>
+</component>

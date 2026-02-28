@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <displayList>
+    <component id="n1_paul" name="base" src="paul3" fileName="moudules/MDPageBase.xml" xy="1,-1">
+      <relation target="" sidePair="width-width,height-height"/>
+      <property target="title" propertyId="0" value="/Admin"/>
+    </component>
+    <list id="n12_ggbp" name="tab1" xy="49,126" size="980,1670" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960paul7">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <item title="Install Ver:" name="installVer">
+        <property target="title" propertyId="0" value="Install Ver:"/>
+        <property target="value" propertyId="0" value="1.0.0/1.0.2"/>
+      </item>
+      <item title="Current Software Ver:" name="sofwareVer">
+        <property target="title" propertyId="0" value="Current Software Ver:"/>
+        <property target="value" propertyId="0" value="1.0.0/1.0.4"/>
+      </item>
+      <item title="er200_release_machine_20250923172835" name="appKey">
+        <property target="title" propertyId="0" value="App Key:"/>
+        <property target="value" propertyId="0" value="er200_release_machine_20250923172835"/>
+      </item>
+      <item title="hf_release_dndroid_20250926191117" name="hotfixKey">
+        <property target="title" propertyId="0" value="Hotfix Key:"/>
+        <property target="value" propertyId="0" value="hf_release_dndroid_20250926191117"/>
+      </item>
+      <item title="http://8.138.140.180:8134" name="severAddress">
+        <property target="title" propertyId="0" value="Server Address:"/>
+        <property target="value" propertyId="0" value="http://8.138.140.180:8134"/>
+      </item>
+      <item title="http://" name="autoHofixAddress">
+        <property target="title" propertyId="0" value="Auto Hotfix Address:"/>
+        <property target="value" propertyId="0" value="http://"/>
+      </item>
+      <item title="ON" name="isDebugLog">
+        <property target="title" propertyId="0" value="Is Debug Log:"/>
+        <property target="value" propertyId="0" value="ON"/>
+      </item>
+      <item title="ON" name="enableDebugTool">
+        <property target="title" propertyId="0" value="Use Debug Tool:"/>
+        <property target="value" propertyId="0" value="ON"/>
+      </item>
+      <item title="ON" name="enableReporterPage">
+        <property target="title" propertyId="0" value="Use Reporter Page:"/>
+        <property target="value" propertyId="0" value="ON"/>
+      </item>
+      <item title="OFF" name="pauseAtPopupFreeSpinTrigger">
+        <property target="title" propertyId="0" value="Pause At Popup Free Spin Trigger:"/>
+        <property target="value" propertyId="0" value="OFF"/>
+      </item>
+      <item title="OFF" name="pauseAtPopupFreeSpinResult">
+        <property target="title" propertyId="0" value="Pause At Popup Free Spin Result:"/>
+        <property target="value" propertyId="0" value="OFF"/>
+      </item>
+      <item title="OFF" name="pauseAtPopupJackpotGame">
+        <property target="title" propertyId="0" value="Pause At Popup Jackpot Game:"/>
+        <property target="value" propertyId="0" value="OFF"/>
+      </item>
+      <item title="OFF" name="pauseAtPopupJackpotOnline">
+        <property target="title" propertyId="0" value="Pause At Popup Jackpot Online:"/>
+        <property target="value" propertyId="0" value="OFF"/>
+      </item>
+      <item title="OFF" name="isUseAllConsolePage">
+        <property target="title" propertyId="0" value="Display All Console Pages:"/>
+        <property target="value" propertyId="0" value="OFF"/>
+      </item>
+      <item title="OFF" name="isUseMqttDefault">
+        <property target="title" propertyId="0" value="Use MQTT Default Configuration:"/>
+        <property target="value" propertyId="0" value="OFF"/>
+      </item>
+      <item title="Touch" name="fguiInputMethod">
+        <property target="title" propertyId="0" value="Fgui input method:"/>
+        <property target="value" propertyId="0" value="Touch"/>
+      </item>
+      <item title="Next Page" name="next">
+        <property target="title" propertyId="0" value="Next Page"/>
+        <property target="value" propertyId="0" value=""/>
+      </item>
+      <item title="Return" name="exit">
+        <property target="title" propertyId="0" value="Return"/>
+        <property target="value" propertyId="0" value=""/>
+      </item>
+    </list>
+    <list id="n13_ydll" name="tab2" xy="50,130" size="980,1670" visible="false" overflow="scroll" lineGap="10" defaultItem="ui://tdkeq960paul7">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <item title="OFF" name="pauseAtPopupGameLoadingOnce">
+        <property target="title" propertyId="0" value="Pause At Game Loading Page Once:"/>
+        <property target="value" propertyId="0" value="OFF"/>
+      </item>
+      <item title="OFF" name="deletePanel">
+        <property target="title" propertyId="0" value="Destroy Panel At Startup:"/>
+        <property target="value" propertyId="0" value="OFF"/>
+      </item>
+      <item title="OFF" name="deleteReels">
+        <property target="title" propertyId="0" value="Destroy Reels At Startup:"/>
+        <property target="value" propertyId="0" value="OFF"/>
+      </item>
+      <item title="OK" name="destroyPanel">
+        <property target="title" propertyId="0" value="Destroy Panel:"/>
+        <property target="value" propertyId="0" value="Confirm"/>
+      </item>
+      <item title="OK" name="destroyReels">
+        <property target="title" propertyId="0" value="Destroy Reels:"/>
+        <property target="value" propertyId="0" value="Confirm"/>
+      </item>
+      <item title="Prev Page" name="prev">
+        <property target="title" propertyId="0" value="Prev Page"/>
+        <property target="value" propertyId="0" value=""/>
+      </item>
+      <item title="Next Page" name="next">
+        <property target="title" propertyId="0" value="Next Page"/>
+        <property target="value" propertyId="0" value=""/>
+      </item>
+      <item title="Return" name="exit">
+        <property target="title" propertyId="0" value="Return"/>
+        <property target="value" propertyId="0" value=""/>
+      </item>
+    </list>
+    <list id="n14_ydll" name="footer" xy="174,1766" size="732,24" touchable="false" layout="row" overflow="scroll" colGap="20" defaultItem="ui://tdkeq960ydllx" align="center" vAlign="middle">
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>

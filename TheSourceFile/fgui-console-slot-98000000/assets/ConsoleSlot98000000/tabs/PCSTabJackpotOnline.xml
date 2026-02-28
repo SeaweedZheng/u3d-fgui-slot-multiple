@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1178">
+  <displayList>
+    <component id="n32_os7y" name="jackpotOnline" src="cwuo2d" fileName="moudules/ItemTitleSwitch.xml" xy="0,0" group="n27_cwuo">
+      <property target="key" propertyId="0" value="Jackpot Online:"/>
+    </component>
+    <component id="n33_os7y" name="jackpotScoreRate" src="glrj1n" fileName="moudules/ItemTitleName.xml" xy="0,76" group="n27_cwuo">
+      <property target="key" propertyId="0" value="Jackpot Score Rate:"/>
+      <property target="value" propertyId="0" value="0.06"/>
+    </component>
+    <component id="n34_os7y" name="jackpotPercent" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,152" group="n27_cwuo">
+      <property target="key" propertyId="0" value="Jackpot Percent:"/>
+      <property target="value" propertyId="0" value="0.005"/>
+    </component>
+    <group id="n27_cwuo" name="left" xy="0,0" size="540,228" advanced="true"/>
+  </displayList>
+</component>

@@ -1,13 +1,13 @@
 {
   "name": "Total",
-  "updated_at": 1770467532306,
+  "updated_at": 1772284573087,
   "hotfix_key": "hf_debug_android_20251216143338",
-  "hotfix_version": "1.0.183",
-  "hash": "c0a88c6a63a3dbff42b248fc67e0878d",
+  "hotfix_version": "1.0.222",
+  "hash": "a0ea39bd862281f380d6f3695da9bac3",
   "asset_bundle": {
     "manifest": {
-      "hash": "899eec93eff319381ccbdcd41efd903c",
-      "size_bytes": 8558
+      "hash": "363259bc205697f342972198dc906734",
+      "size_bytes": 8520
     },
     "bundles": {
       "_common/game maker/abs/g152/game icon/game avatar 152.unity3d": {
@@ -23,8 +23,8 @@
         "size_bytes": 1177
       },
       "_commons/common 99000000/fguis.unity3d": {
-        "hash": "5d168416a00ac94ced43dd7a1157dd0b",
-        "size_bytes": 2514
+        "hash": "9a222a1cf3292ef4bf04d4653350c7f4",
+        "size_bytes": 7354
       },
       "_commons/common 99000000/prefabs/gs/gs manager.unity3d": {
         "hash": "1a8cfcc7995a4a06fd9142b3135ab66c",
@@ -43,8 +43,8 @@
         "size_bytes": 1769
       },
       "_commons/game maker/abs/datas/tmg_page.unity3d": {
-        "hash": "15b6e9f461ad56f02ed42eea4b914d57",
-        "size_bytes": 1120
+        "hash": "1611d2b44db7a23c9ec672ed300975f3",
+        "size_bytes": 1162
       },
       "_commons/game maker/abs/g152/game_info_g152.unity3d": {
         "hash": "2999eae6c8a27744915e5be2aceebe2f",
@@ -154,45 +154,49 @@
         "hash": "d5c7e322fcfc33f97ff17a81dca7521e",
         "size_bytes": 34889
       },
-      "consoles/console coin pusher 01/abs/i18ns/i18nconsolecoinpusher01.unity3d": {
-        "hash": "5f955c83bcc02c70fb9792886a6d9565",
-        "size_bytes": 13078
+      "consoles/console coin pusher 97000000/abs/i18ns/i18nconsolecoinpusher01.unity3d": {
+        "hash": "ae95e02ebae0e05c1987d85b3bf827d4",
+        "size_bytes": 13190
       },
-      "consoles/console coin pusher 01/abs/i18ns/language_cn_console_coin_pusher_01.unity3d": {
-        "hash": "6a8760440cbddd55f7bcecc746010f00",
-        "size_bytes": 4354
+      "consoles/console coin pusher 97000000/abs/i18ns/language_cn_console_coin_pusher_01.unity3d": {
+        "hash": "673dc58d9592fa94f4e0a81fc4740ab7",
+        "size_bytes": 4966
       },
-      "consoles/console coin pusher 01/abs/i18ns/language_en_console_coin_pusher_01.unity3d": {
-        "hash": "7faff734932ff3bc389068098e379bb9",
-        "size_bytes": 4065
+      "consoles/console coin pusher 97000000/abs/i18ns/language_en_console_coin_pusher_01.unity3d": {
+        "hash": "28c3f6f750468f53e3627f5558cb7a50",
+        "size_bytes": 5164
       },
-      "consoles/console coin pusher 01/abs/i18ns/language_tw_console_coin_pusher_01.unity3d": {
-        "hash": "6af5024b7f6839365c584a8de0c8def2",
-        "size_bytes": 4116
+      "consoles/console coin pusher 97000000/abs/i18ns/language_tw_console_coin_pusher_01.unity3d": {
+        "hash": "bb2c93ace5d13c2d324fe02c0eed15ed",
+        "size_bytes": 5007
       },
-      "consoles/console coin pusher 01/fguis.unity3d": {
-        "hash": "19332aeb73f3aa32bdd6b9f97c0f46a7",
-        "size_bytes": 12318
+      "consoles/console coin pusher 97000000/fguis.unity3d": {
+        "hash": "d56c0d3aefad06fba15ab8d7cd23b338",
+        "size_bytes": 12666
       },
-      "consoles/console/abs/i18ns/i18nconsole001.unity3d": {
-        "hash": "1d32766e112c0c8d727f60e6c5d9c778",
-        "size_bytes": 11945
+      "consoles/console coin pusher 97001000/fguis.unity3d": {
+        "hash": "2709746c733e6fb56452b48994813e05",
+        "size_bytes": 12535
       },
-      "consoles/console/abs/i18ns/language_cn_console_01.unity3d": {
-        "hash": "1c25b349626bba9080cc2ab4515b0e76",
-        "size_bytes": 6743
+      "consoles/console slot 98000000/abs/i18ns/i18nconsole001.unity3d": {
+        "hash": "dd5b4d10dbe5161ad0693f2bb098850f",
+        "size_bytes": 11955
       },
-      "consoles/console/abs/i18ns/language_en_console_01.unity3d": {
-        "hash": "e0618a71a9816ed6b4cf38b7df7ec869",
-        "size_bytes": 7071
+      "consoles/console slot 98000000/abs/i18ns/language_cn_console_01.unity3d": {
+        "hash": "dbf0f24b66f28c10e9ab154e19f5090d",
+        "size_bytes": 6756
       },
-      "consoles/console/abs/i18ns/language_tw_console_01.unity3d": {
-        "hash": "a796cbfac2cf540dde4b3ea19f495ccd",
-        "size_bytes": 6776
+      "consoles/console slot 98000000/abs/i18ns/language_en_console_01.unity3d": {
+        "hash": "b2e033bb601defdc4d3ae9c5e5c8445f",
+        "size_bytes": 7083
       },
-      "consoles/console/fguis.unity3d": {
-        "hash": "bd3ee4611821c9f6372423530f4158ba",
-        "size_bytes": 325893
+      "consoles/console slot 98000000/abs/i18ns/language_tw_console_01.unity3d": {
+        "hash": "15553631d3fae232f87244920d60513b",
+        "size_bytes": 6783
+      },
+      "consoles/console slot 98000000/fguis.unity3d": {
+        "hash": "1df5600430b6e79a6837fa17b194fd27",
+        "size_bytes": 399005
       },
       "games/coin pusher emperors rein 200/abs/datas/slot_machine_config_bouns1.unity3d": {
         "hash": "1d2c4a977b07cdbf0057143f817afbcb",
@@ -363,16 +367,16 @@
         "size_bytes": 570617
       },
       "games/coin pusher emperors rein 200/prefabs/game controller/bonus1 controller.unity3d": {
-        "hash": "70bd5c0b460360e870810f72f250fd14",
-        "size_bytes": 3092
+        "hash": "ab0408f94d8d56b4ee869e5794e3237d",
+        "size_bytes": 2991
       },
       "games/coin pusher emperors rein 200/prefabs/game controller/push game main controller.unity3d": {
-        "hash": "f415e2b2bb001dcba52bdd8219bac0ad",
-        "size_bytes": 6145
+        "hash": "7cc1bd615578a243a2b1e9427a5953b1",
+        "size_bytes": 5972
       },
       "games/coin pusher emperors rein 200/prefabs/game controller/slot game main controller.unity3d": {
-        "hash": "d790c0ed5e3dfa8c521b2e1a90343688",
-        "size_bytes": 4383
+        "hash": "77f46b9cec3ae8b985ebc3f6161ec05d",
+        "size_bytes": 4281
       },
       "games/coin pusher emperors rein 200/prefabs/pageergamemain/anchornpcqiang.unity3d": {
         "hash": "57baa650ea952307865d511e360c91b7",
@@ -1058,21 +1062,9 @@
         "hash": "7eae1929416fc2b0c06dcc80ab7144ed",
         "size_bytes": 536126
       },
-      "games/panel coin pusher 02/fguis.unity3d": {
-        "hash": "89b28af011da4b908ba9bbda62cf2554",
-        "size_bytes": 482816
-      },
       "games/panel coin pusher 1001000/fguis.unity3d": {
         "hash": "87cff14985cad1f0d21a41bf5d566025",
         "size_bytes": 155236
-      },
-      "games/panel slot 01/fguis.unity3d": {
-        "hash": "fc49500350b3e3fb9b1404646973556d",
-        "size_bytes": 202239
-      },
-      "games/panel slot 01/prefabs/slot_btn_spin.unity3d": {
-        "hash": "265f8f7b1c6a390183fb7939e74fb2e4",
-        "size_bytes": 57398
       },
       "games/panel slot 1000000/fguis.unity3d": {
         "hash": "9c61f70cdfb57f928cf0bfc987842732",
@@ -1082,28 +1074,32 @@
         "hash": "87e07a59c8c9a816f176fdbe171705fe",
         "size_bytes": 323872
       },
-      "lobbys/lobby01/fguis.unity3d": {
-        "hash": "d91cdffd4de0e0aa6374ff2170bd166c",
-        "size_bytes": 1477909
+      "lobbys/lobby 89000000/fguis.unity3d": {
+        "hash": "9b8e48869bd8a9298656da2e47ae38a9",
+        "size_bytes": 1478044
       },
-      "lobbys/lobby01/sounds/bgm_lobby(slots3).unity3d": {
-        "hash": "a7843585acadcb4ac3e6fe7c657c0b86",
-        "size_bytes": 838710
+      "lobbys/lobby 89000000/sounds/bgm_lobby(slots3).unity3d": {
+        "hash": "8204cc459271b2bedd5a657ddd79a0d9",
+        "size_bytes": 838706
       },
-      "lobbys/lobby01/sounds/bgm_lobby.unity3d": {
-        "hash": "19aaffd986cda4a9cca852b063db23c3",
-        "size_bytes": 890499
+      "lobbys/lobby 89000000/sounds/bgm_lobby.unity3d": {
+        "hash": "381cdc4c8752a300a5e53e3f258e4ffd",
+        "size_bytes": 890504
       },
-      "lobbys/lobby01/sounds/ui_game_select.unity3d": {
-        "hash": "a2b3abe21ea54386d2ba64fc372aa8c2",
-        "size_bytes": 202917
+      "lobbys/lobby 89000000/sounds/ui_game_select.unity3d": {
+        "hash": "9d5028cad54896fc672f55361af7f714",
+        "size_bytes": 202926
       }
     }
   },
   "asset_backup": {
+    "Games/Coin Pusher Rich Legend 2001000/Images/pop_loading_bg.png": {
+      "hash": "fdebf79dc81151c28b1a6aa1ee86db78",
+      "size_bytes": 1043553
+    },
     "Lobbys/Game Info/lobby_games.json": {
-      "hash": "69a8694e8135101e5c24be257be14653",
-      "size_bytes": 2332
+      "hash": "a24a271a80afc28c37f90ab814187bb9",
+      "size_bytes": 2571
     },
     "Lobbys/Game Info/G152/Game Avatar/Game Avatar G152.png": {
       "hash": "0c68e0540f633f3298a7bf03c28a2c7b",
@@ -1164,13 +1160,13 @@
   },
   "asset_dll": {
     "Base.dll.bytes": {
-      "hash": "04e8807e254d3bce8f97517411def54b",
-      "size_bytes": 173568,
+      "hash": "5dc102cbfc77e946264a786f5ed030b0",
+      "size_bytes": 179712,
       "level": 0
     },
     "Main.dll.bytes": {
-      "hash": "bcd360cd791aa2bec37c9d00f8745526",
-      "size_bytes": 1196032,
+      "hash": "36b443739158ecdc28a0f43a3947fe7c",
+      "size_bytes": 1248256,
       "level": 1
     }
   },

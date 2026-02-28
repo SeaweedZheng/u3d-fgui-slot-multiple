@@ -42,7 +42,6 @@
     <component id="l0fl19" name="ItemKeyText6Jp.xml" path="/components/"/>
     <component id="l0fl1a" name="PageConsoleErrorRecord.xml" path="/" exported="true"/>
     <component id="rh4e1c" name="PageConsoleEventRecord.xml" path="/" exported="true"/>
-    <component id="rh4e1d" name="ItemKeyText2Event.xml" path="/components/" exported="true"/>
     <component id="rh4e1e" name="Record.xml" path="/moudules/" exported="true"/>
     <component id="rh4e1f" name="PopupConsoleRecord.xml" path="/" exported="true"/>
     <component id="rh4e1g" name="ItemKeyText2Error.xml" path="/components/" exported="true"/>
@@ -51,6 +50,13 @@
     <component id="payl1j" name="ItemKeyText6JpTitle.xml" path="/components/"/>
     <component id="n3fx1k" name="ButtomItem.xml" path="/components/"/>
     <component id="d84j1l" name="ItemKeyText6Titles.xml" path="/components/"/>
+    <component id="ze6n1m" name="Footer.xml" path="/components/"/>
+    <component id="ze6n1o" name="ItemKeyText3Event.xml" path="/components/" exported="true"/>
+    <component id="ze6n1p" name="ItemSelect04.xml" path="/components/"/>
+    <component id="ze6n1q" name="BG_1080_1920.xml" path="/components/"/>
+    <image id="j0k61r" name="icon_arrow_36.png" path="/images/icons/"/>
+    <image id="j0k61s" name="circle_16.png" path="/images/icons/"/>
+    <component id="j0k61t" name="ItemState1.xml" path="/components/"/>
   </resources>
-  <publish name="" path="../../Assets/GameRes/Games/Console Coin Pusher 01/FGUIs" packageCount="2"/>
+  <publish name="" path="../../Assets/AstBundle/Consoles/Console Coin Pusher 97001000/FGUIs" packageCount="2"/>
 </packageDescription>

@@ -11,5 +11,5 @@
     <component id="k1481" name="Slider2.xml" path="/Components/"/>
     <component id="k1480" name="logo.xml" path="/Components/"/>
   </resources>
-  <publish name=""/>
+  <publish name="" path="../../Assets/Resources/Natives/Native 100000000/FGUIs" packageCount="2"/>
 </packageDescription>

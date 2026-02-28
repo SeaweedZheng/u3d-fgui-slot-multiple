@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920" overflow="hidden">
+  <displayList>
+    <image id="n8_ml44" name="n8" src="ml44o" fileName="images/bg/Base Games BG.png" xy="-56,0" size="1192,1920" aspect="true"/>
+    <image id="n2_ml44" name="n2" src="ml44d" fileName="images/bg/Login Slot Thumbnails.png" xy="28,705"/>
+    <list id="n1_ml44" name="games" xy="16,1300" size="1047,446" layout="row" overflow="scroll" scroll="horizontal" scrollBarFlags="2" colGap="10" defaultItem="ui://rc5uleh0ml448" autoItemSize="false" align="center" vAlign="bottom" autoClearItems="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <component id="n9_ml44" name="jpOnlineGrand" src="gvge3i" fileName="moudules/JackpotOnlineGrand.xml" xy="99,58"/>
+    <component id="n10_ml44" name="jpOnlineMajor" src="gvge3j" fileName="moudules/JackpotOnlineMajor.xml" xy="261,324" size="558,170"/>
+    <component id="n11_ml44" name="jpOnlineMini" src="gvge3k" fileName="moudules/JackpotOnlineMini.xml" xy="550,516"/>
+    <component id="n12_ml44" name="jpOnlineMinor" src="gvge3l" fileName="moudules/JackpotOnlineMinor.xml" xy="100,514"/>
+    <component id="n32_zbsa" name="sidebar" src="zbsa2g" fileName="moudules/Sidebar.xml" xy="-86,1302"/>
+    <component id="n33_zbsa" name="btnBackToTop" src="zbsa2k" fileName="components/ButtonBackToTop.xml" xy="1001,1222"/>
+    <component id="n22_zbsa" name="buttom" src="zbsa1t" fileName="moudules/NavigationButtom.xml" xy="0,1838"/>
+    <image id="n30_zbsa" name="n30" src="zbsa28" fileName="images/logal/logo_mf.png" xy="540,1838" pivot="0.5,0.5" anchor="true" scale="0.4,0.4"/>
+  </displayList>
+  <transition name="jpGrandMove" autoPlay="true">
+    <item time="0" type="XY" target="n9_ml44" tween="true" startValue="99,58" endValue="99,80" duration="42" ease="Linear" repeat="-1" yoyo="true"/>
+  </transition>
+  <transition name="jpMajor" autoPlay="true">
+    <item time="0" type="XY" target="n10_ml44" tween="true" startValue="261,324" endValue="261,360" duration="42" ease="Linear" repeat="-1" yoyo="true"/>
+  </transition>
+  <transition name="jpMinor" autoPlay="true">
+    <item time="0" type="XY" target="n12_ml44" tween="true" startValue="100,514" endValue="100,540" duration="42" repeat="-1" yoyo="true"/>
+  </transition>
+  <transition name="jpMini" autoPlay="true">
+    <item time="0" type="XY" target="n11_ml44" tween="true" startValue="550,516" endValue="550,540" duration="42" repeat="-1" yoyo="true"/>
+  </transition>
+</component>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="56,69">
+  <displayList>
+    <text id="n0_gvge" name="step1_0" xy="0,0" size="56,69" font="ui://rc5uleh0gvge3h" fontSize="12" text="1"/>
+    <text id="n1_gvge" name="step2_0" xy="0,-23" size="56,69" visible="false" font="ui://rc5uleh0gvge3h" fontSize="12" text="1"/>
+    <text id="n2_gvge" name="step2_1" xy="0,46" size="56,69" visible="false" font="ui://rc5uleh0gvge3h" fontSize="12" text="2"/>
+    <text id="n3_gvge" name="step3_0" xy="0,-46" size="56,69" visible="false" font="ui://rc5uleh0gvge3h" fontSize="12" text="1"/>
+    <text id="n4_gvge" name="step3_1" xy="0,23" size="56,69" visible="false" font="ui://rc5uleh0gvge3h" fontSize="12" text="2"/>
+    <text id="n5_gvge" name="step4_0" xy="0,0" size="56,69" visible="false" font="ui://rc5uleh0gvge3h" fontSize="12" text="2"/>
+  </displayList>
+</component>

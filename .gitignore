@@ -132,3 +132,11 @@ HybridCLRData/*
 
 
 /Assets/Scripts/VersionCheck/ModuleDownloadManager.cs
+
+
+
+# 屏蔽全部打包文件
+
+Assets/StreamingAssetsTmp/*
+
+

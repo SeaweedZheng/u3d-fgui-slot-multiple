@@ -15,6 +15,7 @@ namespace CoinPusherRichLegend2001000
         public const string resName = "PageGameMain";
 
 
+
         protected override void OnInit()
         {
 

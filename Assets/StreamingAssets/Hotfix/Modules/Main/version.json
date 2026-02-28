@@ -1,75 +1,296 @@
 {
   "name": "Main",
-  "updated_at": 1770467532306,
+  "updated_at": 1772284573087,
   "hotfix_key": "hf_debug_android_20251216143338",
-  "hotfix_version": "1.0.183",
-  "hash": "e4e3261b8030bc855b4d2f3e203ff96f",
+  "hotfix_version": "1.0.222",
+  "hash": "6c97a502583df7fe00f55382fb47cdd4",
   "asset_bundle": {
     "manifest": {
-      "hash": "899eec93eff319381ccbdcd41efd903c",
-      "size_bytes": 8558
+      "hash": "363259bc205697f342972198dc906734",
+      "size_bytes": 8520
     },
     "bundles": {
-      "_common/game maker/abs/g152/game icon/game avatar 152.unity3d": {
-        "hash": "76532747e39c210873dd0e7203a91cb4",
-        "size_bytes": 60486
+      "_commons/common 99000000/abs/datas/console_display_permissions.unity3d": {
+        "hash": "0f5ef98a4a43676664aee756ab188f23",
+        "size_bytes": 1177
       },
-      "_common/game maker/abs/g300/game icon/game avatar 300.unity3d": {
-        "hash": "11374e2c790b09b8a6f9443bef5c62c5",
-        "size_bytes": 12089
+      "_commons/common 99000000/fguis.unity3d": {
+        "hash": "9a222a1cf3292ef4bf04d4653350c7f4",
+        "size_bytes": 7354
       },
-      "consoles/console coin pusher 01/abs/i18ns/i18nconsolecoinpusher01.unity3d": {
-        "hash": "5f955c83bcc02c70fb9792886a6d9565",
-        "size_bytes": 13078
+      "_commons/common 99000000/prefabs/gs/gs manager.unity3d": {
+        "hash": "1a8cfcc7995a4a06fd9142b3135ab66c",
+        "size_bytes": 2021
       },
-      "consoles/console coin pusher 01/abs/i18ns/language_cn_console_coin_pusher_01.unity3d": {
-        "hash": "6a8760440cbddd55f7bcecc746010f00",
-        "size_bytes": 4354
+      "_commons/common 99000000/prefabs/gs/gssource.unity3d": {
+        "hash": "2434e774b578071053d03f3b8d34f61d",
+        "size_bytes": 2375
       },
-      "consoles/console coin pusher 01/abs/i18ns/language_en_console_coin_pusher_01.unity3d": {
-        "hash": "7faff734932ff3bc389068098e379bb9",
-        "size_bytes": 4065
+      "_commons/game maker/abs/datas/error_code.unity3d": {
+        "hash": "4d4954bf7e65747c7dca677297b8323f",
+        "size_bytes": 998
       },
-      "consoles/console coin pusher 01/abs/i18ns/language_tw_console_coin_pusher_01.unity3d": {
-        "hash": "6af5024b7f6839365c584a8de0c8def2",
-        "size_bytes": 4116
+      "_commons/game maker/abs/datas/tmg_custom_button.unity3d": {
+        "hash": "3f00be82446b50697364d7a663abb89d",
+        "size_bytes": 1769
       },
-      "consoles/console coin pusher 01/fguis.unity3d": {
-        "hash": "19332aeb73f3aa32bdd6b9f97c0f46a7",
-        "size_bytes": 12318
+      "_commons/game maker/abs/datas/tmg_page.unity3d": {
+        "hash": "1611d2b44db7a23c9ec672ed300975f3",
+        "size_bytes": 1162
       },
-      "consoles/console/abs/i18ns/i18nconsole001.unity3d": {
-        "hash": "1d32766e112c0c8d727f60e6c5d9c778",
-        "size_bytes": 11945
+      "_commons/game maker/abs/g152/game_info_g152.unity3d": {
+        "hash": "2999eae6c8a27744915e5be2aceebe2f",
+        "size_bytes": 1330
       },
-      "consoles/console/abs/i18ns/language_cn_console_01.unity3d": {
-        "hash": "1c25b349626bba9080cc2ab4515b0e76",
-        "size_bytes": 6743
+      "_commons/game maker/abs/g152/game_info_gxxx.unity3d": {
+        "hash": "6ce7299562dfd8bf21aa97d6ab2dc4d6",
+        "size_bytes": 1391
       },
-      "consoles/console/abs/i18ns/language_en_console_01.unity3d": {
-        "hash": "e0618a71a9816ed6b4cf38b7df7ec869",
-        "size_bytes": 7071
+      "_commons/game maker/abs/g200/game_info_g200.unity3d": {
+        "hash": "9e6ddc16b842cc9364abc337de0da34c",
+        "size_bytes": 1350
       },
-      "consoles/console/abs/i18ns/language_tw_console_01.unity3d": {
-        "hash": "a796cbfac2cf540dde4b3ea19f495ccd",
-        "size_bytes": 6776
+      "_commons/game maker/abs/g200/tmg_mock_gm_200.unity3d": {
+        "hash": "8807fe4b6eef55f170749c233e99e8a2",
+        "size_bytes": 1159
       },
-      "consoles/console/fguis.unity3d": {
-        "hash": "bd3ee4611821c9f6372423530f4158ba",
-        "size_bytes": 325893
+      "_commons/game maker/abs/g2001000/game_info_g2001000.unity3d": {
+        "hash": "de19b927d09232034f939ae0f999a7c3",
+        "size_bytes": 1206
+      },
+      "_commons/game maker/abs/g2001000/tmg_mock_gm_2001000.unity3d": {
+        "hash": "f3721bf21d571f5cb3c2425048bb4bb8",
+        "size_bytes": 1214
+      },
+      "_commons/game maker/abs/g2001001/game_info_g2001001.unity3d": {
+        "hash": "f96edd8f799939f11231dcf9f86e017d",
+        "size_bytes": 1206
+      },
+      "_commons/game maker/abs/g2001001/tmg_mock_gm_2001001.unity3d": {
+        "hash": "0e6e832d821066d7b9e24ab5aed06685",
+        "size_bytes": 1213
+      },
+      "_commons/game maker/abs/g300/game_info_g300.unity3d": {
+        "hash": "e7fbef8da95fb47de29e6c76c4ad8787",
+        "size_bytes": 1365
+      },
+      "_commons/game maker/abs/g300/tmg_mock_gm_300.unity3d": {
+        "hash": "a8405af026e978f1bfc8cba344f00eef",
+        "size_bytes": 1116
+      },
+      "_commons/game maker/abs/g4000/game_info_g4000.unity3d": {
+        "hash": "091cdc664b99ddbd5fce0162dc58af41",
+        "size_bytes": 1317
+      },
+      "_commons/game maker/abs/g4000/tmg_mock_gm_4000.unity3d": {
+        "hash": "69bd83cf2e324135c3234ef675656d04",
+        "size_bytes": 1136
+      },
+      "_commons/game maker/abs/g4001/game_info_g4001.unity3d": {
+        "hash": "65837f2002645fd4f2ca782627255005",
+        "size_bytes": 1327
+      },
+      "_commons/game maker/abs/g4001/tmg_mock_gm_4001.unity3d": {
+        "hash": "884e2e655540d0337d03875be821fb4b",
+        "size_bytes": 1115
+      },
+      "_commons/game maker/prefabs/instance.unity3d": {
+        "hash": "e18c6915dd00bff393c04a2877c6d4dc",
+        "size_bytes": 6678
+      },
+      "_commons/game maker/prefabs/machine controller.unity3d": {
+        "hash": "805ae34ecf3ad58c6967fb8524c66e3f",
+        "size_bytes": 3228
+      },
+      "_commons/game maker/sounds/basebackground.unity3d": {
+        "hash": "824e33184ecab79d564c79ef2e953e25",
+        "size_bytes": 766136
+      },
+      "_commons/game maker/sounds/machine_coin_in.unity3d": {
+        "hash": "a64b04312f43a6493e8805a6e1e6eada",
+        "size_bytes": 41513
+      },
+      "_commons/game maker/sounds/ui_betting_down.unity3d": {
+        "hash": "924df79a2f0c04a2078658e0cbd5ef35",
+        "size_bytes": 57121
+      },
+      "_commons/game maker/sounds/ui_betting_max.unity3d": {
+        "hash": "653d6f7ec1093ae39340074960c7f87c",
+        "size_bytes": 80056
+      },
+      "_commons/game maker/sounds/ui_betting_up.unity3d": {
+        "hash": "8040ad33b0f873342f0bde088ebe0d74",
+        "size_bytes": 62164
+      },
+      "_commons/game maker/sounds/ui_button_normal.unity3d": {
+        "hash": "d180a7655c3e21cd05339ccf945d92b9",
+        "size_bytes": 79655
+      },
+      "_commons/game maker/sounds/ui_button_tab.unity3d": {
+        "hash": "fcedf9b8af6634abe1b750c7c7ba63bc",
+        "size_bytes": 11728
+      },
+      "_commons/game maker/sounds/ui_popup_close.unity3d": {
+        "hash": "11b718e7cacffe40af2082aa74e00107",
+        "size_bytes": 72798
+      },
+      "_commons/game maker/sounds/ui_popup_open.unity3d": {
+        "hash": "2014716b19cf0b3b87b630246cdb9808",
+        "size_bytes": 68307
+      },
+      "_commons/game maker/sounds/ui_spin_auto.unity3d": {
+        "hash": "317cbbff549f53b451f36c84a9d6ef35",
+        "size_bytes": 75819
+      },
+      "_commons/game maker/sounds/ui_spin_start.unity3d": {
+        "hash": "d5c7e322fcfc33f97ff17a81dca7521e",
+        "size_bytes": 34889
+      },
+      "consoles/console coin pusher 97000000/abs/i18ns/i18nconsolecoinpusher01.unity3d": {
+        "hash": "ae95e02ebae0e05c1987d85b3bf827d4",
+        "size_bytes": 13190
+      },
+      "consoles/console coin pusher 97000000/abs/i18ns/language_cn_console_coin_pusher_01.unity3d": {
+        "hash": "673dc58d9592fa94f4e0a81fc4740ab7",
+        "size_bytes": 4966
+      },
+      "consoles/console coin pusher 97000000/abs/i18ns/language_en_console_coin_pusher_01.unity3d": {
+        "hash": "28c3f6f750468f53e3627f5558cb7a50",
+        "size_bytes": 5164
+      },
+      "consoles/console coin pusher 97000000/abs/i18ns/language_tw_console_coin_pusher_01.unity3d": {
+        "hash": "bb2c93ace5d13c2d324fe02c0eed15ed",
+        "size_bytes": 5007
+      },
+      "consoles/console coin pusher 97000000/fguis.unity3d": {
+        "hash": "d56c0d3aefad06fba15ab8d7cd23b338",
+        "size_bytes": 12666
+      },
+      "consoles/console coin pusher 97001000/fguis.unity3d": {
+        "hash": "2709746c733e6fb56452b48994813e05",
+        "size_bytes": 12535
+      },
+      "consoles/console slot 98000000/abs/i18ns/i18nconsole001.unity3d": {
+        "hash": "dd5b4d10dbe5161ad0693f2bb098850f",
+        "size_bytes": 11955
+      },
+      "consoles/console slot 98000000/abs/i18ns/language_cn_console_01.unity3d": {
+        "hash": "dbf0f24b66f28c10e9ab154e19f5090d",
+        "size_bytes": 6756
+      },
+      "consoles/console slot 98000000/abs/i18ns/language_en_console_01.unity3d": {
+        "hash": "b2e033bb601defdc4d3ae9c5e5c8445f",
+        "size_bytes": 7083
+      },
+      "consoles/console slot 98000000/abs/i18ns/language_tw_console_01.unity3d": {
+        "hash": "15553631d3fae232f87244920d60513b",
+        "size_bytes": 6783
+      },
+      "consoles/console slot 98000000/fguis.unity3d": {
+        "hash": "1df5600430b6e79a6837fa17b194fd27",
+        "size_bytes": 399005
+      },
+      "games/panel coin pusher 1001000/fguis.unity3d": {
+        "hash": "87cff14985cad1f0d21a41bf5d566025",
+        "size_bytes": 155236
+      },
+      "games/panel slot 1000000/fguis.unity3d": {
+        "hash": "9c61f70cdfb57f928cf0bfc987842732",
+        "size_bytes": 159035
+      },
+      "games/panel slot 1000000/prefabs/slot btn spin.unity3d": {
+        "hash": "87e07a59c8c9a816f176fdbe171705fe",
+        "size_bytes": 323872
+      },
+      "lobbys/lobby 89000000/fguis.unity3d": {
+        "hash": "9b8e48869bd8a9298656da2e47ae38a9",
+        "size_bytes": 1478044
+      },
+      "lobbys/lobby 89000000/sounds/bgm_lobby(slots3).unity3d": {
+        "hash": "8204cc459271b2bedd5a657ddd79a0d9",
+        "size_bytes": 838706
+      },
+      "lobbys/lobby 89000000/sounds/bgm_lobby.unity3d": {
+        "hash": "381cdc4c8752a300a5e53e3f258e4ffd",
+        "size_bytes": 890504
+      },
+      "lobbys/lobby 89000000/sounds/ui_game_select.unity3d": {
+        "hash": "9d5028cad54896fc672f55361af7f714",
+        "size_bytes": 202926
       }
     }
   },
-  "asset_backup": {},
+  "asset_backup": {
+    "Lobbys/Game Info/lobby_games.json": {
+      "hash": "a24a271a80afc28c37f90ab814187bb9",
+      "size_bytes": 2571
+    },
+    "Lobbys/Game Info/G152/Game Avatar/Game Avatar G152.png": {
+      "hash": "0c68e0540f633f3298a7bf03c28a2c7b",
+      "size_bytes": 48211
+    },
+    "Lobbys/Game Info/G152/Game Lobby Image/Slot Image Big GFN.png": {
+      "hash": "f00315e83a8cdca1d4a442c5010151ae",
+      "size_bytes": 159754
+    },
+    "Lobbys/Game Info/G152/Game Lobby Image/Slot Image Small GFN.png": {
+      "hash": "7bad37210fee7667f428f1872a8f2e8b",
+      "size_bytes": 80748
+    },
+    "Lobbys/Game Info/G200/Game Avatar/Game Avatar G200.png": {
+      "hash": "c7e85a6bf25d4a948f3291dbe23029ae",
+      "size_bytes": 49453
+    },
+    "Lobbys/Game Info/G200/Game Lobby Image/Slot Image Big SPG.png": {
+      "hash": "808d7e15ce88130dbb41d01990917cc7",
+      "size_bytes": 47525
+    },
+    "Lobbys/Game Info/G200/Game Lobby Image/Slot Image Small SPG.png": {
+      "hash": "f02404b55be635f63bdf2cb65ce71489",
+      "size_bytes": 23009
+    },
+    "Lobbys/Game Info/G2001000/Game Lobby Image/Slot Image Big BLC.png": {
+      "hash": "0da764eecd9199327612b43d689de9d2",
+      "size_bytes": 162328
+    },
+    "Lobbys/Game Info/G2001000/Game Lobby Image/Slot Image Small BLC.png": {
+      "hash": "4f9b5f537182f5b4eae07f8095bc8854",
+      "size_bytes": 74311
+    },
+    "Lobbys/Game Info/G2001001/Game Lobby Image/Slot Image Big BLC.png": {
+      "hash": "0da764eecd9199327612b43d689de9d2",
+      "size_bytes": 162328
+    },
+    "Lobbys/Game Info/G2001001/Game Lobby Image/Slot Image Small BLC.png": {
+      "hash": "4f9b5f537182f5b4eae07f8095bc8854",
+      "size_bytes": 74311
+    },
+    "Lobbys/Game Info/G300/Game Avatar/Game Avatar G300.png": {
+      "hash": "c7e85a6bf25d4a948f3291dbe23029ae",
+      "size_bytes": 49453
+    },
+    "Lobbys/Game Info/G4000/Game Lobby Image/Slot Image Big MPM.png": {
+      "hash": "b24c9f0f251f66436d222d425eeff68d",
+      "size_bytes": 146565
+    },
+    "Lobbys/Game Info/G4000/Game Lobby Image/Slot Image Small MPM.png": {
+      "hash": "599f66d89741168cd88bb46cf01561f5",
+      "size_bytes": 75871
+    },
+    "_Commons/Game Maker/Datas/Test 01/DDD AAA.json": {
+      "hash": "46f8026b0a183d8ab18517bc5be5ea14",
+      "size_bytes": 36
+    }
+  },
   "asset_dll": {
     "Base.dll.bytes": {
-      "hash": "04e8807e254d3bce8f97517411def54b",
-      "size_bytes": 173568,
+      "hash": "5dc102cbfc77e946264a786f5ed030b0",
+      "size_bytes": 179712,
       "level": 0
     },
     "Main.dll.bytes": {
-      "hash": "bcd360cd791aa2bec37c9d00f8745526",
-      "size_bytes": 1196032,
+      "hash": "36b443739158ecdc28a0f43a3947fe7c",
+      "size_bytes": 1248256,
       "level": 1
     }
   },

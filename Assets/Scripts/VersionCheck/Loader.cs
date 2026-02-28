@@ -24,7 +24,7 @@ public class Loader : MonoBehaviour
             yield break;
         }
 
-        PageLaunch.Instance.Open(typeof(LoadingProgress));
+        PageLaunch.Instance.Open(typeof(StepHotfixDownloadAtLaunch));
 
         OnLoadingBefore();
 
@@ -34,19 +34,19 @@ public class Loader : MonoBehaviour
         Debug.Log($"hofixKey = {GlobalModel.hotfixKey}");
         Debug.Log($"hofixVersion = {GlobalModel.hotfixVersion}");
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.COPY_SA_HOTFIX_DLL);
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.COPY_SA_ASSET_BUNDLE);
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.CHECK_COPY_TEMP_HOTFIX_FILE);
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.CHECK_WEB_VERSION);
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.DOWNLOAD_ASSET_DLL);
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.DOWNLOAD_ASSET_BUNDLE);
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.COPY_TEMP_HOTFIX_FILE);
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.DELETE_UNUSE_ASSET_BUNDLE);
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.DELETE_UNUSE_ASSET_DLL);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.COPY_SA_HOTFIX_DLL);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.COPY_SA_ASSET_BUNDLE);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.CHECK_COPY_TEMP_HOTFIX_FILE);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.CHECK_WEB_VERSION);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.DOWNLOAD_ASSET_DLL);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.DOWNLOAD_ASSET_BUNDLE);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.COPY_TEMP_HOTFIX_FILE);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.DELETE_UNUSE_ASSET_BUNDLE);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.DELETE_UNUSE_ASSET_DLL);
 
 
         #region  非编辑器，才需要补充元数据（加载dll来补充元数据）
-        PageLaunch.Instance.AddProgressCount(LoadingProgress.LOAD_AOT_META_DATA, 1);
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.LOAD_AOT_META_DATA, 1);
         if (!Application.isEditor)
         {
             yield return LoadMetadataForAOTAssemblies(); // s_assetDatas 的AOT Meta 加载到“程序集对象”中
@@ -54,7 +54,7 @@ public class Loader : MonoBehaviour
         #endregion
         //DllHelper.Instance.AddAotMeta();
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.LOAD_AOT_META_DATA);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.LOAD_AOT_META_DATA);
 
 
         #region 加载热更程序集到 "程序集对象"中
@@ -63,7 +63,7 @@ public class Loader : MonoBehaviour
 
         Assembly ass = null;
 
-        PageLaunch.Instance.AddProgressCount(LoadingProgress.LOAD_ASSET_DLL, hotfixDlls.Count);
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.LOAD_ASSET_DLL, hotfixDlls.Count);
 
         for (int i = 0; i < hotfixDlls.Count; i++)
         {
@@ -80,10 +80,10 @@ public class Loader : MonoBehaviour
 
             DllHelper.Instance.SethotUpdateAss(hotfixDlls[i], ass);  //并缓存程序集
 
-            PageLaunch.Instance.Next(LoadingProgress.LOAD_ASSET_DLL,  $"load hotfix dll: {hotfixDlls[i]} {i}/{hotfixDlls.Count}");
+            PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.LOAD_ASSET_DLL,  $"load hotfix dll: {hotfixDlls[i]} {i}/{hotfixDlls.Count}");
         }
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.LOAD_ASSET_DLL);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.LOAD_ASSET_DLL);
 
         #endregion
 
@@ -108,7 +108,7 @@ public class Loader : MonoBehaviour
         /// 热更新dll不缺元数据，不需要补充，如果调用LoadMetadataForAOTAssembly会返回错误
         HomologousImageMode mode = HomologousImageMode.SuperSet;
 
-        PageLaunch.Instance.AddProgressCount(LoadingProgress.LOAD_AOT_META_DATA, AOTGenericReferences.PatchedAOTAssemblyList.Count);
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.LOAD_AOT_META_DATA, AOTGenericReferences.PatchedAOTAssemblyList.Count);
         int i = 0;
 
         //从本地Streaming加载dll
@@ -118,7 +118,7 @@ public class Loader : MonoBehaviour
 
             UnityWebRequest req = UnityWebRequest.Get(Application.streamingAssetsPath + $"/{PathHelper.aotMetaFolderName}/" + aotDllName);
 
-            PageLaunch.Instance.Next(LoadingProgress.LOAD_AOT_META_DATA,
+            PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.LOAD_AOT_META_DATA,
                 $"load streamingAssets/{aotDllName} {++i}/{AOTGenericReferences.PatchedAOTAssemblyList.Count}");
 
             yield return req.SendWebRequest();
@@ -135,7 +135,7 @@ public class Loader : MonoBehaviour
                 throw new Exception($"加载AOT元数据报错 {aotDllName}");
             }
         }
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.LOAD_AOT_META_DATA);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.LOAD_AOT_META_DATA);
     }
 
     private void OpenMain()

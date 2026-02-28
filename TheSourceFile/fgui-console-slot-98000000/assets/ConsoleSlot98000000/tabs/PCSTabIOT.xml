@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1178">
+  <displayList>
+    <component id="n37_os7y" name="useIOT" src="cwuo2d" fileName="moudules/ItemTitleSwitch.xml" xy="0,0">
+      <property target="key" propertyId="0" value="Use IOT:"/>
+    </component>
+    <component id="n36_os7y" name="iotAddresse" src="glrj1n" fileName="moudules/ItemTitleName.xml" xy="0,76">
+      <property target="key" propertyId="0" value="IOT Address:"/>
+      <property target="value" propertyId="0" value="http://i.test.gzhaoku.com/admin/resp/firmware/query"/>
+    </component>
+    <component id="n38_os7y" name="iotAccessMethods" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,152">
+      <property target="key" propertyId="0" value="IOT Access Methods:"/>
+      <property target="value" propertyId="0" value="Mini Program &lt;img src=&apos;ui://xp0b9yqdos7y4i&apos; width=&apos;20&apos; height=&apos;20&apos;/&gt;[color=#666666]666[/color]"/>
+    </component>
+  </displayList>
+</component>

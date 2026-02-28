@@ -17,7 +17,7 @@ namespace PusherEmperorsRein
         public static void OnBeforeCreat(Action onFinishCallback)
         {
             // 添加模块
-            ModuleDownloadManager.Instance.AddModInfo("ER200");
+            ModuleDownloadManager.Instance.AddModeToRuning("ER200");
 
             int count = 3;
             Action xmlFinishCB = () => {

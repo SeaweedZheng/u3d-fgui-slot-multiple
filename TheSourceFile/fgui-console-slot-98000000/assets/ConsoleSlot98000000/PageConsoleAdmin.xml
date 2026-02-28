@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <controller name="tab" pages="0,,1," selected="0"/>
+  <displayList>
+    <component id="n3_glrj" name="n3" src="glrj1j" fileName="moudules/BaseBG.xml" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+      <property target="nav1/title" propertyId="0" value="123"/>
+    </component>
+    <list id="n28_jtgo" name="tabs" xy="0,621" size="1080,1178" pageController="tab" layout="pagination" overflow="scroll" scroll="horizontal" scrollBarFlags="264">
+      <relation target="" sidePair="width-width,height-height"/>
+      <item url="ui://xp0b9yqdi9389w" name="permissions"/>
+      <item url="ui://xp0b9yqd8yql80" name="debug"/>
+    </list>
+    <component id="n29_os7y" name="navBottom" src="glrj1l" fileName="moudules/Buttom1.xml" xy="0,1801">
+      <gearDisplay controller="tab" pages="1"/>
+      <relation target="" sidePair="width-width,bottom-bottom"/>
+      <property target="title" propertyId="0" value="Admin"/>
+    </component>
+    <component id="n30_i938" name="navBottom2" src="glrj1m" fileName="moudules/Buttom2.xml" xy="0,1800">
+      <gearDisplay controller="tab" pages="0"/>
+      <property target="title" propertyId="0" value="Permissions"/>
+    </component>
+    <component id="n6_cwuo" name="navDebug" src="cwuo2p" fileName="moudules/ItemCategoryNav.xml" xy="547,510" size="510,90">
+      <relation target="" sidePair="center-center,top-top"/>
+      <Button title="DEBUG" icon="ui://xp0b9yqdos7y45" selectedIcon="ui://xp0b9yqdos7y45" controller="tab" page="1"/>
+    </component>
+    <component id="n31_i938" name="navDebug" src="cwuo2p" fileName="moudules/ItemCategoryNav.xml" xy="22,510" size="510,90">
+      <relation target="" sidePair="center-center,top-top"/>
+      <Button checked="true" title="PERMISSIONS" icon="ui://xp0b9yqdi938a1" selectedIcon="ui://xp0b9yqdi938a1" controller="tab" page="0"/>
+    </component>
+  </displayList>
+</component>

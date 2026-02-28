@@ -151,11 +151,15 @@ public partial class PageManager : MonoBehaviour
         if (!string.IsNullOrEmpty(pkgName) && UIPackage.GetByName(pkgName) == null)
         {
             //bool isNext = false;
+            //DebugUtils.LogError($" {pkgName} - {pth}");
 
-            // 加载资源
+
+            // 加载资源(同时打开多个同AB包里的界面，当AB包加载有延时时，会导致这里重复加载相同的ab包！)
             ResourceManager02.Instance.LoadAssetBundleAsync(pth, (bundle) =>
             {
+                //if(UIPackage.GetByName(pkgName) == null)  UIPackage.AddPackage(bundle);
                 UIPackage.AddPackage(bundle);
+
                 //isNext = true;
                 funcAfterLoadBundle();
                 return;
@@ -851,7 +855,7 @@ UIPackage.AddPackage("UI/Console");//文件路径Assets\Resources\UI\Console_fui
 
 FairyGUI.UIPanel panel = this.gameObject.AddComponent<FairyGUI.UIPanel>();// UnityEngine.UIPanel同名，因此要前缀 
 
-panel.packageName = "Console";
+panel.packageName = "ConsoleSlot98000000";
 
 panel.componentName = "PageConsoleMain";
 */
@@ -868,7 +872,7 @@ panel.componentName = "PageConsoleMain";
 
 文件路劲: Assets/Test/Resources/UI/Console_fui.bytes
 
-包名: "Console";
+包名: "ConsoleSlot98000000";
 
 页面名称: "PageConsoleMain";
 

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1000,56">
+  <displayList>
+    <image id="n55_i938" name="n55" src="vqlx6c" fileName="images/common/circle_16.png" xy="1,-1" size="1000,56" color="#114550">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <richtext id="n50_i938" name="title" xy="8,7" size="241,42" fontSize="30" color="#ffffff" vAlign="middle" autoSize="none" text="Mahine:"/>
+    <component id="n52_i938" name="staff" src="cwuo2e" fileName="components/ToggleBetList.xml" xy="355,12" group="n56_i938"/>
+    <component id="n53_i938" name="manager" src="cwuo2e" fileName="components/ToggleBetList.xml" xy="587,12" group="n56_i938"/>
+    <component id="n54_i938" name="admin" src="cwuo2e" fileName="components/ToggleBetList.xml" xy="819,12" group="n56_i938"/>
+    <group id="n56_i938" name="n56" xy="355,12" size="496,32"/>
+    <graph id="n57_i938" name="n57" xy="0,56" size="1000,2" visible="false" type="rect" lineSize="0"/>
+  </displayList>
+  <customProperty target="title" propertyId="0" label="标题"/>
+</component>

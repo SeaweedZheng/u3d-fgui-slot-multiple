@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1178">
+  <controller name="tab" pages="0,machine,1,in-out,2,progressive" selected="0"/>
+  <displayList>
+    <component id="n39_jtgo" name="maxCoinInOutRecord" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,0" size="540,76" group="n11_cwuo">
+      <property target="key" propertyId="0" value="Max Coin In Out Record:"/>
+      <property target="value" propertyId="0" value="1000"/>
+    </component>
+    <component id="n40_jtgo" name="maxGameRecord" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,76" size="540,76" group="n11_cwuo">
+      <property target="key" propertyId="0" value="Max Game Record:"/>
+      <property target="value" propertyId="0" value="1000"/>
+    </component>
+    <component id="n41_jtgo" name="maxEventRecord" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,152" size="540,76" group="n11_cwuo">
+      <property target="key" propertyId="0" value="Max Event Record:"/>
+      <property target="value" propertyId="0" value="1000"/>
+    </component>
+    <component id="n42_jtgo" name="maxErrorRecord" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,228" size="540,76" group="n11_cwuo">
+      <property target="key" propertyId="0" value="Max Warning Record:"/>
+      <property target="value" propertyId="0" value="1000"/>
+    </component>
+    <component id="n43_jtgo" name="maxBusinessDayRecord" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,304" size="540,76" group="n11_cwuo">
+      <property target="key" propertyId="0" value="Max Business Day Record:"/>
+      <property target="value" propertyId="0" value="1000"/>
+    </component>
+    <group id="n11_cwuo" name="left" xy="0,0" size="540,380" advanced="true">
+      <relation target="" sidePair="width-width"/>
+    </group>
+  </displayList>
+</component>

@@ -95,11 +95,15 @@ public class AssetBundleManager02 : MonoSingleton<AssetBundleManager02>
     {
         //#seaweed# 新增 - 避免并发（异步 或 协程 ，会出现并发加载同个ab包的问题）
         //可能存在依赖包，并发加载（例如：A包需依赖包C ; B包需依赖包C）
-      while (loadingBundles.ContainsKey(bundleName) && Time.unscaledTime - loadingBundles[bundleName] > 30)
+        while (loadingBundles.ContainsKey(bundleName) 
+            && Time.unscaledTime - loadingBundles[bundleName] < 30) //避免死循环
         {
             DebugUtils.Save($"避免并发加载 bundleName:{bundleName}");
             yield return new WaitForSeconds(UnityEngine.Random.Range(0.03f, 0.1f));
         }
+
+        //DebugUtils.LogError($"load ab:{bundleName} - contain:{loadingBundles.ContainsKey(bundleName)}");
+
         loadingBundles.Remove(bundleName);
         loadingBundles.Add(bundleName, Time.unscaledTime);
         System.Action<AssetBundle> _onComplete = (ab) => {
@@ -122,27 +126,18 @@ public class AssetBundleManager02 : MonoSingleton<AssetBundleManager02>
       */
 
 
-
-
-        // 增加引用计数
-        if (!referenceCounts.ContainsKey(bundleName))
-        {
-            referenceCounts[bundleName] = 0;
-        }
-        referenceCounts[bundleName]++;
-
         // 加载依赖包
         string[] dependencies = assetBundleManifest.GetAllDependencies(bundleName);
         foreach (string dependency in dependencies)
         {
+            if (!referenceCounts.ContainsKey(dependency))
+            {
+                referenceCounts[dependency] = 0;
+            }
+            referenceCounts[dependency]++;
+
             if (!loadedAssetBundles.ContainsKey(dependency))
             {
-                if (!referenceCounts.ContainsKey(dependency))
-                {
-                    referenceCounts[dependency] = 0;
-                }
-                referenceCounts[dependency]++;
-
                 // AssetBundle dependencyBundle = AssetBundle.LoadFromFile(getRootFolder + "/" + dependency); //同步
 
                 string path = abRootFolder + "/" + dependency;
@@ -161,11 +156,16 @@ public class AssetBundleManager02 : MonoSingleton<AssetBundleManager02>
                     DebugUtils.LogError("Failed to load dependency: " + dependency);
                 }
             }
-            else
-            {
-                referenceCounts[dependency]++;
-            }
         }
+
+
+
+        // 增加引用计数
+        if (!referenceCounts.ContainsKey(bundleName))
+        {
+            referenceCounts[bundleName] = 0;
+        }
+        referenceCounts[bundleName]++;
 
         // 加载目标 AB 包
         if (!loadedAssetBundles.ContainsKey(bundleName))
@@ -420,6 +420,7 @@ public class AssetBundleManager02 : MonoSingleton<AssetBundleManager02>
 
     public void GetAssetBundleAsync(string bundleName, UnityAction<AssetBundle> callback)
     {
+        //Debug.LogError($"【Test】GetAssetBundleAsync - {bundleName}");
         StartCoroutine(_LoadAssetBundleAsync(bundleName, callback));
     }
 

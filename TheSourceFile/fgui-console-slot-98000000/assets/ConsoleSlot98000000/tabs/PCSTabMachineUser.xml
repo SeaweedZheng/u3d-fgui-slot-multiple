@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1178">
+  <controller name="tab" pages="0,machine,1,in-out,2,progressive" selected="0"/>
+  <displayList>
+    <component id="n44_jtgo" name="changeShiftPassword" src="jtgo3d" fileName="moudules/ItemButton005.xml" xy="0,0">
+      <relation target="" sidePair="width-width"/>
+      <property target="btn" propertyId="0" value="Change Shift Password"/>
+      <property target="btn" propertyId="1" value="ui://xp0b9yqdos7y3x"/>
+    </component>
+    <component id="n45_jtgo" name="changeManagerPassword" src="jtgo3d" fileName="moudules/ItemButton005.xml" xy="360,0">
+      <relation target="" sidePair="width-width"/>
+      <property target="btn" propertyId="0" value="Change Manager Password"/>
+      <property target="btn" propertyId="1" value="ui://xp0b9yqdos7y3x"/>
+    </component>
+    <component id="n46_jtgo" name="changeAdminPassword" src="jtgo3d" fileName="moudules/ItemButton005.xml" xy="720,0">
+      <relation target="" sidePair="width-width"/>
+      <property target="btn" propertyId="0" value="Change Admin Password"/>
+      <property target="btn" propertyId="1" value="ui://xp0b9yqdos7y3x"/>
+    </component>
+  </displayList>
+</component>
