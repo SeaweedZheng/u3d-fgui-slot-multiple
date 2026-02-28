@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <controller name="tab" pages="0,game,1,jackpot" selected="0"/>
+  <displayList>
+    <component id="n3_glrj" name="n3" src="glrj1j" fileName="moudules/BaseBG.xml" xy="1,0">
+      <relation target="" sidePair="width-width,height-height"/>
+      <property target="nav1/title" propertyId="0" value="123"/>
+    </component>
+    <component id="n6_cwuo" name="navGame" src="cwuo2p" fileName="moudules/ItemCategoryNav.xml" xy="22,510" size="510,90">
+      <relation target="" sidePair="center-center,top-top"/>
+      <Button checked="true" title="GAME" icon="ui://xp0b9yqdos7y48" selectedIcon="ui://xp0b9yqdos7y48" controller="tab" page="0"/>
+    </component>
+    <component id="n31_g3lh" name="navJackpot" src="cwuo2p" fileName="moudules/ItemCategoryNav.xml" xy="547,510" size="510,90">
+      <relation target="" sidePair="center-center,top-top"/>
+      <Button title="JACKPOT" icon="ui://xp0b9yqdos7y4a" selectedIcon="ui://xp0b9yqdos7y4a" controller="tab" page="1"/>
+    </component>
+    <list id="n28_jtgo" name="tabs" xy="0,622" size="1080,1178" pageController="tab" layout="pagination" overflow="scroll" scroll="horizontal" scrollBarFlags="264">
+      <relation target="" sidePair="width-width,height-height"/>
+      <item url="ui://xp0b9yqdkc0c8b" name="game"/>
+      <item url="ui://xp0b9yqdkc0c8a" name="jackpot"/>
+    </list>
+    <component id="n32_kv1r" name="navBottom" src="glrj1m" fileName="moudules/Buttom2.xml" xy="0,1802">
+      <relation target="" sidePair="width-width,bottom-bottom"/>
+    </component>
+  </displayList>
+</component>

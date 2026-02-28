@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1178" restrictSize="540,0,0,0">
+  <displayList>
+    <component id="n27_os7y" name="scoreScale" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,152" size="540,76" group="n20_cwuo" visible="false">
+      <property target="key" propertyId="0" value="Score Short Click Scale(Time : Credit):"/>
+      <property target="value" propertyId="0" value="1:100"/>
+    </component>
+    <component id="n33_8yql" name="isDebugLog" src="cwuo2d" fileName="moudules/ItemTitleSwitch.xml" xy="0,0" group="n20_cwuo">
+      <property target="key" propertyId="0" value="Is Debug Log:"/>
+    </component>
+    <component id="n34_8yql" name="useDebugTool" src="cwuo2d" fileName="moudules/ItemTitleSwitch.xml" xy="0,76" group="n20_cwuo">
+      <property target="key" propertyId="0" value="Use Debug Tool:"/>
+    </component>
+    <component id="n35_8yql" name="useReporterPage" src="cwuo2d" fileName="moudules/ItemTitleSwitch.xml" xy="0,152" group="n20_cwuo">
+      <property target="key" propertyId="0" value="Use Reporter Page:"/>
+    </component>
+    <component id="n36_8yql" name="isShowUpdateInfo" src="cwuo2d" fileName="moudules/ItemTitleSwitch.xml" xy="0,228" group="n20_cwuo">
+      <property target="key" propertyId="0" value="Is Show Update Info:"/>
+    </component>
+    <component id="n37_8yql" name="pauseAtPopupFreeSpinTrigger" src="cwuo2d" fileName="moudules/ItemTitleSwitch.xml" xy="0,304" group="n20_cwuo">
+      <property target="key" propertyId="0" value="Pause At Popup Free Spin Trigger:"/>
+    </component>
+    <component id="n38_8yql" name="pauseAtPopupFreeSpinResult" src="cwuo2d" fileName="moudules/ItemTitleSwitch.xml" xy="0,380" group="n20_cwuo">
+      <property target="key" propertyId="0" value="Pause At Popup Free Spin Result:"/>
+    </component>
+    <component id="n39_8yql" name="pauseAtPopupJackpotGame" src="cwuo2d" fileName="moudules/ItemTitleSwitch.xml" xy="0,456" group="n20_cwuo">
+      <property target="key" propertyId="0" value="Pause At Popup Jackpot Game:"/>
+    </component>
+    <component id="n40_8yql" name="pauseAtPopupJackpotOnline" src="cwuo2d" fileName="moudules/ItemTitleSwitch.xml" xy="-1,532" group="n20_cwuo">
+      <property target="key" propertyId="0" value="Pause At Popup Jackpot Online:"/>
+    </component>
+    <component id="n28_os7y" name="errorCodeQuery" src="cwuo3a" fileName="moudules/ItemLongButton.xml" xy="0,608" group="n20_cwuo">
+      <property target="btn" propertyId="0" value="Error Code Query"/>
+      <property target="btn" propertyId="1" value="ui://xp0b9yqdos7y3z"/>
+    </component>
+    <group id="n20_cwuo" name="left" xy="-1,0" size="541,684" advanced="true">
+      <relation target="" sidePair="width-width"/>
+    </group>
+    <component id="n41_8yql" name="appKey" src="glrj1n" fileName="moudules/ItemTitleName.xml" xy="540,0" group="n23_cwuo">
+      <property target="key" propertyId="0" value="App Key:"/>
+      <property target="value" propertyId="0" value="--"/>
+    </component>
+    <component id="n42_8yql" name="serverAddress" src="glrj1n" fileName="moudules/ItemTitleName.xml" xy="540,77" size="540,76" group="n23_cwuo">
+      <property target="key" propertyId="0" value="Server Address:"/>
+      <property target="value" propertyId="0" value="--"/>
+    </component>
+    <component id="n43_8yql" name="reportAddress" src="glrj1n" fileName="moudules/ItemTitleName.xml" xy="540,153" size="540,76" group="n23_cwuo">
+      <property target="key" propertyId="0" value="Report Address:"/>
+      <property target="value" propertyId="0" value="--"/>
+    </component>
+    <component id="n47_8yql" name="installVer" src="glrj1n" fileName="moudules/ItemTitleName.xml" xy="540,457" size="540,76" group="n23_cwuo">
+      <property target="key" propertyId="0" value="Install Ver:"/>
+      <property target="value" propertyId="0" value="--"/>
+    </component>
+    <component id="n44_8yql" name="softwareVer" src="glrj1n" fileName="moudules/ItemTitleName.xml" xy="540,229" size="540,76" group="n23_cwuo">
+      <property target="key" propertyId="0" value="Software Ver:"/>
+      <property target="value" propertyId="0" value="--"/>
+    </component>
+    <component id="n45_8yql" name="hotfixKey" src="glrj1n" fileName="moudules/ItemTitleName.xml" xy="540,305" size="540,76" group="n23_cwuo">
+      <property target="key" propertyId="0" value="Hotfix Key:"/>
+      <property target="value" propertyId="0" value="--"/>
+    </component>
+    <component id="n46_8yql" name="autoHotfixAddress" src="glrj1n" fileName="moudules/ItemTitleName.xml" xy="540,381" size="540,76" group="n23_cwuo">
+      <property target="key" propertyId="0" value="Auto Hotfix Address:"/>
+      <property target="value" propertyId="0" value="--"/>
+    </component>
+    <component id="n49_8yql" name="iotAddress" src="glrj1n" fileName="moudules/ItemTitleName.xml" xy="540,533" size="540,76" group="n23_cwuo">
+      <property target="key" propertyId="0" value="IOT Address:"/>
+      <property target="value" propertyId="0" value="--"/>
+    </component>
+    <group id="n23_cwuo" name="right" xy="540,0" size="540,609" advanced="true"/>
+  </displayList>
+</component>

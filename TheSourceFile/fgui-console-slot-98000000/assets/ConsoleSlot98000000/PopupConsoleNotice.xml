@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <displayList>
+    <component id="n30_kc0c" name="n30" src="os7y3l" fileName="moudules/BasePopuoBG.xml" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
+    <image id="n0_kc0c" name="n0" src="vqlx68" fileName="images/common/circle_24.png" xy="195,420" size="690,1080" group="n28_kc0c" color="#143733"/>
+    <image id="n2_kc0c" name="n2" src="vqlx6l" fileName="images/popup/icon_i_120.png" xy="229,453" size="86,86" group="n28_kc0c" color="#ffff00"/>
+    <graph id="n3_kc0c" name="n3" xy="230,563" size="620,3" group="n28_kc0c" type="rect" lineSize="0"/>
+    <richtext id="n4_kc0c" name="title" xy="335,463" size="509,64" group="n28_kc0c" fontSize="35" color="#ffffff" vAlign="middle" autoSize="shrink" singleLine="true" autoClearText="true" text="Game Update Announcement"/>
+    <richtext id="n5_kc0c" name="row0" xy="230,576" size="620,48" group="n28_kc0c" fontSize="35" color="#ffffff" autoSize="shrink" autoClearText="true" text="* Confirm Reboot MAchine Confirm Reboot MAchineConfirm Reboot MAchineConfirm Reboot MAchine"/>
+    <richtext id="n6_kc0c" name="row1" xy="230,626" size="620,48" group="n28_kc0c" fontSize="35" color="#ffffff" autoSize="shrink" autoClearText="true" text="* Confirm Reboot MAchine Confirm Reboot MAchineConfirm Reboot MAchineConfirm Reboot MAchine"/>
+    <richtext id="n7_kc0c" name="row2" xy="230,676" size="620,48" group="n28_kc0c" fontSize="35" color="#ffffff" autoSize="shrink" autoClearText="true" text="* Confirm Reboot MAchine Confirm Reboot MAchineConfirm Reboot MAchineConfirm Reboot MAchine"/>
+    <richtext id="n8_kc0c" name="row3" xy="230,726" size="620,48" group="n28_kc0c" fontSize="35" color="#ffffff" autoSize="shrink" autoClearText="true" text="* Confirm Reboot MAchine Confirm Reboot MAchineConfirm Reboot MAchineConfirm Reboot MAchine"/>
+    <richtext id="n9_kc0c" name="row4" xy="230,776" size="620,48" group="n28_kc0c" fontSize="35" color="#ffffff" autoSize="shrink" autoClearText="true" text="* Confirm Reboot MAchine Confirm Reboot MAchineConfirm Reboot MAchineConfirm Reboot MAchine"/>
+    <richtext id="n10_kc0c" name="row5" xy="230,826" size="620,48" group="n28_kc0c" fontSize="35" color="#ffffff" autoSize="shrink" autoClearText="true" text="* Confirm Reboot MAchine Confirm Reboot MAchineConfirm Reboot MAchineConfirm Reboot MAchine"/>
+    <richtext id="n11_kc0c" name="row6" xy="230,876" size="620,48" group="n28_kc0c" fontSize="35" color="#ffffff" autoSize="shrink" autoClearText="true" text="* Confirm Reboot MAchine Confirm Reboot MAchineConfirm Reboot MAchineConfirm Reboot MAchine"/>
+    <richtext id="n12_kc0c" name="row7" xy="230,926" size="620,48" group="n28_kc0c" fontSize="35" color="#ffffff" autoSize="shrink" autoClearText="true" text="* Confirm Reboot MAchine Confirm Reboot MAchineConfirm Reboot MAchineConfirm Reboot MAchine"/>
+    <richtext id="n13_kc0c" name="row8" xy="230,976" size="620,48" group="n28_kc0c" fontSize="35" color="#ffffff" autoSize="shrink" autoClearText="true" text="* Confirm Reboot MAchine Confirm Reboot MAchineConfirm Reboot MAchineConfirm Reboot MAchine"/>
+    <richtext id="n14_kc0c" name="row9" xy="230,1026" size="620,48" group="n28_kc0c" fontSize="35" color="#ffffff" autoSize="shrink" autoClearText="true" text="* Confirm Reboot MAchine Confirm Reboot MAchineConfirm Reboot MAchineConfirm Reboot MAchine"/>
+    <richtext id="n15_kc0c" name="row10" xy="230,1076" size="620,48" group="n28_kc0c" fontSize="35" color="#ffffff" autoSize="shrink" autoClearText="true" text="* Confirm Reboot MAchine Confirm Reboot MAchineConfirm Reboot MAchineConfirm Reboot MAchine"/>
+    <richtext id="n16_kc0c" name="row11" xy="230,1126" size="620,48" group="n28_kc0c" fontSize="35" color="#ffffff" autoSize="shrink" autoClearText="true" text="* Confirm Reboot MAchine Confirm Reboot MAchineConfirm Reboot MAchineConfirm Reboot MAchine"/>
+    <richtext id="n17_kc0c" name="row12" xy="230,1176" size="620,48" group="n28_kc0c" fontSize="35" color="#ffffff" autoSize="shrink" autoClearText="true" text="* Confirm Reboot MAchine Confirm Reboot MAchineConfirm Reboot MAchineConfirm Reboot MAchine"/>
+    <richtext id="n18_kc0c" name="row13" xy="230,1226" size="620,48" group="n28_kc0c" fontSize="35" color="#ffffff" autoSize="shrink" autoClearText="true" text="* Confirm Reboot MAchine Confirm Reboot MAchineConfirm Reboot MAchineConfirm Reboot MAchine"/>
+    <richtext id="n19_kc0c" name="row14" xy="230,1276" size="620,48" group="n28_kc0c" fontSize="35" color="#ffffff" autoSize="shrink" autoClearText="true" text="* Confirm Reboot MAchine Confirm Reboot MAchineConfirm Reboot MAchineConfirm Reboot MAchine"/>
+    <component id="n22_kc0c" name="btnConfirm" src="vqlx5x" fileName="components/Button005Confirm.xml" xy="252,1406" group="n28_kc0c"/>
+    <component id="n21_kc0c" name="btnNext" src="vqlx5x" fileName="components/Button005Confirm.xml" xy="632,1406" group="n28_kc0c">
+      <Button title="Next" icon="ui://xp0b9yqdvqlx63"/>
+    </component>
+    <list id="n24_kc0c" name="dots" xy="229,1333" size="622,47" group="n28_kc0c" layout="row" overflow="hidden" colGap="10" defaultItem="ui://xp0b9yqdvqlx6c" autoItemSize="false" align="center" vAlign="middle">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <group id="n28_kc0c" name="n28" xy="195,420" size="690,1080"/>
+  </displayList>
+</component>

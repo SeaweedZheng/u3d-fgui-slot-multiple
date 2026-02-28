@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <displayList>
+    <graph id="n0_nimz" name="n0" xy="0,0" size="1080,1920" type="rect" lineSize="0" lineColor="#00000000" fillColor="#bf347591">
+      <relation target="" sidePair="width-width,height-height"/>
+    </graph>
+    <text id="n15_lxzz" name="title" xy="143,1832" size="793,52" fontSize="30" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" autoClearText="true" text="ver 1.1.1">
+      <relation target="" sidePair="bottom-bottom"/>
+    </text>
+    <loader id="n9_r8oz" name="bg" xy="540,960" pivot="0.5,0.5" anchor="true" size="1024,768" url="ui://uoikilaqqylxk" autoSize="true" clearOnPublish="true">
+      <relation target="" sidePair="center-center,middle-middle"/>
+    </loader>
+    <image id="n4_nimz" name="n4" src="lxzz2" fileName="Images/launch_loading_bg.png" xy="140,1785" size="800,39" group="n11_r8oz" scale="1,0.7">
+      <relation target="" sidePair="bottom-bottom"/>
+    </image>
+    <component id="n13_nb0n" name="progress" src="lxzz3" fileName="components/ProgressBar1.xml" xy="140,1788" size="800,33" group="n11_r8oz" scale="1,0.7">
+      <relation target="" sidePair="bottom-bottom"/>
+      <ProgressBar value="1" max="1"/>
+    </component>
+    <text id="n12_r8oz" name="msg" xy="148,7" size="784,1768" group="n11_r8oz" fontSize="20" color="#ffffff" align="center" vAlign="bottom" autoSize="shrink" autoClearText="true" text="loading...">
+      <relation target="" sidePair="bottom-bottom"/>
+    </text>
+    <group id="n11_r8oz" name="n11" xy="140,7" size="800,1817"/>
+  </displayList>
+</component>

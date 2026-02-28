@@ -1,13 +1,19 @@
 {
-	"page_console_main":{
-		"page_name" : "ConsolePageConsoleMain",
-		"nick_name": "管理后台",
+	"page_console_main_98000000":{
+		"page_name" : "ConsoleSlot98000000PageConsoleMain",
+		"nick_name": "拉霸机管理后台",
 		"des": "",
 		"data":"{\"title\":\"XXX\"}"
 	},
-	"page_console_coin_pusher_main":{
-		"page_name" : "ConsolePusher01PageConsoleMain",
-		"nick_name": "推币机管理后台",
+	"page_console_coin_pusher_main_97000000":{
+		"page_name" : "ConsolePusher97000000PageConsoleMain",
+		"nick_name": "推币机管理后台1080x1920",
+		"des": "",
+		"data":"{\"title\":\"XXX\"}"
+	},
+	"page_console_coin_pusher_main_97001000":{
+		"page_name" : "ConsolePusher97001000PageConsoleMain",
+		"nick_name": "推币机管理后台1024x768",
 		"des": "",
 		"data":"{\"title\":\"XXX\"}"
 	},

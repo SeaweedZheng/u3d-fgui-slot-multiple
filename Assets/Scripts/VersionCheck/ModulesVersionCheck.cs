@@ -94,7 +94,7 @@ public class ModulesVersionCheck : MonoBehaviour
         string totalVersionText = "";
 
 
-        // 获取主版本信息
+        // 获取“主版本”信息
         try
         {
             versionText = File.ReadAllText(PathHelper.versionLOCPTH);
@@ -115,7 +115,7 @@ public class ModulesVersionCheck : MonoBehaviour
 
 
 
-        // 获取主模块版本信息
+        // 获取“主模块版本”信息
         try
         {
             mainModVersionText = File.ReadAllText(PathHelper.mainModVersionLOCPTH);
@@ -135,7 +135,7 @@ public class ModulesVersionCheck : MonoBehaviour
         }
 
 
-        // 获取总版本文件信息
+        // 获取“总版本文件”信息
         GlobalModel.totalVersion = null;
         GlobalModel.autoHotfixUrl = "";
 
@@ -297,11 +297,11 @@ public class ModulesVersionCheck : MonoBehaviour
             yield return CopyStreamingAssetsToPersistentDataPath();
         }
 
-        // 检查要拷贝的文件
-        PageLaunch.Instance.AddProgressCount(LoadingProgressMod.CHECK_COPY_TEMP_HOTFIX_FILE, 1);
-        PageLaunch.Instance.Next(LoadingProgressMod.CHECK_COPY_TEMP_HOTFIX_FILE, $"check cache : temp hotfix file");
+        // 检查要拷贝的文件 - 必删除临时文件（改为不删除临时文件？）
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadModAtLaunch.CHECK_COPY_TEMP_HOTFIX_FILE, 1);
+        PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.CHECK_COPY_TEMP_HOTFIX_FILE, $"check cache : temp hotfix file");
         yield return ModuleDownloadManager.Instance.CopyTempWebHotfixFileToTargetDir();
-        PageLaunch.Instance.RemoveProgress(LoadingProgressMod.CHECK_COPY_TEMP_HOTFIX_FILE);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadModAtLaunch.CHECK_COPY_TEMP_HOTFIX_FILE);
 
 
         // 获取本地配置文件
@@ -345,15 +345,17 @@ public class ModulesVersionCheck : MonoBehaviour
             int[] localVersions = GetVersions(localVersionVER);
             int[] serverVersions = GetVersions(webVersionVER);
 
+
+
+            bool isError = false;
+            bool isHasHotfix = false;
+
+            // 主模块按版本号判断升级，游戏模块按hash来判断升级
             if (localVersions[0] == serverVersions[0])
             {
-
+                // 下载"主模块"
                 if (localVersions[1] != serverVersions[1] || localVersions[2] != serverVersions[2])
                 {
-
-                    bool isError = false;
-
-
 
                     // 开始下载本模块
                     PlayerPrefs.SetString(HotfixState.HOTFIX_STATE, HotfixState.HotfixDownloading);
@@ -362,6 +364,7 @@ public class ModulesVersionCheck : MonoBehaviour
                     yield return  ModuleDownloadManager.Instance.DownloadManifestToTemp(
                         (successMsg) =>
                         {
+
                         },
                         (errorMsg) =>
                         {
@@ -373,9 +376,9 @@ public class ModulesVersionCheck : MonoBehaviour
                     if (!isError)
                     {
                         // 下载主模块
-                        PageLaunch.Instance.AddProgressCount(LoadingProgressMod.DOWNLOAD_MOD_MAIN, 1);
+                        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadModAtLaunch.DOWNLOAD_MOD_MAIN, 1);
 
-                        PageLaunch.Instance.Next(LoadingProgressMod.DOWNLOAD_MOD_MAIN,
+                        PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.DOWNLOAD_MOD_MAIN,
                             $"download main mod :{PathHelper.mianModuleName}");
                         yield return ModuleDownloadManager.Instance.DownLoadNeedModToTemp(PathHelper.mianModuleName,
                             null,
@@ -390,10 +393,10 @@ public class ModulesVersionCheck : MonoBehaviour
                             (ProgressMsg) =>
                             {
                                 Debug.Log(ProgressMsg);
+                                isHasHotfix = true;
                             },
                             (successMsg) =>
                             {
-
                             },
                             (errorMsg) =>
                             {
@@ -401,7 +404,7 @@ public class ModulesVersionCheck : MonoBehaviour
                                 isError = true;
                             });
                     }
-                    PageLaunch.Instance.RemoveProgress(LoadingProgressMod.DOWNLOAD_MOD_MAIN);
+                    PageLaunch.Instance.RemoveProgress(StepHotfixDownloadModAtLaunch.DOWNLOAD_MOD_MAIN);
 
 
                     if (!isError)
@@ -412,159 +415,162 @@ public class ModulesVersionCheck : MonoBehaviour
                                 isError = true;
                         });
                     }
-
-
-
-                    // 下载“启动热更”游戏模块
-                    if (!isError)
-                    {
-
-                        List<JObject> updateGames = new List<JObject>();
-                        foreach (JObject Item in LobbyGamesManager.Instance.lobbyGamesInfoLocal)
-                        {
-                            bool updateAtLaunch = Item["update_at_launch"].Value<bool>();
-                            if (updateAtLaunch)
-                                updateGames.Add(Item);
-                        }
-
-                        int j = 0;
-                        PageLaunch.Instance.AddProgressCount(LoadingProgressMod.DOWNLOAD_MOD_GAME, updateGames.Count);
-                        foreach (JObject Item in updateGames)
-                        {
-                            if (isError) continue;
-
-                            string moduleName = Item["module_name"].Value<string>();
-
-                            j++;
-                            PageLaunch.Instance.Next(LoadingProgressMod.DOWNLOAD_MOD_GAME,
-                                $"download game mod :{moduleName} {j}/{updateGames.Count}");
-                            yield return ModuleDownloadManager.Instance.DownLoadNeedModToTemp(moduleName,
-                                null,
-                                (startMsg) =>
-                                {
-                                    Debug.Log(startMsg);
-                                },
-                                (endMsg) =>
-                                {
-                                    Debug.Log(endMsg);
-                                },
-                                (ProgressMsg) =>
-                                {
-                                    Debug.Log(ProgressMsg);
-                                },
-                                (successMsg) =>
-                                {
-
-                                },
-                                (errorMsg) =>
-                                {
-                                    Debug.LogError(errorMsg);
-                                    isError = true;
-                                });
-                        }
-                    }
-                    PageLaunch.Instance.RemoveProgress(LoadingProgressMod.DOWNLOAD_MOD_GAME);
-
-
-
-
-                    // 下载“启动热更-一次”游戏模块
-                    if (!isError)
-                    {
-                        Debug.Log($"单次热更前：{JsonConvert.SerializeObject(LobbyGamesManager.Instance.lobbyGamesInfoLocal)}");
-                        List<JObject> updateGames = new List<JObject>();
-                        foreach (JObject Item in LobbyGamesManager.Instance.lobbyGamesInfoLocal)
-                        {
-                            bool updateAtLaunch = Item["update_at_launch_once"].Value<bool>();
-                            if (updateAtLaunch)
-                                updateGames.Add(Item);
-                        }
-
-                        int j = 0;
-                        PageLaunch.Instance.AddProgressCount(LoadingProgressMod.DOWNLOAD_MOD_GAME_ONCE, updateGames.Count);
-                        foreach (JObject Item in updateGames)
-                        {
-                            if (isError) continue;
-
-                            string moduleName = Item["module_name"].Value<string>();
-
-                            j++;
-                            PageLaunch.Instance.Next(LoadingProgressMod.DOWNLOAD_MOD_GAME_ONCE,
-                                $"download game mod once :{moduleName} {j}/{updateGames.Count}");
-                            yield return ModuleDownloadManager.Instance.DownLoadNeedModToTemp(moduleName,
-                                null,
-                                (startMsg) =>
-                                {
-                                    Debug.Log(startMsg);
-                                },
-                                (endMsg) =>
-                                {
-                                    Debug.Log(endMsg);
-                                },
-                                (ProgressMsg) =>
-                                {
-                                    Debug.Log(ProgressMsg);
-                                },
-                                (successMsg) =>
-                                {
-                                    Item["update_at_launch_once"] = false;  // 单次热更完毕，置位
-                                },
-                                (errorMsg) =>
-                                {
-                                    Debug.LogError(errorMsg);
-                                    isError = true;
-                                });
-                        }
-
-                        Debug.Log($"单次热更后：{JsonConvert.SerializeObject(LobbyGamesManager.Instance.lobbyGamesInfoLocal)}");
-                    }
-                    PageLaunch.Instance.RemoveProgress(LoadingProgressMod.DOWNLOAD_MOD_GAME_ONCE);
-
-
-
-                    if (!isError)
-                    {
-                        // 写入主版本文件
-                        FileUtils.WriteAllText(PathHelper.tmpVersionLOCPTH, webVersionFileNode.ToString());
-                        
-                        // 检查要拷贝的文件(全部需求模块下载完成，才能将临时文件拷贝到目标路劲中)
-                        PageLaunch.Instance.AddProgressCount(LoadingProgress.COPY_TEMP_HOTFIX_FILE, 1);
-                        PageLaunch.Instance.Next(LoadingProgress.COPY_TEMP_HOTFIX_FILE, $"copy cache : temp hotfix file");
-
-                        PlayerPrefs.SetString(HotfixState.HOTFIX_STATE, HotfixState.HotfixCopying);
-                        yield return ModuleDownloadManager.Instance.CopyTempWebHotfixFileToTargetDir();
-                        PageLaunch.Instance.RemoveProgress(LoadingProgress.COPY_TEMP_HOTFIX_FILE);
-
-
-                        // 重新获取本地配置文件
-                        GlobalModel.mainModVersion = JObject.Parse(File.ReadAllText(PathHelper.mainModVersionLOCPTH));
-                        GlobalModel.version = JObject.Parse(File.ReadAllText(PathHelper.versionLOCPTH));
-
-                        // 保存
-                        LobbyGamesManager.Instance.SaveLobbyGameInfoAndHash();
-
-                        // 删除多余文件
-                        yield return DeleteUnuseABAndManifest();
-
-
-                        // 删除无用dll
-                        yield return DeleteUnuseAssetDll();
-
-                        // 删除无用backup
-                        yield return DeleteUnuseAssetBackup();
-                    }
-
                 }
-                else
+
+
+
+                // 下载“启动热更”游戏模块
+                if (!isError)
                 {
-                    Debug.Log("no need for hotfix");
+
+                    List<JObject> updateGames = new List<JObject>();
+                    foreach (JObject Item in LobbyGamesManager.Instance.lobbyGamesInfoLocal)
+                    {
+                        bool updateAtLaunch = Item["update_at_launch"].Value<bool>();
+                        if (updateAtLaunch) { 
+                            updateGames.Add(Item);
+                        }
+                    }
+
+                    int j = 0;
+                    PageLaunch.Instance.AddProgressCount(StepHotfixDownloadModAtLaunch.DOWNLOAD_MOD_GAME, updateGames.Count);
+                    foreach (JObject Item in updateGames)
+                    {
+                        if (isError) continue;
+
+                        string moduleName = Item["module_name"].Value<string>();
+
+                        j++;
+                        PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.DOWNLOAD_MOD_GAME,
+                            $"download game mod :{moduleName} {j}/{updateGames.Count}");
+                        yield return ModuleDownloadManager.Instance.DownLoadNeedModToTemp(moduleName,
+                            null,
+                            (startMsg) =>
+                            {
+                                Debug.Log(startMsg);
+                            },
+                            (endMsg) =>
+                            {
+                                Debug.Log(endMsg);
+                            },
+                            (ProgressMsg) =>
+                            {
+                                Debug.Log(ProgressMsg);
+                                isHasHotfix = true;
+                            },
+                            (successMsg) =>
+                            {
+                                Item["update_at_launch_once"] = false;
+                            },
+                            (errorMsg) =>
+                            {
+                                Debug.LogError(errorMsg);
+                                isError = true;
+                            });
+                    }
+                }
+                PageLaunch.Instance.RemoveProgress(StepHotfixDownloadModAtLaunch.DOWNLOAD_MOD_GAME);
+
+
+
+
+                // 下载“启动热更-一次”游戏模块
+                if (!isError)
+                {
+                    Debug.Log($"单次热更前：{JsonConvert.SerializeObject(LobbyGamesManager.Instance.lobbyGamesInfoLocal)}");
+                    List<JObject> updateGames = new List<JObject>();
+                    foreach (JObject Item in LobbyGamesManager.Instance.lobbyGamesInfoLocal)
+                    {
+                        bool updateAtLaunch = Item["update_at_launch_once"].Value<bool>();
+                        if (updateAtLaunch)
+                            updateGames.Add(Item);
+                    }
+
+                    int j = 0;
+                    PageLaunch.Instance.AddProgressCount(StepHotfixDownloadModAtLaunch.DOWNLOAD_MOD_GAME_ONCE, updateGames.Count);
+                    foreach (JObject Item in updateGames)
+                    {
+                        if (isError) continue;
+
+                        string moduleName = Item["module_name"].Value<string>();
+
+                        j++;
+                        PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.DOWNLOAD_MOD_GAME_ONCE,
+                            $"download game mod once :{moduleName} {j}/{updateGames.Count}");
+                        yield return ModuleDownloadManager.Instance.DownLoadNeedModToTemp(moduleName,
+                            null,
+                            (startMsg) =>
+                            {
+                                Debug.Log(startMsg);
+                            },
+                            (endMsg) =>
+                            {
+                                Debug.Log(endMsg);
+                            },
+                            (ProgressMsg) =>
+                            {
+                                Debug.Log(ProgressMsg);
+                                isHasHotfix = true;
+                            },
+                            (successMsg) =>
+                            {
+                                Item["update_at_launch_once"] = false;  // 单次热更完毕，置位
+                            },
+                            (errorMsg) =>
+                            {
+                                Debug.LogError(errorMsg);
+                                isError = true;
+                            });
+                    }
+
+                    Debug.Log($"单次热更后：{JsonConvert.SerializeObject(LobbyGamesManager.Instance.lobbyGamesInfoLocal)}");
+                }
+                PageLaunch.Instance.RemoveProgress(StepHotfixDownloadModAtLaunch.DOWNLOAD_MOD_GAME_ONCE);
+
+
+
+                //如有更新
+                if (!isError && isHasHotfix)
+                {
+
+                    // 写入主版本文件
+                    FileUtils.WriteAllText(PathHelper.tmpVersionLOCPTH, webVersionFileNode.ToString());
+
+                    // 检查要拷贝的文件(全部需求模块下载完成，才能将临时文件拷贝到目标路劲中)
+                    PageLaunch.Instance.AddProgressCount(StepHotfixDownloadModAtLaunch.COPY_TEMP_HOTFIX_FILE, 1);
+                    PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.COPY_TEMP_HOTFIX_FILE, $"copy cache : temp hotfix file");
+
+                    PlayerPrefs.SetString(HotfixState.HOTFIX_STATE, HotfixState.HotfixCopying);
+                    yield return ModuleDownloadManager.Instance.CopyTempWebHotfixFileToTargetDir();
+                    PageLaunch.Instance.RemoveProgress(StepHotfixDownloadModAtLaunch.COPY_TEMP_HOTFIX_FILE);
+
+
+                    // 重新获取本地配置文件
+                    GlobalModel.mainModVersion = JObject.Parse(File.ReadAllText(PathHelper.mainModVersionLOCPTH));
+                    GlobalModel.version = JObject.Parse(File.ReadAllText(PathHelper.versionLOCPTH));
+
+
+                    // 保存
+                    LobbyGamesManager.Instance.SaveLobbyGameInfoAndHash();
+
+
+                    // 删除多余文件
+                    yield return DeleteUnuseABAndManifest();
+
+                    // 删除无用dll
+                    yield return DeleteUnuseAssetDll();
+
+                    // 删除无用backup
+                    yield return DeleteUnuseAssetBackup();
                 }
 
-                // 回调
+
+
+                // 回调进入大厅
                 proxyCallback?.Invoke();
                 yield break;
             }
-            else // 网路主版本号大于当前主版本号
+            else // 网路"主模块"版本号 不等于 当前"主模块"版本号
             {
                 // 回调 - 后卡主 - 提醒需要下载更新的app安装包
                 Debug.LogError("The local master version number and the remote master version number are not equal");
@@ -662,7 +668,7 @@ public class ModulesVersionCheck : MonoBehaviour
     {
         List<string> unusePths = GetUnuseAB();
 
-        PageLaunch.Instance.AddProgressCount(LoadingProgressMod.DELETE_UNUSE_ASSET_BUNDLE, unusePths.Count);
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadModAtLaunch.DELETE_UNUSE_ASSET_BUNDLE, unusePths.Count);
 
         int i = 0;
         foreach (string pth in unusePths)
@@ -670,7 +676,7 @@ public class ModulesVersionCheck : MonoBehaviour
             i++;
             if (File.Exists(pth))
             {
-                PageLaunch.Instance.Next(LoadingProgressMod.DELETE_UNUSE_ASSET_BUNDLE, $"delete unuse ab {i}/{unusePths.Count}: {pth}  ");
+                PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.DELETE_UNUSE_ASSET_BUNDLE, $"delete unuse ab {i}/{unusePths.Count}: {pth}  ");
 
                 Debug.Log($"delete unuse ab {i}/{unusePths.Count}: {pth}");
                 File.Delete(pth);
@@ -678,11 +684,11 @@ public class ModulesVersionCheck : MonoBehaviour
             }
         }
 
-        PageLaunch.Instance.Next(LoadingProgressMod.DELETE_UNUSE_ASSET_BUNDLE, $"delete unuse ab folder");
+        PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.DELETE_UNUSE_ASSET_BUNDLE, $"delete unuse ab folder");
 
         yield return DeleteUnuseABFolderAndMeta();
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgressMod.DELETE_UNUSE_ASSET_BUNDLE);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadModAtLaunch.DELETE_UNUSE_ASSET_BUNDLE);
     }
 
 
@@ -800,13 +806,14 @@ public class ModulesVersionCheck : MonoBehaviour
         JObject hotfixDlls = GlobalModel.version["asset_dll"] as JObject;
 
         List<string> targetPathLst = new List<string>();  //获取普通包路劲 xxx.unity3d  和  xxx.unity3d.manifest
-        targetPathLst.AddRange(GetTargetFilePath(PathHelper.hotfixDirLOCPTH, ".dll.bytes"));
+        targetPathLst.AddRange(GetTargetFilePath(PathHelper.dllDirLOCPTH, ".dll.bytes"));
 
         int idx = targetPathLst.Count - 1;
         while (idx >= 0)
         {
             string[] pths = targetPathLst[idx].Replace("\\", "/").Split('/');
-            string name = pths[pths.Length - 1].Replace(".dll.bytes", "");
+            //string name = pths[pths.Length - 1].Replace(".dll.bytes", "");
+            string name = pths[pths.Length - 1];
 
             if (hotfixDlls.ContainsKey(name))
             {
@@ -815,14 +822,14 @@ public class ModulesVersionCheck : MonoBehaviour
             idx--;
         }
 
-        PageLaunch.Instance.AddProgressCount(LoadingProgressMod.DELETE_UNUSE_ASSET_DLL, targetPathLst.Count);
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadModAtLaunch.DELETE_UNUSE_ASSET_DLL, targetPathLst.Count);
         int i = 0;
         foreach (string s in targetPathLst)
         {
             i++;
             if (File.Exists(s))
             {
-                PageLaunch.Instance.Next(LoadingProgressMod.DELETE_UNUSE_ASSET_DLL, $"delete unuse dll {i}/{targetPathLst.Count}: {s}  ");
+                PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.DELETE_UNUSE_ASSET_DLL, $"delete unuse dll {i}/{targetPathLst.Count}: {s}  ");
 
                 Debug.Log($"delete unuse dll {i}/{targetPathLst.Count}: {s}");
 
@@ -831,7 +838,7 @@ public class ModulesVersionCheck : MonoBehaviour
             }
         }
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgressMod.DELETE_UNUSE_ASSET_DLL);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadModAtLaunch.DELETE_UNUSE_ASSET_DLL);
 
     }
 
@@ -841,10 +848,10 @@ public class ModulesVersionCheck : MonoBehaviour
 
         JObject assetBackup = GlobalModel.version["asset_backup"] as JObject;
 
-        List<string> targetPathLst = new List<string>();  //获取普通包路劲 xxx.unity3d  和  xxx.unity3d.manifest
-        targetPathLst.AddRange(GetTargetFilePath(PathHelper.hotfixDirLOCPTH, ".*"));
+        List<string> targetPathLst = new List<string>(); 
+        targetPathLst.AddRange(GetTargetFilePath(PathHelper.backupDirLOCPTH, ".*"));
 
-        string targetSegment = $"{PathHelper.backupFolderName}/";
+        string targetSegment = $"/{PathHelper.backupFolderName}/";
 
         int idx = targetPathLst.Count - 1;
         while (idx >= 0)
@@ -860,23 +867,23 @@ public class ModulesVersionCheck : MonoBehaviour
             idx--;
         }
 
-        PageLaunch.Instance.AddProgressCount(LoadingProgress.DELETE_UNUSE_ASSET_BACKUP, targetPathLst.Count);
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadModAtLaunch.DELETE_UNUSE_ASSET_BACKUP, targetPathLst.Count);
         int i = 0;
         foreach (string s in targetPathLst)
         {
             i++;
             if (File.Exists(s))
             {
-                PageLaunch.Instance.Next(LoadingProgress.DELETE_UNUSE_ASSET_BACKUP, $"delete unuse backup {i}/{targetPathLst.Count}: {s}  ");
+                PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.DELETE_UNUSE_ASSET_BACKUP, $"delete unuse backup asset {i}/{targetPathLst.Count}: {s}  ");
 
-                Debug.Log($"delete unuse dll {i}/{targetPathLst.Count}: {s}");
+                Debug.Log($"delete unuse backup asset {i}/{targetPathLst.Count}: {s}");
 
                 File.Delete(s);
                 yield return null;
             }
         }
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.DELETE_UNUSE_ASSET_BACKUP);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadModAtLaunch.DELETE_UNUSE_ASSET_BACKUP);
 
     }
     #endregion
@@ -972,7 +979,7 @@ public class ModulesVersionCheck : MonoBehaviour
                 int totalCount = abList.Length;// 一个是版本配置文件，一个是manifest文件
                 int completedCount = 0;
 
-                PageLaunch.Instance.AddProgressCount(LoadingProgressMod.COPY_SA_ASSET_BUNDLE, totalCount);
+                PageLaunch.Instance.AddProgressCount(StepHotfixDownloadModAtLaunch.COPY_SA_ASSET_BUNDLE, totalCount);
 
                 foreach (var abName in abList)
                 {
@@ -981,7 +988,7 @@ public class ModulesVersionCheck : MonoBehaviour
                     Debug.Log($"{srcPath} - {tarPath}");
                     completedCount++;
 
-                    PageLaunch.Instance.Next(LoadingProgressMod.COPY_SA_ASSET_BUNDLE,
+                    PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.COPY_SA_ASSET_BUNDLE,
                         $"copy assetbundle to cache: {abName} {completedCount}/{totalCount}");
 
                     Debug.Log(string.Format("copy asset bundle {0}/{1}, bundle:{2}", completedCount, totalCount, abName));
@@ -991,7 +998,7 @@ public class ModulesVersionCheck : MonoBehaviour
                     yield return FileUtils.CopyStreamingAssetToLocalWhenFileExists(srcPath, tarPath);
 
                 }
-                PageLaunch.Instance.Next(LoadingProgressMod.COPY_SA_ASSET_BUNDLE,
+                PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.COPY_SA_ASSET_BUNDLE,
                     $"copy manifest to cache: {PathHelper.mainfestBundleName}");
 
                 Debug.Log("copy manifest");
@@ -999,7 +1006,7 @@ public class ModulesVersionCheck : MonoBehaviour
 
             }
         }
-        PageLaunch.Instance.RemoveProgress(LoadingProgressMod.COPY_SA_ASSET_BUNDLE);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadModAtLaunch.COPY_SA_ASSET_BUNDLE);
 
 
         // 所有文件复制到本地
@@ -1010,7 +1017,7 @@ public class ModulesVersionCheck : MonoBehaviour
 
             JObject hotfixDll = versionSAObj["asset_dll"] as JObject;
 
-            PageLaunch.Instance.AddProgressCount(LoadingProgressMod.COPY_SA_HOTFIX_DLL, hotfixDll.Count);
+            PageLaunch.Instance.AddProgressCount(StepHotfixDownloadModAtLaunch.COPY_SA_HOTFIX_DLL, hotfixDll.Count);
 
             int i = 0;
             foreach (KeyValuePair<string, JToken> kv in hotfixDll)
@@ -1020,7 +1027,7 @@ public class ModulesVersionCheck : MonoBehaviour
                 string tarPath = PathHelper.GetDllLOCPTH(kv.Key);
 
                 i++;
-                PageLaunch.Instance.Next(LoadingProgressMod.COPY_SA_HOTFIX_DLL,
+                PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.COPY_SA_HOTFIX_DLL,
                     $"copy dll to cache: {kv.Key} {i}/{hotfixDll.Count}");
 
                 Debug.Log(string.Format("copy dll {0}/{1}, dll:{2}", i, hotfixDll.Count, kv.Key));
@@ -1030,7 +1037,7 @@ public class ModulesVersionCheck : MonoBehaviour
 
         }
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgressMod.COPY_SA_HOTFIX_DLL);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadModAtLaunch.COPY_SA_HOTFIX_DLL);
 
 
         // 拷贝所有Backup文件
@@ -1039,7 +1046,7 @@ public class ModulesVersionCheck : MonoBehaviour
         {
             JObject astBackup = versionSAObj["asset_backup"] as JObject;
 
-            PageLaunch.Instance.AddProgressCount(LoadingProgressMod.COPY_SA_ASSET_BACKUP, astBackup.Count);
+            PageLaunch.Instance.AddProgressCount(StepHotfixDownloadModAtLaunch.COPY_SA_ASSET_BACKUP, astBackup.Count);
 
             int i = 0;
             foreach (KeyValuePair<string, JToken> kv in astBackup)
@@ -1048,7 +1055,7 @@ public class ModulesVersionCheck : MonoBehaviour
                 string tarPath = PathHelper.GetAssetBackupLOCPTH(kv.Key); // PathHelper.GetDllLOCPTH(kv.Key);
 
                 i++;
-                PageLaunch.Instance.Next(LoadingProgressMod.COPY_SA_ASSET_BACKUP,
+                PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.COPY_SA_ASSET_BACKUP,
                     $"copy asset backup to cache: {kv.Key} {i}/{astBackup.Count}");
 
                 Debug.Log(string.Format("copy asset backup {0}/{1}, backup:{2}", i, astBackup.Count, kv.Key));
@@ -1056,7 +1063,7 @@ public class ModulesVersionCheck : MonoBehaviour
                 yield return FileUtils.CopyStreamingAssetToLocalWhenFileExists(saPth, tarPath);
             }
         }
-        PageLaunch.Instance.RemoveProgress(LoadingProgressMod.COPY_SA_ASSET_BACKUP);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadModAtLaunch.COPY_SA_ASSET_BACKUP);
 
 
 
@@ -1074,7 +1081,7 @@ public class ModulesVersionCheck : MonoBehaviour
         {
             int i = 0;
             int count = LobbyGamesManager.Instance.lobbyGamesInfoSever.Count;
-            PageLaunch.Instance.AddProgressCount(LoadingProgressMod.COPY_SA_ASSET_MOD_VER, count);
+            PageLaunch.Instance.AddProgressCount(StepHotfixDownloadModAtLaunch.COPY_SA_ASSET_MOD_VER, count);
 
             foreach (JObject item in LobbyGamesManager.Instance.lobbyGamesInfoSever)
             {
@@ -1089,7 +1096,7 @@ public class ModulesVersionCheck : MonoBehaviour
                 string toPth = PathHelper.GetModuleVersionLOCPTH(moduleName);
 
                 i++;
-                PageLaunch.Instance.Next(LoadingProgressMod.COPY_SA_ASSET_MOD_VER,
+                PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.COPY_SA_ASSET_MOD_VER,
                     $"copy mod version to cache: {toPth} {i}/{count}");
 
                 Debug.Log(string.Format("copy mod version to cache {0}/{1}, pth:{2}", i, count, toPth));
@@ -1097,7 +1104,7 @@ public class ModulesVersionCheck : MonoBehaviour
                 yield return FileUtils.CopyStreamingAssetToLocalWhenFileExists(fromPht, toPth);
             }
         }
-        PageLaunch.Instance.RemoveProgress(LoadingProgressMod.COPY_SA_ASSET_MOD_VER);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadModAtLaunch.COPY_SA_ASSET_MOD_VER);
 
 
         // 最后才拷贝version文件"主版本文件"
@@ -1180,8 +1187,8 @@ public class ModulesVersionCheck : MonoBehaviour
         string tvUrl = PathHelper.totalVersionWEBURL + $"?t={DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}";
         Debug.Log($"download total version： {tvUrl}");
 
-        PageLaunch.Instance.AddProgressCount(LoadingProgressMod.CHECK_WEB_VERSION, 3);
-        PageLaunch.Instance.Next(LoadingProgressMod.CHECK_WEB_VERSION, $"get web total version");
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadModAtLaunch.CHECK_WEB_VERSION, 3);
+        PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.CHECK_WEB_VERSION, $"get web total version");
 
         using (UnityWebRequest reqTotalVersion = UnityWebRequest.Get(tvUrl))
         {
@@ -1216,12 +1223,12 @@ public class ModulesVersionCheck : MonoBehaviour
                     GlobalModel.autoHotfixUrl = FileUtils.GetDirWebUrl(PathHelper.totalVersionWEBURL, targetTotalVersionItem["hotfix_url"].ToObject<string>());
 
 
-                    PageLaunch.Instance.Next(LoadingProgressMod.CHECK_WEB_VERSION, $"get web version");
+                    PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.CHECK_WEB_VERSION, $"get web version");
 
                     yield return GetWebVersion(onSuccessCallback, onErrorCallback);
 
 
-                    PageLaunch.Instance.Next(LoadingProgressMod.CHECK_WEB_VERSION, $"get web main mod version");
+                    PageLaunch.Instance.Next(StepHotfixDownloadModAtLaunch.CHECK_WEB_VERSION, $"get web main mod version");
 
                     yield return GetMainModWebVersion(onSuccessCallback, onErrorCallback);
 
@@ -1239,7 +1246,7 @@ public class ModulesVersionCheck : MonoBehaviour
                 onErrorCallback?.Invoke();
             }
         }
-        PageLaunch.Instance.RemoveProgress(LoadingProgressMod.CHECK_WEB_VERSION);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadModAtLaunch.CHECK_WEB_VERSION);
     }
 
 

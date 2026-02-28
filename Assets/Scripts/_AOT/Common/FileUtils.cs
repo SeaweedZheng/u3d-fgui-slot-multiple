@@ -10,6 +10,59 @@ using UnityEngine.Networking;
 
 public static partial class FileUtils 
 {
+
+    /// <summary>
+    /// 拷贝文件夹（包含所有文件、子文件夹）
+    /// </summary>
+    /// <param name="sourcePath">源文件夹路径</param>
+    /// <param name="targetPath">目标文件夹路径</param>
+    /// <param name="overwrite">是否覆盖已存在的文件，默认true</param>
+    public static void CopyDirectory(string sourcePath, string targetPath, bool overwrite = true)
+    {
+        // 校验源文件夹是否存在
+        if (!Directory.Exists(sourcePath))
+        {
+            throw new DirectoryNotFoundException($"源文件夹不存在：{sourcePath}");
+        }
+
+        // 创建目标文件夹（如果不存在）
+        if (!Directory.Exists(targetPath))
+        {
+            Directory.CreateDirectory(targetPath);
+        }
+
+        // 1. 拷贝当前文件夹下的所有文件
+        foreach (string filePath in Directory.GetFiles(sourcePath))
+        {
+            // 获取文件名（不含路径）
+            string fileName = Path.GetFileName(filePath);
+            // 拼接目标文件完整路径
+            string destFilePath = Path.Combine(targetPath, fileName);
+
+            // 拷贝文件（处理只读文件）
+            FileInfo fileInfo = new FileInfo(filePath);
+            if (fileInfo.IsReadOnly)
+            {
+                fileInfo.Attributes = FileAttributes.Normal;
+            }
+
+            // 拷贝文件，overwrite控制是否覆盖已有文件
+            File.Copy(filePath, destFilePath, overwrite);
+        }
+
+        // 2. 递归拷贝所有子文件夹
+        foreach (string subFolderPath in Directory.GetDirectories(sourcePath))
+        {
+            // 获取子文件夹名称
+            string subFolderName = Path.GetFileName(subFolderPath);
+            // 拼接目标子文件夹路径
+            string destSubFolderPath = Path.Combine(targetPath, subFolderName);
+            // 递归调用，拷贝子文件夹内容
+            CopyDirectory(subFolderPath, destSubFolderPath, overwrite);
+        }
+    }
+
+
     public static void WriteFile(string path, byte[] data)
     {
         FileInfo fi = new FileInfo(path);
@@ -482,7 +535,7 @@ public static partial class FileUtils
 
 
     /// <summary>
-    /// 拷贝StreamingAsset里的资源到本地
+    /// 【热更使用】拷贝StreamingAsset里的资源到本地
     /// </summary>
     /// <param name="srcPath"></param>
     /// <param name="tarPath"></param>
@@ -514,7 +567,7 @@ public static partial class FileUtils
     }
 
     /// <summary>
-    /// 尝试拷贝StreamingAsset里的资源到本地，原文件不一定存在
+    /// 【热更使用】尝试拷贝StreamingAsset里的资源到本地，原文件不一定存在
     /// </summary>
     /// <param name="srcPath"></param>
     /// <param name="tarPath"></param>
@@ -554,7 +607,14 @@ public static partial class FileUtils
 
 
 
-
+    /// <summary>
+    /// 【热更使用】
+    /// </summary>
+    /// <typeparam name="T"></typeparam>
+    /// <param name="srcPath"></param>
+    /// <param name="onSuccessCallback"></param>
+    /// <param name="onErrorCallback"></param>
+    /// <returns></returns>
     public static IEnumerator ReadStreamingAsset<T>(string srcPath , Action<object> onSuccessCallback, Action<string> onErrorCallback)
     {
 #if UNITY_ANDROID
@@ -676,8 +736,54 @@ public static partial class FileUtils
         File.WriteAllText(path, contents);
     }
 
+
+
     /// <summary>
-    /// 删除目录下的文件以及文件夹
+    /// 删除文件夹及其内部所有文件和子文件夹
+    /// </summary>
+    /// <param name="folderPath">要删除的文件夹路径</param>
+    public static void DeleteDirectory(string folderPath)
+    {
+        // 检查文件夹是否存在
+        if (!Directory.Exists(folderPath))
+        {
+            Debug.Log("文件夹不存在，无需删除。");
+            return;
+        }
+
+        // 1. 删除文件夹内的所有文件（处理只读文件）
+        foreach (string filePath in Directory.GetFiles(folderPath))
+        {
+            /*
+            
+            FileInfo fileInfo = new FileInfo(filePath);
+            // 如果文件是只读的，先取消只读属性
+            if (fileInfo.IsReadOnly)
+            {
+                fileInfo.Attributes = FileAttributes.Normal;
+            }
+            
+             */
+
+
+            // 删除文件
+            File.Delete(filePath);
+        }
+
+        // 2. 递归删除所有子文件夹
+        foreach (string subFolderPath in Directory.GetDirectories(folderPath))
+        {
+            DeleteDirectory(subFolderPath);
+        }
+
+        // 3. 删除空的根文件夹
+        Directory.Delete(folderPath);
+    }
+
+
+
+    /// <summary>
+    /// 【热更使用】删除目录下的文件以及文件夹
     /// </summary>
     /// <param name="directory"></param>
     /// <returns></returns>
@@ -703,16 +809,17 @@ public static partial class FileUtils
         foreach (string dir in directories)
         {
             yield return DeleteDirectoryAsync(dir);
-           /* try
-            {
-                Directory.Delete(dir);
-            }
-            catch (Exception e)
-            {
-                Debug.LogError($"2 Failed to delete directory {dir}: {e.Message}");
-            }
-            yield return null;
-           */
+
+            /* try
+             {
+                 Directory.Delete(dir);
+             }
+             catch (Exception e)
+             {
+                 Debug.LogError($"2 Failed to delete directory {dir}: {e.Message}");
+             }
+             yield return null;
+            */
         }
 
         // 删除当前目录
@@ -729,12 +836,12 @@ public static partial class FileUtils
 
 
     /// <summary>
-    /// 拷贝本地目录下的文件和文件夹到目标目录下
+    /// 【热更使用】拷贝本地目录下的文件和文件夹到目标目录下
     /// </summary>
     /// <param name="sourceDir"></param>
     /// <param name="destDir"></param>
     /// <returns></returns>
-    public static IEnumerator CopyDirectoryAsync(string sourceDir, string destDir)
+    public static IEnumerator CopyDirectoryAsync(string sourceDir, string destDir, Action<string> onProgress = null)
     {
         if (!Directory.Exists(sourceDir))
         {
@@ -750,6 +857,7 @@ public static partial class FileUtils
         string[] files = Directory.GetFiles(sourceDir);
         foreach (string file in files)
         {
+            onProgress?.Invoke($"copy file: {file}");
             Debug.Log($"copy temp hotfix file: {file}");
             yield return CopyFileAsync(file, Path.Combine(destDir, Path.GetFileName(file)));
         }
@@ -759,13 +867,13 @@ public static partial class FileUtils
         {
             string dirName = Path.GetFileName(dir);
             string destSubDir = Path.Combine(destDir, dirName);
-            yield return CopyDirectoryAsync(dir, destSubDir);
+            yield return CopyDirectoryAsync(dir, destSubDir, onProgress);
         }
     }
 
 
     /// <summary>
-    /// 拷贝本地文件
+    /// 【热更使用】拷贝本地文件
     /// </summary>
     /// <param name="sourceFile"></param>
     /// <param name="destFile"></param>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <displayList>
+    <component id="n30_kc0c" name="n30" src="os7y3l" fileName="moudules/BasePopuoBG.xml" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
+    <image id="n0_kc0c" name="n0" src="vqlx68" fileName="images/common/circle_24.png" xy="165,493" size="750,933" group="n28_kc0c" color="#143733"/>
+    <image id="n50_ocpf" name="n50" src="vqlx69" fileName="images/common/circle_64.png" xy="200,742" size="680,64" group="n28_kc0c" color="#09221f"/>
+    <richtext id="n4_kc0c" name="title" xy="232,516" size="615,64" group="n28_kc0c" fontSize="35" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" singleLine="true" autoClearText="true" text="Redeem"/>
+    <component id="n22_kc0c" name="btnConfirm" src="vqlx5x" fileName="components/Button005Confirm.xml" xy="442,1325" group="n28_kc0c"/>
+    <component id="n31_ocpf" name="btnExit" src="os7y4l" fileName="components/ButtonClosePopup.xml" xy="837,493" group="n28_kc0c"/>
+    <image id="n32_ocpf" name="n32" src="vqlx65" fileName="images/common/line_64x4.png" xy="190,591" size="700,4" group="n28_kc0c"/>
+    <image id="n33_ocpf" name="n33" src="vqlx65" fileName="images/common/line_64x4.png" xy="190,1296" size="700,4" group="n28_kc0c"/>
+    <image id="n37_ocpf" name="n37" src="vqlx68" fileName="images/common/circle_24.png" xy="200,825" size="680,459" group="n28_kc0c" color="#09221f"/>
+    <text id="n48_ocpf" name="n1" xy="201,604" size="257,56" group="n28_kc0c" fontSize="30" color="#ffffff" vAlign="middle" autoSize="none" singleLine="true" text="My Credit:"/>
+    <text id="n59_ocpf" name="myCredit" xy="484,604" size="333,56" group="n28_kc0c" fontSize="30" color="#ffffff" vAlign="middle" autoSize="none" singleLine="true" text="12313"/>
+    <text id="n57_ocpf" name="n2" xy="201,660" size="257,56" group="n28_kc0c" fontSize="30" color="#ffffff" vAlign="middle" autoSize="shrink" singleLine="true" text="Redeem Rate(Coin:Bill):"/>
+    <list id="n55_ocpf" name="lstGameType" xy="204,829" size="673,446" group="n28_kc0c" layout="flow_hz" overflow="hidden" margin="20,20,20,20" lineGap="15" colGap="15" lineItemCount="4" defaultItem="ui://xp0b9yqdocpfaa" autoItemSize="true">
+      <item title="All"/>
+      <item title="Slot"/>
+      <item title="Coin Pusher"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <text id="n60_ocpf" name="credit" xy="484,660" size="333,56" group="n28_kc0c" fontSize="30" color="#ffffff" vAlign="middle" autoSize="none" singleLine="true" text="12313"/>
+    <text id="n61_ocpf" name="n61" xy="350,743" size="380,63" group="n28_kc0c" fontSize="40" color="#ffffff" align="center" vAlign="middle" autoSize="none" singleLine="true" text="1000"/>
+    <image id="n62_ocpf" name="n62" src="ocpfac" fileName="images/buttons/icons/icon_credit.png" xy="207,748" group="n28_kc0c"/>
+    <group id="n28_kc0c" name="n28" xy="165,493" size="750,933"/>
+  </displayList>
+</component>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="130,36">
+  <displayList>
+    <image id="n0_86hh" name="icon" src="86hhb" fileName="images/common/square_32.png" xy="103,5" scale="0.8,0.8"/>
+    <richtext id="n1_86hh" name="title" xy="0,0" size="100,36" fontSize="26" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" singleLine="true" text="Wiper"/>
+  </displayList>
+  <customProperty target="title" propertyId="0" label="标题"/>
+  <customProperty target="value" propertyId="0" label="值"/>
+  <customProperty target="icon" propertyId="1" label="图标"/>
+</component>

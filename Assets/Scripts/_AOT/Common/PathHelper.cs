@@ -68,13 +68,20 @@ public static class PathHelper
     /// <summary> 【多合一】用来存储所有包 （所有游戏）</summary>
     public static string tmpHotfixDirSAPTH => Application.dataPath + "/StreamingAssetsTmp/Hotfix";
 
+    public static string GetAssetTmpHotfixDirSAPTH(string pth)
+    {
+        pth = pth.Replace("\\", "/");
 
+        pth = pth.Replace(hotfixDirSAPTH.Replace("\\", "/"), tmpHotfixDirSAPTH);
+
+        return pth;
+    }
 
     public static string dllDirSAPTH => Path.Combine(hotfixDirSAPTH, dllFolderName);
 
     public static string abDirSAPTH => Path.Combine(hotfixDirSAPTH, abFolderName);
 
-    public static string abDirWebPTH => Path.Combine(hotfixDirWEBURL, abFolderName);
+    public static string abDirWebPTH => $"{hotfixDirWEBURL}{abFolderName}";  //Path.Combine(hotfixDirWEBURL, abFolderName);
 
     public static string totalVersionSAPTH => Path.Combine(hotfixDirSAPTH, totalVersionName);
 
@@ -92,9 +99,9 @@ public static class PathHelper
     /// <summary> 这个网路下载路劲 （是动态获取的！）</summary>
     public static string hotfixDirWEBURL => GlobalModel.autoHotfixUrl;
 
-    public static string hotfixDirLOCPTH => Application.persistentDataPath + "/Hotfix";
+    public static string hotfixDirLOCPTH => Application.persistentDataPath + "/Hotfix"; // "/Hotfix";
     /// <summary> hotfix下载资源临时缓存目录 </summary>
-    public static string tmpHotfixDirLOCPTH => Application.persistentDataPath + "/HotfixTmp";
+    public static string tmpHotfixDirLOCPTH => Application.persistentDataPath + "/HotfixTmp"; // "/HotfixTmp";
 
 
     /// <summary>总版本管理文件路劲 </summary>
@@ -127,6 +134,8 @@ public static class PathHelper
 
 
     public static string mainfestLOCPTH => Path.Combine(abDirLOCPTH, mainfestBundleName);
+
+    //
     public static string mainfestWEBURL => Path.Combine(abDirWEBURL, mainfestBundleName);
 
 
@@ -134,7 +143,10 @@ public static class PathHelper
     //public static string abDirSAPTH => Path.Combine(hotfixDirSAPTH, abFolderName);
 
     public static string abDirLOCPTH => Path.Combine(hotfixDirLOCPTH, abFolderName);
-    public static string abDirWEBURL => Path.Combine(hotfixDirWEBURL, abFolderName);
+
+
+    //Path.Combine 是基于操作系统的路径拼接方法，在 Windows 系统下会用 \\ 作为分隔符，但 URL 必须使用 / 作为分隔符，所以直接用 Path.Combine 拼接 URL 路径会出问题。
+    public static string abDirWEBURL => $"{hotfixDirWEBURL}{abFolderName}";  //Path.Combine(hotfixDirWEBURL, abFolderName);
 
     public static string tmpDllDirLOCPTH => Path.Combine(tmpHotfixDirLOCPTH, dllFolderName);
     public static string dllDirLOCPTH => Path.Combine(hotfixDirLOCPTH, dllFolderName);
@@ -148,7 +160,7 @@ public static class PathHelper
         if (!dllName.EndsWith(".dll.bytes"))
             dllName = $"{dllName}.dll.bytes";
 
-        return $"{hotfixDirWEBURL}/{dllFolderName}/{dllName}";
+        return $"{hotfixDirWEBURL}{dllFolderName}/{dllName}";
     }
 
     public static string GetTempDllLOCPTH(string dllName)
@@ -191,7 +203,7 @@ public static class PathHelper
 
     public static string backupDirSAPTH => Path.Combine(hotfixDirSAPTH, backupFolderName);
     public static string backupDirLOCPTH => Path.Combine(hotfixDirLOCPTH, backupFolderName);
-    public static string backupDirWEBURL => Path.Combine(hotfixDirWEBURL, backupFolderName);
+    public static string backupDirWEBURL => $"{hotfixDirWEBURL}{backupFolderName}"; //Path.Combine(hotfixDirWEBURL, backupFolderName);
 
     public static string tmpBackupDirLOCPTH => Path.Combine(tmpHotfixDirLOCPTH, backupFolderName);
     public static string astBackupDirPROJPTH => Application.dataPath + $"/{backupFolderName}";
@@ -260,10 +272,13 @@ public static class PathHelper
 
     #region Modules
 
+    //模块打包配置文件
+    public static string modulePackageSettingsFile => Application.dataPath + "/module_package_settings.json";
+
     const string moduleFolderName = "Modules";
     public const string mianModuleName = "Main";
     public static string modulesDirSAPTH => Path.Combine(hotfixDirSAPTH, moduleFolderName);
-    public static string modulesDirWEBURL => Path.Combine(hotfixDirWEBURL, moduleFolderName);
+    public static string modulesDirWEBURL => $"{hotfixDirWEBURL}{moduleFolderName}"; // Path.Combine(hotfixDirWEBURL, moduleFolderName);
     // 【注意】public static string modulesDirLOCPTH => Path.Combine(modulesDirLOCPTH, moduleFolderName);  //modulesDirLOCPTH自己调用自己导致闪退  
 
     public static string modulesDirLOCPTH => Path.Combine(hotfixDirLOCPTH, moduleFolderName);  //modulesDirLOCPTH自己调用自己导致闪退  
@@ -272,14 +287,14 @@ public static class PathHelper
 
 
     public static string GetModuleVersionSAPTH(string name) =>  Path.Combine(modulesDirSAPTH, name ,versionName);
-    public static string GetModuleVersionWEBURL(string name) => Path.Combine(hotfixDirWEBURL, name, versionName);
+    public static string GetModuleVersionWEBURL(string name) => $"{modulesDirWEBURL}/{name}/{versionName}";// Path.Combine(modulesDirWEBURL, name, versionName);
     public static string GetModuleVersionLOCPTH(string name) => Path.Combine(modulesDirLOCPTH, name, versionName);
     public static string GetTmpModuleVersionLOCPTH(string name) => Path.Combine(tmpModulesDirLOCPTH, name, versionName);
     
     /// <summary> 包内主模块路劲 </summary>
     public static string mainModVersionSAPTH => Path.Combine(modulesDirSAPTH, mianModuleName, versionName);
 
-    public static string mainModVersionWEBURL => Path.Combine(modulesDirWEBURL, mianModuleName, versionName);
+    public static string mainModVersionWEBURL => $"{modulesDirWEBURL}/{mianModuleName}/{versionName}"; // Path.Combine(modulesDirWEBURL, mianModuleName, versionName);
 
     public static string mainModVersionLOCPTH => Path.Combine(modulesDirLOCPTH, mianModuleName, versionName);
 
@@ -298,9 +313,29 @@ public static class PathHelper
         }
 
         string pth = Application.dataPath + AssetsPth;  // D:/xxxx/xxxx/Assets/AstBackup/Cpp Dll/mscatch.dll.bytes
-
+        //string pth = Application.dataPath + "/"+ AssetsPth; //??
         return pth;
     }
 
     #endregion
+
+
+
+
+
+    public  static string GetAssetBundleSubDirSAPTH(string dir)
+    {
+        // Assets/AstBundle/Halls   > Halls
+        string pth = dir.Substring(dir.IndexOf(abFolderName) + abFolderName.Length + 1);  //  Halls
+        pth = pth.ToLower();
+        //if (!pth.EndsWith("/")) pth = $"{pth}/";
+        return Path.Combine(abDirSAPTH, pth);
+    }
+
+    public static string GetAssetBackupSubDirSAPTH(string dir)
+    {
+        string pth = dir.Substring(dir.IndexOf(backupFolderName) + backupFolderName.Length + 1); 
+        return Path.Combine(backupDirSAPTH, pth);
+    }
+
 }

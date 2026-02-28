@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1178" restrictSize="540,0,0,0">
+  <displayList>
+    <component id="n50_8yql" name="tip" src="g3lh5g" fileName="moudules/ItemTip.xml" xy="0,198"/>
+    <component id="n46_8yql" name="btnTicketOut" src="8yql85" fileName="components/ButtonTestButton.xml" xy="44,33" group="n55_8yql" touchable="false">
+      <Button title="Ticket Out"/>
+    </component>
+    <component id="n47_8yql" name="btnSpin" src="8yql85" fileName="components/ButtonTestButton.xml" xy="246,33" group="n55_8yql" touchable="false">
+      <Button title="Spin"/>
+    </component>
+    <component id="n42_8yql" name="btnSet" src="8yql85" fileName="components/ButtonTestButton.xml" xy="44,120" group="n55_8yql" touchable="false"/>
+    <component id="n45_8yql" name="btnDoor" src="8yql85" fileName="components/ButtonTestButton.xml" xy="246,120" group="n55_8yql" touchable="false">
+      <Button title="Door"/>
+    </component>
+    <component id="n43_8yql" name="btnScoreUp" src="8yql85" fileName="components/ButtonTestButton.xml" xy="448,120" group="n55_8yql" touchable="false">
+      <Button title="Score Up"/>
+    </component>
+    <component id="n44_8yql" name="btnScoreDown" src="8yql85" fileName="components/ButtonTestButton.xml" xy="650,120" group="n55_8yql" touchable="false">
+      <Button title="Score Down"/>
+    </component>
+    <group id="n55_8yql" name="n55" xy="44,33" size="768,141"/>
+  </displayList>
+</component>

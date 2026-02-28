@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="500,60">
+<component size="500,36">
   <displayList>
-    <image id="n4_paul" name="icon" src="paul4" fileName="images/icons/icon_arrow.png" xy="0,0" color="#ffff00"/>
-    <richtext id="n5_paul" name="title" xy="108,0" size="390,59" fontSize="36" color="#ffffff" vAlign="middle" autoSize="none" text="Hardware Test"/>
+    <image id="n4_paul" name="icon" src="j0k61r" fileName="images/icons/icon_arrow_36.png" xy="0,0" color="#ffff00"/>
+    <richtext id="n5_paul" name="title" xy="69,0" size="390,36" fontSize="26" color="#ffffff" vAlign="middle" autoSize="none" text="Hardware Test"/>
   </displayList>
   <customProperty target="title" propertyId="0" label="标题"/>
 </component>

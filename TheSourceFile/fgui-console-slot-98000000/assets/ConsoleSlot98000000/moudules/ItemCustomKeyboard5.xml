@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="330,330">
+  <displayList>
+    <image id="n18_glrj" name="n18" src="vqlx68" fileName="images/common/circle_24.png" xy="0,0" size="330,330" color="#333333">
+      <relation target="" sidePair="width-width,height-height"/>
+    </image>
+    <component id="n3_glrj" name="No.1" src="cwuo22" fileName="components/keyboard003/ButtonSquare(1).xml" xy="18,23" group="n17_glrj">
+      <Button title="1"/>
+    </component>
+    <component id="n4_glrj" name="No.2" src="cwuo22" fileName="components/keyboard003/ButtonSquare(1).xml" xy="123,22" group="n17_glrj">
+      <Button title="2"/>
+    </component>
+    <component id="n5_glrj" name="No.3" src="cwuo22" fileName="components/keyboard003/ButtonSquare(1).xml" xy="228,22" group="n17_glrj">
+      <Button title="3"/>
+    </component>
+    <component id="n6_glrj" name="No.4" src="cwuo22" fileName="components/keyboard003/ButtonSquare(1).xml" xy="18,97" group="n17_glrj">
+      <Button title="4"/>
+    </component>
+    <component id="n7_glrj" name="No.5" src="cwuo22" fileName="components/keyboard003/ButtonSquare(1).xml" xy="123,97" group="n17_glrj">
+      <Button title="5"/>
+    </component>
+    <component id="n8_glrj" name="No.6" src="cwuo22" fileName="components/keyboard003/ButtonSquare(1).xml" xy="228,97" group="n17_glrj">
+      <Button title="6"/>
+    </component>
+    <component id="n9_glrj" name="No.7" src="cwuo22" fileName="components/keyboard003/ButtonSquare(1).xml" xy="18,172" group="n17_glrj">
+      <Button title="7"/>
+    </component>
+    <component id="n10_glrj" name="No.8" src="cwuo22" fileName="components/keyboard003/ButtonSquare(1).xml" xy="123,172" group="n17_glrj">
+      <Button title="8"/>
+    </component>
+    <component id="n11_glrj" name="No.9" src="cwuo22" fileName="components/keyboard003/ButtonSquare(1).xml" xy="228,172" group="n17_glrj">
+      <Button title="9"/>
+    </component>
+    <component id="n12_glrj" name="No.Delete" src="cwuo22" fileName="components/keyboard003/ButtonSquare(1).xml" xy="18,247" group="n17_glrj">
+      <Button title="Delete"/>
+    </component>
+    <component id="n13_glrj" name="No.0" src="cwuo22" fileName="components/keyboard003/ButtonSquare(1).xml" xy="123,247" group="n17_glrj">
+      <Button title="0"/>
+    </component>
+    <component id="n14_glrj" name="No.OK" src="cwuo22" fileName="components/keyboard003/ButtonSquare(1).xml" xy="228,247" group="n17_glrj">
+      <Button title="OK"/>
+    </component>
+    <group id="n17_glrj" name="n17" xy="18,22" size="294,279"/>
+  </displayList>
+</component>

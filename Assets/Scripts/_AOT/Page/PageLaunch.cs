@@ -16,10 +16,13 @@ public class PageLaunch
         {
             if (_instance == null)
             {
-                if(UIPackage.GetByName("Native") == null)
-                    UIPackage.AddPackage("Native/FGUIs/Native"); // Native/FGUIs/ == Resources/Native/FGUIs
+                //if(UIPackage.GetByName("Native") == null)  UIPackage.AddPackage("Native/FGUIs/Native"); // Native/FGUIs/ == Resources/Native/FGUIs
+
+                if (UIPackage.GetByName("Native100000000") == null)
+                    UIPackage.AddPackage("Natives/Native 100000000/FGUIs/Native100000000"); // Natives/Native 100000000/FGUIs/ == Resources/NNatives/Native 100000000/FGUIs
+                //Natives/Native 100000000/FGUIs/Native
                 _instance = new PageLaunch();
-                _instance.goOwnerPage = UIPackage.CreateObject("Native", "PageLaunch").asCom;
+                _instance.goOwnerPage = UIPackage.CreateObject("Native100000000", "PageLaunch").asCom;
                 GRoot.inst.AddChild(_instance.goOwnerPage);
                 _instance.goOwnerPage.sortingOrder = 99;
             }
@@ -134,8 +137,17 @@ public class PageLaunch
         {
             curProgress.Add(mark, 0);
         }
-        curProgress[mark] += count;
-        allProgress[mark] += count;
+        try
+        {
+            curProgress[mark] += count;
+            allProgress[mark] += count;
+        }
+        catch (Exception e)
+        {
+            Debug.LogError($"mark = {mark}");
+            throw e;
+        }
+
     }
 
 

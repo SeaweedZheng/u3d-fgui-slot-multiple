@@ -1,4 +1,4 @@
-using ConsoleCoinPusher01;
+using ConsoleCoinPusher97000000;
 using FairyGUI;
 using GameMaker;
 using GlobalJackpotConsole;

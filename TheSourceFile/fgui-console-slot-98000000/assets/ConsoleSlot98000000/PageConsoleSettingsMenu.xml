@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <controller name="tab" pages="0,,1,,2," selected="0"/>
+  <displayList>
+    <component id="n3_glrj" name="n3" src="glrj1j" fileName="moudules/BaseBG.xml" xy="0,0">
+      <relation target="" sidePair="width-width,height-height,center-center,middle-middle"/>
+      <property target="nav1/title" propertyId="0" value="123"/>
+    </component>
+    <component id="n30_i938" name="navBottomPages" src="glrj1m" fileName="moudules/Buttom2.xml" xy="0,1800">
+      <relation target="" sidePair="width-width,bottom-bottom"/>
+      <property target="title" propertyId="0" value="Settings"/>
+    </component>
+    <list id="n31_i938" name="menu1" xy="7,492" size="1066,1295" layout="flow_hz" overflow="hidden" margin="10,10,10,10" lineGap="10" colGap="10" defaultItem="ui://xp0b9yqdhz8ta4" autoItemSize="true" align="center">
+      <item title="Machine" icon="ui://xp0b9yqdi9388w" name="settingMachine"/>
+      <item title="Games" icon="ui://xp0b9yqdi9388x" name="settingGames"/>
+      <item title="IN-OUT" icon="ui://xp0b9yqdi93890" name="settingInOut"/>
+      <item title="Record" icon="ui://xp0b9yqdi93896" name="settingRecord"/>
+      <item title="Screen" icon="ui://xp0b9yqdi9388v" name="settingScreen"/>
+      <item title="Bill Validator" icon="ui://xp0b9yqdi9388t" name="settingBillValidator"/>
+      <item title="Printer" icon="ui://xp0b9yqdi9388u" name="settingPrinter"/>
+      <item title="Remote Control" icon="ui://xp0b9yqdi9388y" name="settingRemoteControl"/>
+      <item title="IOT" icon="ui://xp0b9yqdi9388z" name="settingIOT"/>
+      <item title="Sas" icon="ui://xp0b9yqdi9388q" name="settingSas"/>
+      <item title="Jackpot Online" icon="ui://xp0b9yqdi9389q" name="settingJackpotOnline"/>
+      <item title="ATM" icon="ui://xp0b9yqdi9389p" name="settingATM"/>
+      <item icon="ui://xp0b9yqdi938a3" name="settingDigitCounter">
+        <property target="title" propertyId="0" value="Digit Counter"/>
+      </item>
+    </list>
+  </displayList>
+</component>

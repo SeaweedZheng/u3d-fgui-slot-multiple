@@ -83,14 +83,14 @@ public class Main
     private static void PreLoadBundle()
     {
         int preloadCount = preloadAB.preloadBundleNames.Count;
-        PageLaunch.Instance.AddProgressCount(LoadingProgress.PRELOAD_ASSET_BUNDLE, preloadCount);
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.PRELOAD_ASSET_BUNDLE, preloadCount);
         DebugUtils.Log($"【内存预加载】ab包个数： {preloadCount}");
 
         if (!Application.isEditor) // 【？】这里要换成 ApplicationSettings.Instance.IsUseHotfix()
         {
             preloadAB.LoadPreloadBundleAsync((msg) =>
             {
-                PageLaunch.Instance.Next(LoadingProgress.PRELOAD_ASSET_BUNDLE, msg);
+                PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.PRELOAD_ASSET_BUNDLE, msg);
             },
             () =>
             {
@@ -107,17 +107,17 @@ public class Main
     /// </summary>
     private static void PreLoadAsset()
     {
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.PRELOAD_ASSET_BUNDLE);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.PRELOAD_ASSET_BUNDLE);
 
         int preloadCount = preloadAB.preloadAssetAtPath.Count;
-        PageLaunch.Instance.AddProgressCount(LoadingProgress.PRELOAD_ASSET, preloadCount);
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.PRELOAD_ASSET, preloadCount);
         DebugUtils.Log($"【内存预加载】资源个数： {preloadCount}");
 
         if (!Application.isEditor) // 【？】这里要换成 ApplicationSettings.Instance.IsUseHotfix()
         {
             preloadAB.LoadPreloadAssetAsync((msg) =>
             {
-                PageLaunch.Instance.Next(LoadingProgress.PRELOAD_ASSET, msg);
+                PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.PRELOAD_ASSET, msg);
             },
             () =>
             {
@@ -158,8 +158,8 @@ public class Main
     private static void ConnectHardward()
     {
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.PRELOAD_ASSET_BUNDLE);
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.PRELOAD_ASSET);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.PRELOAD_ASSET_BUNDLE);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.PRELOAD_ASSET);
 
         ShowPlamtInfo();
         //DebugUtil.Log( "<color=red>" + "检查是否是机台..." +"</color>");
@@ -167,8 +167,8 @@ public class Main
         if (ApplicationSettings.Instance.isMachine)
         {
 
-            PageLaunch.Instance.AddProgressCount(LoadingProgress.CONNECT_MACHINE, 2);
-            PageLaunch.Instance.Next(LoadingProgress.CONNECT_MACHINE, $"connect machine: {ApplicationSettings.Instance.machineDebugUrl} ...");
+            PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.CONNECT_MACHINE, 2);
+            PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.CONNECT_MACHINE, $"connect machine: {ApplicationSettings.Instance.machineDebugUrl} ...");
             DebugUtils.LogWarning($"链接机台({ApplicationSettings.Instance.machineDebugUrl}), 初始化硬件...");
             /*
             if (Application.isEditor) {
@@ -233,9 +233,9 @@ public class Main
 
     static void InitSettings()
     {
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.CONNECT_MACHINE);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.CONNECT_MACHINE);
 
-        PageLaunch.Instance.AddProgressCount(LoadingProgress.INIT_SETTINGS, 0);
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.INIT_SETTINGS, 0);
         //PageLaunch.Instance.AddCountToProgress(LoadingProgress.INIT_SETTINGS,1);
         //PageLaunch.Instance.Next(LoadingProgress.INIT_SETTINGS, "msg");
 
@@ -257,12 +257,12 @@ public class Main
         {
             int count = (int)res.value;
             totalInitCount += count;
-            PageLaunch.Instance.AddProgressCount(LoadingProgress.INIT_SETTINGS, count);
+            PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.INIT_SETTINGS, count);
         }
         else if (res.name == GlobalEvent.InitSettings)
         {
             totalInitCount--;
-            PageLaunch.Instance.Next(LoadingProgress.INIT_SETTINGS, (string)res.value);
+            PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.INIT_SETTINGS, (string)res.value);
         }
         else if (res.name == GlobalEvent.RefreshProgressMsg)
         {
@@ -340,11 +340,11 @@ public class Main
     static void OpenGame()
     {
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.INIT_SETTINGS);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.INIT_SETTINGS);
 
         //PageLaunch.Instance.AddProgress(LoadingProgress.ENTER_GAME,0);
         //PageLaunch.Instance.Next(LoadingProgress.ENTER_GAME,"enter game");
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.ENTER_GAME);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.ENTER_GAME);
         PageLaunch.Instance.Finish("enter game");
         // 预加载 login 页 ？？
         PageLaunch.Instance.Close(2f);
@@ -355,7 +355,7 @@ public class Main
 #if false
         PageManager.Instance.OpenPage(PageName.PusherEmperorsReinPopupERGameLoading);
 #else
-        PageManager.Instance.OpenPage(PageName.Lobby01PageLobbyMain);
+        PageManager.Instance.OpenPage(PageName.Lobby89000000PageLobbyMain);
 #endif
         //PageManager.Instance.OpenPage(PageName.SlotFanBeiChaoRenPopupLoading);
         /*

@@ -1,10 +1,11 @@
 {
-  "updated_at": 1765866756489,
+  "updated_at": 1772163346375,
   "data": [
     {
-      "agent_name": "RichLegend",
+      "agent_name": "SlotMultiple",
       "app": "--",
-      "app_key": "RichLegend201_debug_android_20251216143236",
+      "des": "",
+      "app_key": "SlotMultiple01_debug_android_20260227113546",
       "app_version": "1.0.0",
       "version_suggest": null,
       "hotfix_url": "./debug/android/1"

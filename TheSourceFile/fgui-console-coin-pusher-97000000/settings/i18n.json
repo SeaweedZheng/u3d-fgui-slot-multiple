@@ -1,0 +1,19 @@
+{
+  "langFiles": [
+    {
+      "name": "cn",
+      "path": "D:\\work\\u3d-fgui-emperors-rein\\TheSourceFile\\fgui-console-coin-pusher-01-en\\TheLanguage\\language_cn_console_coin_pusher_01.xml",
+      "fontName": ""
+    },
+    {
+      "name": "en",
+      "path": "D:\\work\\u3d-fgui-emperors-rein\\TheSourceFile\\fgui-console-coin-pusher-01-en\\TheLanguage\\language_en_console_coin_pusher_01.xml",
+      "fontName": ""
+    },
+    {
+      "name": "tw",
+      "path": "D:\\work\\u3d-fgui-emperors-rein\\TheSourceFile\\fgui-console-coin-pusher-01-en\\TheLanguage\\language_tw_console_coin_pusher_01.xml",
+      "fontName": ""
+    }
+  ]
+}

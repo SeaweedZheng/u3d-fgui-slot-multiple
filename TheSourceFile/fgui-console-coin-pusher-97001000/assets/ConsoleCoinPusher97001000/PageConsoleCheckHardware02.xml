@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1080,1920">
+<component size="1024,768">
   <displayList>
-    <component id="n1_paul" name="base" src="paul3" fileName="moudules/MDPageBase.xml" xy="2,0">
+    <component id="n1_paul" name="base" src="paul3" fileName="moudules/MDPageBase.xml" xy="0,0">
       <relation target="" sidePair="width-width,height-height"/>
       <property target="title" propertyId="0" value="/Hardware Test"/>
     </component>
-    <list id="n10_paul" name="items" xy="50,124" size="980,1659" overflow="hidden" defaultItem="ui://tdkeq960paul9">
+    <list id="n10_paul" name="items" xy="22,70" size="980,560" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960paul9">
       <relation target="" sidePair="center-center,middle-middle"/>
       <item title="Count" name="_title1">
         <property target="title" propertyId="0" value=""/>
@@ -70,6 +70,6 @@
         <property target="title" propertyId="0" value="Wiper Button"/>
       </item>
     </list>
-    <richtext id="n14_n65m" name="tip" xy="126,1449" size="833,173" fontSize="32" align="center" vAlign="middle" ubb="true" autoSize="shrink" autoClearText="true" text="0432444444444444444444444444444444444444444444444&lt;br&gt;{&quot;code&quot;:0,&quot;coinPushTestCoins&quot;:0,&quot;coinPushTestBalls&quot;:0,&quot;coinPushTestPlate&quot;:0,&quot;coinPushTestWiper&quot;:0}&#xA;UnityEngine.Debug:LogError (object)"/>
+    <richtext id="n14_n65m" name="tip" xy="23,632" size="979,91" fontSize="32" align="center" vAlign="middle" ubb="true" autoSize="shrink" autoClearText="true" text="0432444444444444444444444444444444444444444444444&lt;br&gt;{&quot;code&quot;:0,&quot;coinPushTestCoins&quot;:0,&quot;coinPushTestBalls&quot;:0,&quot;coinPushTestPlate&quot;:0,&quot;coinPushTestWiper&quot;:0}&#xA;UnityEngine.Debug:LogError (object)"/>
   </displayList>
 </component>

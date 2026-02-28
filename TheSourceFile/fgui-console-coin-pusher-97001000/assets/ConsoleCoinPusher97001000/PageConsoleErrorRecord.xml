@@ -1,16 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1080,1920">
+<component size="1024,768">
   <displayList>
-    <component id="n1_paul" name="base" src="paul3" fileName="moudules/MDPageBase.xml" xy="2,0">
+    <component id="n1_paul" name="base" src="paul3" fileName="moudules/MDPageBase.xml" xy="0,0">
       <relation target="" sidePair="width-width,height-height"/>
       <property target="title" propertyId="0" value="/Record/Warning Record&#xA;"/>
     </component>
-    <list id="n15_9q8e" name="record" xy="0,103" size="1080,1258" overflow="hidden" defaultItem="ui://tdkeq960rh4e1g">
-      <item/>
-      <item/>
-      <item/>
-      <item/>
-      <item/>
+    <list id="n15_9q8e" name="record" xy="3,70" size="500,620" overflow="hidden" defaultItem="ui://tdkeq960rh4e1g">
       <item/>
       <item/>
       <item/>
@@ -22,31 +17,31 @@
         <property target="value2" propertyId="0" value=""/>
       </item>
     </list>
-    <list id="n11_9q8e" name="items" xy="50,1489" size="980,306" overflow="hidden" defaultItem="ui://tdkeq960paul7">
+    <list id="n11_9q8e" name="items" xy="517,70" size="500,620" overflow="hidden" defaultItem="ui://tdkeq960paul7">
       <relation target="" sidePair="center-center,middle-middle"/>
-      <item name="date" title="Date">
+      <item title="Date" name="date">
         <property target="title" propertyId="0" value="Date"/>
         <property target="value" propertyId="0" value="2025-09-28"/>
       </item>
-      <item name="prev" title="Prev Page">
+      <item title="Prev Page" name="prev">
         <property target="title" propertyId="0" value="Prev Page"/>
         <property target="value" propertyId="0" value=""/>
       </item>
-      <item name="next" title="Next Page">
+      <item title="Next Page" name="next">
         <property target="title" propertyId="0" value="Next Page"/>
         <property target="value" propertyId="0" value=""/>
       </item>
-      <item name="check" title="View Details">
+      <item title="View Details" name="check">
         <property target="title" propertyId="0" value="View Details"/>
         <property target="value" propertyId="0" value=""/>
       </item>
-      <item name="exit" title="Return">
+      <item title="Return" name="exit">
         <property target="title" propertyId="0" value="Return"/>
         <property target="value" propertyId="0" value=""/>
       </item>
     </list>
-    <richtext id="n16_r2gc" name="page" xy="287,1398" size="507,66" fontSize="49" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="1/10&#xA;"/>
-    <graph id="n18_l0fl" name="n18" xy="0,1363" size="1080,3" type="rect" lineSize="0"/>
-    <component id="n20_rh4e" name="detailed" src="rh4e1e" fileName="moudules/Record.xml" xy="0,1367" visible="false"/>
+    <component id="n20_rh4e" name="detailed" src="rh4e1e" fileName="moudules/Record.xml" xy="517,71" size="500,620" visible="false"/>
+    <richtext id="n16_r2gc" name="page" xy="3,690" size="500,42" fontSize="30" color="#ffffff" align="center" vAlign="middle" autoSize="none" text="1/10&#xA;"/>
+    <graph id="n22_j0k6" name="n22" xy="509,70" size="2,653" type="rect" lineSize="0"/>
   </displayList>
 </component>

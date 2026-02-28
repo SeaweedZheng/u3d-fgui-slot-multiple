@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1178" restrictSize="540,0,0,0">
+  <displayList>
+    <component id="n29_os7y" name="billValidator" src="cwuo2d" fileName="moudules/ItemTitleSwitch.xml" xy="0,0">
+      <property target="key" propertyId="0" value="Bill Validator:"/>
+    </component>
+    <component id="n30_os7y" name="billValidatorModel" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,76" size="540,76">
+      <property target="key" propertyId="0" value="Bill Validator Model:"/>
+      <property target="value" propertyId="0" value="AE2831 D5 &lt;img src=&apos;ui://xp0b9yqdos7y4j&apos; width=&apos;20&apos; height=&apos;20&apos;/&gt;"/>
+    </component>
+  </displayList>
+</component>

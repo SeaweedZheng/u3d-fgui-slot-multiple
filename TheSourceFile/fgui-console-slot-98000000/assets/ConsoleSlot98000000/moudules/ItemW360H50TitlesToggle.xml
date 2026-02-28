@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="360,50">
+  <displayList>
+    <richtext id="n0_glrj" name="key" xy="40,4" size="160,42" touchable="false" fontSize="28" color="#ffffff" vAlign="middle" autoSize="shrink" singleLine="true" text="Total Coin In:"/>
+    <component id="n3_hzti" name="toggle" src="cwuo2e" fileName="components/ToggleBetList.xml" xy="264,8"/>
+  </displayList>
+  <customProperty target="key" propertyId="0" label="键"/>
+  <customProperty target="value" propertyId="0" label="值"/>
+</component>

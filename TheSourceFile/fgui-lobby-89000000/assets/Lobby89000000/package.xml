@@ -1,0 +1,153 @@
+<?xml version="1.0" encoding="utf-8"?>
+<packageDescription id="rc5uleh0">
+  <resources>
+    <component id="a0ez0" name="PageLobbyMain.xml" path="/" exported="true"/>
+    <image id="ml441" name="Slot Image Big ATC.png" path="/images/lobbyIcons/"/>
+    <image id="ml442" name="Slot Image Big BCB.png" path="/images/lobbyIcons/"/>
+    <image id="ml443" name="Slot Image Big BFL.png" path="/images/lobbyIcons/"/>
+    <image id="ml444" name="Slot Image Big BGL.png" path="/images/lobbyIcons/"/>
+    <image id="ml445" name="Slot Image Big BLC.png" path="/images/lobbyIcons/"/>
+    <image id="ml446" name="Slot Image Big BNB.png" path="/images/lobbyIcons/"/>
+    <image id="ml447" name="Slot Image Big BON.png" path="/images/lobbyIcons/"/>
+    <component id="ml448" name="LobbyGameItem.xml" path="/moudules/"/>
+    <image id="ml449" name="button_spin2.png" path="/images/frame/"/>
+    <image id="ml44a" name="Lobby Slot Banner Frame.png" path="/images/frame/"/>
+    <image id="ml44b" name="Lobby Slot Favorite Frame.png" path="/images/frame/" scale="9grid" scale9grid="25,25,3,3"/>
+    <image id="ml44c" name="Spin Button Frame.png" path="/images/frame/"/>
+    <image id="ml44d" name="Login Slot Thumbnails.png" path="/images/bg/"/>
+    <image id="ml44e" name="signal000.png" path="/images/wifi/"/>
+    <image id="ml44f" name="signal001.png" path="/images/wifi/"/>
+    <image id="ml44g" name="signal002.png" path="/images/wifi/"/>
+    <image id="ml44h" name="signal003.png" path="/images/wifi/"/>
+    <image id="ml44i" name="signal004.png" path="/images/wifi/"/>
+    <image id="ml44j" name="wifi000.png" path="/images/wifi/"/>
+    <image id="ml44k" name="wifi001.png" path="/images/wifi/"/>
+    <image id="ml44l" name="wifi002.png" path="/images/wifi/"/>
+    <image id="ml44m" name="wifi003.png" path="/images/wifi/"/>
+    <image id="ml44n" name="wifi004.png" path="/images/wifi/"/>
+    <image id="ml44o" name="Base Games BG.png" path="/images/bg/"/>
+    <image id="ml44q" name="Login Slot Thumnails.png" path="/images/bg/"/>
+    <image id="ml44r" name="BG-GRAND.png" path="/images/jackpotOnline/"/>
+    <image id="ml44s" name="011.png" path="/images/jackpotOnline/numbers/"/>
+    <image id="ml44t" name="010.png" path="/images/jackpotOnline/numbers/"/>
+    <image id="ml44u" name="009.png" path="/images/jackpotOnline/numbers/"/>
+    <image id="ml44v" name="008.png" path="/images/jackpotOnline/numbers/"/>
+    <image id="ml44w" name="007.png" path="/images/jackpotOnline/numbers/"/>
+    <image id="ml44x" name="006.png" path="/images/jackpotOnline/numbers/"/>
+    <image id="ml44y" name="005.png" path="/images/jackpotOnline/numbers/"/>
+    <image id="ml44z" name="004.png" path="/images/jackpotOnline/numbers/"/>
+    <image id="ml4410" name="003.png" path="/images/jackpotOnline/numbers/"/>
+    <image id="ml4411" name="002.png" path="/images/jackpotOnline/numbers/"/>
+    <image id="ml4412" name="001.png" path="/images/jackpotOnline/numbers/"/>
+    <image id="ml4413" name="000.png" path="/images/jackpotOnline/numbers/"/>
+    <image id="ml4414" name="BG-MINOR.png" path="/images/jackpotOnline/"/>
+    <image id="ml4415" name="BG-MINI.png" path="/images/jackpotOnline/"/>
+    <image id="ml4416" name="BG-MAJOR.png" path="/images/jackpotOnline/"/>
+    <image id="ml4417" name="012.png" path="/images/jackpotOnline/numbers/"/>
+    <image id="ml4418" name="013.png" path="/images/jackpotOnline/numbers/"/>
+    <image id="zbsa19" name="button_back.png" path="/images/navigation/"/>
+    <image id="zbsa1a" name="button_close.png" path="/images/navigation/"/>
+    <image id="zbsa1b" name="button_more.png" path="/images/navigation/"/>
+    <image id="zbsa1c" name="button_point.png" path="/images/navigation/"/>
+    <image id="zbsa1d" name="frame_id.png" path="/images/navigation/" scale="9grid" scale9grid="27,14,54,2"/>
+    <image id="zbsa1e" name="frame_more.png" path="/images/navigation/" scale="9grid" scale9grid="34,51,68,61"/>
+    <image id="zbsa1f" name="frame_upper _02.png" path="/images/navigation/" scale="9grid" scale9grid="15,22,34,44"/>
+    <image id="zbsa1g" name="frame_upper _03.png" path="/images/navigation/"/>
+    <image id="zbsa1h" name="frame_upper _04.png" path="/images/navigation/"/>
+    <image id="zbsa1i" name="frame_upper_02.png" path="/images/navigation/" scale="9grid" scale9grid="13,15,42,30"/>
+    <image id="zbsa1j" name="frame_upper_04.png" path="/images/navigation/"/>
+    <image id="zbsa1k" name="frame_down _01.png" path="/images/navigation/"/>
+    <image id="zbsa1l" name="frame_down _02.png" path="/images/navigation/"/>
+    <image id="zbsa1m" name="frame_down _03.png" path="/images/navigation/" scale="tile" scale9grid="3,12,6,24" duplicatePadding="true"/>
+    <image id="zbsa1n" name="frame_side.png" path="/images/navigation/"/>
+    <image id="zbsa1o" name="frame_upper _01.png" path="/images/navigation/"/>
+    <image id="zbsa1p" name="frame_upper_01.png" path="/images/navigation/"/>
+    <image id="zbsa1q" name="frame_upper_03.png" path="/images/navigation/"/>
+    <image id="zbsa1r" name="frame_upper_3_mini.png" path="/images/navigation/"/>
+    <component id="zbsa1t" name="NavigationButtom.xml" path="/moudules/"/>
+    <image id="zbsa1u" name="icon_lobby_all.png" path="/images/category1/"/>
+    <image id="zbsa1v" name="icon_lobby_bingo.png" path="/images/category1/"/>
+    <image id="zbsa1w" name="icon_lobby_fav.png" path="/images/category1/"/>
+    <image id="zbsa1x" name="icon_lobby_keno.png" path="/images/category1/"/>
+    <image id="zbsa1y" name="icon_lobby_poker.png" path="/images/category1/"/>
+    <image id="zbsa1z" name="icon_lobby_slot.png" path="/images/category1/"/>
+    <image id="zbsa20" name="Icon Lobby All.png" path="/images/category2/"/>
+    <image id="zbsa21" name="Icon Lobby Bingo.png" path="/images/category2/"/>
+    <image id="zbsa22" name="Icon Lobby Fish.png" path="/images/category2/"/>
+    <image id="zbsa23" name="Icon Lobby Jacks.png" path="/images/category2/"/>
+    <image id="zbsa24" name="Icon Lobby Keno.png" path="/images/category2/"/>
+    <image id="zbsa25" name="Icon Lobby Slot.png" path="/images/category2/"/>
+    <image id="zbsa26" name="frame_upper.png" path="/images/navigation/"/>
+    <image id="zbsa27" name="icon_coin.png" path="/images/navigation/"/>
+    <image id="zbsa28" name="logo_mf.png" path="/images/logal/"/>
+    <image id="zbsa29" name="avatar_female_01.png" path="/images/avatar/"/>
+    <image id="zbsa2b" name="button_unfold.png" path="/images/sidebar/"/>
+    <image id="zbsa2c" name="frame_class_01.png" path="/images/sidebar/"/>
+    <image id="zbsa2d" name="frame_class_02.png" path="/images/sidebar/"/>
+    <image id="zbsa2e" name="frame_class_base 1.png" path="/images/sidebar/"/>
+    <image id="zbsa2f" name="frame_class_base.png" path="/images/sidebar/"/>
+    <component id="zbsa2g" name="Sidebar.xml" path="/moudules/"/>
+    <image id="zbsa2h" name="button_fold.png" path="/images/sidebar/"/>
+    <component id="zbsa2i" name="ButtonSideBar.xml" path="/components/"/>
+    <component id="zbsa2j" name="ButtonSideBarItem.xml" path="/components/"/>
+    <component id="zbsa2k" name="ButtonBackToTop.xml" path="/components/"/>
+    <image id="zbsa2l" name="icon_i.png" path="/images/icons/"/>
+    <image id="zbsa2m" name="Lobby Bottom Side.png" path="/images/navigation02/"/>
+    <image id="zbsa2n" name="Lobby Bottom More Base.png" path="/images/navigation02/"/>
+    <image id="zbsa2o" name="Lobby Bottom Base.png" path="/images/navigation02/"/>
+    <image id="zbsa2p" name="Lobby Bottom Base(Lagacy).png" path="/images/navigation02/"/>
+    <image id="zbsa2q" name="In Game Vertical Mode Win Base.png" path="/images/navigation02/"/>
+    <image id="zbsa2r" name="Image Welcome.png" path="/images/navigation02/"/>
+    <image id="zbsa2s" name="frame_side.png" path="/images/navigation02/"/>
+    <image id="zbsa2t" name="Button Navi Base.png" path="/images/navigation02/"/>
+    <image id="zbsa2u" name="Button Navi Base In Game.png" path="/images/navigation02/"/>
+    <image id="zbsa2v" name="Button Event.png" path="/images/navigation02/"/>
+    <image id="zbsa2w" name="Button Deal.png" path="/images/navigation02/"/>
+    <image id="zbsa2x" name="Button Buy.png" path="/images/navigation02/"/>
+    <image id="zbsa2y" name="Button Buy Base.png" path="/images/navigation02/"/>
+    <image id="zbsa2z" name="Navi Base Inside.png" path="/images/navigation02/"/>
+    <image id="zbsa30" name="07_00.png" path="/images/navigation02/"/>
+    <image id="zbsa31" name="03.png" path="/images/navigation02/"/>
+    <image id="zbsa32" name="02_06.png" path="/images/navigation02/"/>
+    <image id="zbsa33" name="02_05.png" path="/images/navigation02/"/>
+    <image id="zbsa34" name="02_04.png" path="/images/navigation02/"/>
+    <image id="zbsa35" name="02_01.png" path="/images/navigation02/"/>
+    <image id="zbsa36" name="02.png" path="/images/navigation02/"/>
+    <image id="zbsa37" name="01.png" path="/images/navigation02/"/>
+    <image id="zbsa38" name="sound.png" path="/images/icons/"/>
+    <image id="zbsa39" name="sound-3.png" path="/images/icons/"/>
+    <image id="zbsa3a" name="sound-2.png" path="/images/icons/"/>
+    <image id="zbsa3b" name="sound-1.png" path="/images/icons/"/>
+    <image id="zbsa3c" name="icon_what.png" path="/images/icons/"/>
+    <image id="zbsa3d" name="icon_return.png" path="/images/icons/"/>
+    <image id="zbsa3e" name="06_03.png" path="/images/navigation02/"/>
+    <image id="zbsa3f" name="Navi Base Vertical Mode.png" path="/images/navigation02/"/>
+    <component id="gvge3g" name="JackpotOnlineReel.xml" path="/components/"/>
+    <font id="gvge3h" name="FontJackpotOnline.fnt" path="/fonts/" exported="true"/>
+    <component id="gvge3i" name="JackpotOnlineGrand.xml" path="/moudules/"/>
+    <component id="gvge3j" name="JackpotOnlineMajor.xml" path="/moudules/"/>
+    <component id="gvge3k" name="JackpotOnlineMini.xml" path="/moudules/"/>
+    <component id="gvge3l" name="JackpotOnlineMinor.xml" path="/moudules/"/>
+    <component id="gvge3m" name="ButtonMorre.xml" path="/moudules/"/>
+    <image id="gvge3n" name="frame_bonus.png" path="/images/navigation/"/>
+    <image id="gvge3o" name="bg4.png" path="/images/navigation/" scale="9grid" scale9grid="32,30,1,1"/>
+    <image id="gvge3p" name="Button Club Deal.png" path="/images/navigation/" scale="9grid" scale9grid="11,23,2,2"/>
+    <component id="gvge3q" name="ButtonMoreItem.xml" path="/components/"/>
+    <image id="gvge3r" name="icon_redeem_en.png" path="/images/icons/"/>
+    <component id="cptj3s" name="ButtonTagLike.xml" path="/components/"/>
+    <image id="cptj3u" name="Button_fav_01.png" path="/images/tag/"/>
+    <image id="cptj3v" name="Button_fav_02.png" path="/images/tag/"/>
+    <component id="cptj3w" name="ButtonAvatar.xml" path="/components/"/>
+    <image id="ich03x" name="fame_major.png" path="/images/jackpotOnline02/"/>
+    <image id="ich03y" name="frame_grand.png" path="/images/jackpotOnline02/"/>
+    <image id="ich03z" name="frame_mini.png" path="/images/jackpotOnline02/"/>
+    <image id="ich040" name="frame_minor.png" path="/images/jackpotOnline02/"/>
+    <image id="ich041" name="jp_grand.png" path="/images/jackpotOnline02/"/>
+    <image id="ich042" name="jp_major.png" path="/images/jackpotOnline02/"/>
+    <image id="ich043" name="jp_mini.png" path="/images/jackpotOnline02/"/>
+    <image id="ich044" name="jp_minor.png" path="/images/jackpotOnline02/"/>
+    <image id="ich045" name="plat_bg.png" path="/images/jackpotOnline02/"/>
+    <component id="vzho46" name="ButtonSoundtem.xml" path="/components/"/>
+  </resources>
+  <publish name="" path="../../Assets/AstBundle/Lobbys/Lobby 89000000/FGUIs" packageCount="2"/>
+</packageDescription>

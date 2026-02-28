@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1178">
+  <controller name="tab" pages="0,machine,1,in-out,2,progressive" selected="0"/>
+  <displayList>
+    <component id="n37_jtgo" name="agentID" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,0" size="540,76" group="n11_cwuo">
+      <property target="key" propertyId="0" value="Agent ID:"/>
+      <property target="value" propertyId="0" value="1110"/>
+    </component>
+    <component id="n38_jtgo" name="machineID" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,76" size="540,76" group="n11_cwuo">
+      <property target="key" propertyId="0" value="Machine ID:"/>
+      <property target="value" propertyId="0" value="11100001"/>
+    </component>
+    <component id="n55_i938" name="resetMachineToFactorySettings" src="cwuo3a" fileName="moudules/ItemLongButton.xml" xy="0,152" group="n11_cwuo">
+      <property target="btn" propertyId="0" value="Reset Machine To Factory Settings"/>
+      <property target="btn" propertyId="1" value="ui://xp0b9yqdos7y3y"/>
+    </component>
+    <group id="n11_cwuo" name="left" xy="0,0" size="540,228" advanced="true">
+      <relation target="" sidePair="width-width"/>
+    </group>
+    <component id="n34_cwuo" name="active" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="540,0" group="n49_i938">
+      <relation target="" sidePair="left-left"/>
+      <property target="key" propertyId="0" value="Active:"/>
+      <property target="value" propertyId="0" value="Active"/>
+    </component>
+    <group id="n49_i938" name="right" xy="540,0" size="540,76"/>
+  </displayList>
+</component>

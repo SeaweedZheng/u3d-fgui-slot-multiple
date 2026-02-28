@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="67,68" pivot="0.5,0.5" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <loader id="n3_zbsa" name="bg" xy="0,0" size="67,68" url="ui://rc5uleh0zbsa2c" align="center" vAlign="middle" fill="scale"/>
+    <loader id="n4_zbsa" name="icon" xy="4,4" size="59,46" url="ui://rc5uleh0zbsa1x" align="center" vAlign="middle" fill="scaleMatchHeight" shrinkOnly="true"/>
+    <richtext id="n5_zbsa" name="title" xy="4,48" size="60,19" fontSize="12" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" bold="true" text="SLOT"/>
+  </displayList>
+  <Button downEffect="scale" downEffectValue="0.8"/>
+  <customProperty target="bg" propertyId="1" label="背景"/>
+  <customProperty target="icon" propertyId="1" label="前景"/>
+  <customProperty target="title" propertyId="0" label="标题"/>
+</component>

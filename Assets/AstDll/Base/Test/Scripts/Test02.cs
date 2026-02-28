@@ -94,7 +94,7 @@ public class Test02 : MonoBehaviour
     [Button]
     async void OpenABConsoleMainPage()
     {
-        var res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePageConsoleMain);
+        var res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PageConsoleMain);
     }
 
     /*

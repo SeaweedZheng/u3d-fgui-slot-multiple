@@ -1,58 +1,58 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="1080,1920">
+<component size="1024,768">
   <displayList>
     <component id="n1_paul" name="base" src="paul3" fileName="moudules/MDPageBase.xml" xy="0,0">
       <relation target="" sidePair="width-width,height-height"/>
       <property target="title" propertyId="0" value="/Bussiness"/>
     </component>
-    <list id="n13_q4ka" name="contents1" xy="50,106" size="980,120" layout="flow_hz" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960q4kaw">
-      <item name="totalBet" title="Total Bet:">
+    <list id="n13_q4ka" name="contents1" xy="23,66" size="980,90" layout="flow_hz" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960q4kaw">
+      <item title="Total Bet:" name="totalBet">
         <property target="title" propertyId="0" value="Total Bet:"/>
         <property target="value" propertyId="0" value="1000"/>
       </item>
-      <item name="totalWin" title="Total Win:">
+      <item title="Total Win:" name="totalWin">
         <property target="title" propertyId="0" value="Total Win:"/>
         <property target="value" propertyId="0" value="2000"/>
       </item>
-      <item name="toralProfit" title="Total Profit:">
+      <item title="Total Profit:" name="toralProfit">
         <property target="title" propertyId="0" value="Total Profit:"/>
         <property target="value" propertyId="0" value=""/>
       </item>
     </list>
-    <list id="n14_ydll" name="contents2" xy="50,266" size="980,120" layout="flow_hz" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960q4kaw">
-      <item name="totalCoinIn" title="Total Coin In:">
+    <list id="n14_ydll" name="contents2" xy="22,156" size="980,90" layout="flow_hz" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960q4kaw">
+      <item title="Total Coin In:" name="totalCoinIn">
         <property target="title" propertyId="0" value="Total Coin In:"/>
         <property target="value" propertyId="0" value="100"/>
       </item>
-      <item name="totalCoinOut" title="Total Coin Out:">
+      <item title="Total Coin Out:" name="totalCoinOut">
         <property target="title" propertyId="0" value="Total Coin Out:"/>
         <property target="value" propertyId="0" value="100"/>
       </item>
-      <item name="toralCoinProfit" title="Total Profit:">
+      <item title="Total Profit:" name="toralCoinProfit">
         <property target="title" propertyId="0" value="Total Profit:"/>
         <property target="value" propertyId="0" value="100"/>
       </item>
     </list>
-    <list id="n15_ydll" name="contents3" xy="50,426" size="980,120" layout="flow_hz" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960q4kaw">
-      <item name="totalScoreUp" title="Total Score Up:">
+    <list id="n15_ydll" name="contents3" xy="22,246" size="980,90" layout="flow_hz" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960q4kaw">
+      <item title="Total Score Up:" name="totalScoreUp">
         <property target="title" propertyId="0" value="Total Score Up:"/>
         <property target="value" propertyId="0" value="100"/>
       </item>
-      <item name="totalScoreDown" title="Total Score Down:">
+      <item title="Total Score Down:" name="totalScoreDown">
         <property target="title" propertyId="0" value="Total Score Down:"/>
         <property target="value" propertyId="0" value="100"/>
       </item>
-      <item name="toralScoreProfit" title="Total Profit:">
+      <item title="Total Profit:" name="toralScoreProfit">
         <property target="title" propertyId="0" value="Total Profit:"/>
         <property target="value" propertyId="0" value="100"/>
       </item>
     </list>
-    <component id="n16_prej" name="contents4" src="prejy" fileName="components/ItemKeyText2BigValue.xml" xy="50,567">
+    <component id="n16_prej" name="contents4" src="prejy" fileName="components/ItemKeyText2BigValue.xml" xy="22,336">
       <property target="title" propertyId="0" value="Billing Information:"/>
     </component>
-    <list id="n12_ggbp" name="items" xy="51,754" size="980,1041" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960paul7">
+    <list id="n12_ggbp" name="items" xy="22,620" size="980,108" overflow="hidden" lineGap="10" defaultItem="ui://tdkeq960paul7">
       <relation target="" sidePair="center-center,middle-middle"/>
-      <item name="exit" title="Return">
+      <item title="Return" name="exit">
         <property target="title" propertyId="0" value="Return"/>
         <property target="value" propertyId="0" value=""/>
       </item>

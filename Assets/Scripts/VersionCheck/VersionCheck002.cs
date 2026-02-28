@@ -256,13 +256,13 @@ public class VersionCheck002 : MonoBehaviour
             yield return CopyStreamingAssetsToPersistentDataPath();
         }
 
-        PageLaunch.Instance.AddProgressCount(LoadingProgress.CHECK_COPY_TEMP_HOTFIX_FILE, 1);
-        PageLaunch.Instance.Next(LoadingProgress.CHECK_COPY_TEMP_HOTFIX_FILE, $"check cache : temp hotfix file");
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.CHECK_COPY_TEMP_HOTFIX_FILE, 1);
+        PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.CHECK_COPY_TEMP_HOTFIX_FILE, $"check cache : temp hotfix file");
 
         // 检查要拷贝的文件
         yield return CopyTempWebHotfixFileToTargetDir();
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.CHECK_COPY_TEMP_HOTFIX_FILE);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.CHECK_COPY_TEMP_HOTFIX_FILE);
 
         // 获取本地配置文件
         GetLocalVersionInfo();
@@ -330,15 +330,15 @@ public class VersionCheck002 : MonoBehaviour
                         //Debug.Log($"@@ 写入版本内容：{versionFileRemoteNode.ToString()}");
 
 
-                        PageLaunch.Instance.AddProgressCount(LoadingProgress.COPY_TEMP_HOTFIX_FILE, 1);
-                        PageLaunch.Instance.Next(LoadingProgress.COPY_TEMP_HOTFIX_FILE, $"copy cache : temp hotfix file");
+                        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.COPY_TEMP_HOTFIX_FILE, 1);
+                        PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.COPY_TEMP_HOTFIX_FILE, $"copy cache : temp hotfix file");
 
                         // 检查要拷贝的文件
                         PlayerPrefs.SetString(HotfixState.HOTFIX_STATE, HotfixState.HotfixCopying);
                         yield return CopyTempWebHotfixFileToTargetDir();
 
 
-                        PageLaunch.Instance.RemoveProgress(LoadingProgress.COPY_TEMP_HOTFIX_FILE);
+                        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.COPY_TEMP_HOTFIX_FILE);
 
 
                         // 重新获取本地配置文件
@@ -463,7 +463,7 @@ public class VersionCheck002 : MonoBehaviour
     {
         List<string> unusePths = GetUnuseAB();
 
-        PageLaunch.Instance.AddProgressCount(LoadingProgress.DELETE_UNUSE_ASSET_BUNDLE, unusePths.Count);
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.DELETE_UNUSE_ASSET_BUNDLE, unusePths.Count);
 
         int i = 0;
         foreach (string pth in unusePths)
@@ -471,7 +471,7 @@ public class VersionCheck002 : MonoBehaviour
             i++;
             if (File.Exists(pth))
             {
-                PageLaunch.Instance.Next(LoadingProgress.DELETE_UNUSE_ASSET_BUNDLE, $"delete unuse ab {i}/{unusePths.Count}: {pth}  ");
+                PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.DELETE_UNUSE_ASSET_BUNDLE, $"delete unuse ab {i}/{unusePths.Count}: {pth}  ");
 
                 Debug.Log($"delete unuse ab {i}/{unusePths.Count}: {pth}");
                 File.Delete(pth);
@@ -479,11 +479,11 @@ public class VersionCheck002 : MonoBehaviour
             }
         }
 
-        PageLaunch.Instance.Next(LoadingProgress.DELETE_UNUSE_ASSET_BUNDLE, $"delete unuse ab folder");
+        PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.DELETE_UNUSE_ASSET_BUNDLE, $"delete unuse ab folder");
 
         yield return DeleteUnuseABFolderAndMeta();
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.DELETE_UNUSE_ASSET_BUNDLE);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.DELETE_UNUSE_ASSET_BUNDLE);
     }
 
 
@@ -616,14 +616,14 @@ public class VersionCheck002 : MonoBehaviour
             idx--;
         }
 
-        PageLaunch.Instance.AddProgressCount(LoadingProgress.DELETE_UNUSE_ASSET_DLL, targetPathLst.Count);
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.DELETE_UNUSE_ASSET_DLL, targetPathLst.Count);
         int i = 0;
         foreach (string s in targetPathLst)
         {
             i++;
             if (File.Exists(s))
             {
-                PageLaunch.Instance.Next(LoadingProgress.DELETE_UNUSE_ASSET_DLL, $"delete unuse dll {i}/{targetPathLst.Count}: {s}  ");
+                PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.DELETE_UNUSE_ASSET_DLL, $"delete unuse dll {i}/{targetPathLst.Count}: {s}  ");
 
                 Debug.Log($"delete unuse dll {i}/{targetPathLst.Count}: {s}");
 
@@ -632,7 +632,7 @@ public class VersionCheck002 : MonoBehaviour
             }
         }
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.DELETE_UNUSE_ASSET_DLL);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.DELETE_UNUSE_ASSET_DLL);
 
     }
 
@@ -680,14 +680,14 @@ public class VersionCheck002 : MonoBehaviour
             idx--;
         }
 
-        PageLaunch.Instance.AddProgressCount(LoadingProgress.DELETE_UNUSE_ASSET_BACKUP, targetPathLst.Count);
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.DELETE_UNUSE_ASSET_BACKUP, targetPathLst.Count);
         int i = 0;
         foreach (string s in targetPathLst)
         {
             i++;
             if (File.Exists(s))
             {
-                PageLaunch.Instance.Next(LoadingProgress.DELETE_UNUSE_ASSET_BACKUP, $"delete unuse backup {i}/{targetPathLst.Count}: {s}  ");
+                PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.DELETE_UNUSE_ASSET_BACKUP, $"delete unuse backup {i}/{targetPathLst.Count}: {s}  ");
 
                 Debug.Log($"delete unuse dll {i}/{targetPathLst.Count}: {s}");
 
@@ -696,7 +696,7 @@ public class VersionCheck002 : MonoBehaviour
             }
         }
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.DELETE_UNUSE_ASSET_BACKUP);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.DELETE_UNUSE_ASSET_BACKUP);
 
     }
 
@@ -767,7 +767,7 @@ public class VersionCheck002 : MonoBehaviour
                 int totalCount = abList.Length;// 一个是版本配置文件，一个是manifest文件
                 int completedCount = 0;
 
-                PageLaunch.Instance.AddProgressCount(LoadingProgress.COPY_SA_ASSET_BUNDLE, totalCount);
+                PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.COPY_SA_ASSET_BUNDLE, totalCount);
 
                 foreach (var abName in abList)
                 {
@@ -776,7 +776,7 @@ public class VersionCheck002 : MonoBehaviour
                     Debug.Log($"{srcPath} - {tarPath}");
                     completedCount++;
 
-                    PageLaunch.Instance.Next(LoadingProgress.COPY_SA_ASSET_BUNDLE,
+                    PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.COPY_SA_ASSET_BUNDLE,
                         $"copy assetbundle to cache: {abName} {completedCount}/{totalCount}");
 
                     Debug.Log(string.Format("copy asset bundle {0}/{1}, bundle:{2}", completedCount, totalCount, abName));
@@ -785,7 +785,7 @@ public class VersionCheck002 : MonoBehaviour
                     yield return FileUtils.CopyStreamingAssetToLocal(srcPath, tarPath);
 
                 }
-                PageLaunch.Instance.Next(LoadingProgress.COPY_SA_ASSET_BUNDLE,
+                PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.COPY_SA_ASSET_BUNDLE,
                     $"copy manifest to cache: {PathHelper.mainfestBundleName}");
 
                 Debug.Log("copy manifest");
@@ -794,7 +794,7 @@ public class VersionCheck002 : MonoBehaviour
             }
         }
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.COPY_SA_ASSET_BUNDLE);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.COPY_SA_ASSET_BUNDLE);
 
 
         /* 拷贝所有dll
@@ -815,7 +815,7 @@ public class VersionCheck002 : MonoBehaviour
 
             JObject hotfixDll = versionSAObj["asset_dll"] as JObject;
 
-            PageLaunch.Instance.AddProgressCount(LoadingProgress.COPY_SA_HOTFIX_DLL, hotfixDll.Count);
+            PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.COPY_SA_HOTFIX_DLL, hotfixDll.Count);
 
             int i = 0;
             foreach (KeyValuePair<string, JToken> kv in hotfixDll)
@@ -824,7 +824,7 @@ public class VersionCheck002 : MonoBehaviour
                 string tarPath = PathHelper.GetDllLOCPTH(kv.Key);
 
                 i++;
-                PageLaunch.Instance.Next(LoadingProgress.COPY_SA_HOTFIX_DLL,
+                PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.COPY_SA_HOTFIX_DLL,
                     $"copy dll to cache: {kv.Key} {i}/{hotfixDll.Count}");
 
                 Debug.Log(string.Format("copy dll {0}/{1}, dll:{2}", i, hotfixDll.Count, kv.Key));
@@ -837,14 +837,14 @@ public class VersionCheck002 : MonoBehaviour
             //yield return FileUtils.CopyStreamingAssetToLocal(PathHelper.versionSAPTH, PathHelper.versionLOCPTH);
         }
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.COPY_SA_HOTFIX_DLL);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.COPY_SA_HOTFIX_DLL);
 
 
         if (versionSAObj != null)
         {
             JObject astBackup = versionSAObj["asset_backup"] as JObject;
 
-            PageLaunch.Instance.AddProgressCount(LoadingProgress.COPY_SA_ASSET_BACKUP, astBackup.Count);
+            PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.COPY_SA_ASSET_BACKUP, astBackup.Count);
 
             int i = 0;
             foreach (KeyValuePair<string, JToken> kv in astBackup)
@@ -853,7 +853,7 @@ public class VersionCheck002 : MonoBehaviour
                 string tarPath = PathHelper.GetAssetBackupLOCPTH(kv.Key); // PathHelper.GetDllLOCPTH(kv.Key);
 
                 i++;
-                PageLaunch.Instance.Next(LoadingProgress.COPY_SA_ASSET_BACKUP,
+                PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.COPY_SA_ASSET_BACKUP,
                     $"copy asset backup to cache: {kv.Key} {i}/{astBackup.Count}");
 
                 Debug.Log(string.Format("copy asset backup {0}/{1}, backup:{2}", i, astBackup.Count, kv.Key));
@@ -861,7 +861,7 @@ public class VersionCheck002 : MonoBehaviour
                 yield return FileUtils.CopyStreamingAssetToLocal(saPth, tarPath);
             }
         }
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.COPY_SA_ASSET_BACKUP);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.COPY_SA_ASSET_BACKUP);
 
         if (versionSAObj != null)
         {
@@ -889,7 +889,7 @@ public class VersionCheck002 : MonoBehaviour
     /// <remarks>
     /// * 每次最后，都有删除临时缓存
     /// </remarks>
-    private IEnumerator CopyTempWebHotfixFileToTargetDir()
+    private IEnumerator CopyTempWebHotfixFileToTargetDir(Action<string> onProgress = null)
     {
 
         // 是否有热更新文件需要拷贝
@@ -898,7 +898,7 @@ public class VersionCheck002 : MonoBehaviour
             Debug.LogWarning($"{PREFIX_TIP}  copy temp file to target dir");
 
             //开始拷贝
-            yield return FileUtils.CopyDirectoryAsync(PathHelper.tmpHotfixDirLOCPTH, PathHelper.hotfixDirLOCPTH);
+            yield return FileUtils.CopyDirectoryAsync(PathHelper.tmpHotfixDirLOCPTH, PathHelper.hotfixDirLOCPTH, onProgress);
 
             PlayerPrefs.SetString(HotfixState.HOTFIX_STATE, HotfixState.HotfixCompleted);
         }
@@ -933,8 +933,8 @@ public class VersionCheck002 : MonoBehaviour
         string tvUrl = PathHelper.totalVersionWEBURL + $"?t={DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}";
         Debug.Log($"download total version： {tvUrl}");
 
-        PageLaunch.Instance.AddProgressCount(LoadingProgress.CHECK_WEB_VERSION, 2);
-        PageLaunch.Instance.Next(LoadingProgress.CHECK_WEB_VERSION, $"get web total version");
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.CHECK_WEB_VERSION, 2);
+        PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.CHECK_WEB_VERSION, $"get web total version");
 
         using (UnityWebRequest reqTotalVersion = UnityWebRequest.Get(tvUrl))
         {
@@ -968,7 +968,7 @@ public class VersionCheck002 : MonoBehaviour
                 {
                     GlobalModel.autoHotfixUrl = FileUtils.GetDirWebUrl(PathHelper.totalVersionWEBURL, targetTotalVersionItem["hotfix_url"].ToObject<string>());
 
-                    PageLaunch.Instance.Next(LoadingProgress.CHECK_WEB_VERSION, $"get web version");
+                    PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.CHECK_WEB_VERSION, $"get web version");
 
                     yield return GetWebVersion(onSuccessCallback, onErrorCallback);
                 }
@@ -985,7 +985,7 @@ public class VersionCheck002 : MonoBehaviour
                 onErrorCallback?.Invoke();
             }
         }
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.CHECK_WEB_VERSION);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.CHECK_WEB_VERSION);
     }
 
 
@@ -1093,7 +1093,7 @@ public class VersionCheck002 : MonoBehaviour
         JObject serverBackupNode = versionFileRemoteNode["asset_backup"] as JObject;
 
 
-        PageLaunch.Instance.AddProgressCount(LoadingProgress.DOWNLOAD_ASSET_BACKUP, serverBackupNode.Count);
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.DOWNLOAD_ASSET_BACKUP, serverBackupNode.Count);
 
         int i = 0;
         //从资源服务器下载DLL写入到本地
@@ -1105,7 +1105,7 @@ public class VersionCheck002 : MonoBehaviour
                 || (localBackupNode[name]["hash"].ToObject<string>() != serverBackupNode[name]["hash"].ToObject<string>()))
             {
 
-                PageLaunch.Instance.Next(LoadingProgress.DOWNLOAD_ASSET_BACKUP, $"download asset backup: {name}  {i + 1}/{serverBackupNode.Count}");
+                PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.DOWNLOAD_ASSET_BACKUP, $"download asset backup: {name}  {i + 1}/{serverBackupNode.Count}");
 
                 Debug.Log($"download asset backup: {name}  {i + 1}/{serverBackupNode.Count}");
 
@@ -1114,7 +1114,7 @@ public class VersionCheck002 : MonoBehaviour
             i++;
         }
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.DOWNLOAD_ASSET_BACKUP);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.DOWNLOAD_ASSET_BACKUP);
 
     }
 
@@ -1211,7 +1211,7 @@ public class VersionCheck002 : MonoBehaviour
         JObject serverHotfixNode = versionFileRemoteNode["asset_dll"] as JObject;
 
 
-        PageLaunch.Instance.AddProgressCount(LoadingProgress.DOWNLOAD_ASSET_DLL, serverHotfixNode.Count);
+        PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.DOWNLOAD_ASSET_DLL, serverHotfixNode.Count);
 
         int i = 0;
         //从资源服务器下载DLL写入到本地
@@ -1223,7 +1223,7 @@ public class VersionCheck002 : MonoBehaviour
                 || (localHotfixNode[name]["hash"].ToObject<string>() != serverHotfixNode[name]["hash"].ToObject<string>()))
             {
 
-                PageLaunch.Instance.Next(LoadingProgress.DOWNLOAD_ASSET_DLL, $"download hotfix dll: {name}  {i + 1}/{serverHotfixNode.Count}");
+                PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.DOWNLOAD_ASSET_DLL, $"download hotfix dll: {name}  {i + 1}/{serverHotfixNode.Count}");
 
                 Debug.Log($"download hotfix dll: {name}  {i + 1}/{serverHotfixNode.Count}");
 
@@ -1232,7 +1232,7 @@ public class VersionCheck002 : MonoBehaviour
             i++;
         }
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.DOWNLOAD_ASSET_DLL);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.DOWNLOAD_ASSET_DLL);
 
     }
 
@@ -1334,20 +1334,20 @@ public class VersionCheck002 : MonoBehaviour
         }
         else
         {
-            PageLaunch.Instance.AddProgressCount(LoadingProgress.DOWNLOAD_ASSET_BUNDLE, totalCount);
+            PageLaunch.Instance.AddProgressCount(StepHotfixDownloadAtLaunch.DOWNLOAD_ASSET_BUNDLE, totalCount);
             int i = 0;
 
             foreach (var iter in downloadFiles)
             {
                 i++;
-                PageLaunch.Instance.Next(LoadingProgress.DOWNLOAD_ASSET_BUNDLE, $"download ab: {iter} {i}/{totalCount}");
+                PageLaunch.Instance.Next(StepHotfixDownloadAtLaunch.DOWNLOAD_ASSET_BUNDLE, $"download ab: {iter} {i}/{totalCount}");
                 Debug.Log($"download ab: {iter} {i}/{totalCount}");
 
                 yield return DownloadABFileOnce(iter,hash);
             }
         }
 
-        PageLaunch.Instance.RemoveProgress(LoadingProgress.DOWNLOAD_ASSET_BUNDLE);
+        PageLaunch.Instance.RemoveProgress(StepHotfixDownloadAtLaunch.DOWNLOAD_ASSET_BUNDLE);
     }
 
     private IEnumerator DownloadABFileOnce(string iter, JObject hash)

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1178" restrictSize="540,0,0,0">
+  <displayList>
+    <component id="n18_cwuo" name="coinOutScale" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,0" size="540,76" group="n20_cwuo">
+      <property target="key" propertyId="0" value="Coin Out Scale(Ticket : Credit):"/>
+      <property target="value" propertyId="0" value="1:100"/>
+    </component>
+    <component id="n19_cwuo" name="coinInScale" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,76" size="540,76" group="n20_cwuo">
+      <property target="key" propertyId="0" value="Coin In Scale(Coin : Credit):"/>
+      <property target="value" propertyId="0" value="1:100"/>
+    </component>
+    <component id="n27_os7y" name="scoreScale" src="cwuo21" fileName="moudules/ItemTitleButton03.xml" xy="0,152" size="540,76" group="n20_cwuo">
+      <property target="key" propertyId="0" value="Score Short Click Scale(Time : Credit):"/>
+      <property target="value" propertyId="0" value="1:100"/>
+    </component>
+    <component id="n28_i938" name="coinOutImmediately" src="cwuo2d" fileName="moudules/ItemTitleSwitch.xml" xy="0,228" group="n20_cwuo">
+      <property target="key" propertyId="0" value="Coin Out Immediately:"/>
+    </component>
+    <group id="n20_cwuo" name="left" xy="0,0" size="540,304" advanced="true">
+      <relation target="" sidePair="width-width"/>
+    </group>
+  </displayList>
+</component>

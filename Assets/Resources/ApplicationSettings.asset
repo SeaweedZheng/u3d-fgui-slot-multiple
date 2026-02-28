@@ -17,16 +17,16 @@ MonoBehaviour:
   isUseMoudle: 1
   isMock: 1
   isUseProtectApplication: 0
-  platformName: RichLegend201
-  gameTheme: RICH LEGEND
-  agentName: RichLegend
-  appKey: RichLegend201_debug_android_20251216143236
+  platformName: SlotMultiple01
+  gameTheme: SLOT MULTIPLE
+  agentName: SlotMultiple
+  appKey: SlotMultiple01_debug_android_20260227113546
   appVersion: 1.0.0
   resourceServer: http://chresouce.oss-cn-guangzhou.aliyuncs.com
   machineDebugUrl: 192.168.3.82
   reportUrl: http://192.168.3.152/api/game_log/send
   posterUrl: 
-  logoUrl: ui://Native/logo_emperors_rein
+  logoUrl: ui://Native100000000/logo_emperors_rein
   dbName: Games.db
   isTestUseHotfixBundleAtEditor: 0
   isTestUseStreamingAssetsBundleAtEditor: 1

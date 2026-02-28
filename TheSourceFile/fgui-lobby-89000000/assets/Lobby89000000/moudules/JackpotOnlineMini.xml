@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="440,155">
+  <displayList>
+    <image id="n11_ml44" name="n11" src="ml4415" fileName="images/jackpotOnline/BG-MINI.png" xy="0,0"/>
+    <list id="n12_gvge" name="reels" xy="49,59" size="427,83" scale="0.8,0.8" layout="flow_hz" overflow="scroll" defaultItem="ui://rc5uleh0gvge3g" align="center" vAlign="middle">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+  </displayList>
+</component>

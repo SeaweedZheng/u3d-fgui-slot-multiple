@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="360,36">
+  <displayList>
+    <richtext id="n0_npu5" name="key" xy="5,0" size="175,36" fontSize="18" color="#ffffff" vAlign="middle" autoSize="shrink" text="key:">
+      <relation target="" sidePair="width-width%,height-height"/>
+    </richtext>
+    <richtext id="n2_npu5" name="value" xy="180,0" size="175,36" fontSize="18" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" text="value">
+      <relation target="" sidePair="width-width%,height-height"/>
+    </richtext>
+  </displayList>
+  <customProperty target="key" propertyId="0" label="键"/>
+  <customProperty target="value" propertyId="0" label="值"/>
+</component>

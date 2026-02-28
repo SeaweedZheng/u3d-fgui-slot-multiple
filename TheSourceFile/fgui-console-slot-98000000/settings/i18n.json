@@ -1,0 +1,19 @@
+{
+  "langFiles": [
+    {
+      "name": "cn",
+      "path": "./TheLanguage/language_cn_console_01.xml",
+      "fontName": ""
+    },
+    {
+      "name": "en",
+      "path": "./TheLanguage/language_en_console_01.xml",
+      "fontName": ""
+    },
+    {
+      "name": "tw",
+      "path": "./TheLanguage/language_tw_console_01.xml",
+      "fontName": ""
+    }
+  ]
+}

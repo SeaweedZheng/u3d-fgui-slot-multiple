@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="41,71" pivot="0.5,0.5" extention="Button">
+  <controller name="button" pages="0,up,1,down,2,over,3,selectedOver" selected="0"/>
+  <displayList>
+    <image id="n3_zbsa" name="n3" src="zbsa2h" fileName="images/sidebar/button_fold.png" xy="0,0">
+      <gearDisplay controller="button" pages="0,2"/>
+    </image>
+    <image id="n4_zbsa" name="n4" src="zbsa2b" fileName="images/sidebar/button_unfold.png" xy="1,1">
+      <gearDisplay controller="button" pages="1,3"/>
+    </image>
+  </displayList>
+  <Button mode="Check"/>
+</component>

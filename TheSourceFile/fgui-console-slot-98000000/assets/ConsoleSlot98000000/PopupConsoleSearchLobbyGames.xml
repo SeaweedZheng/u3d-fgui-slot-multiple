@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <displayList>
+    <component id="n30_kc0c" name="n30" src="os7y3l" fileName="moudules/BasePopuoBG.xml" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
+    <image id="n0_kc0c" name="n0" src="vqlx68" fileName="images/common/circle_24.png" xy="165,420" size="750,1080" group="n28_kc0c" color="#143733"/>
+    <image id="n50_ocpf" name="n50" src="vqlx69" fileName="images/common/circle_64.png" xy="462,535" size="418,64" group="n28_kc0c" color="#09221f"/>
+    <image id="n53_ocpf" name="n53" src="vqlx69" fileName="images/common/circle_64.png" xy="462,611" size="418,64" group="n28_kc0c" color="#09221f"/>
+    <richtext id="n4_kc0c" name="title" xy="232,443" size="615,64" group="n28_kc0c" fontSize="35" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" singleLine="true" autoClearText="true" text="Lobby Games Search"/>
+    <component id="n22_kc0c" name="btnConfirm" src="vqlx5x" fileName="components/Button005Confirm.xml" xy="442,1406" group="n28_kc0c"/>
+    <component id="n31_ocpf" name="btnExit" src="os7y4l" fileName="components/ButtonClosePopup.xml" xy="837,420" group="n28_kc0c"/>
+    <image id="n32_ocpf" name="n32" src="vqlx65" fileName="images/common/line_64x4.png" xy="190,518" size="700,4" group="n28_kc0c"/>
+    <image id="n33_ocpf" name="n33" src="vqlx65" fileName="images/common/line_64x4.png" xy="190,1385" size="700,4" group="n28_kc0c"/>
+    <image id="n37_ocpf" name="n37" src="vqlx68" fileName="images/common/circle_24.png" xy="200,749" size="680,230" group="n28_kc0c" color="#09221f"/>
+    <component id="n39_ocpf" name="keyboard" src="cwuo24" fileName="moudules/ItemCustomKeyboard003.xml" xy="56,1605" group="n28_kc0c"/>
+    <component id="n41_ocpf" name="inputGameId" src="vjfj52" fileName="moudules/ItemCustomInput002.xml" xy="480,529" group="n28_kc0c"/>
+    <component id="n42_ocpf" name="inputGameName" src="vjfj52" fileName="moudules/ItemCustomInput002.xml" xy="480,605" group="n28_kc0c"/>
+    <image id="n44_ocpf" name="n44" src="vqlx68" fileName="images/common/circle_24.png" xy="200,1065" size="680,230" group="n28_kc0c" color="#09221f"/>
+    <text id="n47_ocpf" name="n2" xy="201,529" size="257,76" group="n28_kc0c" fontSize="30" color="#ffffff" vAlign="middle" autoSize="none" singleLine="true" text="Game ID:"/>
+    <text id="n48_ocpf" name="n1" xy="201,605" size="257,76" group="n28_kc0c" fontSize="30" color="#ffffff" vAlign="middle" autoSize="none" singleLine="true" text="Game Name:"/>
+    <list id="n55_ocpf" name="lstGameType" xy="204,753" size="673,221" group="n28_kc0c" layout="flow_hz" overflow="hidden" margin="10,10,10,10" lineGap="10" colGap="10" lineItemCount="4" defaultItem="ui://xp0b9yqdocpfaa" autoItemSize="true">
+      <item title="All"/>
+      <item title="Slot"/>
+      <item title="Coin Pusher"/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <list id="n56_ocpf" name="lstHistory" xy="202,1068" size="673,217" group="n28_kc0c" layout="flow_hz" overflow="scroll" margin="10,10,10,10" lineGap="10" colGap="10" lineItemCount="3" defaultItem="ui://xp0b9yqdocpfaa" autoItemSize="true">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <text id="n57_ocpf" name="n4" xy="201,681" size="257,76" group="n28_kc0c" fontSize="30" color="#ffffff" vAlign="middle" autoSize="none" singleLine="true" text="Game Type:"/>
+    <text id="n58_ocpf" name="n3" xy="201,991" size="257,76" group="n28_kc0c" fontSize="30" color="#ffffff" vAlign="middle" autoSize="none" singleLine="true" text="History:"/>
+    <group id="n28_kc0c" name="n28" xy="56,420" size="968,1484"/>
+  </displayList>
+</component>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <displayList>
+    <component id="n1_paul" name="base" src="paul3" fileName="moudules/MDPageBase.xml" xy="2,0">
+      <relation target="" sidePair="width-width,height-height"/>
+      <property target="title" propertyId="0" value="/Hardware Test"/>
+    </component>
+    <list id="n10_paul" name="items" xy="50,124" size="980,1659" overflow="hidden" defaultItem="ui://tdkeq960paul9">
+      <relation target="" sidePair="center-center,middle-middle"/>
+      <item title="Count" name="_title1">
+        <property target="title" propertyId="0" value=""/>
+        <property target="value1" propertyId="0" value="State"/>
+        <property target="value2" propertyId="0" value="Sensor"/>
+        <property target="value3" propertyId="0" value="Count"/>
+      </item>
+      <item title="OFF" name="topCoinIn">
+        <property target="title" propertyId="0" value="Drop Coins"/>
+        <property target="value1" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value="OFF"/>
+        <property target="value3" propertyId="0" value="0"/>
+      </item>
+      <item title="OFF" name="ballIn">
+        <property target="title" propertyId="0" value="Drop The Ball"/>
+        <property target="value1" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value="OFF"/>
+        <property target="value3" propertyId="0" value="0"/>
+      </item>
+      <item title="OFF" name="RegainCoins">
+        <property target="title" propertyId="0" value="Reward Coin Device"/>
+        <property target="value1" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value="OFF"/>
+        <property target="value3" propertyId="0" value="0"/>
+      </item>
+      <item title="OFF" name="RegainBalls">
+        <property target="title" propertyId="0" value="Reward Ball Device"/>
+        <property target="value1" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value="OFF"/>
+        <property target="value3" propertyId="0" value="0"/>
+      </item>
+      <item title="State" name="_title2">
+        <property target="title" propertyId="0" value=""/>
+        <property target="value1" propertyId="0" value="State"/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+      <item title="OFF" name="wiper">
+        <property target="title" propertyId="0" value="Wiper"/>
+        <property target="value1" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+      <item title="OFF" name="pushPlate">
+        <property target="title" propertyId="0" value="Push Tray"/>
+        <property target="value1" propertyId="0" value="OFF"/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+      <item title="Return" name="exit">
+        <property target="title" propertyId="0" value="Return"/>
+        <property target="value1" propertyId="0" value=""/>
+        <property target="value2" propertyId="0" value=""/>
+        <property target="value3" propertyId="0" value=""/>
+      </item>
+    </list>
+    <list id="n13_86hh" name="items2" xy="50,125" size="980,132" visible="false" layout="flow_hz" overflow="hidden" lineGap="10" colGap="12" defaultItem="ui://tdkeq96086hhc">
+      <item title="Spin Button" name="btnSpin">
+        <property target="title" propertyId="0" value="Spin Button"/>
+      </item>
+      <item title="Wiper Button" name="btnWiper">
+        <property target="title" propertyId="0" value="Wiper Button"/>
+      </item>
+    </list>
+    <richtext id="n14_n65m" name="tip" xy="126,1449" size="833,173" fontSize="32" align="center" vAlign="middle" ubb="true" autoSize="shrink" autoClearText="true" text="0432444444444444444444444444444444444444444444444&lt;br&gt;{&quot;code&quot;:0,&quot;coinPushTestCoins&quot;:0,&quot;coinPushTestBalls&quot;:0,&quot;coinPushTestPlate&quot;:0,&quot;coinPushTestWiper&quot;:0}&#xA;UnityEngine.Debug:LogError (object)"/>
+  </displayList>
+</component>

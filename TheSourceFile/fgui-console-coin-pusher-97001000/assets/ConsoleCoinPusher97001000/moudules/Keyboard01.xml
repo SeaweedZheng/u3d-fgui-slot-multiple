@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <component size="980,249">
   <displayList>
-    <list id="n11_86hh" name="buttons" xy="0,0" size="980,127" layout="flow_hz" overflow="hidden" defaultItem="ui://tdkeq96086hhl" align="center">
+    <list id="n11_86hh" name="buttons" xy="0,0" size="980,119" layout="flow_hz" overflow="hidden" defaultItem="ui://tdkeq96086hhl" align="center">
       <item name="No.0">
         <property target="title" propertyId="0" value="0"/>
       </item>
@@ -45,7 +45,7 @@
         <property target="title" propertyId="0" value="Return"/>
       </item>
     </list>
-    <list id="n13_86hh" name="input" xy="0,127" size="980,62" layout="row" overflow="hidden" colGap="16" defaultItem="ui://tdkeq96086hhn" align="center">
+    <list id="n13_86hh" name="input" xy="0,120" size="980,62" layout="row" overflow="hidden" colGap="16" defaultItem="ui://tdkeq96086hhn" align="center">
       <item title="&lt;img src=&apos;ui://ConsoleCoinPusher01/icon-asterisk&apos; /&gt;">
         <property target="title" propertyId="0" value="&lt;img src=&apos;ui://ConsoleCoinPusher01/icon-asterisk&apos; /&gt;"/>
       </item>
