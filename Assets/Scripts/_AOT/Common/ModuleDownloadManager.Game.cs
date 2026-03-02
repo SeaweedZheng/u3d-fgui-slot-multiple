@@ -11,6 +11,11 @@ public partial class ModuleDownloadManager
 {
     /// <summary> 运行模块的哈希值 </summary>
     public Dictionary<string, string> runingModHash = new Dictionary<string, string>();
+
+
+
+
+#if false
     public void HotDownloadGame(string moduleName, Action<object[]> onFinish)
             => StartCoroutine(CoHotDownloadGameAsset(moduleName, onFinish));
 
@@ -83,7 +88,7 @@ public partial class ModuleDownloadManager
 
 
 
-#if !false
+
         /// <summary>
         /// 【暂时不用】游戏是否允许
         /// </summary>
@@ -133,15 +138,14 @@ public partial class ModuleDownloadManager
             onFinish?.Invoke(new object[] { 0, "" });
         }
 
-#endif
 
-        /// <summary>
-        /// 【暂时用不上】下载模块所需要大小
-        /// </summary>
-        /// <param name="moduleName"></param>
-        /// <param name="onSuccess"></param>
-        /// <param name="onError"></param>
-        public void ChechDownloadTotalSize(string moduleName, Action<long> onSuccess, Action<string> onError)
+    /// <summary>
+    /// 【暂时用不上】下载模块所需要大小
+    /// </summary>
+    /// <param name="moduleName"></param>
+    /// <param name="onSuccess"></param>
+    /// <param name="onError"></param>
+    public void ChechDownloadTotalSize(string moduleName, Action<long> onSuccess, Action<string> onError)
             => StartCoroutine(CoChechDownloadTotalSize(moduleName, onSuccess, onError));
 
         IEnumerator CoChechDownloadTotalSize(string moduleName, Action<long> onSuccess, Action<string> onError)
@@ -247,7 +251,15 @@ public partial class ModuleDownloadManager
             onSuccess?.Invoke(totalSize);
         }
 
-        public object[] GetDownloadTotalSize(string moduleName, JObject webModVerNode)
+#endif
+
+
+
+
+
+
+
+    public object[] GetDownloadTotalSize(string moduleName, JObject webModVerNode)
         {
             JObject locModVerNode = null;
             string locPth = PathHelper.GetModuleVersionLOCPTH(moduleName);
