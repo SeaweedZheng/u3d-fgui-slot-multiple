@@ -6,6 +6,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+#if false
 public class GameUtils 
 {
     public static void ParseGameInfo(string gameInfo)
@@ -66,3 +68,4 @@ public class GameUtils
         ///payTableController.OnPropertyChangeTotalBet();
     }
 }
+#endif

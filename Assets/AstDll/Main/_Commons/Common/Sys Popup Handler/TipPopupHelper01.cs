@@ -1,8 +1,8 @@
 using GameMaker;
-using ConsoleSlot98000000;
+using Common99000000;
 public class TipPopupHelper01 : ITipPopupHandel
 {
-    PopupConsoleTip popup;
+    PopupSystemToast popup;
     public void OpenPopup(string msg)
     {
 
@@ -12,7 +12,7 @@ public class TipPopupHelper01 : ITipPopupHandel
             PageManager.Instance.OpenPage(PageName.CommonPopupSystemToast,
                 new EventData<string>("Null", msg),
                 (PageBase win) => {
-                    popup = win as PopupConsoleTip;
+                    popup = win as PopupSystemToast;
                 }
             );
             return;
@@ -29,7 +29,7 @@ public class TipPopupHelper01 : ITipPopupHandel
             PageManager.Instance.OpenPage(PageName.CommonPopupSystemToast,
                 new EventData<string>("Null", msg),
                 (PageBase win) => {
-                    popup = win as PopupConsoleTip;
+                    popup = win as PopupSystemToast;
                 }
             );
             return;

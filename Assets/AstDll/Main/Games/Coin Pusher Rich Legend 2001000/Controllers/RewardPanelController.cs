@@ -13,7 +13,7 @@ namespace CoinPusherRichLegend2001000
         public void Enable()
         {
             EventCenter.Instance.AddEventListener<EventData>(SlotMachineEvent.ON_CONTENT_EVENT, OnContentEvent);
-            MachineDataManagerG2001001.Instance.RequestCoinHit(0, (res) =>
+            MachineDataManagerG2001000.Instance.RequestCoinHit(0, (res) =>
             {
                 winCoins = 0;
                 int[] result = res as int[];
@@ -158,7 +158,7 @@ namespace CoinPusherRichLegend2001000
         public int winCoins = 0;
         void RepeatCheckCoinHit(object param)
         {
-            MachineDataManagerG2001001.Instance.RequestCoinHit(winCoins, (res) =>
+            MachineDataManagerG2001000.Instance.RequestCoinHit(winCoins, (res) =>
             {
                 winCoins = 0;
                 int[] result = res as int[];

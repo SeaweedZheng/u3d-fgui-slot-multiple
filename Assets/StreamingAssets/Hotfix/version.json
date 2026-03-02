@@ -1,13 +1,13 @@
 {
   "name": "Total",
-  "updated_at": 1772419030791,
+  "updated_at": 1772441327234,
   "hotfix_key": "hf_debug_android_20251216143338",
-  "hotfix_version": "1.0.223",
-  "hash": "f8d881fdc0a2ce1fd69eb9ef496dfb31",
+  "hotfix_version": "1.0.224",
+  "hash": "efe1ecb11dc123603118431dbd2bc1a9",
   "asset_bundle": {
     "manifest": {
-      "hash": "5e1ff069f22992f59516bd873ed13cb8",
-      "size_bytes": 8519
+      "hash": "8ea221359f928da23f64296d47b93f6c",
+      "size_bytes": 8520
     },
     "bundles": {
       "_common/game maker/abs/g152/game icon/game avatar 152.unity3d": {
@@ -17,10 +17,6 @@
       "_common/game maker/abs/g300/game icon/game avatar 300.unity3d": {
         "hash": "11374e2c790b09b8a6f9443bef5c62c5",
         "size_bytes": 12089
-      },
-      "_commons/common 99000000/abs/datas/console_display_permissions.unity3d": {
-        "hash": "0f5ef98a4a43676664aee756ab188f23",
-        "size_bytes": 1177
       },
       "_commons/common 99000000/fguis.unity3d": {
         "hash": "5c1a9a027f600ef5652647902e10bf9b",
@@ -33,6 +29,10 @@
       "_commons/common 99000000/prefabs/gs/gssource.unity3d": {
         "hash": "2434e774b578071053d03f3b8d34f61d",
         "size_bytes": 2375
+      },
+      "_commons/common/abs/datas/console_display_permissions.unity3d": {
+        "hash": "214cc9c21ff9cff7f71938648a5dca8f",
+        "size_bytes": 1170
       },
       "_commons/game maker/abs/datas/error_code.unity3d": {
         "hash": "4d4954bf7e65747c7dca677297b8323f",

@@ -191,6 +191,9 @@ namespace ConsoleCoinPusher97001000
 
             if (!isInit) return;
 
+            KeyBoard01Controller.signMI = "<img src='ui://Common99000000/icon-asterisk' />";
+            KeyBoard02Controller.signMI = "<img src='ui://Common99000000/icon-asterisk' />";
+
             if (!isOpen) return;
 
             baseCtrl.InitParam(this.contentPane.GetChild("base").asCom, PageTitleManager.Instance.GetPagePathName());
