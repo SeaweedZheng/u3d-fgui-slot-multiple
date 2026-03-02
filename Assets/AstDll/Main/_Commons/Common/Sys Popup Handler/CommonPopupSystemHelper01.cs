@@ -1,13 +1,13 @@
 using GameMaker;
-using ConsoleSlot98000000;
-public class CommonPopupHelper01 : IComomonPopupHandler
+using Common99000000;
+public class CommonPopupSystemHelper01 : IComomonPopupHandler
 {
-    PopupConsoleCommon popup;
+    PopupSystemCommon popup;
     public void OpenPopup(CommonPopupInfo info) {
-        PageManager.Instance.OpenPage(PageName.ConsoleSlot98000000PopupConsoleCommon, 
+        PageManager.Instance.OpenPage(PageName.CommonPopupSystemCommon, 
             new EventData<CommonPopupInfo>("Null", info) ,
             (PageBase win) => {
-                popup = win as PopupConsoleCommon;
+                popup = win as PopupSystemCommon;
             }
         );
     }

@@ -4,14 +4,14 @@ using ConsoleSlot98000000;
 public class MaskPopupHelper01 : IMaskPopupHandel
 {
 
-    PopupConsoleMask popup;
+    PageBase popup;
 
     public void OpenPopup(string info)
     {
-        PageManager.Instance.OpenPage(PageName.ConsoleSlot98000000PopupConsoleMask,
+        PageManager.Instance.OpenPage(PageName.CommonPopupSystemMask,    //PageName. ConsoleSlot98000000PopupConsoleMask,
             new EventData<string>("Null", info),
             (PageBase win) => {
-                popup = win as PopupConsoleMask;
+                popup = win as PageBase;
             }
         );
     }

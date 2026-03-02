@@ -1,34 +1,48 @@
 <?xml version="1.0" encoding="utf-8"?>
 <packageDescription id="uoikilaq">
   <resources>
-    <component id="ayu90" name="ButtonTestMenu.xml" path="/components/"/>
-    <component id="ayu91" name="ButtonTestSpeed.xml" path="/components/"/>
-    <component id="ayu92" name="AnchorRootDefault.xml" path="/components/" exported="true"/>
-    <component id="ayu93" name="ToggleIsOn.xml" path="/components/"/>
-    <component id="ayu94" name="PopMenu.xml" path="/moudules/"/>
-    <component id="ayu95" name="TestItemName.xml" path="/moudules/"/>
-    <component id="ayu96" name="TestItemKeyInput.xml" path="/moudules/"/>
-    <component id="ayu97" name="TestItemSpeed.xml" path="/moudules/"/>
-    <component id="ayu98" name="TestItemGM.xml" path="/moudules/"/>
-    <component id="ayu99" name="TestItemPages.xml" path="/moudules/"/>
-    <component id="ayu9a" name="TestItemButtons.xml" path="/moudules/"/>
-    <component id="ayu9b" name="TestItemAnalysis.xml" path="/moudules/"/>
-    <component id="ayu9c" name="TestItemDebugFilter.xml" path="/moudules/"/>
-    <component id="ayu9d" name="PopSelectLst.xml" path="/moudules/"/>
-    <component id="ayu9e" name="TestSelectItem.xml" path="/moudules/"/>
-    <component id="ayu9f" name="TestManager.xml" path="/moudules/" exported="true"/>
-    <component id="ayu9g" name="PopToggleLst.xml" path="/moudules/"/>
-    <component id="ayu9h" name="ToggleSelectItem.xml" path="/moudules/"/>
+    <component id="ayu90" name="ButtonTestMenu.xml" path="/Components/"/>
+    <component id="ayu91" name="ButtonTestSpeed.xml" path="/Components/"/>
+    <component id="ayu92" name="AnchorRootDefault.xml" path="/Components/" exported="true"/>
+    <component id="ayu93" name="ToggleIsOn.xml" path="/Components/"/>
+    <component id="ayu94" name="PopMenu.xml" path="/Moudules/"/>
+    <component id="ayu95" name="TestItemName.xml" path="/Moudules/"/>
+    <component id="ayu96" name="TestItemKeyInput.xml" path="/Moudules/"/>
+    <component id="ayu97" name="TestItemSpeed.xml" path="/Moudules/"/>
+    <component id="ayu98" name="TestItemGM.xml" path="/Moudules/"/>
+    <component id="ayu99" name="TestItemPages.xml" path="/Moudules/"/>
+    <component id="ayu9a" name="TestItemButtons.xml" path="/Moudules/"/>
+    <component id="ayu9b" name="TestItemAnalysis.xml" path="/Moudules/"/>
+    <component id="ayu9c" name="TestItemDebugFilter.xml" path="/Moudules/"/>
+    <component id="ayu9d" name="PopSelectLst.xml" path="/Moudules/"/>
+    <component id="ayu9e" name="TestSelectItem.xml" path="/Moudules/"/>
+    <component id="ayu9f" name="TestManager.xml" path="/Moudules/" exported="true"/>
+    <component id="ayu9g" name="PopToggleLst.xml" path="/Moudules/"/>
+    <component id="ayu9h" name="ToggleSelectItem.xml" path="/Moudules/"/>
     <component id="ayu9i" name="PopupSystemTip.xml" path="/" exported="true"/>
     <component id="ayu9j" name="TestPage.xml" path="/"/>
     <component id="lxzz0" name="PopupSystemLoading.xml" path="/" exported="true"/>
     <image id="lxzz2" name="launch_loading_bg.png" path="/Images/" scale="9grid" scale9grid="21,9,13,18"/>
     <image id="lxzz4" name="launch_loading_mask.png" path="/Images/" scale="9grid" scale9grid="17,8,17,16"/>
     <image id="lxzz6" name="launch_loading_fg.png" path="/Images/" scale="tile" duplicatePadding="true"/>
-    <component id="lxzz3" name="ProgressBar1.xml" path="/components/"/>
-    <component id="lxzz5" name="Slider2.xml" path="/components/"/>
+    <component id="lxzz3" name="ProgressBar1.xml" path="/Components/"/>
+    <component id="lxzz5" name="Slider2.xml" path="/Components/"/>
     <image id="qylxk" name="pop_loading_bg.png" path="/Images/"/>
     <image id="rsnql" name="icon-asterisk.png" path="/Images/ConsoleCoinPusher/" exported="true"/>
+    <component id="dacl0" name="PopupSystemCommon.xml" path="/" exported="true"/>
+    <component id="dacl9" name="PopupSystemMask.xml" path="/" exported="true"/>
+    <component id="daclb" name="PopupSystemToast.xml" path="/" exported="true"/>
+    <component id="dacl1" name="BasePopuoBG.xml" path="/Moudules/SystemPopup/" exported="true"/>
+    <component id="dacld" name="ItemPopupTip.xml" path="/Moudules/SystemPopup/" exported="true"/>
+    <component id="daclc" name="TipContent.xml" path="/Moudules/SystemPopup/" exported="true"/>
+    <image id="dacl2" name="circle_24.png" path="/Images/SystemPopup/Common/" exported="true" scale="9grid" scale9grid="11,11,2,2"/>
+    <image id="dacl4" name="icon_close_0.png" path="/Images/SystemPopup/Popup/" exported="true"/>
+    <image id="dacl5" name="icon_i_120.png" path="/Images/SystemPopup/Popup/" exported="true"/>
+    <image id="dacla" name="icon_mask.png" path="/Images/SystemPopup/Popup/" exported="true"/>
+    <image id="dacl8" name="icon_cancel_64.png" path="/Images/SystemPopup/Icons/" exported="true"/>
+    <image id="dacl7" name="icon_confirm_64.png" path="/Images/SystemPopup/Icons/"/>
+    <component id="dacl6" name="Button005Confirm.xml" path="/Components/SystemPopup/" exported="true"/>
+    <component id="dacl3" name="ButtonClosePopup.xml" path="/Components/SystemPopup/" exported="true"/>
   </resources>
   <publish name="" path="../../Assets/AstBundle/_Commons/Common 99000000/FGUIs" packageCount="2"/>
 </packageDescription>
