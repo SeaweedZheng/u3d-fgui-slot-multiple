@@ -10,6 +10,9 @@ namespace CommonConsoleCoinPusher
 {
     public class KeyBoard02Controller : IKeyboard
     {
+
+       public static  string signMI = "<img src='ui://ConsoleCoinPusher97000000/icon-asterisk' />";
+
         public KeyBoard02Controller(){ Init(); }
         void Init() { }
 
@@ -163,7 +166,7 @@ namespace CommonConsoleCoinPusher
                             OpenWhatKeyborad(2);
                             return;
                     }
-                    glstInput.GetChildAt(curIndexInput).text = isPlaintext ? data : miSign;
+                    glstInput.GetChildAt(curIndexInput).text = isPlaintext ? data : signMI;
                     inputResult += data;
                     curIndexInput++;
                 }
@@ -190,7 +193,6 @@ namespace CommonConsoleCoinPusher
         public  bool isCanOnClick;
         string inputResult = "";
 
-        string miSign = "<img src='ui://ConsoleCoinPusher97000000/icon-asterisk' />";
 
         public void Clear(bool isClearAllArrow)
         {
@@ -217,7 +219,7 @@ namespace CommonConsoleCoinPusher
         }
 
 
-        public void InitParam(GComponent gKB, bool isPlaintext, Action<string> onClickOKCallback, Action onClickExitCallback, string miSign = "*")
+        public void InitParam(GComponent gKB, bool isPlaintext, Action<string> onClickOKCallback, Action onClickExitCallback)
         {
             if (gKB == null) return;
 
@@ -225,7 +227,6 @@ namespace CommonConsoleCoinPusher
             this.isPlaintext = isPlaintext;
             this.onClickOKCallback = onClickOKCallback;
             this.onClickExitCallback = onClickExitCallback;
-            this.miSign = miSign;
 
             GObject[] childs = goOwnerKeyboard.GetChildren();
             foreach (GObject child in childs)
@@ -433,7 +434,7 @@ namespace CommonConsoleCoinPusher
                                     OpenWhatKeyborad(2);
                                     return;
                             }
-                            glstInput.GetChildAt(curIndexInput).text = isPlaintext ? data : miSign;
+                            glstInput.GetChildAt(curIndexInput).text = isPlaintext ? data : signMI;
                             inputResult += data;
                             curIndexInput++;
                         

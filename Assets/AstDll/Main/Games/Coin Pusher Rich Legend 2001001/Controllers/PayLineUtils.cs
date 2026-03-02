@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-
+#if false
 /// <summary>
 /// 弃用
 /// </summary>
@@ -24,3 +24,4 @@ public class PayLineUtils
         return $"{rowHash}{corHash}{lineCells.Count}";
     }
 }
+#endif

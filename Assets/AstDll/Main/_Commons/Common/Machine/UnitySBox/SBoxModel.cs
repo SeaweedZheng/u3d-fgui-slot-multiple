@@ -1503,7 +1503,7 @@ public class SBoxModel: MonoSingleton<SBoxModel>
             {
                 //TextAsset jsnStr = Resources.Load<TextAsset>("Datas/console_display_permissions");
                 //_consoleDisplayPermissionsDefaultStr = jsnStr.text;
-                ResourceManager02.Instance.LoadAsset<TextAsset>("Assets/AstBundle/_Commons/Common 99000000/ABs/Datas/console_display_permissions.json", (txtasset) =>
+                ResourceManager02.Instance.LoadAsset<TextAsset>("Assets/AstBundle/_Commons/Common/ABs/Datas/console_display_permissions.json", (txtasset) =>
                 {
 
                     _consoleDisplayPermissionsDefaultStr = txtasset.text;

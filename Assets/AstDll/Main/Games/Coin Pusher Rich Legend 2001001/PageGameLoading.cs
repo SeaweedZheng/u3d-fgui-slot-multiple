@@ -15,7 +15,8 @@ namespace CoinPusherRichLegend2001001
         public static void OnBeforeCreat(Action onFinishCallback)
         {
             // 添加模块
-            ModuleDownloadManager.Instance.AddModeToRuning("RL2001001");
+            if (ApplicationSettings.Instance.isUseMoudle)
+                ModuleDownloadManager.Instance.AddModeToRuning("RL2001001");
 
             onFinishCallback?.Invoke();
         }

@@ -221,7 +221,7 @@ namespace ConsoleCoinPusher97001000
                 isShuRu = false;
                 //kbCtrl.Clear(true);
                 kbCtrl.Disable();
-            }, miSign: "<img src='ui://ConsoleCoinPusher97001000/icon-asterisk' />");
+            });
 
 
 

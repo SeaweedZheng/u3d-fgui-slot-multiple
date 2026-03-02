@@ -247,7 +247,7 @@ namespace ConsoleCoinPusher97000000
                 isShuRu = false;
                 //kbCtrl.Clear(true);
                 kbCtrl.Disable();
-            }, miSign: "<img src='ui://ConsoleCoinPusher97000000/icon-asterisk' />");
+            });
 
 
             kbCtrl.goOwnerKeyboard.visible = true;

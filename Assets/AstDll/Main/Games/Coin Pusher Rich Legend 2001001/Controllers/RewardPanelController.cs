@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameMaker;
 
-namespace CoinPusherRichLegend2001001
+namespace CoinPusherRichLegend2001001  
 {
     public class RewardPanelController
     {

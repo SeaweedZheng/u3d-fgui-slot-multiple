@@ -16,7 +16,8 @@ namespace Lobby89000000
         public static void OnBeforeCreat(Action onFinishCallback)
         {
             // 添加模块
-            ModuleDownloadManager.Instance.AddModeToRuning("Main");
+            if (ApplicationSettings.Instance.isUseMoudle)
+                ModuleDownloadManager.Instance.AddModeToRuning("Main");
 
             onFinishCallback?.Invoke();
         }
