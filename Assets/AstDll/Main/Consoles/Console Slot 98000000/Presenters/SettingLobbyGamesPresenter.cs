@@ -195,42 +195,13 @@ public class SettingLobbyGamesPresenter
 
         MaskPopupHandler.Instance.OpenPopup();
 
-        string modName = LobbyGamesManager.Instance.GetSeverValue<string>(gameId,"module_name");
-
-        if (!string.IsNullOrEmpty(modName))
-        {
-            ModuleDownloadManager.Instance.ChechDownloadTotalSize(modName,
-                (size) =>
-                {
-                    MaskPopupHandler.Instance.ClosePopup();
-
-                    CommonPopupHandler.Instance.OpenPopup(new CommonPopupInfo()
-                    {
-                        // 只能修改一次线号机台号，确定要修改？
-                        type = CommonPopupType.YesNo,
-                        text =string.Format( I18nMgr.T("The total download size for the game is {0}. Are you sure you want to download?"), FileUtils.FormatFileSize(size)),
-                        buttonText1 = I18nMgr.T("Cancel"),
-                        buttonText2 = I18nMgr.T("OK"),
-                        callback1 = null,
-                        callback2 = () =>
-                        {
-                            OnDownloadGame(gameId,modName);
-                        },
-                    });
-                }, 
-                (msg) =>
-                {
-                    MaskPopupHandler.Instance.ClosePopup();
-
-                    TipPopupHandler.Instance.OpenPopup(msg);
-                });
-        }
-        else
+        GameUpdateChecker.Instance.UpdateGameAtConsole(gameId, (result) =>
         {
             MaskPopupHandler.Instance.ClosePopup();
-        }
+        });
     }
 
+    /*
     void OnDownloadGame( int gameId, string modName)
     {
         ModuleDownloadManager.Instance.HotDownloadGame(modName, (res) =>
@@ -241,7 +212,7 @@ public class SettingLobbyGamesPresenter
             }
             TipPopupHandler.Instance.OpenPopup(I18nMgr.T("Download successful"));
         });
-    }
+    }*/
 }
 
 

@@ -263,4 +263,17 @@ public class GameUpdateChecker : MonoSingleton<GameUpdateChecker>
         new EventData<LoadingProgressPercentInfo>(GlobalEvent.LoadingProgressPercent, data));
     }
 
+
+
+
+    /// <summary>
+    /// 在后台进行游戏更新
+    /// </summary>
+    /// <param name="gameId"></param>
+    /// <param name="onFinsih"></param>
+    public void UpdateGameAtConsole(int gameId, Action<bool> onFinsih)
+        => StartCoroutine(CoCheckPlayabilityWhenEnterGame(gameId, onFinsih));
+
+
+
 }

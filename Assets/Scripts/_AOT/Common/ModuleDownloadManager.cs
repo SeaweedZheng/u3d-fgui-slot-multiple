@@ -25,42 +25,6 @@ public partial class ModuleDownloadManager : MonoBehaviour
 
 
 
-    /*
-    public void DownLoadWebMod(string moduleName,Action<string> onSuccess, Action<string> onError)
-    {
-        StartCoroutine(CoDownLoadWebMod(moduleName, onSuccess, onError));
-    }
-
-    public IEnumerator CoDownLoadWebMod(string moduleName,
-    //Action<string> onDownloadStart, Action<string> onDownloadEnd, Action<string> onProgress,
-    Action<string> onSuccess, Action<string> onError)
-    {
-
-        //下载远程modeVer 文件到内存
-        string modVversionFileWebUrl = PathHelper.GetModuleVersionWEBURL(moduleName);
-
-        //JObject webModVerNode = null;
-
-        // 非cdn加载
-        UnityWebRequest reqModVerFile = UnityWebRequest.Get(modVversionFileWebUrl + $"?t={DateTimeOffset.UtcNow.ToUnixTimeMilliseconds()}");
-        yield return reqModVerFile.SendWebRequest();
-        if (reqModVerFile.result == UnityWebRequest.Result.Success)
-        {
-            string tvStr = reqModVerFile.downloadHandler.text;
-            //webModVerNode = JObject.Parse(tvStr);
-            onSuccess?.Invoke(tvStr);
-        }
-        else
-        {
-            onError?.Invoke($"download mod ver file fail. url:{modVversionFileWebUrl}");
-            yield break;
-        }
-    }
-    */
-
-
-
-
 
     /// <summary>
     /// 
