@@ -49,7 +49,7 @@ public partial class CommonPopupHandler : MonoSingleton<CommonPopupHandler>
         {
             if(_iPopup == null)
             {
-                _iPopup = new CommonPopupHelper01(); 
+                _iPopup = new CommonPopupSystemHelper01(); 
             }
             return _iPopup;
         }

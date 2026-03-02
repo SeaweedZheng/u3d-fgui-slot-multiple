@@ -1,13 +1,13 @@
 {
   "name": "Total",
-  "updated_at": 1772284573087,
+  "updated_at": 1772419030791,
   "hotfix_key": "hf_debug_android_20251216143338",
-  "hotfix_version": "1.0.222",
-  "hash": "a0ea39bd862281f380d6f3695da9bac3",
+  "hotfix_version": "1.0.223",
+  "hash": "f8d881fdc0a2ce1fd69eb9ef496dfb31",
   "asset_bundle": {
     "manifest": {
-      "hash": "363259bc205697f342972198dc906734",
-      "size_bytes": 8520
+      "hash": "5e1ff069f22992f59516bd873ed13cb8",
+      "size_bytes": 8519
     },
     "bundles": {
       "_common/game maker/abs/g152/game icon/game avatar 152.unity3d": {
@@ -23,8 +23,8 @@
         "size_bytes": 1177
       },
       "_commons/common 99000000/fguis.unity3d": {
-        "hash": "9a222a1cf3292ef4bf04d4653350c7f4",
-        "size_bytes": 7354
+        "hash": "5c1a9a027f600ef5652647902e10bf9b",
+        "size_bytes": 23758
       },
       "_commons/common 99000000/prefabs/gs/gs manager.unity3d": {
         "hash": "1a8cfcc7995a4a06fd9142b3135ab66c",

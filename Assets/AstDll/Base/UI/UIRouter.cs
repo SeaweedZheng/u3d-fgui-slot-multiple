@@ -29,6 +29,11 @@ public class UIRouter
             // 通用
             [PageName.CommonPopupSystemTip] = new object[] { "Assets/AstBundle/_Commons/Common 99000000/FGUIs", "Common99000000.PopupSystemTip" },  //Common 99000000
             [PageName.CommonPopupSystemLoading] = new object[] { "Assets/AstBundle/_Commons/Common 99000000/FGUIs", "Common99000000.PopupSystemLoading" },  //Common 99000000
+            [PageName.CommonPopupSystemToast] = new object[] { "Assets/AstBundle/_Commons/Common 99000000/FGUIs", "Common99000000.PopupSystemToast" },  //Common 99000000
+            [PageName.CommonPopupSystemCommon] = new object[] { "Assets/AstBundle/_Commons/Common 99000000/FGUIs", "Common99000000.PopupSystemCommon" },  //Common 99000000
+            [PageName.CommonPopupSystemMask] = new object[] { "Assets/AstBundle/_Commons/Common 99000000/FGUIs", "Common99000000.PopupSystemMask" },  //Common 99000000
+
+
 
             // [Console Slot]拉霸机后台
             [PageName.ConsoleSlot98000000PageConsoleMain] = new object[] { "Assets/AstBundle/Consoles/Console Slot 98000000/FGUIs", "ConsoleSlot98000000.PageConsoleMain" },
@@ -155,6 +160,9 @@ public enum PageName
     // 通用
     CommonPopupSystemTip,
     CommonPopupSystemLoading,
+    CommonPopupSystemToast,
+    CommonPopupSystemCommon,
+    CommonPopupSystemMask,
 
     // 拉霸机-管理后天
     ConsoleSlot98000000PageConsoleMain,

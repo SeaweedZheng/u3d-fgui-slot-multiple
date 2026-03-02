@@ -1,20 +1,20 @@
 using FairyGUI;
-using GameMaker;
 using GameUtil;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using GameMaker;
 
-namespace ConsoleSlot98000000
+namespace Common99000000
 {
-    public class PopupConsoleTip : PageBase
+    public class PopupSystemToast : PageBase
     {
-        public const string pkgName = "ConsoleSlot98000000";
-        public const string resName = "PopupConsoleTip";
+        public const string pkgName = "Common99000000";
+        public const string resName = "PopupSystemToast";
         public override PageType pageType => PageType.Overlay;
         protected override void OnInit()
         {
-            
+
             base.OnInit();
         }
 
@@ -110,7 +110,7 @@ namespace ConsoleSlot98000000
             }
             if (tfmTarget == null)
             {
-                tfmTarget = UIPackage.CreateObject("ConsoleSlot98000000", "ItemPopupTip").asCom;
+                tfmTarget = UIPackage.CreateObject(pkgName, "ItemPopupTip").asCom;
             }
 
             cmpContent.AddChildAt(tfmTarget, cmpContent.numChildren);

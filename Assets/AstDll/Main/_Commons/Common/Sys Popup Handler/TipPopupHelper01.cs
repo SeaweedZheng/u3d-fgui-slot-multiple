@@ -6,10 +6,10 @@ public class TipPopupHelper01 : ITipPopupHandel
     public void OpenPopup(string msg)
     {
 
-        int index = PageManager.Instance.IndexOf(PageName.ConsoleSlot98000000PopupConsoleTip);
+        int index = PageManager.Instance.IndexOf(PageName.CommonPopupSystemToast);
         if (index  == -1)
         {
-            PageManager.Instance.OpenPage(PageName.ConsoleSlot98000000PopupConsoleTip,
+            PageManager.Instance.OpenPage(PageName.CommonPopupSystemToast,
                 new EventData<string>("Null", msg),
                 (PageBase win) => {
                     popup = win as PopupConsoleTip;
@@ -23,10 +23,10 @@ public class TipPopupHelper01 : ITipPopupHandel
     }
     public void OpenPopupOnce(string msg)
     {
-        int index = PageManager.Instance.IndexOf(PageName.ConsoleSlot98000000PopupConsoleTip);
+        int index = PageManager.Instance.IndexOf(PageName.CommonPopupSystemToast);
         if (index == -1)
         {
-            PageManager.Instance.OpenPage(PageName.ConsoleSlot98000000PopupConsoleTip,
+            PageManager.Instance.OpenPage(PageName.CommonPopupSystemToast,
                 new EventData<string>("Null", msg),
                 (PageBase win) => {
                     popup = win as PopupConsoleTip;
@@ -43,6 +43,6 @@ public class TipPopupHelper01 : ITipPopupHandel
     }
     public void ClosePopup()
     {
-        PageManager.Instance.ClosePage(PageName.ConsoleSlot98000000PopupConsoleTip);
+        PageManager.Instance.ClosePage(PageName.CommonPopupSystemToast);
     }
 }
