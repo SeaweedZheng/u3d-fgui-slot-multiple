@@ -278,7 +278,7 @@ public class SBoxModelController : MonoSingleton<SBoxModelController>
 
 
         // 后台权限文件
-        ResourceManager02.Instance.LoadAsset<TextAsset>("Assets/AstBundle/_Commons/Common/ABs/Datas/console_display_permissions.json", (txtasset) =>
+        ResourceManager02.Instance.LoadAsset<TextAsset>("Assets/AstBundle/_Datas/ABs/Console Display Permissions/console_display_permissions.json", (txtasset) =>
         {
 
             SBoxModel.Instance.consoleDisplayPermissionsDefaultStr = txtasset.text;

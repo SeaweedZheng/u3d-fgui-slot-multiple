@@ -85,24 +85,24 @@ public  class LobbyGamesManager
     /// <remarks>
     /// * 以服务器游戏信息文件为基础
     /// </remarks>
-    public JArray lobbyGamesInfoLocal
+    public JArray lobbyGamesInfoCache
     {
         get
         {
-            if (_lobbyGamesInfoLocal == null)
+            if (_lobbyGamesInfoCache == null)
             {
                 // 没有大厅信息缓存，则拷贝服务器大厅信息
                 string jsn = PlayerPrefs.GetString(PARAM_LOBBY_GAMES, JsonConvert.SerializeObject(lobbyGamesInfoSever));
-                _lobbyGamesInfoLocal = JArray.Parse(jsn);
+                _lobbyGamesInfoCache = JArray.Parse(jsn);
             }
-            return _lobbyGamesInfoLocal;
+            return _lobbyGamesInfoCache;
         }
         set
         {
-            _lobbyGamesInfoLocal = value;
+            _lobbyGamesInfoCache = value;
         }
     }
-    JArray _lobbyGamesInfoLocal = null;
+    JArray _lobbyGamesInfoCache = null;
     const string PARAM_LOBBY_GAMES = nameof(PARAM_LOBBY_GAMES);
 
 
@@ -196,7 +196,7 @@ public  class LobbyGamesManager
 
     public void SaveLobbyGameInfo()
     {
-        PlayerPrefs.SetString(PARAM_LOBBY_GAMES, JsonConvert.SerializeObject(_lobbyGamesInfoLocal));
+        PlayerPrefs.SetString(PARAM_LOBBY_GAMES, JsonConvert.SerializeObject(_lobbyGamesInfoCache));
         //PlayerPrefs.Save();
     }
 
@@ -212,9 +212,9 @@ public  class LobbyGamesManager
         return $"{hash}";
     }
 
-    string GetLocHash()
+    string GetCacheHash()
     {
-        int hash = JsonConvert.SerializeObject(lobbyGamesInfoLocal).GetHashCode();
+        int hash = JsonConvert.SerializeObject(lobbyGamesInfoCache).GetHashCode();
         return $"{hash}";
     }
 
@@ -223,14 +223,14 @@ public  class LobbyGamesManager
     {
         curServerHash = GetSeverHash();
 
-        string lastServerHash = PlayerPrefs.GetString(PARAM_LOBBY_GAMES_KEYS_HASH, GetLocHash());  // 这里有问题？？
+        string lastServerHash = PlayerPrefs.GetString(PARAM_LOBBY_GAMES_KEYS_HASH, GetCacheHash());  // 这里有问题？？
 
         if (curServerHash != lastServerHash)
         {
             JArray newInfo = JArray.Parse(JsonConvert.SerializeObject(lobbyGamesInfoSever));  //拷贝
 
             Dictionary<int, JObject> dic = new Dictionary<int, JObject>();
-            foreach (JToken node in lobbyGamesInfoLocal)
+            foreach (JToken node in lobbyGamesInfoCache)
             {
                 dic.Add(node["game_id"].Value<int>(), node as JObject);
             }
@@ -251,7 +251,7 @@ public  class LobbyGamesManager
                     }
                 }
             }
-            lobbyGamesInfoLocal = newInfo;
+            lobbyGamesInfoCache = newInfo;
 
             onChangeCallback?.Invoke();
         }
@@ -362,9 +362,9 @@ public  class LobbyGamesManager
             }
 
             JObject nodeLocal = null;
-            for (int i = 0; i < lobbyGamesInfoLocal.Count; i++)
+            for (int i = 0; i < lobbyGamesInfoCache.Count; i++)
             {
-                JObject temp = lobbyGamesInfoLocal[i] as JObject;
+                JObject temp = lobbyGamesInfoCache[i] as JObject;
                 if (temp["game_id"].Value<int>() == gameId)
                 {
                     nodeLocal = temp;
@@ -387,47 +387,26 @@ public  class LobbyGamesManager
 
     }*/
 
-    public T GetLocalValue<T>(int gameId, string key) //where T : class
+
+
+
+    public JObject GetGameNodeFrom(JArray targetNod, int gameId)
     {
-        JObject nodeLocal = null;
-        for (int i = 0; i < lobbyGamesInfoLocal.Count; i++)
+        JObject nodeSever = null;
+        for (int i = 0; i < targetNod.Count; i++)
         {
-            JObject temp = lobbyGamesInfoLocal[i] as JObject;
+            JObject temp = targetNod[i] as JObject;
             if (temp["game_id"].Value<int>() == gameId)
             {
-                nodeLocal = temp;
+                nodeSever = temp;
                 break;
             }
         }
-        if (nodeLocal == null || !nodeLocal.ContainsKey(key))
-            return default(T); // bool默认false，int默认0，引用类型默认null
-
-        return nodeLocal[key].Value<T>();
-
+        return nodeSever;
     }
-
-    public void SetLocalValue<T>(int gameId, string key, T value) //where T : class
-    {
-        JObject nodeLocal = null;
-        for (int i = 0; i < lobbyGamesInfoLocal.Count; i++)
-        {
-            JObject temp = lobbyGamesInfoLocal[i] as JObject;
-            if (temp["game_id"].Value<int>() == gameId)
-            {
-                nodeLocal = temp;
-                break;
-            }
-        }
-        if (nodeLocal != null && nodeLocal.ContainsKey(key))
-        {
-            JToken jTokenValue = JToken.FromObject(value);// 核心解决：将T类型转换为JToken（使用JToken.FromObject，支持任意T类型）
-            nodeLocal[key] = jTokenValue;
-
-            Debug.Log($"data: {JsonConvert.SerializeObject(lobbyGamesInfoLocal)}");
-            SaveLobbyGameInfo();
-        }
-    }
-
+    public JObject GetGameNodeFromCache(int gameId) => GetGameNodeFrom(lobbyGamesInfoCache, gameId);
+    public JObject GetGameNodeFromSever(int gameId) => GetGameNodeFrom(lobbyGamesInfoSever, gameId);
+    /*
     public JObject GetLocalNode(int gameId)
     {
         JObject nodeSever = null;
@@ -457,7 +436,31 @@ public  class LobbyGamesManager
         }
         return nodeSever;
     }
-    public T GetSeverValue<T>(int gameId, string key) //where T : class
+    */
+
+
+    public T GetGameValueFrom<T>(JArray targetNod, int gameId, string key)
+    {
+        JObject nodeSever = null;
+        for (int i = 0; i < targetNod.Count; i++)
+        {
+            JObject temp = targetNod[i] as JObject;
+            if (temp["game_id"].Value<int>() == gameId)
+            {
+                nodeSever = temp;
+                break;
+            }
+        }
+        if (nodeSever == null || !nodeSever.ContainsKey(key))
+            return default(T); // bool默认false，int默认0，引用类型默认null
+
+        return nodeSever[key].Value<T>();
+    }
+    public T GetGameValueFromSever<T>(int gameId, string key) => GetGameValueFrom<T>(lobbyGamesInfoSever, gameId, key);
+    public T GetGameValueFromCache<T>(int gameId, string key) => GetGameValueFrom<T>(lobbyGamesInfoCache, gameId, key);
+
+    /*
+    public T GetGameValueFromSever<T>(int gameId, string key) //where T : class
     {
 
         JObject nodeSever = null;
@@ -477,6 +480,76 @@ public  class LobbyGamesManager
 
     }
 
+    public T GetGameValueFromCache<T>(int gameId, string key) //where T : class
+    {
+        JObject nodeLocal = null;
+        for (int i = 0; i < lobbyGamesInfoLocal.Count; i++)
+        {
+            JObject temp = lobbyGamesInfoLocal[i] as JObject;
+            if (temp["game_id"].Value<int>() == gameId)
+            {
+                nodeLocal = temp;
+                break;
+            }
+        }
+        if (nodeLocal == null || !nodeLocal.ContainsKey(key))
+            return default(T); // bool默认false，int默认0，引用类型默认null
+
+        return nodeLocal[key].Value<T>();
+
+    }
+    */
+
+
+
+#if false    
+public void SetGameValueFor<T>(JArray targetNod, int gameId, string key, T value)
+    {
+        JObject nodeLocal = null;
+        for (int i = 0; i < targetNod.Count; i++)
+        {
+            JObject temp = targetNod[i] as JObject;
+            if (temp["game_id"].Value<int>() == gameId)
+            {
+                nodeLocal = temp;
+                break;
+            }
+        }
+        if (nodeLocal != null && nodeLocal.ContainsKey(key))
+        {
+            JToken jTokenValue = JToken.FromObject(value);// 核心解决：将T类型转换为JToken（使用JToken.FromObject，支持任意T类型）
+            nodeLocal[key] = jTokenValue;
+
+            if(targetNod == lobbyGamesInfoCache)
+            {
+                Debug.Log($"data: {JsonConvert.SerializeObject(lobbyGamesInfoCache)}");
+                SaveLobbyGameInfo();
+            }
+        }
+    }
+#endif
+
+    public void SetValueForCache<T>(int gameId, string key, T value) //where T : class
+    {
+        JObject nodeLocal = null;
+        for (int i = 0; i < lobbyGamesInfoCache.Count; i++)
+        {
+            JObject temp = lobbyGamesInfoCache[i] as JObject;
+            if (temp["game_id"].Value<int>() == gameId)
+            {
+                nodeLocal = temp;
+                break;
+            }
+        }
+        if (nodeLocal != null && nodeLocal.ContainsKey(key))
+        {
+            JToken jTokenValue = JToken.FromObject(value);// 核心解决：将T类型转换为JToken（使用JToken.FromObject，支持任意T类型）
+            nodeLocal[key] = jTokenValue;
+
+            Debug.Log($"data: {JsonConvert.SerializeObject(lobbyGamesInfoCache)}");
+            SaveLobbyGameInfo();
+        }
+    }
 
 
 

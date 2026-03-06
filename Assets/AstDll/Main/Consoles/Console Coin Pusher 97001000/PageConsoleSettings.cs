@@ -85,7 +85,7 @@ namespace ConsoleCoinPusher97001000
         GList glstFooter;
 
         int tabIndex;
-        List<ConsoleMenuBase> tabs = new List<ConsoleMenuBase>();
+        List<ConsoleTabMenuBase> tabs = new List<ConsoleTabMenuBase>();
 
         public override void OnOpen(PageName name, EventData data)
         {
@@ -113,8 +113,8 @@ namespace ConsoleCoinPusher97001000
 
             glstFooter = this.contentPane.GetChild("footer").asCom.GetChild("footer").asList;
 
-            tabSettings01.InitParam(this.contentPane.GetChild("tab1").asCom, OnClickPrev, OnClickNext, OnClickExitCallback);
-            tabSettings02.InitParam(this.contentPane.GetChild("tab2").asCom, OnClickPrev, OnClickNext, OnClickExitCallback);
+            tabSettings01.InitParam(this.contentPane.GetChild("tab1").asCom, OnClickPrev, OnClickNext, OnClickExitCallback, true, false);
+            tabSettings02.InitParam(this.contentPane.GetChild("tab2").asCom, OnClickPrev, OnClickNext, OnClickExitCallback, false, true);
             //tabSettings03.InitParam(this.contentPane.GetChild("tab3").asCom, OnClickPrev, OnClickNext, OnClickExitCallback);
 
             tabs.Clear();
@@ -131,7 +131,7 @@ namespace ConsoleCoinPusher97001000
 
         void ChangeTab()
         {
-            foreach (ConsoleMenuBase tab in tabs)
+            foreach (ConsoleTabMenuBase tab in tabs)
             {
                 tab.goOwnerMenu.visible = false;
             }

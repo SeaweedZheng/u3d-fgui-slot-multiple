@@ -89,7 +89,7 @@ namespace ConsoleCoinPusher97000000
         //#seaweed# TabAdmin0002 tab02 = new TabAdmin0002();
 
         int tabIndex = 0;
-        List<ConsoleMenuBase> tabs = new List<ConsoleMenuBase>();
+        List<ConsoleTabMenuBase> tabs = new List<ConsoleTabMenuBase>();
 
         GList glstFooter;
         public override void InitParam()
@@ -104,7 +104,7 @@ namespace ConsoleCoinPusher97000000
             baseCtrl.InitParam(this.contentPane.GetChild("base").asCom, PageTitleManager.Instance.GetPagePathName());
 
 
-            tab01.InitParam(this.contentPane.GetChild("tab1").asCom, OnClickPrev, OnClickNext, OnClickExitCallback);
+            tab01.InitParam(this.contentPane.GetChild("tab1").asCom, OnClickPrev, OnClickNext, OnClickExitCallback, true, true);
             //#seaweed# tab02.InitParam(this.contentPane.GetChild("tab2").asCom, OnClickPrev, OnClickNext, OnClickExitCallback);
 
 
@@ -123,7 +123,7 @@ namespace ConsoleCoinPusher97000000
 
         void ChangeTab()
         {
-            foreach (ConsoleMenuBase tab in tabs)
+            foreach (ConsoleTabMenuBase tab in tabs)
             {
                 tab.goOwnerMenu.visible = false;
             }

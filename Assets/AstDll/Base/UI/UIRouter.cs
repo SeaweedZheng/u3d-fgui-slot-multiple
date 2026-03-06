@@ -149,6 +149,16 @@ public class UIRouter
             [PageName.RichLegend2001001PageGameBonus1] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/FGUIs", "CoinPusherRichLegend2001001.PageGameBonus1" },
             [PageName.RichLegend2001001PageGameBonus2] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/FGUIs", "CoinPusherRichLegend2001001.PageGameBonus2" },
             [PageName.RichLegend2001001PopupBigWin] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001001/FGUIs", "CoinPusherRichLegend2001001.PopupBigWin" },
+
+
+
+            // 富翁传奇 2001003
+            [PageName.RichLegend2001003PageGameMain] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001003/FGUIs", "CoinPusherRichLegend2001003.PageGameMain" },
+            [PageName.RichLegend2001003PageGameLoading] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001003/FGUIs", "CoinPusherRichLegend2001003.PageGameLoading" },
+            [PageName.RichLegend2001003PopupJackpotGame] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001003/FGUIs", "CoinPusherRichLegend2001003.PopupJackpotGame" },
+            [PageName.RichLegend2001003PageGameBonus1] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001003/FGUIs", "CoinPusherRichLegend2001003.PageGameBonus1" },
+            [PageName.RichLegend2001003PageGameBonus2] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001003/FGUIs", "CoinPusherRichLegend2001003.PageGameBonus2" },
+            [PageName.RichLegend2001003PopupBigWin] = new object[] { "Assets/AstBundle/Games/Coin Pusher Rich Legend 2001003/FGUIs", "CoinPusherRichLegend2001003.PopupBigWin" },
         };
     }
 }
@@ -278,6 +288,15 @@ public enum PageName
     RichLegend2001001PageGameBonus1,
     RichLegend2001001PageGameBonus2,
     RichLegend2001001PopupBigWin,
+
+
+    // 富翁传奇2001003
+    RichLegend2001003PageGameMain,
+    RichLegend2001003PageGameLoading,
+    RichLegend2001003PopupJackpotGame,
+    RichLegend2001003PageGameBonus1,
+    RichLegend2001003PageGameBonus2,
+    RichLegend2001003PopupBigWin,
 }
 
 

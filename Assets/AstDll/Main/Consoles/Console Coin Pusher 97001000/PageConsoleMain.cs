@@ -277,7 +277,7 @@ namespace ConsoleCoinPusher97001000
 
         void OnInterKeyboard()
         {
-            kbCtrl.Enable();
+            kbCtrl.EnableKeyboard();
             AddClickEvent();
             ClearArrow(true);
         }
@@ -296,7 +296,7 @@ namespace ConsoleCoinPusher97001000
             AddClickEvent();
 
             labTip.text = "";
-            kbCtrl.Disable();
+            kbCtrl.DisableKeyboard();
             ClearArrow(false);
         }
 

@@ -9,7 +9,7 @@ using Newtonsoft.Json;
 
 namespace ConsoleCoinPusher97001000
 {
-    public class TabSettings01 : ConsoleMenuBase
+    public class TabSettings01 : ConsoleTabMenuBase
     {
         string str;
 
@@ -31,9 +31,9 @@ namespace ConsoleCoinPusher97001000
 
         GComponent goItemUser, goItemManager, goItemAdmin;
 
-        public new void InitParam(GComponent comp, Action onClickPrev, Action onClickNext, Action onClickExitCallback) //频繁调用-多语言
+        public new void InitParam(GComponent comp, Action onClickPrev, Action onClickNext, Action onClickExitCallback, bool isStartTab, bool isEndTab) //频繁调用-多语言
         {
-            base.InitParam(comp, onClickPrev, onClickNext, onClickExitCallback);
+            base.InitParam(comp, onClickPrev, onClickNext, onClickExitCallback, isStartTab, isEndTab);
 
 
             goOwnerMenu.GetChild("lineID").asCom.GetChild("value").asRichTextField.text = SBoxModel.Instance.LineId;

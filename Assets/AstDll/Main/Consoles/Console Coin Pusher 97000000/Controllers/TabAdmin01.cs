@@ -7,7 +7,7 @@ using System;
 
 namespace ConsoleCoinPusher97000000
 {
-    public class TabAdmin01 : ConsoleMenuBase
+    public class TabAdmin01 : ConsoleTabMenuBase
     {
 
         public override void Init() { }
@@ -16,9 +16,9 @@ namespace ConsoleCoinPusher97000000
 
 
 
-        public override void InitParam(GComponent comp, Action onClickPrev, Action onClickNext, Action onClickExitCallback)
+        public override void InitParam(GComponent comp, Action onClickPrev, Action onClickNext, Action onClickExitCallback, bool isStartTab, bool isEndTab)
         {
-            base.InitParam(comp, onClickPrev, onClickNext, onClickExitCallback);
+            base.InitParam(comp, onClickPrev, onClickNext, onClickExitCallback, isStartTab, isEndTab);
 
 
             goOwnerMenu.GetChild("installVer").asCom.GetChild("value").asRichTextField.text = $"{ApplicationSettings.Instance.appVersion}/{GlobalModel.installHofixVersion}";

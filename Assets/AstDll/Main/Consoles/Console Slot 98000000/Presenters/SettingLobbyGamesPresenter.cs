@@ -146,10 +146,10 @@ public class SettingLobbyGamesPresenter
             item.gameType = resSer["game_type"].Value<string>();
             item.gameSoftwareVer = "1.1.1"; //待完善
             item.gameAlgorithmVer = "1.1.1"; //待完善
-            item.updateAtlaunch = LobbyGamesManager.Instance.GetLocalValue<bool>(gameId, "update_at_launch");
+            item.updateAtlaunch = LobbyGamesManager.Instance.GetGameValueFromCache<bool>(gameId, "update_at_launch");
             item.active = true; //待完善
             item.gameIconUrl = resSer["lobby_icon_small"].Value<string>();
-            item.displayInLobby = LobbyGamesManager.Instance.GetLocalValue<bool>(gameId, "display_in_lobby");
+            item.displayInLobby = LobbyGamesManager.Instance.GetGameValueFromCache<bool>(gameId, "display_in_lobby");
             item.isAvailable = resSer["is_available"].Value<bool>();
             result.Add(item);
         }
@@ -185,7 +185,7 @@ public class SettingLobbyGamesPresenter
 
     void OnChangeUpdateAtLaunch(int gameId, bool isSelect)
     {
-        LobbyGamesManager.Instance.SetLocalValue<bool>(gameId, "update_at_launch", isSelect);
+        LobbyGamesManager.Instance.SetValueForCache<bool>(gameId, "update_at_launch", isSelect);
     }
     void OnClickActive(int gameId){
     
@@ -193,11 +193,11 @@ public class SettingLobbyGamesPresenter
 
     void OnClickStartUpdate(int gameId){
 
-        MaskPopupHandler.Instance.OpenPopup();
+        //MaskPopupHandler.Instance.OpenPopup();
 
         GameUpdateChecker.Instance.UpdateGameAtConsole(gameId, (result) =>
         {
-            MaskPopupHandler.Instance.ClosePopup();
+            //MaskPopupHandler.Instance.ClosePopup();
         });
     }
 

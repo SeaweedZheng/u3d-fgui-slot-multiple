@@ -180,7 +180,7 @@ namespace ConsoleCoinPusher97001000
                 goMenu.touchable = true;
                 isShuRu = false;
                 //kbNumberCtrl.Clear(true);
-                kbNumberCtrl.Disable();
+                kbNumberCtrl.DisableKeyboard();
                 if (string.IsNullOrEmpty(res))
                 {
                     return;
@@ -206,7 +206,7 @@ namespace ConsoleCoinPusher97001000
                 goMenu.touchable = true;
                 isShuRu = false;
                 //kbNumberCtrl.Clear(true);
-                kbNumberCtrl.Disable();
+                kbNumberCtrl.DisableKeyboard();
             });
 
 
@@ -219,7 +219,7 @@ namespace ConsoleCoinPusher97001000
                 goMenu.touchable = true;
                 isShuRu = false;
                 //kbCtrl.Clear(true);
-                kbCtrl.Disable();
+                kbCtrl.DisableKeyboard();
                 if (string.IsNullOrEmpty(res))
                 {
                     return;
@@ -246,7 +246,7 @@ namespace ConsoleCoinPusher97001000
                 goMenu.touchable = true;
                 isShuRu = false;
                 //kbCtrl.Clear(true);
-                kbCtrl.Disable();
+                kbCtrl.DisableKeyboard();
             });
 
 
@@ -316,7 +316,7 @@ namespace ConsoleCoinPusher97001000
             }
 
 
-            curKB.Disable();
+            curKB.DisableKeyboard();
 
         }
 
@@ -427,7 +427,7 @@ namespace ConsoleCoinPusher97001000
         {
             goMenu.grayed = true;
             goMenu.touchable = false;
-            curKB.Enable();
+            curKB.EnableKeyboard();
             is1 = true;
             isShuRu = true;
         }
@@ -436,7 +436,7 @@ namespace ConsoleCoinPusher97001000
         {
             goMenu.grayed = true;
             goMenu.touchable = false;
-            curKB.Enable();
+            curKB.EnableKeyboard();
             is1 = false;
             isShuRu = true;
         }

@@ -58,11 +58,12 @@ public partial class ApplicationSettings : ScriptableObjectSingleton<Application
      * 如果热更代码中有，#if RELEASE ...  #else ... #endif 。 则编译时 打开RELEASE和 关闭RELEASE，热更代码这两块都可能有效。 
      */
 
+    [Tooltip("是否是测试数据")]
+    public bool isMock;
+
     [Tooltip("使用模块热更")]
     public bool isUseMoudle = true;
 
-    [Tooltip("是否是测试数据")]
-    public bool isMock;
 
     [Tooltip("是否开启防护功能")]
     public bool isUseProtectApplication = false;

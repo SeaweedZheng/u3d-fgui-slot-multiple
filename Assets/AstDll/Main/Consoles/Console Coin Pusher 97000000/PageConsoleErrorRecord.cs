@@ -132,7 +132,7 @@ namespace ConsoleCoinPusher97000000
             detailed = this.contentPane.GetChild("detailed").asCom;
             goBack = goRecord.GetChildAt(goRecord.numChildren - 1).asCom;
             GRichTextField grtBack = goBack.GetChild("value1").asRichTextField;
-            grtBack.text = "返回";
+            grtBack.text = I18nMgr.T("Return");//"返回";
             grtBack.onClick.Clear();
             grtBack.onClick.Add(() =>
             {

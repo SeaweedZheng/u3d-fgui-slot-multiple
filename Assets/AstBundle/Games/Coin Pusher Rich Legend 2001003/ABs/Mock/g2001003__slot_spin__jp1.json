@@ -1,0 +1,17 @@
+{
+	"code": 0,
+	
+	"gameState": 6,
+	
+	"num": 0,
+	
+	"curRound": 0,
+	
+	"maxRound": 0,
+	
+	"lineNum":1,
+	
+	"icon":10,
+	
+	"reward":3000
+}

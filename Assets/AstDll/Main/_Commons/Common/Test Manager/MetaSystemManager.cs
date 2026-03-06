@@ -18,12 +18,12 @@ public class MetaSystemManager : MonoSingleton<MetaSystemManager>
 
         //TestManager.Instance.Init();
 
-        ResourceManager02.Instance.LoadAsset<TextAsset>("Assets/AstBundle/_Commons/Game Maker/ABs/Datas/tmg_page.json", (TextAsset txt) =>
+        ResourceManager02.Instance.LoadAsset<TextAsset>("Assets/AstBundle/_Datas/ABs/TMG/tmg_page.json", (TextAsset txt) =>
         {
             TestManager.Instance.SetKV(TestManager.DATA_PAGES, txt.text);
         });  
 
-        ResourceManager02.Instance.LoadAsset<TextAsset>("Assets/AstBundle/_Commons/Game Maker/ABs/Datas/tmg_custom_button.json", (TextAsset txt) =>
+        ResourceManager02.Instance.LoadAsset<TextAsset>("Assets/AstBundle/_Datas/ABs/TMG/tmg_custom_button.json", (TextAsset txt) =>
         {
             TestManager.Instance.SetKV(TestManager.DATA_CUSTOM_BUTTON, txt.text);
         });

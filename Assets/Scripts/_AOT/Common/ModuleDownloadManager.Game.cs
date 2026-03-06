@@ -455,6 +455,14 @@ public partial class ModuleDownloadManager
     }
 
 
+    public void AddModeToRuning(int gameId)
+    {
+        if (!ApplicationSettings.Instance.isUseMoudle)
+            return;
+
+        string moduleName = LobbyGamesManager.Instance.GetGameValueFromSever<string>(gameId, "module_name");
+        AddModeToRuning(moduleName);
+    }
 
     /// <summary>
     /// 将已运行的主模块、游戏模块 加入到允许模块中
@@ -462,8 +470,10 @@ public partial class ModuleDownloadManager
     /// <param name="moduleName"></param>
     public void AddModeToRuning(string moduleName)
     {
+        if (!ApplicationSettings.Instance.isUseMoudle)
+            return;
 
-        if (runingModHash.ContainsKey(moduleName))
+        if (string.IsNullOrEmpty(moduleName) || runingModHash.ContainsKey(moduleName))
             return;
 
         string loclModVerPth = PathHelper.GetModuleVersionLOCPTH(moduleName);

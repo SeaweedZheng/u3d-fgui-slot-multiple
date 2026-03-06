@@ -273,7 +273,7 @@ public static class PathHelper
     #region Modules
 
     //模块打包配置文件
-    public static string modulePackageSettingsFile => Application.dataPath + "/module_package_settings.json";
+    public static string modulePackageSettingsFile => Application.dataPath + "/Editor/Builder/module_package_settings.json";     //Application.dataPath + "/module_package_settings.json";
 
     const string moduleFolderName = "Modules";
     public const string mianModuleName = "Main";
