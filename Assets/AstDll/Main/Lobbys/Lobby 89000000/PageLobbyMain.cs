@@ -16,8 +16,7 @@ namespace Lobby89000000
         public static void OnBeforeCreat(Action onFinishCallback)
         {
             // 添加模块
-            if (ApplicationSettings.Instance.isUseMoudle)
-                ModuleDownloadManager.Instance.AddModeToRuning("Main");
+            ModuleDownloadManager.Instance.AddModeToRuning("Main");
 
             onFinishCallback?.Invoke();
         }
@@ -54,9 +53,12 @@ namespace Lobby89000000
         {
             base.OnOpen(name, data);
 
+            MainModel.Instance.gameID = -1;
+
             // 添加事件监听
 
             //EventCenter.Instance.AddEventListener<EventData>(MetaUIEvent.ON_CREDIT_EVENT.);
+
 
 
             creditCtr.Enable();
@@ -110,7 +112,7 @@ namespace Lobby89000000
 
                 int gameId = ids[index];
 
-                string imgUrl = LobbyGamesManager.Instance.GetSeverValue<string>(gameId,"lobby_icon_big");
+                string imgUrl = LobbyGamesManager.Instance.GetGameValueFromSever<string>(gameId,"lobby_icon_big");
 
                 string pth = Application.isEditor ?
                 PathHelper.GetAssetBackupSAPTH(imgUrl) :
@@ -127,11 +129,11 @@ namespace Lobby89000000
                 });
 
                 GButton btnLike = btnItem.GetChild("like").asButton;
-                btnLike.selected = LobbyGamesManager.Instance.GetLocalValue<bool>(gameId, "like");
+                btnLike.selected = LobbyGamesManager.Instance.GetGameValueFromCache<bool>(gameId, "like");
                 btnLike.onChanged.Clear();
                 btnLike.onChanged.Add((EventContext context) =>
                 {
-                    LobbyGamesManager.Instance.SetLocalValue<bool>(gameId, "like", btnLike.selected);
+                    LobbyGamesManager.Instance.SetValueForCache<bool>(gameId, "like", btnLike.selected);
 
                     // 2. 阻止事件向下穿透（核心代码）
                     //context.StopPropagation(); // 停止事件冒泡(不起作用)
@@ -148,6 +150,12 @@ namespace Lobby89000000
                 btnItem.sound = null;  // 关掉默认按钮声音
                 btnItem.onClick.Set(() =>
                 {
+                    PageUtils.EnterGame(gameId, () =>
+                    {
+                        GameSoundHelper.Instance.StopMusic(); //关掉背景音乐
+                        GameSoundHelper.Instance.PlaySoundEff(SoundKey.EnterGame);
+                    });
+                    /*
                     GameUpdateChecker.Instance.CheckPlayabilityWhenEnterGame(gameId, (isPlayable) =>
                     {
                         if (isPlayable)
@@ -156,26 +164,21 @@ namespace Lobby89000000
                             GameSoundHelper.Instance.StopMusic(); //关掉背景音乐
                             GameSoundHelper.Instance.PlaySoundEff(SoundKey.EnterGame);
 
-                            string enterPageName = LobbyGamesManager.Instance.GetSeverValue<string>(gameId, "enter_page");
+
+                            ModuleDownloadManager.Instance.AddModeToRuning(gameId);
+
+                            string enterPageName = LobbyGamesManager.Instance.GetGameValueFromSever<string>(gameId, "enter_page");
                             PageName pn = (PageName)Enum.Parse(typeof(PageName), enterPageName);
-                            PageManager.Instance.OpenPage(pn, 
-                            onFinishCalllback :(page) =>
+                            PageManager.Instance.OpenPage(pn,
+                            onFinishCalllback: (page) =>
                             {
+                                MainModel.Instance.gameID = gameId;
                                 MaskPopupHandler.Instance.ClosePopup();
                             });
-                        }
-                        else
-                        {
-                            /*
-                            // 此时遮罩可能还未打开，添加延时关闭
-                            Timers.inst.Add(1f, 1, (parm) =>
-                            {
-                                MaskPopupHandler.Instance.ClosePopup();
-                            });
-                            */
                         }
                     });
-                   
+                    */
+
                 });
             };
             glstGames.numItems = ids.Count;// 更新列表项数量（关键：触发重新渲染）

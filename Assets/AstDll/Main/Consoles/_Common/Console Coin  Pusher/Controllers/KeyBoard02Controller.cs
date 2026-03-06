@@ -10,25 +10,23 @@ namespace CommonConsoleCoinPusher
 {
     public class KeyBoard02Controller : IKeyboard
     {
-
-       public static  string signMI = "<img src='ui://ConsoleCoinPusher97000000/icon-asterisk' />";
-
-        public KeyBoard02Controller(){ Init(); }
+        public static string signMI = "<img src='ui://ConsoleCoinPusher97000000/icon-asterisk' />";
+        public KeyBoard02Controller() { Init(); }
         void Init() { }
 
-        int num = 10;
+        const int NUM = 10;
 
         public void ClickNext()
         {
             if (!isCanOnClick)
                 return;
 
-            if (++curIndexKeyboard >= glst.numChildren)
+            if (++curIndexKeyboard >= glstCurKeyboard.numChildren)
                 curIndexKeyboard = 0;
 
-            for (int i = 0; i < glst.numChildren; i++)
+            for (int i = 0; i < glstCurKeyboard.numChildren; i++)
             {
-                glst.GetChildAt(i).asCom.GetChild("icon").asImage.visible = i == curIndexKeyboard;
+                glstCurKeyboard.GetChildAt(i).asCom.GetChild("icon").asImage.visible = i == curIndexKeyboard;
             }
 
         }
@@ -38,11 +36,11 @@ namespace CommonConsoleCoinPusher
                 return;
 
             if (--curIndexKeyboard < 0)
-                curIndexKeyboard = glst.numChildren - 1;
+                curIndexKeyboard = glstCurKeyboard.numChildren - 1;
 
-            for (int i = 0; i < glst.numChildren; i++)
+            for (int i = 0; i < glstCurKeyboard.numChildren; i++)
             {
-                glst.GetChildAt(i).asCom.GetChild("icon").asImage.visible = i == curIndexKeyboard;
+                glstCurKeyboard.GetChildAt(i).asCom.GetChild("icon").asImage.visible = i == curIndexKeyboard;
             }
 
         }
@@ -54,16 +52,67 @@ namespace CommonConsoleCoinPusher
             if (!isCanOnClick)
                 return;
 
-            curIndexKeyboard += num;
-            if (curIndexKeyboard >= glst.numChildren)
-                curIndexKeyboard -= num;
+            curIndexKeyboard += NUM;
+            if (curIndexKeyboard >= glstCurKeyboard.numChildren)
+                curIndexKeyboard -= NUM;
 
-            for (int i = 0; i < glst.numChildren; i++)
-            {
-                glst.GetChildAt(i).asCom.GetChild("icon").asImage.visible = i == curIndexKeyboard;
-            }
+            SetCursorVisiable(curIndexKeyboard);
 
         }
+
+        void SetAllCursorInvisible()
+        {
+            for (int i = 0; i < glstCurKeyboard.numChildren; i++)
+            {
+                glstCurKeyboard.GetChildAt(i).asCom.GetChild("icon").asImage.visible = false;
+            }
+        }
+        void SetCursorVisiable(int index)
+        {
+            curIndexKeyboard = index;
+            for (int i = 0; i < glstCurKeyboard.numChildren; i++)
+            {
+                glstCurKeyboard.GetChildAt(i).asCom.GetChild("icon").asImage.visible = i == curIndexKeyboard;
+            }
+        }
+
+        public void SetZeroCursorVisiable()
+        {
+            /*
+            GList keyboard = new GList();
+            switch (UseWhatKeyboard)
+            {
+                case 0:
+                    keyboard = glstkeyboard;
+                    break;
+                case 1:
+                    keyboard = glstkeyboardZiFu;
+                    break;
+                case 2:
+                    keyboard = glstkeyboardDaXie;
+                    break;
+                case 3:
+                    keyboard = glstkeyboardXiaoXie;
+                    break;
+            }
+            glstCurKeyboard = keyboard;
+            */
+
+            curIndexKeyboard = 0;
+            for (int i = 0; i < glstCurKeyboard.numChildren; i++)
+            {
+                if (i == 0)
+                {
+                    glstCurKeyboard.GetChildAt(i).asCom.GetChild("icon").asImage.visible = true;
+                }
+                else
+                {
+                    glstCurKeyboard.GetChildAt(i).asCom.GetChild("icon").asImage.visible = false;
+                }
+
+            }
+        }
+
 
         public void ClickUp()
         {
@@ -71,16 +120,20 @@ namespace CommonConsoleCoinPusher
             if (!isCanOnClick)
                 return;
 
-            curIndexKeyboard -= num;
+            curIndexKeyboard -= NUM;
             if (curIndexKeyboard < 0)
-                curIndexKeyboard += num;
+                curIndexKeyboard += NUM;
 
-            for (int i = 0; i < glst.numChildren; i++)
-            {
-                glst.GetChildAt(i).asCom.GetChild("icon").asImage.visible = i == curIndexKeyboard;
-            }
-
+            SetCursorVisiable(curIndexKeyboard);
         }
+
+
+        bool IsKBReturn(string data) => data == "Return" || data == "返回";
+        bool IsKBConfirm(string data) => data == "Confirm" || data == "确认";
+        bool IsKBClear(string data) => data == "Clear" || data == "清空";
+        bool IsKBDelete(string data) => data == "Delete" || data == "删除";
+
+
 
 
         public void ClickConfirm()
@@ -92,7 +145,7 @@ namespace CommonConsoleCoinPusher
             switch (UseWhatKeyboard)
             {
                 case 0:
-                    keyboard=glstkeyboard;
+                    keyboard = glstkeyboard;
                     break;
                 case 1:
                     keyboard = glstkeyboardZiFu;
@@ -105,16 +158,18 @@ namespace CommonConsoleCoinPusher
                     break;
             }
 
+            string data = keyboard.GetChildAt(curIndexKeyboard).asCom.GetChild("title").text;
 
-            if (curIndexKeyboard == keyboard.numChildren - 1) // exit
+            //if (curIndexKeyboard == keyboard.numChildren - 1) // exit
+            if (IsKBReturn(data))
             {
                 onClickExitCallback?.Invoke();
             }
-            else if (curIndexKeyboard == keyboard.numChildren - 2) // ok
+            else if (IsKBConfirm(data)) //else if (curIndexKeyboard == keyboard.numChildren - 2) // ok
             {
                 onClickOKCallback?.Invoke(inputResult);
             }
-            else if (curIndexKeyboard == keyboard.numChildren - 3) //delete
+            else if (IsKBDelete(data)) //else if (curIndexKeyboard == keyboard.numChildren - 3) //delete
             {
                 if (curIndexInput >= 0)
                 {
@@ -131,11 +186,11 @@ namespace CommonConsoleCoinPusher
 
                 }
             }
-            else if (curIndexKeyboard == keyboard.numChildren - 4) //clear
+            else if (IsKBClear(data)) // else if (curIndexKeyboard == keyboard.numChildren - 4) //clear
             {
-                Clear(false);
+                ClearKeyboard(false);
             }
-            else  
+            else
             {
 
                 if (curIndexInput == glstInput.numChildren)
@@ -144,30 +199,33 @@ namespace CommonConsoleCoinPusher
                 }
                 else
                 {
-                    string data = keyboard.GetChildAt(curIndexKeyboard).asCom.GetChild("title").text;
-                    switch (data)
+                    string data0 = keyboard.GetChildAt(curIndexKeyboard).asCom.GetChild("title").text;
+                    switch (data0)
                     {
+                        case "Space":
                         case "空格":
-                            data = "";
+                            data0 = " ";
                             break;
+                        case "#+=":
                         case "字符":
                             OpenWhatKeyborad(1);
                             return;
+                        case "abc":
                         case "字母":
-                            OpenWhatKeyborad(3);
-                            return;
-                        case "数字":
-                            OpenWhatKeyborad(0);
-                            return;
                         case "小写":
                             OpenWhatKeyborad(3);
                             return;
+                        case "123":
+                        case "数字":
+                            OpenWhatKeyborad(0);
+                            return;
+                        case "ABC":
                         case "大写":
                             OpenWhatKeyborad(2);
                             return;
                     }
                     glstInput.GetChildAt(curIndexInput).text = isPlaintext ? data : signMI;
-                    inputResult += data;
+                    inputResult += data0;
                     curIndexInput++;
                 }
             }
@@ -180,7 +238,7 @@ namespace CommonConsoleCoinPusher
 
 
         public GComponent goOwnerKeyboard;
-        GList glstkeyboard, glstInput, glstkeyboardZiFu, glstkeyboardDaXie, glstkeyboardXiaoXie,glst;
+        GList glstInput, glstkeyboard, glstkeyboardZiFu, glstkeyboardDaXie, glstkeyboardXiaoXie, glstCurKeyboard;
         GLabel labTip;
 
 
@@ -190,26 +248,22 @@ namespace CommonConsoleCoinPusher
         int UseWhatKeyboard = 0;
 
         bool isPlaintext = true;
-        public  bool isCanOnClick;
+        public bool isCanOnClick;
         string inputResult = "";
 
-
-        public void Clear(bool isClearAllArrow)
+        public void ClearKeyboard(bool isClearAllArrow)
         {
             curIndexKeyboard = 0;
             curIndexInput = 0;
             inputResult = "";
 
-            for (int i = 0; i < glstkeyboard.numChildren; i++)
+            if (isClearAllArrow)
             {
-                GComponent item = glstkeyboard.GetChildAt(i).asCom;
-
-                if (isClearAllArrow)
-                    item.GetChild("icon").asImage.visible = false;
-                else
-                    item.GetChild("icon").asImage.visible = i == curIndexKeyboard;
-
-                //DebugUtils.Log($"name: {item.name}");
+                SetAllCursorInvisible();
+            }
+            else
+            {
+                SetCursorVisiable(curIndexKeyboard);
             }
 
             for (int i = 0; i < glstInput.numChildren; i++)
@@ -217,8 +271,6 @@ namespace CommonConsoleCoinPusher
                 glstInput.GetChildAt(i).asLabel.title = "";
             }
         }
-
-
         public void InitParam(GComponent gKB, bool isPlaintext, Action<string> onClickOKCallback, Action onClickExitCallback)
         {
             if (gKB == null) return;
@@ -245,72 +297,42 @@ namespace CommonConsoleCoinPusher
             labTip = compTip.asLabel;
             labTip.title = "";
 
-            AddButtonEventAll();
+            InitKeyboardButttonClickEventAll();
 
 
-            Clear(true);
+
+            isCanOnClick = false;
+            OpenWhatKeyborad(0);
+            ClearKeyboard(true);
+            /*
+            ClearKeyboard(true);
             UseWhatKeyboard = 0;
-            OpenSpecifyCursor(0);
+            SetZeroCursorVisiable(0);
             glstkeyboard.visible = true;
             glstkeyboardZiFu.visible = false;
             glstkeyboardDaXie.visible = false;
             glstkeyboardXiaoXie.visible = false;
             isCanOnClick = false;
+            */
         }
 
 
 
-        public void OpenSpecifyCursor(int index)
+        public void EnableKeyboard()
         {
-            GList keyboard = new GList();
-            switch (UseWhatKeyboard)
-            {
-                case 0:
-                    keyboard = glstkeyboard;
-                    break;
-                case 1:
-                    keyboard = glstkeyboardZiFu;
-                    break;
-                case 2:
-                    keyboard = glstkeyboardDaXie;
-                    break;
-                case 3:
-                    keyboard = glstkeyboardXiaoXie;
-                    break;
-            }
-            glst = keyboard;
-
-            for (int i = 0; i < keyboard.numChildren; i++)
-            {
-                if (i==0)
-                {
-                    keyboard.GetChildAt(i).asCom.GetChild("icon").asImage.visible = true;
-                }
-                else
-                {
-                    keyboard.GetChildAt(i).asCom.GetChild("icon").asImage.visible = false;
-                }
-
-            }
-            curIndexKeyboard = 0;
-        }
-
-
-
-        public void Enable()
-        {
-            Clear(false);
+            ClearKeyboard(false);
             isCanOnClick = true;
         }
 
-        public void Disable()
+        public void DisableKeyboard()
         {
-            Clear(true);
+            ClearKeyboard(true);
             isCanOnClick = false;
         }
 
 
-        public void AddButtonEvent(int n)
+
+        public void InitKeyboardButtonClickEvent(int n)
         {
             GList keyboard = new GList();
             switch (n)
@@ -328,28 +350,55 @@ namespace CommonConsoleCoinPusher
                     keyboard = glstkeyboardXiaoXie;
                     break;
             }
-            glst = keyboard;
+            glstCurKeyboard = keyboard;
 
-            for (int i = 0; i < keyboard.numChildren; i++)
+            for (int i = 0; i < glstCurKeyboard.numChildren; i++)
             {
                 int index = i;
 
+                string data = glstCurKeyboard.GetChildAt(index).asCom.GetChild("title").text;
 
-                if (index == keyboard.numChildren - 4)
+                if (IsKBReturn(data))
                 {
-                    keyboard.GetChildAt(index).onClick.Clear();
-                    keyboard.GetChildAt(index).onClick.Add(() =>
+                    glstCurKeyboard.GetChildAt(index).onClick.Clear();
+                    glstCurKeyboard.GetChildAt(index).onClick.Add(() =>
                     {
                         if (!isCanOnClick)
                             return;
-                        Clear(false);
-                        OpenSpecifyCursor(index);
+
+                        ClearKeyboard(true);
+                        isCanOnClick = false;
+                        onClickExitCallback?.Invoke();
                     });
                 }
-                else if (index == keyboard.numChildren - 3)
+                else if (IsKBClear(data))
                 {
-                    keyboard.GetChildAt(index).onClick.Clear();
-                    keyboard.GetChildAt(index).onClick.Add(() =>
+                    glstCurKeyboard.GetChildAt(index).onClick.Clear();
+                    glstCurKeyboard.GetChildAt(index).onClick.Add(() =>
+                    {
+                        if (!isCanOnClick)
+                            return;
+                        ClearKeyboard(false);
+                    });
+                }
+                else if (IsKBConfirm(data))
+                {
+                    glstCurKeyboard.GetChildAt(index).onClick.Clear();
+                    glstCurKeyboard.GetChildAt(index).onClick.Add(() =>
+                    {
+                        if (!isCanOnClick)
+                            return;
+
+                        string res = inputResult;
+                        DisableKeyboard();
+                        onClickOKCallback?.Invoke(res);
+                    });
+
+                }
+                else if (IsKBDelete(data))
+                {
+                    glstCurKeyboard.GetChildAt(index).onClick.Clear();
+                    glstCurKeyboard.GetChildAt(index).onClick.Add(() =>
                     {
                         if (!isCanOnClick)
                             return;
@@ -367,37 +416,15 @@ namespace CommonConsoleCoinPusher
 
                             }
                         }
-                        OpenSpecifyCursor(index);
-                    });
-                }
-                else if (index == keyboard.numChildren - 2)
-                {
-                    keyboard.GetChildAt(index).onClick.Clear();
-                    keyboard.GetChildAt(index).onClick.Add(() =>
-                    {
-                        if (!isCanOnClick)
-                            return;
 
-                        string res = inputResult;
-                        Disable();
-                        onClickOKCallback?.Invoke(res);
+                        //curIndexKeyboard = index;
+                        SetCursorVisiable(index);
                     });
                 }
-                else if (index == keyboard.numChildren - 1)
+                else
                 {
-                    keyboard.GetChildAt(index).onClick.Clear();
-                    keyboard.GetChildAt(index).onClick.Add(() =>
-                    {
-                        if (!isCanOnClick)
-                            return;
-                        OpenSpecifyCursor(index);
-                        isCanOnClick = false;
-                        onClickExitCallback?.Invoke();
-                    });
-                }else
-                {
-                    keyboard.GetChildAt(index).onClick.Clear();
-                    keyboard.GetChildAt(index).onClick.Add(() =>
+                    glstCurKeyboard.GetChildAt(index).onClick.Clear();
+                    glstCurKeyboard.GetChildAt(index).onClick.Add(() =>
                     {
                         if (!isCanOnClick)
                             return;
@@ -408,36 +435,36 @@ namespace CommonConsoleCoinPusher
                         }
                         else
                         {
-                            string data = keyboard.GetChildAt(curIndexKeyboard).asCom.GetChild("title").text;
-                            for (int i = 0; i < glst.numChildren; i++)
+                            string data0 = glstCurKeyboard.GetChildAt(curIndexKeyboard).asCom.GetChild("title").text;
+                            SetCursorVisiable(curIndexKeyboard);
+                            switch (data0)
                             {
-                                glst.GetChildAt(i).asCom.GetChild("icon").asImage.visible = i == curIndexKeyboard;
-                            }
-                            switch (data)
-                            {
+                                case "Space":
                                 case "空格":
-                                    data = "";
+                                    data0 = " ";
                                     break;
+                                case "#+=":
                                 case "字符":
                                     OpenWhatKeyborad(1);
                                     return;
+                                case "abc":
                                 case "字母":
-                                    OpenWhatKeyborad(3);
-                                    return;
-                                case "数字":
-                                    OpenWhatKeyborad(0);
-                                    return;
                                 case "小写":
                                     OpenWhatKeyborad(3);
                                     return;
+                                case "123":
+                                case "数字":
+                                    OpenWhatKeyborad(0);
+                                    return;
+                                case "ABC":
                                 case "大写":
                                     OpenWhatKeyborad(2);
                                     return;
                             }
-                            glstInput.GetChildAt(curIndexInput).text = isPlaintext ? data : signMI;
-                            inputResult += data;
+                            glstInput.GetChildAt(curIndexInput).text = isPlaintext ? data0 : signMI;
+                            inputResult += data0;
                             curIndexInput++;
-                        
+
                         }
                     });
                 }
@@ -445,12 +472,15 @@ namespace CommonConsoleCoinPusher
             }
         }
 
-        void AddButtonEventAll()
+
+
+
+        void InitKeyboardButttonClickEventAll()
         {
-            AddButtonEvent(0);
-            AddButtonEvent(1);
-            AddButtonEvent(2);
-            AddButtonEvent(3);
+            InitKeyboardButtonClickEvent(0);
+            InitKeyboardButtonClickEvent(1);
+            InitKeyboardButtonClickEvent(2);
+            InitKeyboardButtonClickEvent(3);
         }
 
 
@@ -462,24 +492,25 @@ namespace CommonConsoleCoinPusher
             glstkeyboardXiaoXie.visible = n == 3 ? true : false;
 
             UseWhatKeyboard = n;
-            OpenSpecifyCursor(curIndexKeyboard);
+
+            switch (UseWhatKeyboard)
+            {
+                case 0:
+                    glstCurKeyboard = glstkeyboard;
+                    break;
+                case 1:
+                    glstCurKeyboard = glstkeyboardZiFu;
+                    break;
+                case 2:
+                    glstCurKeyboard = glstkeyboardDaXie;
+                    break;
+                case 3:
+                    glstCurKeyboard = glstkeyboardXiaoXie;
+                    break;
+            }
+
+            SetZeroCursorVisiable();
         }
-
-
-        public void End()
-        {
-
-        }
-
-        /// <summary> 反复调用，变更绑定对象 </summary>
-        //void InitParam(params object[] parameters);
-
-        /// <summary> 销毁时调用一次 </summary>
-        public void Dispose()
-        {
-
-        }
-
 
     }
 

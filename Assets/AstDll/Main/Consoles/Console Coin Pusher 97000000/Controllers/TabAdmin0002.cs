@@ -6,7 +6,7 @@ using GameMaker;
 
 namespace ConsoleCoinPusher97000000
 {
-    public class TabAdmin0002 : ConsoleMenuBase
+    public class TabAdmin0002 : ConsoleTabMenuBase
     {
 
         public override void Init() { }
@@ -15,9 +15,9 @@ namespace ConsoleCoinPusher97000000
 
 
 
-        public override void InitParam(GComponent comp, Action onClickPrev, Action onClickNext, Action onClickExitCallback)
+        public override void InitParam(GComponent comp, Action onClickPrev, Action onClickNext, Action onClickExitCallback, bool isStartTab, bool isEndTab)
         {
-            base.InitParam(comp, onClickPrev, onClickNext, onClickExitCallback);
+            base.InitParam(comp, onClickPrev, onClickNext, onClickExitCallback, isStartTab, isEndTab);
 
 
             goOwnerMenu.GetChild("pauseAtPopupGameLoadingOnce").asCom.GetChild("value").asRichTextField.text = PlayerPrefsUtils.isPauseAtPopupGameLoadingOnce ? I18nMgr.T("ON") : I18nMgr.T("OFF");

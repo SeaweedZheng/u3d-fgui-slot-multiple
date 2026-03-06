@@ -1,0 +1,132 @@
+
+Wheel_JP3.png
+size: 1024, 1024
+format: RGBA8888
+filter: Linear, Linear
+repeat: none
+Glow_013_tex
+  rotate: false
+  xy: 796, 684
+  size: 119, 118
+  orig: 128, 128
+  offset: 5, 4
+  index: -1
+black
+  rotate: false
+  xy: 928, 1020
+  size: 2, 2
+  orig: 2, 2
+  offset: 0, 0
+  index: -1
+d0f
+  rotate: false
+  xy: 736, 120
+  size: 85, 85
+  orig: 85, 85
+  offset: 0, 0
+  index: -1
+e60
+  rotate: false
+  xy: 616, 393
+  size: 254, 256
+  orig: 256, 256
+  offset: 2, 0
+  index: -1
+jp3
+  rotate: false
+  xy: 572, 266
+  size: 277, 125
+  orig: 277, 125
+  offset: 0, 0
+  index: -1
+jp_jp1_10
+  rotate: false
+  xy: 374, 182
+  size: 116, 70
+  orig: 118, 70
+  offset: 2, 0
+  index: -1
+jp_jp1_11
+  rotate: true
+  xy: 872, 428
+  size: 155, 124
+  orig: 157, 124
+  offset: 0, 0
+  index: -1
+jp_jp1_12
+  rotate: false
+  xy: 256, 183
+  size: 116, 70
+  orig: 118, 70
+  offset: 0, 0
+  index: -1
+jp_jp1_13
+  rotate: true
+  xy: 616, 651
+  size: 371, 178
+  orig: 371, 178
+  offset: 0, 0
+  index: -1
+jp_jp1_14
+  rotate: false
+  xy: 2, 404
+  size: 612, 618
+  orig: 662, 660
+  offset: 16, 19
+  index: -1
+jp_jp1_2
+  rotate: true
+  xy: 796, 804
+  size: 218, 159
+  orig: 218, 162
+  offset: 0, 3
+  index: -1
+jp_jp1_3
+  rotate: false
+  xy: 2, 254
+  size: 568, 148
+  orig: 568, 148
+  offset: 0, 0
+  index: -1
+jp_jp1_4
+  rotate: true
+  xy: 843, 112
+  size: 165, 179
+  orig: 165, 179
+  offset: 0, 0
+  index: -1
+jp_jp1_5
+  rotate: true
+  xy: 555, 99
+  size: 165, 179
+  orig: 165, 179
+  offset: 0, 0
+  index: -1
+jp_jp1_6
+  rotate: true
+  xy: 53, 196
+  size: 57, 201
+  orig: 57, 201
+  offset: 0, 0
+  index: -1
+jp_jp1_7
+  rotate: true
+  xy: 718, 207
+  size: 57, 201
+  orig: 57, 201
+  offset: 0, 0
+  index: -1
+jp_jp1_8
+  rotate: true
+  xy: 938, 585
+  size: 235, 84
+  orig: 235, 84
+  offset: 0, 0
+  index: -1
+jp_jp1_9
+  rotate: false
+  xy: 851, 267
+  size: 155, 124
+  orig: 157, 124
+  offset: 2, 0
+  index: -1

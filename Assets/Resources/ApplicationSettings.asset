@@ -14,8 +14,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   isMachine: 0
   isRelease: 0
-  isUseMoudle: 1
   isMock: 1
+  isUseMoudle: 1
   isUseProtectApplication: 0
   platformName: SlotMultiple01
   gameTheme: SLOT MULTIPLE

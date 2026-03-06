@@ -6,16 +6,16 @@ using UnityEngine;
 
 namespace ConsoleCoinPusher97001000
 {
-    public class TabSettings02 : ConsoleMenuBase
+    public class TabSettings02 : ConsoleTabMenuBase
     {
 
         public override void Init()
         {
 
         }
-        public override void InitParam(GComponent comp, Action onClickPrev, Action onClickNext, Action onClickExitCallback)
+        public override void InitParam(GComponent comp, Action onClickPrev, Action onClickNext, Action onClickExitCallback, bool isStartTab, bool isEndTab)
         {
-            base.InitParam(comp, onClickPrev, onClickNext, onClickExitCallback);
+            base.InitParam(comp, onClickPrev, onClickNext, onClickExitCallback, isStartTab, isEndTab);
 
 
             //DebugUtils.Log($"@@@@@@@@@@@@    {DeviceUtils.GetCoinOutScaleStr()}  {SBoxModel.Instance.CoinInScale}   {SBoxModel.Instance.ScoreUpDownScale}  ");

@@ -1,13 +1,13 @@
 {
   "name": "Main",
-  "updated_at": 1772441327234,
+  "updated_at": 1772801624322,
   "hotfix_key": "hf_debug_android_20251216143338",
-  "hotfix_version": "1.0.224",
-  "hash": "8f36d40acf4795a9daf56073d35776f0",
+  "hotfix_version": "1.0.248",
+  "hash": "97836e89cf28e58fc09aac31c12d727b",
   "asset_bundle": {
     "manifest": {
-      "hash": "8ea221359f928da23f64296d47b93f6c",
-      "size_bytes": 8520
+      "hash": "604f905edc7bf26866274641910c0ac7",
+      "size_bytes": 8808
     },
     "bundles": {
       "_commons/common 99000000/fguis.unity3d": {
@@ -21,78 +21,6 @@
       "_commons/common 99000000/prefabs/gs/gssource.unity3d": {
         "hash": "2434e774b578071053d03f3b8d34f61d",
         "size_bytes": 2375
-      },
-      "_commons/common/abs/datas/console_display_permissions.unity3d": {
-        "hash": "214cc9c21ff9cff7f71938648a5dca8f",
-        "size_bytes": 1170
-      },
-      "_commons/game maker/abs/datas/error_code.unity3d": {
-        "hash": "4d4954bf7e65747c7dca677297b8323f",
-        "size_bytes": 998
-      },
-      "_commons/game maker/abs/datas/tmg_custom_button.unity3d": {
-        "hash": "3f00be82446b50697364d7a663abb89d",
-        "size_bytes": 1769
-      },
-      "_commons/game maker/abs/datas/tmg_page.unity3d": {
-        "hash": "1611d2b44db7a23c9ec672ed300975f3",
-        "size_bytes": 1162
-      },
-      "_commons/game maker/abs/g152/game_info_g152.unity3d": {
-        "hash": "2999eae6c8a27744915e5be2aceebe2f",
-        "size_bytes": 1330
-      },
-      "_commons/game maker/abs/g152/game_info_gxxx.unity3d": {
-        "hash": "6ce7299562dfd8bf21aa97d6ab2dc4d6",
-        "size_bytes": 1391
-      },
-      "_commons/game maker/abs/g200/game_info_g200.unity3d": {
-        "hash": "9e6ddc16b842cc9364abc337de0da34c",
-        "size_bytes": 1350
-      },
-      "_commons/game maker/abs/g200/tmg_mock_gm_200.unity3d": {
-        "hash": "8807fe4b6eef55f170749c233e99e8a2",
-        "size_bytes": 1159
-      },
-      "_commons/game maker/abs/g2001000/game_info_g2001000.unity3d": {
-        "hash": "de19b927d09232034f939ae0f999a7c3",
-        "size_bytes": 1206
-      },
-      "_commons/game maker/abs/g2001000/tmg_mock_gm_2001000.unity3d": {
-        "hash": "f3721bf21d571f5cb3c2425048bb4bb8",
-        "size_bytes": 1214
-      },
-      "_commons/game maker/abs/g2001001/game_info_g2001001.unity3d": {
-        "hash": "f96edd8f799939f11231dcf9f86e017d",
-        "size_bytes": 1206
-      },
-      "_commons/game maker/abs/g2001001/tmg_mock_gm_2001001.unity3d": {
-        "hash": "0e6e832d821066d7b9e24ab5aed06685",
-        "size_bytes": 1213
-      },
-      "_commons/game maker/abs/g300/game_info_g300.unity3d": {
-        "hash": "e7fbef8da95fb47de29e6c76c4ad8787",
-        "size_bytes": 1365
-      },
-      "_commons/game maker/abs/g300/tmg_mock_gm_300.unity3d": {
-        "hash": "a8405af026e978f1bfc8cba344f00eef",
-        "size_bytes": 1116
-      },
-      "_commons/game maker/abs/g4000/game_info_g4000.unity3d": {
-        "hash": "091cdc664b99ddbd5fce0162dc58af41",
-        "size_bytes": 1317
-      },
-      "_commons/game maker/abs/g4000/tmg_mock_gm_4000.unity3d": {
-        "hash": "69bd83cf2e324135c3234ef675656d04",
-        "size_bytes": 1136
-      },
-      "_commons/game maker/abs/g4001/game_info_g4001.unity3d": {
-        "hash": "65837f2002645fd4f2ca782627255005",
-        "size_bytes": 1327
-      },
-      "_commons/game maker/abs/g4001/tmg_mock_gm_4001.unity3d": {
-        "hash": "884e2e655540d0337d03875be821fb4b",
-        "size_bytes": 1115
       },
       "_commons/game maker/prefabs/instance.unity3d": {
         "hash": "e18c6915dd00bff393c04a2877c6d4dc",
@@ -145,6 +73,54 @@
       "_commons/game maker/sounds/ui_spin_start.unity3d": {
         "hash": "d5c7e322fcfc33f97ff17a81dca7521e",
         "size_bytes": 34889
+      },
+      "_datas/abs/console display permissions/console_display_permissions.unity3d": {
+        "hash": "5c119a979489eeeb2c2bfbcf0df142a8",
+        "size_bytes": 1169
+      },
+      "_datas/abs/error code/error_code.unity3d": {
+        "hash": "fdd6e7ee36b20cdc20329ef1023609a5",
+        "size_bytes": 987
+      },
+      "_datas/abs/games/g200/game_info.unity3d": {
+        "hash": "67d0f783552c435050f64b61a1141d6d",
+        "size_bytes": 1336
+      },
+      "_datas/abs/games/g200/tmg_mock_gm.unity3d": {
+        "hash": "3daa112ccac6e5c68b9b37cf8329c6e0",
+        "size_bytes": 1149
+      },
+      "_datas/abs/games/g2001000/game_info.unity3d": {
+        "hash": "884fa349eb1f3942a66fda2712261ef5",
+        "size_bytes": 1194
+      },
+      "_datas/abs/games/g2001000/tmg_mock_gm.unity3d": {
+        "hash": "529d0ccc3fa8ee0d642ccca17bd47c48",
+        "size_bytes": 1200
+      },
+      "_datas/abs/games/g2001001/game_info.unity3d": {
+        "hash": "39c321e0293b950744e61a7cd5d5646b",
+        "size_bytes": 1194
+      },
+      "_datas/abs/games/g2001001/tmg_mock_gm.unity3d": {
+        "hash": "ef594c971098f1f4870331679c6ad55e",
+        "size_bytes": 1200
+      },
+      "_datas/abs/games/g2001003/game_info.unity3d": {
+        "hash": "9090828ed7213f59e9f05afaf6d2407e",
+        "size_bytes": 1194
+      },
+      "_datas/abs/games/g2001003/tmg_mock_gm.unity3d": {
+        "hash": "b3ea227e7dd247c148748a348ecbcfcc",
+        "size_bytes": 1195
+      },
+      "_datas/abs/tmg/tmg_custom_button.unity3d": {
+        "hash": "6ff38a23e0738249126df582ed850a11",
+        "size_bytes": 1761
+      },
+      "_datas/abs/tmg/tmg_page.unity3d": {
+        "hash": "ae86c69ae611abf648b2e9f8af29e9b2",
+        "size_bytes": 1155
       },
       "consoles/console coin pusher 97000000/abs/i18ns/i18nconsolecoinpusher01.unity3d": {
         "hash": "ae95e02ebae0e05c1987d85b3bf827d4",
@@ -222,20 +198,8 @@
   },
   "asset_backup": {
     "Lobbys/Game Info/lobby_games.json": {
-      "hash": "a24a271a80afc28c37f90ab814187bb9",
-      "size_bytes": 2571
-    },
-    "Lobbys/Game Info/G152/Game Avatar/Game Avatar G152.png": {
-      "hash": "0c68e0540f633f3298a7bf03c28a2c7b",
-      "size_bytes": 48211
-    },
-    "Lobbys/Game Info/G152/Game Lobby Image/Slot Image Big GFN.png": {
-      "hash": "f00315e83a8cdca1d4a442c5010151ae",
-      "size_bytes": 159754
-    },
-    "Lobbys/Game Info/G152/Game Lobby Image/Slot Image Small GFN.png": {
-      "hash": "7bad37210fee7667f428f1872a8f2e8b",
-      "size_bytes": 80748
+      "hash": "894a340a34ef3e40944d3009c2af5535",
+      "size_bytes": 3368
     },
     "Lobbys/Game Info/G200/Game Avatar/Game Avatar G200.png": {
       "hash": "c7e85a6bf25d4a948f3291dbe23029ae",
@@ -257,6 +221,10 @@
       "hash": "4f9b5f537182f5b4eae07f8095bc8854",
       "size_bytes": 74311
     },
+    "Lobbys/Game Info/G2001000/Poster Image/pop_loading_bg.png": {
+      "hash": "fdebf79dc81151c28b1a6aa1ee86db78",
+      "size_bytes": 1043553
+    },
     "Lobbys/Game Info/G2001001/Game Lobby Image/Slot Image Big BLC.png": {
       "hash": "0da764eecd9199327612b43d689de9d2",
       "size_bytes": 162328
@@ -265,17 +233,13 @@
       "hash": "4f9b5f537182f5b4eae07f8095bc8854",
       "size_bytes": 74311
     },
-    "Lobbys/Game Info/G300/Game Avatar/Game Avatar G300.png": {
-      "hash": "c7e85a6bf25d4a948f3291dbe23029ae",
-      "size_bytes": 49453
+    "Lobbys/Game Info/G2001003/Game Lobby Image/Slot Image Big BLC.png": {
+      "hash": "0da764eecd9199327612b43d689de9d2",
+      "size_bytes": 162328
     },
-    "Lobbys/Game Info/G4000/Game Lobby Image/Slot Image Big MPM.png": {
-      "hash": "b24c9f0f251f66436d222d425eeff68d",
-      "size_bytes": 146565
-    },
-    "Lobbys/Game Info/G4000/Game Lobby Image/Slot Image Small MPM.png": {
-      "hash": "599f66d89741168cd88bb46cf01561f5",
-      "size_bytes": 75871
+    "Lobbys/Game Info/G2001003/Game Lobby Image/Slot Image Small BLC.png": {
+      "hash": "4f9b5f537182f5b4eae07f8095bc8854",
+      "size_bytes": 74311
     },
     "_Commons/Game Maker/Datas/Test 01/DDD AAA.json": {
       "hash": "46f8026b0a183d8ab18517bc5be5ea14",
@@ -284,13 +248,13 @@
   },
   "asset_dll": {
     "Base.dll.bytes": {
-      "hash": "5dc102cbfc77e946264a786f5ed030b0",
-      "size_bytes": 179712,
+      "hash": "cfb928fc5950a437d873d88780ca34cb",
+      "size_bytes": 181248,
       "level": 0
     },
     "Main.dll.bytes": {
-      "hash": "36b443739158ecdc28a0f43a3947fe7c",
-      "size_bytes": 1248256,
+      "hash": "60ea5c451936ee0dd15f28e8cb799890",
+      "size_bytes": 1344000,
       "level": 1
     }
   },

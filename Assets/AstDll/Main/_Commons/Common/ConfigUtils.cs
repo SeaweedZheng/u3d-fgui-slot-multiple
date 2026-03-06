@@ -18,15 +18,15 @@ public class ConfigUtils
     /// <summary> 多语言文件名（不带后缀）</summary>
     //public static readonly string[] i18nLoadFile = new string[] { "i18n_po152", "i18n_console001" };
 
-
+    /*
     /// <summary> 多语言文件名（不带后缀）</summary>
     public static readonly string[] i18nLoadFile = new string[] {
         "Assets/AstBundle/LuBan/GenerateDatas/bytes/i18n_po152.json",
         "Assets/AstBundle/LuBan/GenerateDatas/bytes/i18n_console001.json"
-    };
+    };*/
 
     /// <summary> 游戏配置文件路劲 </summary>
-    public static string GetGameInfoURL(int gameId) => $"Assets/AstBundle/_Commons/Game Maker/ABs/G{gameId}/game_info_g{gameId}.json";
+    public static string GetGameInfoURL(int gameId) => $"Assets/AstBundle/_Datas/ABs/Games/G{gameId}/game_info.json";
     //$"Assets/AstBundle/_Commons/Game Maker/ABs/Datas/{gameId}/game_info_g{gameId}.json";
 
     /// <summary> 游戏图片路劲 </summary>
@@ -36,11 +36,11 @@ public class ConfigUtils
 
     
 
-    public static string GetErrorCode() => "Assets/AstBundle/_Commons/Game Maker/ABs/Datas/error_code.json";
+    public static string GetErrorCode() => "Assets/AstBundle/_Datas/ABs/Error Code/error_code.json";
 
     /// <summary> 游戏GM文件路劲 </summary>
     public static string GetGameGMURL(int gameId) =>
-        $"Assets/AstBundle/_Commons/Game Maker/ABs/G{gameId}/tmg_mock_gm_{gameId}.json";
+        $"Assets/AstBundle/_Datas/ABs/Games/G{gameId}/tmg_mock_gm.json";
         //$"Assets/AstBundle/_Commons/Game Maker/ABs/{gameId}/Game Icon/Game Avatar {gameId}.png";
     
     /// <summary> 游戏信息 </summary>      

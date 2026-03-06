@@ -14,8 +14,6 @@ namespace CoinPusherRichLegend2001000
         public const string pkgName = "RichLegend2001000";
         public const string resName = "PageGameMain";
 
-
-
         protected override void OnInit()
         {
 
@@ -139,8 +137,6 @@ namespace CoinPusherRichLegend2001000
         public override void OnOpen(PageName name, EventData data)
         {
             base.OnOpen(name, data);
-
-
             MainModel.Instance.gameID = 2001000;
 
             // 添加事件监听

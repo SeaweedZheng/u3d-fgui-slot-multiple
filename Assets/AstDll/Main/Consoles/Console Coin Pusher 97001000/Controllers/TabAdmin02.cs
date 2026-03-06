@@ -6,7 +6,7 @@ using System;
 
 namespace ConsoleCoinPusher97001000
 {
-    public class TabAdmin02 : ConsoleMenuBase
+    public class TabAdmin02 : ConsoleTabMenuBase
     {
 
         public override void Init() { }
@@ -15,9 +15,9 @@ namespace ConsoleCoinPusher97001000
 
 
 
-        public override void InitParam(GComponent comp, Action onClickPrev, Action onClickNext, Action onClickExitCallback)
+        public override void InitParam(GComponent comp, Action onClickPrev, Action onClickNext, Action onClickExitCallback, bool isStartTab, bool isEndTab)
         {
-            base.InitParam(comp, onClickPrev, onClickNext, onClickExitCallback);
+            base.InitParam(comp, onClickPrev, onClickNext, onClickExitCallback, isStartTab, isEndTab);
 
 
             goOwnerMenu.GetChild("pauseAtPopupFreeSpinTrigger").asCom.GetChild("value").asRichTextField.text = PlayerPrefsUtils.isPauseAtPopupFreeSpinTrigger ? I18nMgr.T("ON") : I18nMgr.T("OFF");

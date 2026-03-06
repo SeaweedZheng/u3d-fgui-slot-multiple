@@ -424,7 +424,7 @@ public class ModulesVersionCheck : MonoBehaviour
                 {
 
                     List<JObject> updateGames = new List<JObject>();
-                    foreach (JObject Item in LobbyGamesManager.Instance.lobbyGamesInfoLocal)
+                    foreach (JObject Item in LobbyGamesManager.Instance.lobbyGamesInfoCache)
                     {
                         bool updateAtLaunch = Item["update_at_launch"].Value<bool>();
                         if (updateAtLaunch) { 
@@ -477,9 +477,9 @@ public class ModulesVersionCheck : MonoBehaviour
                 // 下载“启动热更-一次”游戏模块
                 if (!isError)
                 {
-                    Debug.Log($"单次热更前：{JsonConvert.SerializeObject(LobbyGamesManager.Instance.lobbyGamesInfoLocal)}");
+                    Debug.Log($"单次热更前：{JsonConvert.SerializeObject(LobbyGamesManager.Instance.lobbyGamesInfoCache)}");
                     List<JObject> updateGames = new List<JObject>();
-                    foreach (JObject Item in LobbyGamesManager.Instance.lobbyGamesInfoLocal)
+                    foreach (JObject Item in LobbyGamesManager.Instance.lobbyGamesInfoCache)
                     {
                         bool updateAtLaunch = Item["update_at_launch_once"].Value<bool>();
                         if (updateAtLaunch)
@@ -523,7 +523,7 @@ public class ModulesVersionCheck : MonoBehaviour
                             });
                     }
 
-                    Debug.Log($"单次热更后：{JsonConvert.SerializeObject(LobbyGamesManager.Instance.lobbyGamesInfoLocal)}");
+                    Debug.Log($"单次热更后：{JsonConvert.SerializeObject(LobbyGamesManager.Instance.lobbyGamesInfoCache)}");
                 }
                 PageLaunch.Instance.RemoveProgress(StepHotfixDownloadModAtLaunch.DOWNLOAD_MOD_GAME_ONCE);
 

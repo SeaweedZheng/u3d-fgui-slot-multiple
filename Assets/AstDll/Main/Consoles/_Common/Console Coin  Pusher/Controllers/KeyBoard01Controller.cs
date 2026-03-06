@@ -10,8 +10,8 @@ namespace CommonConsoleCoinPusher
 
     public interface IKeyboard
     {
-        void Disable();
-        void Enable();
+        void DisableKeyboard();
+        void EnableKeyboard();
         void ClickNext();
         void ClickPrev();
         void ClickUp();
@@ -29,7 +29,7 @@ namespace CommonConsoleCoinPusher
         /// <summary>
         /// 一行多少个
         /// </summary>
-        int num =10;
+        int num = 10;
         public KeyBoard01Controller()
         {
             Init();
@@ -42,7 +42,8 @@ namespace CommonConsoleCoinPusher
         }
 
 
-        public void ClickNext(){
+        public void ClickNext()
+        {
 
             if (!isCanOnClick)
                 return;
@@ -97,8 +98,8 @@ namespace CommonConsoleCoinPusher
             if (!isCanOnClick)
                 return;
 
-            if (--curIndexKeyboard <0)
-                curIndexKeyboard = glstkeyboard.numChildren-1;
+            if (--curIndexKeyboard < 0)
+                curIndexKeyboard = glstkeyboard.numChildren - 1;
 
             for (int i = 0; i < glstkeyboard.numChildren; i++)
             {
@@ -122,7 +123,7 @@ namespace CommonConsoleCoinPusher
             {
                 onClickOKCallback?.Invoke(inputResult);
             }
-            else if( curIndexKeyboard == glstkeyboard.numChildren - 3) //delete
+            else if (curIndexKeyboard == glstkeyboard.numChildren - 3) //delete
             {
                 if (curIndexInput >= 0)
                 {
@@ -141,11 +142,11 @@ namespace CommonConsoleCoinPusher
             }
             else if (curIndexKeyboard == glstkeyboard.numChildren - 4) //clear
             {
-                Clear(false);
+                ClearKeyboard(false);
             }
             else  // 0 ~ 9
             {
-                if(curIndexKeyboard>=0 && curIndexKeyboard <= 9)
+                if (curIndexKeyboard >= 0 && curIndexKeyboard <= 9)
                 {
                     if (curIndexInput == glstInput.numChildren)
                     {
@@ -181,7 +182,7 @@ namespace CommonConsoleCoinPusher
 
 
 
-        public void Clear(bool isClearAllArrow)
+        public void ClearKeyboard(bool isClearAllArrow)
         {
             curIndexKeyboard = 0;
             curIndexInput = 0;
@@ -191,7 +192,7 @@ namespace CommonConsoleCoinPusher
             {
                 GComponent item = glstkeyboard.GetChildAt(i).asCom;
 
-                if(isClearAllArrow)
+                if (isClearAllArrow)
                     item.GetChild("icon").asImage.visible = false;
                 else
                     item.GetChild("icon").asImage.visible = i == curIndexKeyboard;
@@ -204,7 +205,7 @@ namespace CommonConsoleCoinPusher
                 glstInput.GetChildAt(i).asLabel.title = "";
             }
         }
-        public void InitParam(GComponent gKB , bool isPlaintext , Action<string> onClickOKCallback, Action onClickExitCallback)
+        public void InitParam(GComponent gKB, bool isPlaintext, Action<string> onClickOKCallback, Action onClickExitCallback)
         {
             if (gKB == null) return;
 
@@ -266,7 +267,7 @@ namespace CommonConsoleCoinPusher
                 if (!isCanOnClick)
                     return;
 
-                Clear(false);
+                ClearKeyboard(false);
                 OpenSpecifyCursor("clear");
 
             });
@@ -319,7 +320,7 @@ namespace CommonConsoleCoinPusher
                 onClickExitCallback?.Invoke();
             });
 
-            Clear(false);
+            ClearKeyboard(false);
 
         }
 
@@ -334,28 +335,19 @@ namespace CommonConsoleCoinPusher
         }
 
         bool isCanOnClick = false;
-        public void Enable()
+        public void EnableKeyboard()
         {
-            Clear(false);
+            ClearKeyboard(false);
             isCanOnClick = true;
         }
 
-        public void Disable()
+        public void DisableKeyboard()
         {
-            Clear(true);
+            ClearKeyboard(true);
             isCanOnClick = false;
         }
 
 
-
-
-        /// <summary> 反复调用，变更绑定对象 </summary>
-        //void InitParam(params object[] parameters);
-
-        /// <summary> 销毁时调用一次 </summary>
-        public void Dispose()
-        {
-
-        }
     }
+
 }

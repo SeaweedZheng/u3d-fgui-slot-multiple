@@ -160,7 +160,7 @@ namespace CoinPusherRichLegend2001001
 
 
             goMap = goPage.GetChild("map").asCom;
-            for (int i=0; i<= 21; i++)
+            for (int i = 0; i <= 21; i++)
             {
                 GComponent item = goMap.GetChild($"goldItem{i}").asCom;
                 item.GetController("GoldNum").SetSelectedPage(GetControllerName(diceGameInfo.mapRewards[i]));
@@ -180,7 +180,7 @@ namespace CoinPusherRichLegend2001001
                 GameCommon.FguiUtils.AddWrapper(curAnchorRichMainJump, go);
                 atorRichMainJump = go.transform.Find("Anchor").GetChild(0).GetComponent<Animator>();
             }
-   
+
 
             GComponent nextAnchorButtonHand = goMap.GetChild("anchorButtonHand").asCom;
             if (curAnchorButtonHand != nextAnchorButtonHand)
@@ -206,6 +206,13 @@ namespace CoinPusherRichLegend2001001
             gtxtDiceGameScore = goMap.GetChild("diceGameScore").asTextField;
 
             goFlyCoin = goPage.GetChild("flyCoin").asCom;
+
+            /*
+            Timers.inst.Add(4f, 1, (parm) =>
+            {
+                atorRichMainJump.Play($"Jump2");
+            });
+            */
 
             DoTaskGame();
         }
@@ -403,7 +410,7 @@ namespace CoinPusherRichLegend2001001
                         Vector2 toPos = goMap.GetChild($"goldItem{curMapIndex}").xy;
 
 
-                        tweenerRichMainJump = GTween.To(curAnchorRichMainJump.xy, toPos, 0.3f)
+                        tweenerRichMainJump = GTween.To(curAnchorRichMainJump.xy, toPos, 0.5f)
                         //.SetEase(EaseType.ExpoOut)  // 设置缓动函数
                         .SetEase(EaseType.Linear)  // 设置缓动函数
                         .OnUpdate((GTweener tweener) =>

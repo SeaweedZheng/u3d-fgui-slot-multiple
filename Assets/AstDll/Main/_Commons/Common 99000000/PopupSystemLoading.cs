@@ -12,6 +12,8 @@ namespace Common99000000
         public const string pkgName = "Common99000000";
         public const string resName = "PopupSystemLoading";
 
+        public override PageType pageType => PageType.Overlay;
+
         GComponent goOwnerPage;
 
         GLoader lodBG, lodLogo;
@@ -138,18 +140,22 @@ namespace Common99000000
                 if (argDic.ContainsKey("url"))
                 {
                     string url = (string)argDic["url"];
-                    FileLoaderManager.Instance.LoadImageAsTexture(url, (Texture2D texture) =>
+
+                    if (!string.IsNullOrEmpty(url))
                     {
-                        NTexture nTexture = new NTexture(texture);
+                        FileLoaderManager.Instance.LoadImageAsTexture(url, (Texture2D texture) =>
+                        {
+                            NTexture nTexture = new NTexture(texture);
 
-                        lodBG.texture = nTexture;
+                            lodBG.texture = nTexture;
 
-                        //lodBG.fill = FillType.Scale;                                  
-                        //lodBG.fill = FillType.ScaleFree;      // 等比缩放，可能留白                
-                    });
+                            //lodBG.fill = FillType.Scale;                                  
+                            //lodBG.fill = FillType.ScaleFree;      // 等比缩放，可能留白                
+                        });
 
-                    ///Debug.LogError($"url = {url}");
-                    //lodBG.url = url;  //unity3d 无法直接加载http图片
+                        ///Debug.LogError($"url = {url}");
+                        //lodBG.url = url;  //unity3d 无法直接加载http图片
+                    }
                 }
             }
         }

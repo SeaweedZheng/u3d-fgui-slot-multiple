@@ -12,6 +12,7 @@ namespace Common99000000
         public const string pkgName = "Common99000000";
         public const string resName = "PopupSystemTip";
 
+        public override PageType pageType => PageType.Overlay;
         protected override void OnInit()
         {
             

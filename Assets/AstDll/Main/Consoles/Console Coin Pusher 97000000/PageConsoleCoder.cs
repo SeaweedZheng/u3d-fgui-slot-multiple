@@ -169,7 +169,7 @@ namespace ConsoleCoinPusher97000000
             txtTime.text = string.Format(I18nMgr.T("remaining time: {0} days; {1} hours; {2} minute;"), day, hour, minute);
 
 
-            kbCtrl.Enable();
+            kbCtrl.EnableKeyboard();
         }
 
 
