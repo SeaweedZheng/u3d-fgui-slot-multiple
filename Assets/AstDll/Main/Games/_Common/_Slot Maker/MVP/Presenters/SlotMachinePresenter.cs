@@ -26,7 +26,7 @@ public interface IVSlotMachine
     void ShowPayLines(SymbolWin symbolWin);
     void ShowPayLines(List<int> lineNumbers);
 
-    void CloseAllPlayLines();
+    void CloseAllPayLines();
 
 
     void ShowTwinkleEffect(int colIndex, int rowIndex);
@@ -180,7 +180,7 @@ public partial class SlotMachinePresenter : MonoBehaviour, IPSlotMachine
 
         // 初始化，可见的界面
 
-        view.CloseAllPlayLines();
+        view.CloseAllPayLines();
     }
 
 

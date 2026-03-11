@@ -183,6 +183,7 @@ public class MachineRestoreManager : MonoSingleton<MachineRestoreManager>
 
 
         // 清除游戏记录
+        /*
         tableName = ConsoleTableName.TABLE_SLOT_GAME_RECORD;
         SQLiteAsyncHelper.Instance.ExecuteDeleteAsync(tableName, (res) =>
         {
@@ -200,6 +201,16 @@ public class MachineRestoreManager : MonoSingleton<MachineRestoreManager>
         yield return new WaitUntil(() => isNext == true);
         isNext = false;
         DebugUtils.Log($"【Clear Record】清除 {ConsoleTableName.TABLE_COIN_PUSHER_GAME_RECORD}");
+        */
+
+        tableName = ConsoleTableName.TABLE_GAME_RECORD;
+        SQLiteAsyncHelper.Instance.ExecuteDeleteAsync(tableName, (res) =>
+        {
+            isNext = true;
+        });
+        yield return new WaitUntil(() => isNext == true);
+        isNext = false;
+        DebugUtils.Log($"【Clear Record】清除 {ConsoleTableName.TABLE_GAME_RECORD}");
 
 
         if (ApplicationSettings.Instance.isMock)

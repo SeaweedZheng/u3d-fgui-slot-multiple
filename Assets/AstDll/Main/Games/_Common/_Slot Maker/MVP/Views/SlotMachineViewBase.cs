@@ -135,7 +135,7 @@ public class SlotMachineViewBase : IVSlotMachine
         symbol.GetChild("animator").asCom.GetChild("image").asLoader.url = symbolUrl;
     }
 
-    public void CloseAllPlayLines() {
+    public void CloseAllPayLines() {
 
         GObject[] chds = goPayLines.GetChildren();
         foreach (GObject ch in chds)

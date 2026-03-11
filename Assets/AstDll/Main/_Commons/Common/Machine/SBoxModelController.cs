@@ -72,8 +72,9 @@ public class SBoxModelController : MonoSingleton<SBoxModelController>
         //ConsoleTableUtils.CheckOrCreatTableSysSetting();
         ConsoleTableUtils.CheckOrCreatTableCoinInOutRecord();
         ConsoleTableUtils.CheckOrCreatTableJackpotRecord();
-        ConsoleTableUtils.CheckOrCreatTableSlotGameRecord();
-        ConsoleTableUtils.CheckOrCreatTablePusherGameRecord();
+        //ConsoleTableUtils.CheckOrCreatTableSlotGameRecord();
+        //ConsoleTableUtils.CheckOrCreatTablePusherGameRecord();
+        ConsoleTableUtils.CheckOrCreatTableGameRecord();
         ConsoleTableUtils.CheckOrCreatTableLogEventRecord();
         ConsoleTableUtils.CheckOrCreatTableLogErrorRecord();
         ConsoleTableUtils.CheckOrCreatTableBussinessDayRecord();
