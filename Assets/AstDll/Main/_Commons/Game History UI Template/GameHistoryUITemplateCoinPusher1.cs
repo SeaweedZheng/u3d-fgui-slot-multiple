@@ -5,6 +5,10 @@ using UnityEngine;
 // template_name: GameHistoryUITemplateCoinPusher1
 // template_data: {}
 
+
+/// <summary>
+/// 通用游戏记录模板 - 推币机
+/// </summary>
 public class GameHistoryUITemplateCoinPusher1
 {
     public string deckRowCol = "1,2,3,4,5#1,2,3,4,5#1,2,3,4,5";
@@ -18,10 +22,10 @@ public class GameHistoryUITemplateCoinPusher1
     public int coinPerCredit;
     /// <summary> 1币多少分 </summary>
     public int creditPerCoin;
-    public int baseGameWinCoin;
-    public int jackpotWinCoin;
+    public int baseGameWinCoins;
+    public int jackpotWinCoins;
     public string jackpotType;
-    public int bonusGameWinCoin;
+    public int bonusGameWinCoins;
     public string bonusType;
 
 

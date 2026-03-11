@@ -707,9 +707,10 @@ namespace CoinPusherRichLegend2001000
             // 解析数据
             MockDataManagerG2001000.Instance.ParseSlotSpin(totalBet, resNode, jpGameRes);
 
-        
+
             // 数据入库
             //MachineDataG200Controller.Instance.TestRecord();
+            MockDataManagerG2001000.Instance.Record();
 
             // 游戏彩金滚轮
             SetUIJackpotGameReel();

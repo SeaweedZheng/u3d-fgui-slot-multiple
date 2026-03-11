@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="540,76">
+  <displayList>
+    <richtext id="n0_glrj" name="key" xy="40,16" size="150,42" touchable="false" fontSize="30" color="#ffffff" vAlign="middle" autoSize="shrink" singleLine="true" text="Search:"/>
+    <richtext id="n4_ixbz" name="value" xy="198,6" size="285,63" touchable="false" fontSize="30" color="#68ffd6" vAlign="middle" autoSize="shrink" text="# slot、203"/>
+    <image id="n5_ixbz" name="close" src="ixbzaf" fileName="images/buttons/icons/icon_delete.png" xy="503,38" pivot="0.5,0.5" anchor="true" scale="0.5,0.5"/>
+  </displayList>
+  <customProperty target="key" propertyId="0" label="键"/>
+  <customProperty target="value" propertyId="0" label="值"/>
+</component>

@@ -747,8 +747,11 @@ public static class ConsoleTableName
         /// <summary> 投退币记录</summary>
         public const string TABLE_COIN_IN_OUT_RECORD = "coin_in_out_record";
         /// <summary> 游戏游玩记录</summary>
-        public const string TABLE_SLOT_GAME_RECORD = "slot_game_record";
-        public const string TABLE_COIN_PUSHER_GAME_RECORD = "coin_pusher_game_record";
+        
+        public const string TABLE_SLOT_GAME_RECORD = "slot_game_record"; // 【即将弃用】
+        public const string TABLE_COIN_PUSHER_GAME_RECORD = "coin_pusher_game_record"; // 【即将弃用】
+        public const string TABLE_GAME_RECORD = "game_record";
+
 
         public const string TABLE_LOG_ERROR_RECORD = "log_error_record";
         public const string TABLE_LOG_EVENT_RECORD = "log_event_record";
@@ -767,8 +770,9 @@ public static class ConsoleTableName
             [TABLE_JACKPOT_RECORD] = "1.0.3",
             [TABLE_BET] = "1.0.3",
             [TABLE_COIN_IN_OUT_RECORD] = "1.0.3",
-            [TABLE_SLOT_GAME_RECORD] = "1.0.3",
-            [TABLE_COIN_PUSHER_GAME_RECORD] = "1.0.3",
+            [TABLE_GAME_RECORD] = "1.0.3",
+            //[TABLE_SLOT_GAME_RECORD] = "1.0.3",
+            //[TABLE_COIN_PUSHER_GAME_RECORD] = "1.0.3",
             [TABLE_LOG_ERROR_RECORD] = "1.0.3",
             [TABLE_LOG_EVENT_RECORD] = "1.0.3",
             [TABLE_BUSINESS_DAY_RECORD] = "1.0.3",

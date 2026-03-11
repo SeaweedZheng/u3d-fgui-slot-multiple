@@ -331,21 +331,52 @@ namespace CoinPusherRichLegend2001003
             gameSenceData.baseGameWinCoins = ContentModel.Instance.baseGameWinCoins;
 
 
-            TableCoinPusherGameRecordItem slotGameRecordItem = new TableCoinPusherGameRecordItem()
-            {
-                game_type = ContentModel.Instance.isFreeSpin ? "free_spin" :
+
+
+            string turnType = ContentModel.Instance.isFreeSpin ? "free_spin" :
                     ContentModel.Instance.isFreeSpinTrigger ? "free_spin_trigger" :
                     //ContentModel.Instance.isBonus1 ? "bonus1" :
-                    "spin",
+                    "spin";
+
+
+            //通用模板
+            GameHistoryUITemplateCoinPusher1 templateData = new GameHistoryUITemplateCoinPusher1()
+            {
+                deckRowCol = ContentModel.Instance.strDeckRowCol,
+                gameUid = ContentModel.Instance.curGameGuid,
+                turnType = turnType,
+                creatAt = ContentModel.Instance.curGameCreatTimeMS,
+
+                coinPerCredit = SBoxModel.Instance.CoinInScale,
+                creditPerCoin = 0,
+                baseGameWinCoins = (int)ContentModel.Instance.baseGameWinCoins,
+                //jackpotWinCoins = 
+                //jackpotType =
+
+                // bonusGameWinCoins = 
+                // bonusType = 
+                freeSpinTotalCount = ContentModel.Instance.freeSpinTotalTimes,
+                freeSpinCurNumber = ContentModel.Instance.freeSpinPlayTimes,
+                freeSpinAddCount = ContentModel.Instance.freeSpinAddNum,
+
+                detail = "【测试】 seat:{0} reward:{1}##【测试】 seat:{0} reward:{1}",
+                args = "1,50##2,100",
+            };
+
+
+
+            //通用游戏记录
+            TableGameRecordItem slotGameRecordItem = new TableGameRecordItem()
+            {
+                game_type = "coin_pusher",
+                turn_type = turnType,
                 game_id = ConfigUtils.curGameId,
                 game_uid = ContentModel.Instance.curGameGuid,
                 created_at = ContentModel.Instance.curGameCreatTimeMS,
-                total_bet = totalBet,
-                credit_per_coin_in = SBoxModel.Instance.CoinInScale,
+                respond = ContentModel.Instance.response,
+                template_name = nameof(GameHistoryUITemplateCoinPusher1),
+                //template_data = JsonConvert.SerializeObject(templateData),
             };
-
-            // 本剧数据存入数据库
-            slotGameRecordItem.base_game_win_coins = 0; //gameSenceData.baseGameWinCredit;
 
 
             // 彩金数据
@@ -360,14 +391,20 @@ namespace CoinPusherRichLegend2001003
 
             if (info.jpWinDic != null && info.jpWinDic.Count > 0)
             {
-                KeyValuePair<int , JackpotWinInfo> kv = info.jpWinDic.ElementAt(0);
+                KeyValuePair<int, JackpotWinInfo> kv = info.jpWinDic.ElementAt(0);
                 JackpotWinInfo item = kv.Value;
-                gameSenceData.jpWinInfo = item;
+
 
                 int winJPCredit = (int)item.winCredit;
 
-                slotGameRecordItem.jackpot_win_coins = winJPCredit;
-                slotGameRecordItem.jackpot_type = item.name;
+                templateData.jackpotWinCoins = winJPCredit;
+                templateData.jackpotType = item.name;
+                //slotGameRecordItem.jackpot_win_coins = winJPCredit;
+                //slotGameRecordItem.jackpot_type = item.name;
+
+                slotGameRecordItem.hit_jackpot_type = item.name;
+
+                gameSenceData.jpWinInfo = item;
                 gameSenceData.jackpotWinCoins = winJPCredit;
 
 
@@ -376,7 +413,6 @@ namespace CoinPusherRichLegend2001003
 
                 // 额外奖上报(暂时不用)
                 //#seaweed# DeviceBonusReport.Instance.ReportBonus(item.name, item.name, winJPCredit, -1, (msg) => { }, (err) => { });
-
             }
 
             // 每日营收统计(暂时不用)
@@ -390,7 +426,9 @@ namespace CoinPusherRichLegend2001003
 
 
             slotGameRecordItem.scene = JsonConvert.SerializeObject(gameSenceData);
-            string sql = SQLiteAsyncHelper.SQLInsertTableData<TableCoinPusherGameRecordItem>(ConsoleTableName.TABLE_SLOT_GAME_RECORD, slotGameRecordItem);
+            slotGameRecordItem.template_data = JsonConvert.SerializeObject(templateData);
+
+            string sql = SQLiteAsyncHelper.SQLInsertTableData<TableGameRecordItem>(ConsoleTableName.TABLE_GAME_RECORD, slotGameRecordItem);
             SQLiteAsyncHelper.Instance.ExecuteNonQueryAsync(sql);
 
         }

@@ -53,7 +53,7 @@ public class DatabaseCheck : CoBehaviour02
             yield return new WaitUntil(() => isNext == true);
             isNext = false;
 
-
+            /*
             tableName = ConsoleTableName.TABLE_SLOT_GAME_RECORD;
             SQLiteAsyncHelper.Instance.ExecuteDeleteOverflowAsync(tableName, (int)SBoxModel.Instance.gameRecordMax, rowName,
             (res) =>
@@ -65,6 +65,16 @@ public class DatabaseCheck : CoBehaviour02
 
 
             tableName = ConsoleTableName.TABLE_COIN_PUSHER_GAME_RECORD;
+            SQLiteAsyncHelper.Instance.ExecuteDeleteOverflowAsync(tableName, (int)SBoxModel.Instance.gameRecordMax, rowName,
+            (res) =>
+            {
+                isNext = true;
+            });
+            yield return new WaitUntil(() => isNext == true);
+            isNext = false;
+            */
+
+            tableName = ConsoleTableName.TABLE_GAME_RECORD;
             SQLiteAsyncHelper.Instance.ExecuteDeleteOverflowAsync(tableName, (int)SBoxModel.Instance.gameRecordMax, rowName,
             (res) =>
             {

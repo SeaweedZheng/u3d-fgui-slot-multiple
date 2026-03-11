@@ -7,6 +7,13 @@ using UnityEngine.Events;
 using System.Reflection;
 
 
+public class InPrarmsBase { }
+public class OutParamsBase
+{
+    public int code = 0;
+    public string msg = "";
+}
+
 
 /// <summary>
 /// 窗口基类，扩展FGUI Window提供栈管理支持
@@ -35,6 +42,11 @@ public class PageBase : Window
     protected EventData inParams;
 
     private EventData returnParams;
+
+    //protected InPrarmsBase inParams;
+
+    //private OutParamsBase returnParams;
+
 
     protected bool isOpen = false;
 

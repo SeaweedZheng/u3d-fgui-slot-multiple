@@ -271,10 +271,14 @@
     <component id="ocpfaa" name="ButtonSquare808080.xml" path="/components/" exported="true"/>
     <component id="ocpfab" name="PopupConsoleMoneyBoxRedeem.xml" path="/" exported="true"/>
     <image id="ocpfac" name="icon_credit.png" path="/images/buttons/icons/"/>
-    <component id="h3mk0" name="TabGameHistoryTemplate001.xml" path="/tabs/" exported="true"/>
+    <component id="h3mk0" name="TabGameHistoryUITemplate001.xml" path="/tabs/" exported="true"/>
     <component id="h3mk1" name="TabCameHistorySymbol.xml" path="/components/gameHistory/"/>
     <component id="h3mk3" name="TabGameHistoryItem.xml" path="/components/gameHistory/"/>
     <image id="h3mk2" name="symbol1_king.png" path="/images/symbols/"/>
+    <component id="ixbzad" name="ItemDateSelectResult.xml" path="/moudules/" exported="true"/>
+    <image id="ixbzaf" name="icon_delete.png" path="/images/buttons/icons/"/>
+    <component id="ixbzag" name="PopupConsoleSearch.xml" path="/" exported="true"/>
+    <component id="ixbzah" name="ItemClassifySelect.xml" path="/moudules/" exported="true"/>
   </resources>
   <publish name="" path="../../Assets/AstBundle/Consoles/Console Slot 98000000/FGUIs" packageCount="2" genCode="true">
     <atlas name="Default" index="0"/>

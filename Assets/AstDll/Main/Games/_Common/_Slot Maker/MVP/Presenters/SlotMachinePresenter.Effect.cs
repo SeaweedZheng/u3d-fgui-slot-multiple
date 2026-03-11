@@ -39,7 +39,7 @@ public partial class SlotMachinePresenter
             }
         }
 
-        view.CloseAllPlayLines();
+        view.CloseAllPayLines();
 
         OnWinEvent(SlotMachineEvent.ON_WIN_EVENT, new EventData(SlotMachineEvent.SkipWinLine));
     }

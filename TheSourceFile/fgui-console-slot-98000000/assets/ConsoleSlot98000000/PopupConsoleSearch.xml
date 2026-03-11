@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<component size="1080,1920">
+  <displayList>
+    <component id="n30_kc0c" name="n30" src="os7y3l" fileName="moudules/BasePopuoBG.xml" xy="0,0">
+      <relation target="" sidePair="width-width,height-height"/>
+    </component>
+    <image id="n0_kc0c" name="n0" src="vqlx68" fileName="images/common/circle_24.png" xy="165,420" size="750,1080" group="n28_kc0c" color="#143733"/>
+    <richtext id="n4_kc0c" name="title" xy="232,443" size="615,64" group="n28_kc0c" fontSize="35" color="#ffffff" align="center" vAlign="middle" autoSize="shrink" singleLine="true" autoClearText="true" text="Lobby Games Search"/>
+    <component id="n22_kc0c" name="btnConfirm" src="vqlx5x" fileName="components/Button005Confirm.xml" xy="442,1406" group="n28_kc0c"/>
+    <component id="n31_ocpf" name="btnExit" src="os7y4l" fileName="components/ButtonClosePopup.xml" xy="837,420" group="n28_kc0c"/>
+    <list id="n60_ixbz" name="options" xy="187,540" size="705,830" group="n28_kc0c" overflow="hidden" defaultItem="ui://xp0b9yqdixbzah" autoItemSize="false">
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+      <item/>
+    </list>
+    <image id="n32_ocpf" name="n32" src="vqlx65" fileName="images/common/line_64x4.png" xy="190,518" size="700,4" group="n28_kc0c"/>
+    <image id="n33_ocpf" name="n33" src="vqlx65" fileName="images/common/line_64x4.png" xy="190,1385" size="700,4" group="n28_kc0c"/>
+    <component id="n39_ocpf" name="keyboard" src="cwuo24" fileName="moudules/ItemCustomKeyboard003.xml" xy="56,1605" group="n28_kc0c" visible="false"/>
+    <group id="n28_kc0c" name="n28" xy="56,420" size="968,1484"/>
+  </displayList>
+</component>

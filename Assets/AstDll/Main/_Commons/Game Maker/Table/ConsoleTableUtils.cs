@@ -28,8 +28,9 @@ public static partial class ConsoleTableUtils
 
         DeleteTable(ConsoleTableName.TABLE_COIN_IN_OUT_RECORD, ref tableVerCacher, ref isVerChange);
         //DeleteTable(ConsoleTableName.TABLE_SYS_SETTING, ref tableVerCacher, ref isVerChange);
-        DeleteTable(ConsoleTableName.TABLE_SLOT_GAME_RECORD, ref tableVerCacher, ref isVerChange);
-        DeleteTable(ConsoleTableName.TABLE_COIN_PUSHER_GAME_RECORD, ref tableVerCacher, ref isVerChange);
+        //DeleteTable(ConsoleTableName.TABLE_SLOT_GAME_RECORD, ref tableVerCacher, ref isVerChange);
+        //DeleteTable(ConsoleTableName.TABLE_COIN_PUSHER_GAME_RECORD, ref tableVerCacher, ref isVerChange);
+        DeleteTable(ConsoleTableName.TABLE_GAME_RECORD, ref tableVerCacher, ref isVerChange);
         DeleteTable(ConsoleTableName.TABLE_LOG_ERROR_RECORD, ref tableVerCacher, ref isVerChange);
         DeleteTable(ConsoleTableName.TABLE_LOG_EVENT_RECORD, ref tableVerCacher, ref isVerChange);
         DeleteTable(ConsoleTableName.TABLE_BET, ref tableVerCacher, ref isVerChange);
@@ -145,11 +146,11 @@ public static partial class ConsoleTableUtils
 
 
 
-    public static void CheckOrCreatTableSlotGameRecord(Action<object[]> ononFinishCallback = null) => CheckOrCreatTable<TableSlotGameRecordItem>(ConsoleTableName.TABLE_SLOT_GAME_RECORD, ononFinishCallback);
+    //public static void CheckOrCreatTableSlotGameRecord(Action<object[]> ononFinishCallback = null) => CheckOrCreatTable<TableSlotGameRecordItem>(ConsoleTableName.TABLE_SLOT_GAME_RECORD, ononFinishCallback);
 
-    public static void CheckOrCreatTablePusherGameRecord(Action<object[]> ononFinishCallback = null) => CheckOrCreatTable<TableCoinPusherGameRecordItem>(ConsoleTableName.TABLE_COIN_PUSHER_GAME_RECORD, ononFinishCallback);
+    //public static void CheckOrCreatTablePusherGameRecord(Action<object[]> ononFinishCallback = null) => CheckOrCreatTable<TableCoinPusherGameRecordItem>(ConsoleTableName.TABLE_COIN_PUSHER_GAME_RECORD, ononFinishCallback);
 
-
+    public static void CheckOrCreatTableGameRecord(Action<object[]> ononFinishCallback = null) => CheckOrCreatTable<TableGameRecordItem>(ConsoleTableName.TABLE_GAME_RECORD, ononFinishCallback);
     public static void CheckOrCreatTableLogEventRecord(Action<object[]> ononFinishCallback = null) => CheckOrCreatTable<TableLogRecordItem>(ConsoleTableName.TABLE_LOG_EVENT_RECORD, ononFinishCallback);
     public static void CheckOrCreatTableLogErrorRecord(Action<object[]> ononFinishCallback = null) => CheckOrCreatTable<TableLogRecordItem>(ConsoleTableName.TABLE_LOG_ERROR_RECORD, ononFinishCallback);
 
