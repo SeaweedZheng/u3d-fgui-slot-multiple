@@ -438,7 +438,7 @@ public class DeviceIOTPayment : MonoSingleton<DeviceIOTPayment>  //MonoBehaviour
         DebugUtils.Log($"好酷二维码地址： {urlQRCode}");
        
         PageManager.Instance.OpenPage(PageName.ConsoleSlot98000000PopupConsoleCommon002,
-            new EventData<CommonPopupInfo002>(
+            /*new EventData<CommonPopupInfo002>(
                 "",
                 new CommonPopupInfo002()
                 {
@@ -448,7 +448,16 @@ public class DeviceIOTPayment : MonoSingleton<DeviceIOTPayment>  //MonoBehaviour
                     isUseXButton = true,
                     mark = MARK_POP,
                 }
-            ));
+            )*/
+            
+
+            // 待完善
+            new InParamsBase()
+            {
+
+            }
+
+            );
     }
 
     const string MARK_POP = nameof(MARK_POP) + "_" + nameof(DeviceIOTPayment);

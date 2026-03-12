@@ -4,6 +4,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameMaker;
 using FairyGUI;
+using ConsoleSlot98000000;
+using ConsoleCoinPusher97001000;
 
 public interface IVSettingPrinter
 {
@@ -84,19 +86,29 @@ public class SettingPrinterPresenter
         };
 
 
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleChoose001,
-            new EventData<Dictionary<string, object>>("",
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleChoose001,
+            /*new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("Choose Printer Model"),
                     ["selectLst"] = selectLst,
                     ["selectNumber"] = $"{SBoxModel.Instance.selectPrinterNumber}",
                     ["getSelectedDes"] = getSelectedDes,
-                }));
+                })
+            */
+            new InParamsPopupConsoleChoose001()
+            {
+                title = I18nMgr.T("Choose Printer Model"),
+                selectLst = selectLst,
+                selectNumber = $"{SBoxModel.Instance.selectPrinterNumber}",
+                getSelectedDes = getSelectedDes,
+            }
+            );
 
-        if (res.value != null)
+        if (res!= null && res.code == 0)
         {
-            string selectNumber = (string)res.value;
+            var result = res as OutParamsPopupConsoleChoose001;
+            string selectNumber = result.number;
             int number = int.Parse(selectNumber);
             SBoxModel.Instance.selectPrinterNumber = number;
             OnPropertyChangeIsConnectPrinter();

@@ -134,7 +134,7 @@ namespace CoinPusherRichLegend2001000
 
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             MainModel.Instance.gameID = 2001000;
@@ -153,7 +153,7 @@ namespace CoinPusherRichLegend2001000
         }
 
 
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
 
             EventCenter.Instance.RemoveEventListener<EventData>(PanelEvent.ON_PANEL_INPUT_EVENT, OnPanelInputEvent);

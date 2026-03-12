@@ -9,6 +9,10 @@ using CommonConsoleCoinPusher;
 
 namespace ConsoleCoinPusher97000000
 {
+    public class InParamsPopupConsoleRecord : InParamsBase
+    {
+        public string value;
+    }
     public class PopupConsoleRecord : MachinePageBase
     {
 
@@ -81,13 +85,13 @@ namespace ConsoleCoinPusher97000000
             // 释放重复创建的UI
             InitParam();
         }
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             PageTitleManager.Instance.AddPageNode("Details");
             base.OnOpen(name, data);
             InitParam();
         }
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             PageTitleManager.Instance.RemoveLastPageNode();
             base.OnClose(data);
@@ -131,11 +135,16 @@ namespace ConsoleCoinPusher97000000
             Dictionary<string, object> argDic = null;
             if (inParams != null)
             {
+                var inp = inParams as InParamsPopupConsoleRecord;
+                info.text = inp.value;
+
+                /*
                 argDic = (Dictionary<string, object>)inParams.value;
                 if (argDic.ContainsKey("value"))
                 {
                     info.text = (string)argDic["value"];
                 }
+                */
             }
 
 

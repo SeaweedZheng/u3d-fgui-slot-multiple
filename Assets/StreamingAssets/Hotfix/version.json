@@ -1,12 +1,12 @@
 {
   "name": "Total",
-  "updated_at": 1772801624322,
+  "updated_at": 1773298299392,
   "hotfix_key": "hf_debug_android_20251216143338",
-  "hotfix_version": "1.0.248",
-  "hash": "478047dddcd66e889890d0320ab2976c",
+  "hotfix_version": "1.0.251",
+  "hash": "209b60e02c7c380daac7876e7fdd66da",
   "asset_bundle": {
     "manifest": {
-      "hash": "604f905edc7bf26866274641910c0ac7",
+      "hash": "0b29dc9378985a4e2bcccc5002a441aa",
       "size_bytes": 8808
     },
     "bundles": {
@@ -163,8 +163,8 @@
         "size_bytes": 6783
       },
       "consoles/console slot 98000000/fguis.unity3d": {
-        "hash": "1df5600430b6e79a6837fa17b194fd27",
-        "size_bytes": 399005
+        "hash": "977f2539d6f8aa5f4c92c3aa2e70b00d",
+        "size_bytes": 399090
       },
       "games/coin pusher emperors rein 200/abs/datas/slot_machine_config_bouns1.unity3d": {
         "hash": "1d2c4a977b07cdbf0057143f817afbcb",
@@ -1003,16 +1003,16 @@
         "size_bytes": 4059
       },
       "games/coin pusher rich legend 2001001/prefabs/page game bonus 1/train.unity3d": {
-        "hash": "ecdac09b55f240c1675958056a76a5ed",
-        "size_bytes": 52798810
+        "hash": "d7a542ff6316ecf0fb3a191e8c44f708",
+        "size_bytes": 52799467
       },
       "games/coin pusher rich legend 2001001/prefabs/page game bonus 2/buttonhand.unity3d": {
         "hash": "44c7a637181703f784dc46c55723893b",
         "size_bytes": 59127
       },
       "games/coin pusher rich legend 2001001/prefabs/page game bonus 2/richmainjump.unity3d": {
-        "hash": "24bce653f6f22e32cad5d1f6594a6812",
-        "size_bytes": 12117
+        "hash": "4ae20e3ec8b9b83d691fa4627dbe11a5",
+        "size_bytes": 2672269
       },
       "games/coin pusher rich legend 2001001/prefabs/popup jackpot game/pop fg jp 1.unity3d": {
         "hash": "a10eed68758367772a75c0fc43e458b3",
@@ -1095,16 +1095,16 @@
         "size_bytes": 4125
       },
       "games/coin pusher rich legend 2001003/prefabs/page game bonus 1/train.unity3d": {
-        "hash": "e9fcf32e3914e088620ef4e7e4269689",
-        "size_bytes": 52800039
+        "hash": "ea4a7b0495c10cdd3c21b1f132165c13",
+        "size_bytes": 52800596
       },
       "games/coin pusher rich legend 2001003/prefabs/page game bonus 2/buttonhand.unity3d": {
         "hash": "9f174569060ff885c2770925f50c94c9",
         "size_bytes": 59206
       },
       "games/coin pusher rich legend 2001003/prefabs/page game bonus 2/richmainjump.unity3d": {
-        "hash": "5795475b65312a02a8a395125e83a5ae",
-        "size_bytes": 12195
+        "hash": "332bdf00d509cb27eaa26eaaa182ad50",
+        "size_bytes": 2671841
       },
       "games/coin pusher rich legend 2001003/prefabs/popup jackpot game/pop fg jp 1.unity3d": {
         "hash": "1f2d896a28c6907e1737551f47d08d0b",
@@ -1204,13 +1204,13 @@
   },
   "asset_dll": {
     "Base.dll.bytes": {
-      "hash": "cfb928fc5950a437d873d88780ca34cb",
-      "size_bytes": 181248,
+      "hash": "390a1032c7b67c04726494d0740e75f5",
+      "size_bytes": 181760,
       "level": 0
     },
     "Main.dll.bytes": {
-      "hash": "60ea5c451936ee0dd15f28e8cb799890",
-      "size_bytes": 1344000,
+      "hash": "b20a4922137773f41972a00198384176",
+      "size_bytes": 1352704,
       "level": 1
     }
   },

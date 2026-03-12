@@ -7,6 +7,11 @@ using System;
 
 namespace ConsoleSlot98000000
 {
+    public class InParamsPopupConsoleNotice: InParamsBase
+    {
+        public string title;
+        public List<string> content;
+    }
     public class PopupConsoleNotice : MachinePageBase
     {
         public const string pkgName = "ConsoleSlot98000000";
@@ -21,7 +26,7 @@ namespace ConsoleSlot98000000
             InitParam();
         }
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
 
@@ -92,6 +97,10 @@ namespace ConsoleSlot98000000
 
             if (inParams != null)
             {
+                InParamsPopupConsoleNotice inp = (InParamsPopupConsoleNotice)inParams;
+                title = inp.title;
+                content = inp.content;
+                /*
                 Dictionary<string, object> argDic = null;
                 argDic = (Dictionary<string, object>)inParams.value;
 
@@ -101,6 +110,7 @@ namespace ConsoleSlot98000000
                 {
                     content = (List<string>)argDic["content"];
                 }
+                */
             }
 
             txtTitle.text = title;

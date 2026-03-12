@@ -6,6 +6,12 @@ using UnityEngine;
 using System;
 namespace CoinPusherRichLegend2001001
 {
+    public class InParamsPopupJackpotGame : InParamsBase
+    {
+        public float totalEarnCredit;
+        public int jackpotId;
+        public Action onJPPoolSubCredit;
+    }
     public class PopupJackpotGame : MachinePageBase
     {
         public const string pkgName = "RichLegend2001001";
@@ -86,7 +92,7 @@ namespace CoinPusherRichLegend2001001
 
 
         GComponent curAnchorJackpot;
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
 
@@ -119,8 +125,43 @@ namespace CoinPusherRichLegend2001001
 
 
             // 解析数据
-            if (inParams != null && inParams?.value is Dictionary<string, object> argDic)
+            if (inParams != null)
             {
+
+                var inp = inParams as InParamsPopupJackpotGame;
+
+                CloseAllTask();
+                DoTaskToNumber((long)inp.totalEarnCredit);
+                DoTaskShowNumberEnd();
+
+
+                if (curAnchorJackpot != null)
+                    GameCommon.FguiUtils.DeleteWrapper(curAnchorJackpot);
+
+                curAnchorJackpot = gOwner.GetChild("fg").asCom.GetChild("anchorJackpot").asCom;
+                switch (inp.jackpotId)
+                {
+                    case 0:
+                        GameCommon.FguiUtils.AddWrapper(curAnchorJackpot, GameObject.Instantiate(goFgJP1Clone));
+                        // ameCommon.FguiUtils.AddWrapper(curAnchorJackpot, goFgJP1);  // 有bug
+                        break;
+                    case 1:
+                        GameCommon.FguiUtils.AddWrapper(curAnchorJackpot, GameObject.Instantiate(goFgJP2Clone));
+                        break;
+                    case 2:
+                        GameCommon.FguiUtils.AddWrapper(curAnchorJackpot, GameObject.Instantiate(goFgJP3Clone));
+                        break;
+                    case 3:
+                        GameCommon.FguiUtils.AddWrapper(curAnchorJackpot, GameObject.Instantiate(goFgJPMegaClone));
+                        break;
+                }
+
+                onJPPoolSubCreditCallback = inp.onJPPoolSubCredit;
+
+
+                /*
+                Dictionary<string, object> argDic = inParams?.value as Dictionary<string, object>;
+
                 // 解析分数
                 if (argDic.TryGetValue("totalEarnCredit", out var scoreVal) && scoreVal is float score)
                 {
@@ -161,6 +202,7 @@ namespace CoinPusherRichLegend2001001
                 {
                     onJPPoolSubCreditCallback = onJPPoolSubCredit;
                 }
+                */
             }
 
         }

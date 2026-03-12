@@ -7,6 +7,11 @@ using GameMaker;
 
 namespace CoinPusherRichLegend2001000
 {
+    public class InParamsPopupBigWin : InParamsBase
+    {
+        public int totalWinCpions;
+    }
+
     public class PopupBigWin : MachinePageBase
     {
         public const string pkgName = "RichLegend2001000";
@@ -45,7 +50,7 @@ namespace CoinPusherRichLegend2001000
             };
         }
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
 
@@ -55,7 +60,7 @@ namespace CoinPusherRichLegend2001000
         }
 
 
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
 
             // 删除事件监听
@@ -94,10 +99,14 @@ namespace CoinPusherRichLegend2001000
             int toNum  = 10000;
 
             if (inParams != null)
-            {   
+            {
+                var inp = inParams as InParamsPopupBigWin;
+                toNum = inp.totalWinCpions;
+                /*
                 Dictionary<string, object> argDic = null;
                 argDic = (Dictionary<string, object>)inParams.value;
                 toNum = (int)argDic["totalWinCpions"];
+                */
             }
 
             DoTaskToNumber(toNum);

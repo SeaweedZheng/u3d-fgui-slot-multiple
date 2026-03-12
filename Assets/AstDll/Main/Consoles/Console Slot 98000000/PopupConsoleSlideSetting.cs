@@ -3,11 +3,26 @@ using GameMaker;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Net.Sockets;
 using UnityEngine;
 using UnityEngine.UI;
 
 namespace ConsoleSlot98000000
 {
+    public class InParamsPopupConsoleSlideSetting : InParamsBase
+    {
+        public string title;
+        public int valueCur;
+        public int valueMax;
+        public int valueMin;
+        public Func<int, string> onChangeUI;
+        public bool isUseKeyboard;
+    }
+    public class OutParamPopupConsoleSlideSetting : OutParamsBase
+    {
+        public int value;
+    }
+
     public class PopupConsoleSlideSetting : PageBase
     {
         public const string pkgName = "ConsoleSlot98000000";
@@ -20,13 +35,13 @@ namespace ConsoleSlot98000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
         }
 
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             base.OnClose(data);
             onChangeUI = null;
@@ -59,7 +74,8 @@ namespace ConsoleSlot98000000
             btnClose.onClick.Clear();
             btnClose.onClick.Add(() =>
             {
-                CloseSelf(new EventData("Exit"));
+                //CloseSelf(new EventData("Exit"));
+                CloseSelf(null);
             });
 
             rtxtTitle = this.contentPane.GetChild("title").asRichTextField;
@@ -76,9 +92,23 @@ namespace ConsoleSlot98000000
             btnConfirm.onClick.Clear();
             btnConfirm.onClick.Add(OnClickConfirm);
 
-            Dictionary<string, object> argDic = null;
+
             if (inParams != null)
             {
+
+                var inp = inParams as InParamsPopupConsoleSlideSetting;
+                title = inp.title;
+                valueMax = inp.valueMax;
+                valueMin = inp.valueMin;
+                isUseKeyboard = inp.isUseKeyboard;
+                onChangeUI = inp.onChangeUI;
+
+                //设置滚轮位置
+                SetCurSlider(inp.valueCur);
+                SetUIContent();
+
+                /*
+                Dictionary<string, object> argDic = null;
                 argDic = (Dictionary<string, object>)inParams.value;
                 title = (string)argDic["title"];
                 valueMax = (int)argDic["valueMax"];
@@ -96,6 +126,7 @@ namespace ConsoleSlot98000000
                 //设置滚轮位置
                 SetCurSlider((int)argDic["valueCur"]);
                 SetUIContent();
+                */
             }
 
             btnKeyboard.visible = isUseKeyboard;
@@ -163,20 +194,31 @@ namespace ConsoleSlot98000000
 
         async void OnClickKeyboard()
         {
-            EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleKeyboard002,
+            OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleKeyboard002,
+                
+                /*
                 new EventData<Dictionary<string, object>>("",
                     new Dictionary<string, object>()
                     {
                         ["title"] = I18nMgr.T("Input Custom Value"),
                         ["isPlaintext"] = true,
-                    }));
+                    })
+                */
+                new InParamsPopupConsoleKeyboard002()
+                {
+                    title = I18nMgr.T("Input Custom Value"),
+                    isPlaintext = true,
+                }
+            );
 
-            if (res.value != null)
+            if (res!= null && res.code == 0)
             {
+                var result = res as OutParamsPopupConsoleKeyboard002;
+
                 bool isErr = true;
                 try
                 {
-                    int val = int.Parse((string)res.value);
+                    int val = int.Parse(result.value);
                     if (val >= valueMin && val <= valueMax)
                     {
                         isErr = false;
@@ -195,9 +237,11 @@ namespace ConsoleSlot98000000
         void OnClickConfirm()
         {
             valueCur = GetCurValue(slider.value);
-            CloseSelf(new EventData<int>("Result", valueCur));
-
-
+            //CloseSelf(new EventData<int>("Result", valueCur));
+            CloseSelf(new OutParamPopupConsoleSlideSetting()
+            {
+                value = valueCur,
+            });
         }
 
 

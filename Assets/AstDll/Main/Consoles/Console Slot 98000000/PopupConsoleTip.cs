@@ -7,6 +7,10 @@ using UnityEngine;
 
 namespace ConsoleSlot98000000
 {
+    public class InParamsPopupConsoleTip : InParamsBase
+    {
+        public string message;
+    }
     public class PopupConsoleTip : PageBase
     {
         public const string pkgName = "ConsoleSlot98000000";
@@ -19,7 +23,7 @@ namespace ConsoleSlot98000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -51,10 +55,12 @@ namespace ConsoleSlot98000000
         }
 
 
-        public void ShowTip(EventData data)
+        public void ShowTip(InParamsBase data)
         {
-            string msg = (string)data.value;
-            AddItem(msg);
+            //string msg = (string)data.value;
+            //AddItem(msg);
+            var inp = data as InParamsPopupConsoleTip;
+            AddItem(inp.message);
         }
 
         public bool Contains(string msg)
@@ -175,7 +181,7 @@ namespace ConsoleSlot98000000
 
         }
 
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             base.OnClose(data);
             if (tCheckItemRemove != null)

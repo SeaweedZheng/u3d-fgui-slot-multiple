@@ -9,6 +9,7 @@ using System.IO;
 using GameMaker;
 using System.Security.Policy;
 using System.Diagnostics.Eventing.Reader;
+using Common99000000;
 
 public class GameUpdateChecker : MonoSingleton<GameUpdateChecker>
 {
@@ -162,11 +163,18 @@ public class GameUpdateChecker : MonoSingleton<GameUpdateChecker>
 
                 string assetPth = LobbyGamesManager.Instance.GetGameValueFromSever<string>(gameId, "poster_url");
 
-                PageManager.Instance.OpenPage(PageName.CommonPopupSystemLoading, new EventData<Dictionary<string, object>>("",new Dictionary<string, object>()
-                {
-                    ["title"] = "",
-                    ["url"] = PathHelper.GetAssetBackupWEBURL(assetPth),
-                }));
+                PageManager.Instance.OpenPage(PageName.CommonPopupSystemLoading, 
+                    /*new EventData<Dictionary<string, object>>("",new Dictionary<string, object>()
+                    {
+                        ["title"] = "",
+                        ["url"] = PathHelper.GetAssetBackupWEBURL(assetPth),
+                    })*/
+                    new InParamsPopupSystemLoading()
+                    {
+                        title = "",
+                        url = PathHelper.GetAssetBackupWEBURL(assetPth),
+                    }
+                );
 
 
 
@@ -433,11 +441,19 @@ public class GameUpdateChecker : MonoSingleton<GameUpdateChecker>
 
             string assetPth = LobbyGamesManager.Instance.GetGameValueFrom<string>(newLobbyGameInfo , gameId, "poster_url");
 
-            PageManager.Instance.OpenPage(PageName.CommonPopupSystemLoading, new EventData<Dictionary<string, object>>("", new Dictionary<string, object>()
-            {
-                ["title"] = "",
-                ["url"] = string.IsNullOrEmpty(assetPth) ? null: PathHelper.GetAssetBackupWEBURL(assetPth),
-            }));
+            PageManager.Instance.OpenPage(PageName.CommonPopupSystemLoading,
+                    /*new EventData<Dictionary<string, object>>("", new Dictionary<string, object>()
+                {
+                    ["title"] = "",
+                    ["url"] = string.IsNullOrEmpty(assetPth) ? null: PathHelper.GetAssetBackupWEBURL(assetPth),
+                })*/
+                    new InParamsPopupSystemLoading()
+                    {
+                        title = "",
+                        url = string.IsNullOrEmpty(assetPth) ? null : PathHelper.GetAssetBackupWEBURL(assetPth),
+                    }
+
+                );
 
 
 

@@ -119,17 +119,27 @@ namespace ConsoleSlot98000000
         public async void OnClickSetPassword()
         {
 
-            EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleKeyboard001,
-                new EventData<Dictionary<string, object>>("",
+            OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleKeyboard001,
+                /*new EventData<Dictionary<string, object>>("",
                     new Dictionary<string, object>()
                     {
                         ["title"] = I18nMgr.T(titleRestPwd),
                         ["isPlaintext"] = false,
-                    }));
+                    })
+                */
 
-            if (res.value != null)
+                new InParamsPopupConsoleKeyboard001()
+                {
+                    title = I18nMgr.T(titleRestPwd),
+                    isPlaintext = false,
+                }
+            );
+
+            if (res!= null && res.code == 0)
             {
-                string pwd = (string)res.value;
+                var result = res as OutParamsPopupConsoleKeyboard001;
+
+                string pwd = result.value;
                 DebugUtils.Log($"键盘输入结果 ：{pwd}");
 
                 TryGoBackPermissions();  // 尝试放回旧的用户权限
@@ -184,7 +194,8 @@ namespace ConsoleSlot98000000
                         };
 
 
-                        EventData res1 = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSetParameter002,
+                        OutParamsBase res1 = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSetParameter002,
+                                /*
                                 new EventData<Dictionary<string, object>>("",
                                 new Dictionary<string, object>()
                                 {
@@ -193,15 +204,27 @@ namespace ConsoleSlot98000000
                                     ["paramName2"] = I18nMgr.T("confirm new password:"),
                                     ["checkParam1Func"] = checkPassword01Func,
                                     ["checkParam2Func"] = checkPassword02Func,
+                                })
+                                */
+                                new InParamsPopupConsoleSetParameter002()
+                                {
+                                    title = I18nMgr.T(titleRestPwd),
+                                    paramName1 = I18nMgr.T("input new password:"),
+                                    paramName2 = I18nMgr.T("confirm new password:"),
+                                    checkParam1Func = checkPassword01Func,
+                                    checkParam2Func = checkPassword02Func,
                                 }
-                            ));
 
 
-                        if (res1.value != null)
+                                );
+
+
+                        if (res1 != null && res1.code == 0)
                         {
-                            List<string> lst = (List<string>)res1.value;
-                            string pwd01 = lst[1];
-                            string pwd02 = lst[0];
+                            var result = res1 as OutParamsPopupConsoleSetParameter002;
+
+                            string pwd01 = result.paramValue1;
+                            string pwd02 = result.paramValue2;
 
                             if (pwd02 != pwd01)
                             {

@@ -7,9 +7,22 @@ using IKeyboard = CommonConsoleCoinPusher.IKeyboard;
 
 
 
-
 namespace ConsoleCoinPusher97000000
 {
+    public class InParamsPageConsoleSetParameter001 : InParamsBase
+    {
+        public string title;
+        public string paramName1;
+        public string paramValue1;
+        public bool isNumber;
+
+    }
+
+    public class OutParamsPageConsoleSetParameter001 : OutParamsBase
+    {
+        public string paramValue1;
+    }
+
     public class PageConsoleSetParameter001 : MachinePageBase
     {
         public const string pkgName = "ConsoleCoinPusher97000000";
@@ -45,7 +58,7 @@ namespace ConsoleCoinPusher97000000
 
         string Password,title2;
         
-        bool isShuRu,isChangPassword;
+        bool isShuRu,isChangPassword = false;
 
         Dictionary<int, string> menuMap;
         GObject tip;
@@ -120,20 +133,25 @@ namespace ConsoleCoinPusher97000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             if (data != null)
             {
+                var inp = data as InParamsPageConsoleSetParameter001;
+                PageTitleManager.Instance.AddPageNode(inp.title);
+
+                /*
                 Dictionary<string, object> argDic = (Dictionary<string, object>)data.value;
                 if (argDic.ContainsKey("title"))
                 {
                     PageTitleManager.Instance.AddPageNode((string)argDic["title"]);
                 }
+                */
             }
             base.OnOpen(name, data);
             InitParam();
         }
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             PageTitleManager.Instance.RemoveLastPageNode();
             base.OnClose(data);
@@ -239,10 +257,48 @@ namespace ConsoleCoinPusher97000000
             goMenu.touchable = true;
             Clear(false);
             isChangPassword = false;
-            Dictionary<string, object> argDic = null;
+      
             if (inParams != null)
             {
-                argDic = (Dictionary<string, object>)inParams.value;
+                var inp = inParams as InParamsPageConsoleSetParameter001;
+
+                /*
+                if ((string)argDic["parameter1"] == I18nMgr.T("Enter Password"))
+                {
+                    Password = (string)argDic["parameter1Value"];
+                    isChangPassword = true;
+                    Set1 = "";
+                }*/
+
+                /*
+                if (inp.paramName1)
+                {
+
+
+                }*/
+
+                if (!string.IsNullOrEmpty(inp.paramValue1))
+                {
+                    Set1 = inp.paramValue1;
+                }
+
+                if (inp.isNumber)
+                {
+                    kbNumberCtrl.goOwnerKeyboard.visible = true;
+                    kbCtrl.goOwnerKeyboard.visible = false;
+
+                    curKB = kbNumberCtrl;
+                }
+                else
+                {
+                    kbNumberCtrl.goOwnerKeyboard.visible = false;
+                    kbCtrl.goOwnerKeyboard.visible = true;
+                    curKB = kbCtrl;
+                }
+
+
+                /*
+                Dictionary<string, object> argDic = (Dictionary<string, object>)inParams.value;
 
                 if (argDic.ContainsKey("title2"))
                 {
@@ -285,7 +341,7 @@ namespace ConsoleCoinPusher97000000
                     kbCtrl.goOwnerKeyboard.visible = true;
                     curKB = kbCtrl;
                 }
-
+                */
             }
 
 
@@ -402,39 +458,48 @@ namespace ConsoleCoinPusher97000000
 
 
 
-        async void Sure()
+        //async void Sure()
+        void Sure()
         {
-            if (isChangPassword)
+            DebugUtils.LogError("待完善");
+            /*
+        if (isChangPassword)
+        {
+            if (Set1 == Password)
             {
-                if (Set1 == Password)
-                {
-                    EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePusher97000000PageConsoleSetParameter002,
-                          new EventData<Dictionary<string, object>>("",
-                              new Dictionary<string, object>()
-                              {
-                                  ["title"] = "/" + I18nMgr.T("Set") + "/" + title2,
-                                  ["parameter1"] = I18nMgr.T("input new password:"),
-                                  ["parameter2"] = I18nMgr.T("confirm new password:"),
-                              }
-                          ));
-                    CloseSelf(null);
+                OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePusher97000000PageConsoleSetParameter002,
+                      new EventData<Dictionary<string, object>>("",
+                          new Dictionary<string, object>()
+                          {
+                              ["title"] = "/" + I18nMgr.T("Set") + "/" + title2,
+                              ["parameter1"] = I18nMgr.T("input new password:"),
+                              ["parameter2"] = I18nMgr.T("confirm new password:"),
+                          }
+                      ));
+                CloseSelf(null);
 
-                }
-                else
-                {
-                    tip.text = I18nMgr.T("Error Password");
-                }
             }
             else
             {
-                CloseSelf(new EventData<Dictionary<string, object>>("",
-                           new Dictionary<string, object>()
-                           {
-                               ["value1"] = Set1,
-                           }
-                           ));
-
+                tip.text = I18nMgr.T("Error Password");
             }
+        }
+        else
+        {
+            CloseSelf(new EventData<Dictionary<string, object>>("",
+                       new Dictionary<string, object>()
+                       {
+                           ["value1"] = Set1,
+                       }
+                       ));
+
+        }
+            */
+         CloseSelf(
+             new OutParamsPageConsoleSetParameter001()
+             {
+                 paramValue1 = Set1
+             });
         }
 
 

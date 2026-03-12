@@ -9,6 +9,11 @@ using SpringGUI;
 
 namespace ConsoleSlot98000000
 {
+    public  class OutParamsPopupConsoleCalendar: OutParamsBase
+    {
+        public string date;
+        public long timestamp;
+    }
     public class PopupConsoleCalendar : PageBase
     {
         public const string pkgName = "ConsoleSlot98000000";
@@ -39,7 +44,7 @@ namespace ConsoleSlot98000000
 
         }
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -66,14 +71,16 @@ namespace ConsoleSlot98000000
             btnClose.onClick.Clear();
             btnClose.onClick.Add(() =>
             {
-                CloseSelf(new EventData("Exit"));
+                //CloseSelf(new EventData("Exit"));
+                CloseSelf(null);
             });
 
             btnCancel = this.contentPane.GetChild("button1").asButton;
             btnCancel.onClick.Clear();
             btnCancel.onClick.Add(() =>
             {
-                CloseSelf(new EventData("Exit"));
+                //CloseSelf(new EventData("Exit"));
+                CloseSelf(null);
             });
 
 
@@ -81,12 +88,21 @@ namespace ConsoleSlot98000000
             btnSave.onClick.Clear();
             btnSave.onClick.Add(() =>
             {
+                /*
                 Dictionary<string, object> result = new Dictionary<string, object>()
                 {
                     ["date"] = calendarCtrl.GetLastSelectDate(),
                     ["timestamp"] = calendarCtrl.GetLastSelectTimestamp(),
                 };
                 CloseSelf(new EventData<Dictionary<string, object>>("Result", result));
+                */
+
+                CloseSelf(new OutParamsPopupConsoleCalendar()
+                {
+                    date = calendarCtrl.GetLastSelectDate(),
+                    timestamp = calendarCtrl.GetLastSelectTimestamp(),
+                });
+
             });
 
             //calendarView.InitParam(this.contentPane); // 注入ui的实例

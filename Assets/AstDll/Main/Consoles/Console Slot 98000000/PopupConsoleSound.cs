@@ -30,7 +30,7 @@ namespace ConsoleSlot98000000
             callback();
         }
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -60,7 +60,8 @@ namespace ConsoleSlot98000000
             btnClose =  this.contentPane.GetChild("btnExit").asButton;
             btnClose.onClick.Clear();
             btnClose.onClick.Add(() => {
-                CloseSelf(new EventData("Exit"));
+                //#seaweed# CloseSelf( new EventData("Exit"));
+                CloseSelf(null);
             });
 
             sldSoundEff = this.contentPane.GetChild("soundSlider").asSlider;

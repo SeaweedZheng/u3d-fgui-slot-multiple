@@ -371,13 +371,20 @@ namespace CoinPusherRichLegend2001000
 
                 //DebugUtils.LogError($"中游戏彩金数据： JackpotWinInfo = {JsonConvert.SerializeObject(jpWin)} ");
                 PageManager.Instance.OpenPageAsync(PageName.RichLegend2001000PopupJackpotGame,
-                    new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
+                    /*new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
                     {
                         ["jackpotId"] = jpWin.id,
                         ["totalEarnCredit"] = jpWin.winCredit,
                         ["onJPPoolSubCredit"] = onJPPoolSubCredit,
                        // ["jpCredit"] = jpCredit,
                     }),
+                    */
+                    new InParamsPopupJackpotGame()
+                    {
+                        jackpotId = jpWin.id,
+                        totalEarnCredit = jpWin.winCredit,
+                        onJPPoolSubCredit = onJPPoolSubCredit,
+                    },
                     (res) =>
                     {
                         isNext = true;

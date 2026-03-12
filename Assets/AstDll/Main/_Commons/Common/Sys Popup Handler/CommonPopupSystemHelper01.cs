@@ -5,7 +5,8 @@ public class CommonPopupSystemHelper01 : IComomonPopupHandler
     PopupSystemCommon popup;
     public void OpenPopup(CommonPopupInfo info) {
         PageManager.Instance.OpenPage(PageName.CommonPopupSystemCommon, 
-            new EventData<CommonPopupInfo>("Null", info) ,
+            //new EventData<CommonPopupInfo>("Null", info) ,
+            new InParamsPopupSystemCommon() { value = info },
             (PageBase win) => {
                 popup = win as PopupSystemCommon;
             }
@@ -17,7 +18,7 @@ public class CommonPopupSystemHelper01 : IComomonPopupHandler
             DebugUtils.LogError("popup is null");
             return;
         }
-        popup.SetContent(new EventData<CommonPopupInfo>("Null", info));
+        popup.SetContent(new InParamsPopupSystemCommon() { value = info });
     }
     public void ClosePopup() {
 

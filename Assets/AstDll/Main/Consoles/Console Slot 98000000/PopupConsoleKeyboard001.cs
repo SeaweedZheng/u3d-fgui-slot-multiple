@@ -7,6 +7,27 @@ using UnityEngine;
 
 namespace ConsoleSlot98000000
 {
+    public class InParamsPopupConsoleKeyboard001 : InParamsBase
+    {
+        /*
+        public InParamsPopupConsoleKeyboard001(string title, bool isPlaintext=false, string content="")
+        {
+            this.title = title;
+            this.isPlaintext = isPlaintext;
+            this.content = content;
+        }*/
+        /// <summary> 抬头 </summary>
+        public string title = "";
+        /// <summary> 是否明文 </summary>
+        public bool isPlaintext;
+        /// <summary> 显示内容 </summary>
+        public string content = "";
+    }
+
+    public class OutParamsPopupConsoleKeyboard001 : OutParamsBase
+    {
+        public string value;
+    }
     public class PopupConsoleKeyboard001 : PageBase
     {
         public const string pkgName = "ConsoleSlot98000000";
@@ -21,7 +42,7 @@ namespace ConsoleSlot98000000
 
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             //info = data;
             base.OnOpen(name, data);
@@ -57,7 +78,7 @@ namespace ConsoleSlot98000000
             {
                 //CloseSelf(null);
                 //PageManager.Instance.ClosePage(this, new EventData("Exit"));
-                CloseSelf(new EventData("Exit"));
+                CloseSelf(null);//CloseSelf(new EventData("Exit"));
             });
 
             txtTitle = this.contentPane.GetChild("title").asTextField;
@@ -70,10 +91,15 @@ namespace ConsoleSlot98000000
 
 
 
-            Dictionary<string, object> argDic = null;
+
             if (inParams != null)
             {
-                argDic = (Dictionary<string, object>)inParams.value;
+                var inp = inParams as InParamsPopupConsoleKeyboard001;
+                title = inp.title;
+                isPlaintext = inp.isPlaintext;
+                inputText = inp.content;
+                /*
+                Dictionary<string, object> argDic = (Dictionary<string, object>)inParams.value;
                 title = (string)argDic["title"];
 
                 if (argDic.ContainsKey("isPlaintext"))
@@ -84,6 +110,7 @@ namespace ConsoleSlot98000000
                 {
                     inputText = (string)argDic["content"];
                 }
+                */
             }
 
             txtTitle.text = title;
@@ -96,8 +123,12 @@ namespace ConsoleSlot98000000
 
         void OnClickButtonOk(string value)
         {
-            //PageManager.Instance.ClosePage(this, new EventData<string>("Result", value));
-            CloseSelf(new EventData<string>("Result", value));
+            //CloseSelf(new EventData<string>("Result", value));
+
+            CloseSelf(new OutParamsPopupConsoleKeyboard001()
+            {
+                value = value
+            });
         }
 
     }

@@ -76,7 +76,7 @@ namespace ConsoleCoinPusher97000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -85,7 +85,7 @@ namespace ConsoleCoinPusher97000000
         }
 
 
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             SBoxIdea.IntoConsolePage(0);
             PageTitleManager.Instance.RemoveLastPageNode();

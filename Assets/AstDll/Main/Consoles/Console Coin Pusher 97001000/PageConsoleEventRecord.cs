@@ -2,10 +2,9 @@ using FairyGUI;
 using System.Collections.Generic;
 using Mono.Data.Sqlite;
 using System;
-using GameMaker;
 using System.Text;
-using UnityEngine;
 using CommonConsoleCoinPusher;
+
 
 namespace ConsoleCoinPusher97001000
 {
@@ -77,13 +76,13 @@ namespace ConsoleCoinPusher97001000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             PageTitleManager.Instance.AddPageNode("Event Record");
             base.OnOpen(name, data);
             InitParam();
         }
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             PageTitleManager.Instance.RemoveLastPageNode();
             base.OnClose(data);
@@ -316,12 +315,17 @@ namespace ConsoleCoinPusher97001000
                     SetAllowToRecordItem(indexItem);
 
                     PageManager.Instance.OpenPage(PageName.ConsolePusher97001000PopupConsoleRecord,
-                      new EventData<Dictionary<string, object>>("",
+                      /*new EventData<Dictionary<string, object>>("",
                           new Dictionary<string, object>()
                           {
                               ["value"] = detail,
                           }
-                      ));
+                      )*/
+                      new InParamsPopupConsoleRecord()
+                      {
+                          value = detail,
+                      }
+                     );
 
                 });
             }
@@ -471,12 +475,18 @@ namespace ConsoleCoinPusher97001000
 
                 int index = int.Parse((string)goRecord.GetChildAt(curIndexRecordItem).asCom.GetChild("value2").data);
                 PageManager.Instance.OpenPage(PageName.ConsolePusher97001000PopupConsoleRecord,
-                  new EventData<Dictionary<string, object>>("",
+                  /*new EventData<Dictionary<string, object>>("",
                       new Dictionary<string, object>()
                       {
                           ["value"] = GetDetail(index),
                       }
-                  ));
+                  )*/
+                  new InParamsPopupConsoleRecord()
+                  {
+                      value = GetDetail(index),
+                  }
+                  
+                  );
                 return;
             }
 

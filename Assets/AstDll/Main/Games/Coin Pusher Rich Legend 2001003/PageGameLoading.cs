@@ -40,7 +40,7 @@ namespace CoinPusherRichLegend2001003
             callback();
         }
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
 

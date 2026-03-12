@@ -5,6 +5,10 @@ using GameMaker;
 
 namespace Common99000000
 {
+    public class InParamPopupSystemMask: InParamsBase
+    {
+        public string message;
+    }
     public class PopupSystemMask : PageBase
     {
         public const string pkgName = "Common99000000";
@@ -17,7 +21,7 @@ namespace Common99000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();

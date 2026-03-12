@@ -55,23 +55,32 @@ public class SettingRecordPresenter
 
     async void OnClickMaxCoinInOutRecord()
     {
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleKeyboard002,
-        new EventData<Dictionary<string, object>>("",
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleKeyboard002,
+        /*new EventData<Dictionary<string, object>>("",
             new Dictionary<string, object>()
             {
                 ["title"] = I18nMgr.T("Max Coin In Out Record"),
                 ["isPlaintext"] = true,
-            }));
+            })*/
+            new ConsoleSlot98000000.InParamsPopupConsoleKeyboard002() 
+            {
+                title = I18nMgr.T("Max Coin In Out Record"),
+                isPlaintext = true,
+            }
+        );
 
-        if (res.value != null)
+
+        if (res != null && res.code == 0)
         {
+            var result = res as ConsoleSlot98000000.OutParamsPopupConsoleKeyboard002;
+
             bool isErr = true;
 
             int minMaxCoinInOutRecord = DefaultSettingsUtils.minMaxCoinInOutRecord;
             int maxMaxCoinInOutRecord = DefaultSettingsUtils.maxMaxCoinInOutRecord;
             try
             {
-                int val = int.Parse((string)res.value);  // (long)res.value;
+                int val = int.Parse(result.value);  // (long)res.value;
 
                 if (val >= minMaxCoinInOutRecord
                     && val <= maxMaxCoinInOutRecord
@@ -97,23 +106,30 @@ public class SettingRecordPresenter
 
     async void OnClickMaxGameRecord()
     {
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleKeyboard002,
-            new EventData<Dictionary<string, object>>("",
-                new Dictionary<string, object>()
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleKeyboard002,
+                /*new EventData<Dictionary<string, object>>("",
+                    new Dictionary<string, object>()
+                    {
+                        ["title"] = I18nMgr.T("Max Game Record"),
+                        ["isPlaintext"] = true,
+                    })*/
+                new ConsoleSlot98000000.InParamsPopupConsoleKeyboard002()
                 {
-                    ["title"] = I18nMgr.T("Max Game Record"),
-                    ["isPlaintext"] = true,
-                }));
+                    title = I18nMgr.T("Max Game Record"),
+                    isPlaintext = true,
+                }
+            );
 
-        if (res.value != null)
+        if (res != null && res.code == 0)
         {
+            var result = res as ConsoleSlot98000000.OutParamsPopupConsoleKeyboard002;
             bool isErr = true;
 
             int minMaxGameRecord = DefaultSettingsUtils.minMaxGameRecord;
             int maxMaxGameRecord = DefaultSettingsUtils.maxMaxGameRecord;
             try
             {
-                int val = int.Parse((string)res.value);  // (long)res.value;
+                int val = int.Parse(result.value);  // (long)res.value;
 
                 if (val >= minMaxGameRecord
                     && val <= maxMaxGameRecord
@@ -137,23 +153,32 @@ public class SettingRecordPresenter
 
     async void OnClickMaxEventRecord()
     {
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleKeyboard002,
-            new EventData<Dictionary<string, object>>("",
-                new Dictionary<string, object>()
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleKeyboard002,
+                /*new EventData<Dictionary<string, object>>("",
+                    new Dictionary<string, object>()
+                    {
+                        ["title"] = I18nMgr.T("Max Event Record"),
+                        ["isPlaintext"] = true,
+                    })*/
+                new ConsoleSlot98000000.InParamsPopupConsoleKeyboard002()
                 {
-                    ["title"] = I18nMgr.T("Max Event Record"),
-                    ["isPlaintext"] = true,
-                }));
+                    title = I18nMgr.T("Max Event Record"),
+                    isPlaintext = true,
+                }
 
-        if (res.value != null)
+            );
+
+        if (res != null && res.code == 0)
         {
+            var result = res as ConsoleSlot98000000.OutParamsPopupConsoleKeyboard002;
+
             bool isErr = true;
 
             int minMaxRecord = DefaultSettingsUtils.minMaxEventRecord;
             int maxMaxRecord = DefaultSettingsUtils.maxMaxEventRecord;
             try
             {
-                int val = int.Parse((string)res.value);  // (long)res.value;
+                int val = int.Parse(result.value);  // (long)res.value;
 
                 if (val >= minMaxRecord
                     && val <= maxMaxRecord
@@ -180,23 +205,31 @@ public class SettingRecordPresenter
 
     async void OnClickMaxErrorRecord()
     {
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleKeyboard002,
-            new EventData<Dictionary<string, object>>("",
-                new Dictionary<string, object>()
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleKeyboard002,
+                /*new EventData<Dictionary<string, object>>("",
+                    new Dictionary<string, object>()
+                    {
+                        ["title"] = I18nMgr.T("Max Warning Record"),
+                        ["isPlaintext"] = true,
+                    })*/
+                new ConsoleSlot98000000.InParamsPopupConsoleKeyboard002()
                 {
-                    ["title"] = I18nMgr.T("Max Warning Record"),
-                    ["isPlaintext"] = true,
-                }));
+                    title = I18nMgr.T("Max Warning Record"),
+                    isPlaintext = true,
+                }
+            );
 
-        if (res.value != null)
+        if (res != null && res.code == 0)
         {
+            var result = res as ConsoleSlot98000000.OutParamsPopupConsoleKeyboard002;
+
             bool isErr = true;
 
             int minMaxRecord = DefaultSettingsUtils.minMaxErrorRecord;
             int maxMaxRecord = DefaultSettingsUtils.maxMaxErrorRecord;
             try
             {
-                int val = int.Parse((string)res.value);  // (long)res.value;
+                int val = int.Parse(result.value);  // (long)res.value;
 
                 if (val >= minMaxRecord
                     && val <= maxMaxRecord
@@ -219,23 +252,32 @@ public class SettingRecordPresenter
 
     async void OnClickMaxBusinessDayRecord()
     {
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleKeyboard002,
-            new EventData<Dictionary<string, object>>("",
-                new Dictionary<string, object>()
-                {
-                    ["title"] = I18nMgr.T("Max Business Day Record"),
-                    ["isPlaintext"] = true,
-                }));
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleKeyboard002,
+                /*new EventData<Dictionary<string, object>>("",
+                    new Dictionary<string, object>()
+                    {
+                        ["title"] = I18nMgr.T("Max Business Day Record"),
+                        ["isPlaintext"] = true,
+                    })*/
 
-        if (res.value != null)
+                new ConsoleSlot98000000.InParamsPopupConsoleKeyboard002()
+                {
+                    title = I18nMgr.T("Max Business Day Record"),
+                    isPlaintext = true,
+                }
+            );
+
+        if (res != null && res.code == 0)
         {
+            var result = res as ConsoleSlot98000000.OutParamsPopupConsoleKeyboard002;
+
             bool isErr = true;
 
             int minMaxRecord = DefaultSettingsUtils.minMaxBusinessDayRecord;
             int maxMaxRecord = DefaultSettingsUtils.maxMaxBusinessDayRecord;
             try
             {
-                int val = int.Parse((string)res.value);  // (long)res.value;
+                int val = int.Parse(result.value);  // (long)res.value;
 
                 if (val >= minMaxRecord
                     && val <= maxMaxRecord

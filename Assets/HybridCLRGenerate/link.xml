@@ -310,6 +310,7 @@
     <type fullname="System.Action" preserve="all" />
     <type fullname="System.Action`1" preserve="all" />
     <type fullname="System.Action`2" preserve="all" />
+    <type fullname="System.Action`7" preserve="all" />
     <type fullname="System.Activator" preserve="all" />
     <type fullname="System.ArgumentException" preserve="all" />
     <type fullname="System.Array" preserve="all" />

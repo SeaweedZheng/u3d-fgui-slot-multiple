@@ -7,6 +7,18 @@ using UnityEngine;
 
 namespace ConsoleSlot98000000
 {
+    public class InParamsPopupConsoleKeyboard002 : InParamsBase
+    {
+        public string title;
+        public bool isPlaintext;
+        public string content;
+    }
+    public class OutParamsPopupConsoleKeyboard002 : OutParamsBase
+    {
+        public string value;
+    }
+
+
     public class PopupConsoleKeyboard002 : PageBase
     {
         public const string pkgName = "ConsoleSlot98000000";
@@ -19,7 +31,7 @@ namespace ConsoleSlot98000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -51,9 +63,19 @@ namespace ConsoleSlot98000000
             txtInput = this.contentPane.GetChild("input").asCom.GetChild("title").asTextField;
             btnInput = this.contentPane.GetChild("input").asButton;
 
-            Dictionary<string, object> argDic = null;
+
             if (inParams != null)
             {
+                var inp = inParams as InParamsPopupConsoleKeyboard002;
+                title = inp.title;
+                isPlaintext = inp.isPlaintext;
+                if (!string.IsNullOrEmpty(inp.content))
+                {
+                    inputText = inp.content;
+                }
+
+                /*
+                Dictionary<string, object> argDic = null;
                 argDic = (Dictionary<string, object>)inParams.value;
                 title = (string)argDic["title"];
 
@@ -65,6 +87,7 @@ namespace ConsoleSlot98000000
                 {
                     inputText = (string)argDic["content"];
                 }
+                */
             }
 
 
@@ -77,12 +100,18 @@ namespace ConsoleSlot98000000
 
         void OnClickButtonOk(string value)
         {
-            CloseSelf(new EventData<string>("Result", value));
+           // CloseSelf(new EventData<string>("Result", value));
+
+            CloseSelf(new OutParamsPopupConsoleKeyboard002()
+            {
+                value = value
+            });
         }
 
         void OnClickButtonExit()
         {
-            CloseSelf(new EventData("Exit"));
+            // CloseSelf(new EventData("Exit"));
+            CloseSelf(null);
         }
     }
 }

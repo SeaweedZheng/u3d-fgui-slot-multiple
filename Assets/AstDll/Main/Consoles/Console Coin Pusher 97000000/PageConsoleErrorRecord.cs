@@ -6,6 +6,7 @@ using GameMaker;
 using System.Text;
 using CommonConsoleCoinPusher;
 
+
 namespace ConsoleCoinPusher97000000
 {
     public class PageConsoleErrorRecord : MachinePageBase
@@ -75,13 +76,13 @@ namespace ConsoleCoinPusher97000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             PageTitleManager.Instance.AddPageNode("Warning Record");
             base.OnOpen(name, data);
             InitParam();
         }
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             PageTitleManager.Instance.RemoveLastPageNode();
             base.OnClose(data);
@@ -309,12 +310,17 @@ namespace ConsoleCoinPusher97000000
                     SetAllowToRecordItem(indexItem);
 
                     PageManager.Instance.OpenPage(PageName.ConsolePusher97000000PopupConsoleRecord,
-                      new EventData<Dictionary<string, object>>("",
+                      /*new EventData<Dictionary<string, object>>("",
                           new Dictionary<string, object>()
                           {
                               ["value"] = detail,
                           }
-                      ));
+                      )*/
+                      new InParamsPopupConsoleRecord()
+                      {
+                          value = detail,
+                      }
+                     );
 
                 });
             }
@@ -466,12 +472,17 @@ namespace ConsoleCoinPusher97000000
 
                 int index = int.Parse((string)goRecord.GetChildAt(curIndexRecordItem).asCom.GetChild("value2").data);
                 PageManager.Instance.OpenPage(PageName.ConsolePusher97000000PopupConsoleRecord,
-                  new EventData<Dictionary<string, object>>("",
+                  /*new EventData<Dictionary<string, object>>("",
                       new Dictionary<string, object>()
                       {
                           ["value"] = GetDetail(index),
                       }
-                  ));
+                  )*/
+                  new InParamsPopupConsoleRecord()
+                  {
+                      value = GetDetail(index),
+                  }
+                  );
                 return;
             }
 

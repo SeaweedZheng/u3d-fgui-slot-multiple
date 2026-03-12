@@ -6,7 +6,7 @@ using UnityEngine;
 
 
 
-public interface IVGameRecordRecord
+public interface IVGameRecord
 {
 
     event Action<string,long,string,string,string,long,long> onSelectClassify;  //游戏类型，游戏id,本局类型，中奖类型，开始时间，结束时间
@@ -24,10 +24,14 @@ public interface IVGameRecordRecord
     void SetSelectDateIndex(int index);
     void SetContent(TableGameRecordItem content, int curPageIndex, int pageCount);
 }
+
+/// <summary>
+/// 【即将废弃】
+/// </summary>
 public class GameRecordPresenter
 {
 
-    IVGameRecordRecord _view;
+    IVGameRecord _view;
 
     List<string> dropdownDateLstGameRecord;
     int curPageIndex = 0;
@@ -35,7 +39,7 @@ public class GameRecordPresenter
     const string FORMAT_DATE_DAY = "yyyy-MM-dd";
     TableGameRecordItem curGame;
 
-    public void InitParam(IVGameRecordRecord view)
+    public void InitParam(IVGameRecord view)
     {
         if (this._view != null)
         {
@@ -53,8 +57,19 @@ public class GameRecordPresenter
         InitGameRecordInfo();
     }
 
+
+    TotalGameFilterOptions totalGameFilter;
+
     void InitGameRecordInfo()
     {
+        // 总的游戏分类信息
+        GameRecordFilterManager.Instance.GetAllFilterOptions((TotalGameFilterOptions info) =>
+        {
+            totalGameFilter = info;
+        });
+
+
+
 
 
         string sql = $"SELECT created_at FROM {ConsoleTableName.TABLE_GAME_RECORD}";
@@ -106,7 +121,7 @@ public class GameRecordPresenter
     {
         bool isAll = gameType==null && gameId==null && turnType==null && hitJackpotType==null && hitBonusType == null &&  startTime == null && endTime==null;
 
-        GetTotalFilterCondition(gameType, gameId, turnType, hitJackpotType, hitBonusType, startTime, endTime);
+        GameRecordFilterManager.Instance.GetTotalFilterCondition(gameType, gameId, turnType, hitJackpotType, hitBonusType, startTime, endTime);
 
         string sql = $"SELECT created_at FROM {ConsoleTableName.TABLE_GAME_RECORD}";
 
@@ -297,75 +312,8 @@ public class GameRecordPresenter
 
     }
 
-    string GetTotalFilterCondition(string gameType, long? gameId, string turnType, string hitJackpotType, string hitBonusType, long? startTime, long? endTime) { 
 
 
-        totalFilterCondition = "";
-        // 游戏类型（字符串替换方式）
-        if (!string.IsNullOrEmpty(gameType))
-        {
-            totalFilterCondition += " AND game_type = @GameType";
-            totalFilterCondition = totalFilterCondition.Replace("@GameType", EscapeSqlString(gameType));
-        }
-
-        // 游戏ID（字符串替换方式）
-        if (gameId.HasValue)
-        {
-            totalFilterCondition += " AND game_id = @GameId";
-            totalFilterCondition = totalFilterCondition.Replace("@GameId", gameId.Value.ToString());
-        }
-
-        // 回合类型（字符串替换方式）
-        if (!string.IsNullOrEmpty(turnType))
-        {
-            totalFilterCondition += " AND turn_type = @TurnType";
-            totalFilterCondition = totalFilterCondition.Replace("@TurnType", EscapeSqlString(turnType));
-        }
-
-        // 中奖类型（字符串替换方式）
-        if (!string.IsNullOrEmpty(hitJackpotType))
-        {
-            totalFilterCondition += " AND hit_jackpot_type = @HitJackpotType";
-            totalFilterCondition = totalFilterCondition.Replace("@HitJackpotType", EscapeSqlString(hitJackpotType));
-        }
-
-        // 奖励类型（字符串替换方式）
-        if (!string.IsNullOrEmpty(hitBonusType))
-        {
-            totalFilterCondition += " AND hit_bonus_type = @HitBonusType";
-            totalFilterCondition = totalFilterCondition.Replace("@HitBonusType", EscapeSqlString(hitBonusType));
-        }
-
-        // 开始时间（字符串替换方式）
-        if (startTime.HasValue)
-        {
-            totalFilterCondition += " AND created_at >= @StartTime";
-            totalFilterCondition = totalFilterCondition.Replace("@StartTime", startTime.Value.ToString());
-        }
-
-        // 结束时间（字符串替换方式）
-        if (endTime.HasValue)
-        {
-            totalFilterCondition += " AND created_at <= @EndTime";
-            totalFilterCondition = totalFilterCondition.Replace("@EndTime", endTime.Value.ToString());
-        }
-
-
-        if (string.IsNullOrEmpty(totalFilterCondition))
-        {
-            totalFilterCondition = $" 1=1 {totalFilterCondition}";
-        }
-
-        return totalFilterCondition;
-    }
-
-    private string EscapeSqlString(string input)
-    {
-        if (string.IsNullOrEmpty(input))
-            return "''";
-        // SQLite中字符串用单引号包裹，需要转义输入中的单引号（两个单引号表示一个）
-        return "'" + input.Replace("'", "''") + "'";
-    }
 
     private void OnClickNextPage()
     {

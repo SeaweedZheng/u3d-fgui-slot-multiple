@@ -7,6 +7,11 @@ using GameMaker;
 
 namespace Common99000000
 {
+    public class InParamsPopupSystemToast : InParamsBase
+    {
+        public string message;
+    }
+
     public class PopupSystemToast : PageBase
     {
         public const string pkgName = "Common99000000";
@@ -19,7 +24,7 @@ namespace Common99000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -51,10 +56,17 @@ namespace Common99000000
         }
 
 
-        public void ShowTip(EventData data)
+        public void ShowTip(InParamsBase data)
         {
-            string msg = (string)data.value;
-            AddItem(msg);
+            //string msg = (string)data.value;
+            //AddItem(msg);
+
+            if (data != null)
+            {
+                var inp = data as InParamsPopupSystemToast;
+                AddItem(inp.message);
+            }
+
         }
 
         public bool Contains(string msg)
@@ -175,7 +187,7 @@ namespace Common99000000
 
         }
 
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             base.OnClose(data);
             if (tCheckItemRemove != null)

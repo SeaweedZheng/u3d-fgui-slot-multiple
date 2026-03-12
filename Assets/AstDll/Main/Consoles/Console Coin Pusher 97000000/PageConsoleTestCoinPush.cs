@@ -76,7 +76,7 @@ namespace ConsoleCoinPusher97000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             PageTitleManager.Instance.AddPageNode("Coin Pusher Test");
             base.OnOpen(name, data);
@@ -84,7 +84,7 @@ namespace ConsoleCoinPusher97000000
             //EventCenter.Instance.AddEventListener<int>(SBoxEventHandle.SBOX_COIN_PUSH_CONSOLE_RETURN_COIN, changReturnCoin);
             InitParam();
         }
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             PageTitleManager.Instance.RemoveLastPageNode();
             //EventCenter.Instance.RemoveEventListener<int>(SBoxEventHandle.SBOX_COIN_PUSH_CONSOLE_TOGGLE_TOP_COIN_IN, changDownCoin);

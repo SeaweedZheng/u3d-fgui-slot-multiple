@@ -4,11 +4,25 @@ using System;
 using System.Collections.Generic;
 using CommonConsoleCoinPusher;
 using IKeyboard = CommonConsoleCoinPusher.IKeyboard;
+using ConsoleCoinPusher97000000;
 
 
 
 namespace ConsoleCoinPusher97001000
 {
+    public class InParamsPageConsoleSetParameter001 : InParamsBase
+    {
+        public string title;
+        public string paramName1;
+        public string paramValue1;
+        public bool isNumber;
+
+    }
+    public class OutParamsPageConsoleSetParameter001 : OutParamsBase
+    {
+        public string paramValue1;
+    }
+
     public class PageConsoleSetParameter001 : MachinePageBase
     {
         public const string pkgName = "ConsoleCoinPusher97001000";
@@ -119,20 +133,25 @@ namespace ConsoleCoinPusher97001000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             if (data != null)
             {
+                var inp = inParams as InParamsPageConsoleSetParameter001;
+                PageTitleManager.Instance.AddPageNode(inp.title);
+
+                /*
                 Dictionary<string, object> argDic = (Dictionary<string, object>)data.value;
                 if (argDic.ContainsKey("title"))
                 {
                     PageTitleManager.Instance.AddPageNode((string)argDic["title"]);
                 }
+                */
             }
             base.OnOpen(name, data);
             InitParam();
         }
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             PageTitleManager.Instance.RemoveLastPageNode();
             base.OnClose(data);
@@ -242,6 +261,32 @@ namespace ConsoleCoinPusher97001000
             Dictionary<string, object> argDic = null;
             if (inParams != null)
             {
+      
+                var inp = inParams as InParamsPageConsoleSetParameter001;
+
+
+                if (!string.IsNullOrEmpty(inp.paramValue1))
+                {
+                    Set1 = inp.paramValue1;
+                }
+
+                if (inp.isNumber)
+                {
+                    kbNumberCtrl.goOwnerKeyboard.visible = true;
+                    kbCtrl.goOwnerKeyboard.visible = false;
+
+                    curKB = kbNumberCtrl;
+                }
+                else
+                {
+                    kbNumberCtrl.goOwnerKeyboard.visible = false;
+                    kbCtrl.goOwnerKeyboard.visible = true;
+                    curKB = kbCtrl;
+                }
+
+
+
+                /*
                 argDic = (Dictionary<string, object>)inParams.value;
 
                 if (argDic.ContainsKey("title2"))
@@ -285,7 +330,7 @@ namespace ConsoleCoinPusher97001000
                     kbCtrl.goOwnerKeyboard.visible = true;
                     curKB = kbCtrl;
                 }
-
+                */
             }
 
 
@@ -402,13 +447,15 @@ namespace ConsoleCoinPusher97001000
 
 
 
-        async void Sure()
+        //async void Sure()
+        void Sure()
         {
+            /*
             if (isChangPassword)
             {
                 if (Set1 == Password)
                 {
-                    EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePusher97000000PageConsoleSetParameter002,
+                    OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePusher97000000PageConsoleSetParameter002,
                           new EventData<Dictionary<string, object>>("",
                               new Dictionary<string, object>()
                               {
@@ -435,6 +482,12 @@ namespace ConsoleCoinPusher97001000
                            ));
 
             }
+            */
+            CloseSelf(
+            new OutParamsPageConsoleSetParameter001()
+            {
+                paramValue1 = Set1
+            });
         }
 
 

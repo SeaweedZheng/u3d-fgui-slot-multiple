@@ -9,6 +9,21 @@ using UnityEngine;
 
 namespace ConsoleSlot98000000
 {
+
+    public class InParamsPopupConsoleSetParameter002 : InParamsBase
+    {
+        public string title;
+        public string paramName1;
+        public string paramName2;
+        public Func<string, string> checkParam1Func;
+        public Func<string, string> checkParam2Func;
+    }
+
+    public class OutParamsPopupConsoleSetParameter002 : OutParamsBase
+    {
+        public string paramValue1;
+        public string paramValue2;
+    }
     public class PopupConsoleSetParameter002 : PageBase
     {
         public const string pkgName = "ConsoleSlot98000000";
@@ -21,7 +36,7 @@ namespace ConsoleSlot98000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -51,7 +66,7 @@ namespace ConsoleSlot98000000
             btnClose.onClick.Add(() =>
             {
                 //DebugUtils.Log("i am here 123");
-                CloseSelf(new EventData("Exit"));
+                CloseSelf(null);//CloseSelf(new EventData("Exit"));
             });
 
 
@@ -87,10 +102,21 @@ namespace ConsoleSlot98000000
 
             ClearParam();
 
-            Dictionary<string, object> argDic = null;
+    
+
             if (inParams != null)
             {
-                argDic = (Dictionary<string, object>)inParams.value;
+
+                var inp = inParams as InParamsPopupConsoleSetParameter002;
+
+                rtxtTitle.text = inp.title;
+                rtxtParam1.text = inp.paramName1;
+                rtxtParam2.text = inp.paramName2;
+                checkParam1Func = inp.checkParam1Func;
+                checkParam2Func = inp.checkParam2Func;
+
+                /*
+                Dictionary<string, object> argDic = (Dictionary<string, object>)inParams.value;
                 if (argDic.ContainsKey("title"))
                 {
                     rtxtTitle.text = (string)argDic["title"];
@@ -113,11 +139,12 @@ namespace ConsoleSlot98000000
                 {
                     checkParam2Func = (Func<string, string>)argDic["checkParam2Func"];
                 }
+                */
             }
 
         }
 
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             ClearParam();
 
@@ -157,9 +184,13 @@ namespace ConsoleSlot98000000
                 return;
             }
 
-            List<string> list = new List<string>() { compInputCtrl1.value, compInputCtrl2.value };
-            PageManager.Instance.ClosePage(this, new EventData<List<string>>("Result", list));
-
+            //List<string> list = new List<string>() { compInputCtrl1.value, compInputCtrl2.value };
+            //PageManager.Instance.ClosePage(this, new EventData<List<string>>("Result", list));
+            PageManager.Instance.ClosePage(this, new OutParamsPopupConsoleSetParameter002()
+            {
+                paramValue1 = compInputCtrl1.value,
+                paramValue2 = compInputCtrl2.value,
+            });
         }
     }
 

@@ -1,12 +1,12 @@
 {
   "name": "RL2001001",
-  "updated_at": 1772801624322,
+  "updated_at": 1773298299392,
   "hotfix_key": "hf_debug_android_20251216143338",
-  "hotfix_version": "1.0.248",
-  "hash": "0941a5e71f13a9e05ddda599b8107c84",
+  "hotfix_version": "1.0.251",
+  "hash": "e246ba1016cc5b5ec123d1af51facda5",
   "asset_bundle": {
     "manifest": {
-      "hash": "604f905edc7bf26866274641910c0ac7",
+      "hash": "0b29dc9378985a4e2bcccc5002a441aa",
       "size_bytes": 8808
     },
     "bundles": {
@@ -75,16 +75,16 @@
         "size_bytes": 4059
       },
       "games/coin pusher rich legend 2001001/prefabs/page game bonus 1/train.unity3d": {
-        "hash": "ecdac09b55f240c1675958056a76a5ed",
-        "size_bytes": 52798810
+        "hash": "d7a542ff6316ecf0fb3a191e8c44f708",
+        "size_bytes": 52799467
       },
       "games/coin pusher rich legend 2001001/prefabs/page game bonus 2/buttonhand.unity3d": {
         "hash": "44c7a637181703f784dc46c55723893b",
         "size_bytes": 59127
       },
       "games/coin pusher rich legend 2001001/prefabs/page game bonus 2/richmainjump.unity3d": {
-        "hash": "24bce653f6f22e32cad5d1f6594a6812",
-        "size_bytes": 12117
+        "hash": "4ae20e3ec8b9b83d691fa4627dbe11a5",
+        "size_bytes": 2672269
       },
       "games/coin pusher rich legend 2001001/prefabs/popup jackpot game/pop fg jp 1.unity3d": {
         "hash": "a10eed68758367772a75c0fc43e458b3",
@@ -108,8 +108,8 @@
   "asset_dll": {},
   "dependencies": {
     "Main": {
-      "hash": "97836e89cf28e58fc09aac31c12d727b",
-      "hotfix_version": "1.0.248"
+      "hash": "37b25f654911bf27bcaaccbcba42652c",
+      "hotfix_version": "1.0.251"
     }
   }
 }

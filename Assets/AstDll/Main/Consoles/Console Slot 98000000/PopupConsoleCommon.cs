@@ -4,6 +4,8 @@ using FairyGUI;
 
 namespace ConsoleSlot98000000
 {
+    public class InParamsPopupConsoleCommon : InParamsPopupSystemCommon { }
+
     public class PopupConsoleCommon : PageBase
     {
         public const string pkgName = "ConsoleSlot98000000";
@@ -16,7 +18,7 @@ namespace ConsoleSlot98000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -53,10 +55,13 @@ namespace ConsoleSlot98000000
         }
 
         CommonPopupInfo curInfo;
-        public void SetContent(EventData info)
+        public void SetContent(InParamsBase info)
         {
             if (info != null)
-                curInfo = info.value as CommonPopupInfo;
+            {
+                var inp = info as InParamsPopupConsoleCommon;
+                curInfo = inp.value;
+            }
 
             btnClose.visible = false;
 

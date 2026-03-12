@@ -50,7 +50,7 @@ namespace ConsoleSlot98000000
             DebugUtils.Log($"i am top ConsoleMainPage {this.name}");
         }
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();

@@ -7,6 +7,10 @@ using GameMaker;
 
 namespace CoinPusherRichLegend2001001
 {
+    public class InParamsPageGameBonus1 : InParamsBase
+    {
+        public long totalEarnCoins;
+    }
     public class PageGameBonus1 : MachinePageBase
     {
         public const string pkgName = "RichLegend2001001";
@@ -43,7 +47,7 @@ namespace CoinPusherRichLegend2001001
 
         GameObject goTrainClone;
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
 

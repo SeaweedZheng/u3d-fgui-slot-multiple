@@ -213,7 +213,7 @@ public class MetaSystemManager : MonoSingleton<MetaSystemManager>
     [Button]
     void TestShowGameRecord()
     {
-        GameRecordFilterManager.Instance.GetAllFilterEnumValues((res) =>
+        GameRecordFilterManager.Instance.GetAllFilterOptions((res) =>
         {
             DebugUtils.LogError($"Filter = {JsonConvert.SerializeObject(res)}");
         });

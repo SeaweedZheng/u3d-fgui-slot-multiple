@@ -7,6 +7,8 @@ using CommonConsoleCoinPusher;
 
 namespace ConsoleCoinPusher97000000
 {
+    public class InParamsPageConsoleCoder : InParamsConsoleCoderBase { }
+    public class OutParamsPageConsoleCoder : OutParamsConsoleCoderBase { }
     public class PageConsoleCoder : MachinePageBase
     {
 
@@ -65,7 +67,7 @@ namespace ConsoleCoinPusher97000000
                     },
                     [MachineButtonKey.BtnConsole] = (info) =>
                     {
-                        CloseSelf(new EventData("Exit"));
+                        CloseSelf(null);//CloseSelf(new EventData("Exit"));
                     }
                 }
             };
@@ -73,13 +75,13 @@ namespace ConsoleCoinPusher97000000
         }
 
   
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             PageTitleManager.Instance.AddPageNode("Activate Code");
             base.OnOpen(name, data);
             InitParam();
         }
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             PageTitleManager.Instance.RemoveLastPageNode();
             base.OnClose(data);
@@ -123,9 +125,12 @@ namespace ConsoleCoinPusher97000000
                     else
                     {
                         ulong pwd = ulong.Parse(res); //!!!!!
+                        //CloseSelf(new EventData<string>("Result", $"{pwd}"));  //???
 
-                        CloseSelf(new EventData<string>("Result", $"{pwd}"));
-
+                        CloseSelf(new OutParamsPageConsoleCoder()
+                        {
+                            password = $"{pwd}"
+                        });
                     }
                 }
                 catch (Exception e)
@@ -136,7 +141,7 @@ namespace ConsoleCoinPusher97000000
             },
             () =>
             {
-                CloseSelf(new EventData("Exit"));
+                CloseSelf(null);//CloseSelf(new EventData("Exit"));
             });
 
 
@@ -148,10 +153,20 @@ namespace ConsoleCoinPusher97000000
             txtTime = this.contentPane.GetChild("remianTime").asCom.GetChild("title").asRichTextField;
 
 
-            Dictionary<string, object> argDic = null;
             if (inParams != null)
             {
-                argDic = (Dictionary<string, object>)inParams.value;
+                var inp = inParams as InParamsPageConsoleCoder;
+                A = inp.A;
+                B = inp.B;
+                C = inp.C;
+                D = inp.D;
+                E = inp.E;
+                day = inp.day;
+                hour = inp.hour;
+                minute = inp.minute;
+
+                /*
+                Dictionary<string, object>  argDic = (Dictionary<string, object>)inParams.value;
                 A = (string)argDic["A"];
                 B = (string)argDic["B"];
                 C = (string)argDic["C"];
@@ -160,6 +175,7 @@ namespace ConsoleCoinPusher97000000
                 day = (string)argDic["Day"];
                 hour = (string)argDic["Hour"];
                 minute = (string)argDic["Minute"];
+                */
             }
             txtA.text = $"A: {A}";
             txtB.text = $"B: {B}";

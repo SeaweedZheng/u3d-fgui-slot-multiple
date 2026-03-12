@@ -1,5 +1,6 @@
 using GameMaker;
 using ConsoleSlot98000000;
+using Common99000000;
 
 public class MaskPopupHelper01 : IMaskPopupHandel
 {
@@ -9,7 +10,11 @@ public class MaskPopupHelper01 : IMaskPopupHandel
     public void OpenPopup(string info)
     {
         PageManager.Instance.OpenPage(PageName.CommonPopupSystemMask,    //PageName. ConsoleSlot98000000PopupConsoleMask,
-            new EventData<string>("Null", info),
+            //new EventData<string>("Null", info),
+            new InParamPopupSystemMask()
+            {
+                message = info,
+            },
             (PageBase win) => {
                 popup = win as PageBase;
             }

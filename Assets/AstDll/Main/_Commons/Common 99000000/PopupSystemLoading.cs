@@ -7,6 +7,12 @@ using GameMaker;
 
 namespace Common99000000
 {
+    public class InParamsPopupSystemLoading : InParamsBase
+    {
+        public string title;
+        public string url;
+    }
+
     public class PopupSystemLoading : PageBase
     {
         public const string pkgName = "Common99000000";
@@ -42,7 +48,7 @@ namespace Common99000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             EventCenter.Instance.AddEventListener<EventData>(GlobalEvent.ON_SYSTEM_UI_EVENT, OnSystemUIEvent);
@@ -51,7 +57,7 @@ namespace Common99000000
             InitParam();
         }
 
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
 
             // 删除事件监听
@@ -131,6 +137,22 @@ namespace Common99000000
    
             if (inParams != null)
             {
+                var inp = inParams as InParamsPopupSystemLoading;
+                txtTitle.text = inp.title;
+                if (!string.IsNullOrEmpty(inp.url))
+                {
+                    FileLoaderManager.Instance.LoadImageAsTexture(inp.url, (Texture2D texture) =>
+                    {
+                        NTexture nTexture = new NTexture(texture);
+
+                        lodBG.texture = nTexture;
+
+                        //lodBG.fill = FillType.Scale;                                  
+                        //lodBG.fill = FillType.ScaleFree;      // 等比缩放，可能留白                
+                    });
+                }
+
+                /*
                 Dictionary<string, object> argDic = null;
                 argDic = (Dictionary<string, object>)inParams.value;
                 if (argDic.ContainsKey("title"))
@@ -157,6 +179,7 @@ namespace Common99000000
                         //lodBG.url = url;  //unity3d 无法直接加载http图片
                     }
                 }
+                */
             }
         }
     }

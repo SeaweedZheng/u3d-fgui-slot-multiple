@@ -8,7 +8,11 @@ using UnityEngine;
 namespace PusherEmperorsRein
 {
 
-
+    public class InParamsPopupJackpotOnline : InParamsBase
+    {
+        public int jackpotType;
+        public long toCredit;
+    }
     public class PopupJackpotOnline : MachinePageBase
     {
         public const string pkgName = "EmperorsRein";
@@ -51,7 +55,7 @@ namespace PusherEmperorsRein
 
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -104,11 +108,15 @@ namespace PusherEmperorsRein
             GButton button = this.contentPane.GetChild("Button").asButton;
             button.onClick.Clear();
             button.onClick.Add(SpinDown);
-            Dictionary<string, object> argDic = null;
+
             jpCredit.Clear();
             if (inParams != null)
             {
-                argDic = (Dictionary<string, object>)inParams.value;
+                var inp = inParams as InParamsPopupJackpotOnline;
+                jackpotType = inp.jackpotType;
+                sorce = inp.toCredit;
+                /*
+                Dictionary<string, object> argDic = (Dictionary<string, object>)inParams.value;
                 if (argDic.ContainsKey("jackpotType"))
                 {
                     jackpotType = (int)argDic["jackpotType"];
@@ -118,6 +126,7 @@ namespace PusherEmperorsRein
                 {
                     sorce = (long)argDic["toCredit"];
                 }
+                */
             }
 
             _step = -1;

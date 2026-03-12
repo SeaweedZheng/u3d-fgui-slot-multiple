@@ -4,6 +4,7 @@ using UnityEngine;
 using System;
 using GameMaker;
 using IOT;
+using ConsoleSlot98000000;
 public interface IVSettingIOT
 {
     event Action onClickIOTAccessMethod;
@@ -94,21 +95,34 @@ public class SettingIOTPresenter {
         };
 
 
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleChoose001,
-            new EventData<Dictionary<string, object>>("",
-                new Dictionary<string, object>()
-                {
-                    ["title"] = I18nMgr.T("Choose IOT Access Methods"),
-                    ["selectLst"] = selectLst,
-                    ["selectNumber"] = $"{SBoxModel.Instance.iotAccessMethods}",
-                    ["getSelectedDes"] = getSelectedDes,
-                }));
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleChoose001,
+        /*new EventData<Dictionary<string, object>>("",
+            new Dictionary<string, object>()
+            {
+                ["title"] = I18nMgr.T("Choose IOT Access Methods"),
+                ["selectLst"] = selectLst,
+                ["selectNumber"] = $"{SBoxModel.Instance.iotAccessMethods}",
+                ["getSelectedDes"] = getSelectedDes,
+            })
+        */
+            new InParamsPopupConsoleChoose001()
+            {
+                title = I18nMgr.T("Choose IOT Access Methods"),
+                selectLst = selectLst,
+                selectNumber = $"{SBoxModel.Instance.iotAccessMethods}",
+                getSelectedDes = getSelectedDes,
+            }
+
+
+         );
 
 
 
-        if (res!=null && res.value != null)
+        if (res != null && res.code == 0)
         {
-            string numberStr = (string)res.value;
+            var result = res as OutParamsPopupConsoleChoose001;
+
+            string numberStr = result.number;
             try
             {
                 int idx = int.Parse(numberStr);
