@@ -15,10 +15,17 @@ public class TipPopupHelper02 :ITipPopupHandel
         if (index == -1)
         {
             PageManager.Instance.OpenPage(PageName.CommonPopupSystemTip,
+                /*
                 new EventData<Dictionary<string,object>>("Null", 
                 new Dictionary<string, object>(){
                     ["content"] = msg,
                 }),
+                */
+                new InParamsPopupSystemTip()
+                {
+                    content = msg
+                },
+
                 (PageBase win) => {
                     popup = win as PopupSystemTip;
                 }
@@ -28,11 +35,17 @@ public class TipPopupHelper02 :ITipPopupHandel
 
         if (index != 0)
             popup.BringToFront();
-        popup.ShowTip(new EventData<Dictionary<string, object>>("Null",
+        popup.ShowTip(
+            /* new EventData<Dictionary<string, object>>("Null",
                 new Dictionary<string, object>()
                 {
                     ["content"] = msg,
-                }));
+                })*/
+                new InParamsPopupSystemTip()
+                {
+                    content = msg
+                }
+            );
     }
 
     public void OpenPopupOnce(string msg) => OpenPopup(msg);

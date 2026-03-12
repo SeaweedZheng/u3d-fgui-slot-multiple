@@ -40,14 +40,14 @@ public class MachinePageBase : PageBase
 
     }
 
-    public override void OnOpen(PageName name, EventData data)
+    public override void OnOpen(PageName name, InParamsBase data)
     {
         base.OnOpen(name, data);
         
         EventCenter.Instance.AddEventListener<EventData>(MachineDeviceController.MACHINE_BUTTON_EVENT, OnEventMachineButton);
     }
     
-    public override void OnClose(EventData data = null)
+    public override void OnClose(OutParamsBase data = null)
     {
         EventCenter.Instance.RemoveEventListener<EventData>(MachineDeviceController.MACHINE_BUTTON_EVENT, OnEventMachineButton);
         base.OnClose(data);

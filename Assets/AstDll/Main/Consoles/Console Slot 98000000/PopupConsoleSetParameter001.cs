@@ -8,6 +8,17 @@ using UnityEngine;
 
 namespace ConsoleSlot98000000
 {
+    public class InParamsPopupConsoleSetParameter001 : InParamsBase
+    {
+        public string title;
+        public string paramName1;
+        public Func<string, string> checkParam1Func;
+    }
+
+    public class OutParamsPopupConsoleSetParameter001 : OutParamsBase
+    {
+        public string paramValue1;
+    }
     public class PopupConsoleSetParameter001 : PageBase
     {
         public const string pkgName = "ConsoleSlot98000000";
@@ -20,7 +31,7 @@ namespace ConsoleSlot98000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -78,10 +89,15 @@ namespace ConsoleSlot98000000
 
             ClearParam();
 
-            Dictionary<string, object> argDic = null;
+  
             if (inParams != null)
             {
-                argDic = (Dictionary<string, object>)inParams.value;
+                var inp = inParams as InParamsPopupConsoleSetParameter001;
+                rtxtTitle.text = inp.title;
+                rtxtParam1.text = inp.paramName1;
+                checkParam1Func = inp.checkParam1Func;
+                /*
+                Dictionary<string, object> argDic = (Dictionary<string, object>)inParams.value;
                 if (argDic.ContainsKey("title"))
                 {
                     rtxtTitle.text = (string)argDic["title"];
@@ -95,12 +111,13 @@ namespace ConsoleSlot98000000
                 {
                     checkParam1Func = (Func<string, string>)argDic["checkParam1Func"];
                 }
+                */
 
             }
 
         }
 
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             ClearParam();
 
@@ -127,7 +144,10 @@ namespace ConsoleSlot98000000
                 return;
             }
 
-            PageManager.Instance.ClosePage(this, new EventData<string>("Result", compInputCtrl1.value));
+            //PageManager.Instance.ClosePage(this, new EventData<string>("Result", compInputCtrl1.value));
+            PageManager.Instance.ClosePage(this, new OutParamsPopupConsoleSetParameter001(){
+                paramValue1 = compInputCtrl1.value
+            });
 
         }
     }

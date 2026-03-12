@@ -3,11 +3,19 @@ using GameMaker;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SocialPlatforms.Impl;
 
 
 namespace PusherEmperorsRein
 {
 
+    public class InParamsPopupJackpotGame : InParamsBase
+    {
+        public string jackpotType;
+        public float totalEarnCredit;
+        public Action onJPPoolSubCredit;
+        //public float jpCredit;
+    }
 
     public class PopupJackpotGame : MachinePageBase
     {
@@ -55,7 +63,7 @@ namespace PusherEmperorsRein
 
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -106,12 +114,18 @@ namespace PusherEmperorsRein
             GButton button = this.contentPane.GetChild("Button").asButton;
             button.onClick.Clear();
             button.onClick.Add(SpinDown);
-            Dictionary<string, object> argDic = null;
+
             jpCredit.Clear();
 
             if (inParams != null)
             {
-                argDic = (Dictionary<string, object>)inParams.value;
+                var inp = inParams as InParamsPopupJackpotGame;
+                jackpotType = inp.jackpotType;
+                sorce = inp.totalEarnCredit;
+                jackpotAction = inp.onJPPoolSubCredit;
+
+                /*
+                Dictionary<string, object> argDic = (Dictionary<string, object>)inParams.value;
                 if (argDic.ContainsKey("jackpotType"))
                 {
                     jackpotType = (string)argDic["jackpotType"];
@@ -126,6 +140,7 @@ namespace PusherEmperorsRein
                 {
                     jackpotAction = (Action)argDic["onJPPoolSubCredit"];
                 }
+                */
             }
 
 

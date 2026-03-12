@@ -9,6 +9,11 @@ using SoundKey = PusherEmperorsRein.SoundKey;
 //PopupBigWin
 namespace PusherEmperorsRein
 {
+    public class InParamsPopupBigWin : InParamsBase
+    {
+        public long baseGameWinCredit;
+        public string winType;
+    }
     public class PopupBigWin : MachinePageBase
     {
         public const string pkgName = "EmperorsRein";
@@ -108,7 +113,7 @@ namespace PusherEmperorsRein
 
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -123,17 +128,27 @@ namespace PusherEmperorsRein
             }
             GameSoundHelper.Instance.PlaySoundEff(SoundKey.PopupWinBgNumberAdd);
             GameSoundHelper.Instance.PlaySoundEff(SoundKey.PopupWinOn);
-            // 解析数据
-            if (data?.value is Dictionary<string, object> argDic)
+
+            if (inParams != null)
             {
-                // 解析分数
-                if (argDic.TryGetValue("baseGameWinCredit", out var scoreVal) && scoreVal is long longScore)
-                    score = longScore;
+                var inp = inParams as InParamsPopupBigWin;
+                score = inp.baseGameWinCredit;
+                WinType = inp.winType;
+                /*
+                // 解析数据
+                if (data?.value is Dictionary<string, object> argDic)
+                {
+                    // 解析分数
+                    if (argDic.TryGetValue("baseGameWinCredit", out var scoreVal) && scoreVal is long longScore)
+                        score = longScore;
 
-                // 解析WinType
-                WinType = argDic.TryGetValue("WinType", out var wt) ? wt.ToString() : "";
+                    // 解析WinType
+                    WinType = argDic.TryGetValue("WinType", out var wt) ? wt.ToString() : "";
 
+                }
+                */
             }
+
 
             endIndex = Array.IndexOf(WinImageString, WinType);
             isok = false;

@@ -370,13 +370,18 @@ namespace CoinPusherRichLegend2001003
 
                 //DebugUtils.LogError($"中游戏彩金数据： JackpotWinInfo = {JsonConvert.SerializeObject(jpWin)} ");
                 PageManager.Instance.OpenPageAsync(PageName.RichLegend2001003PopupJackpotGame,
-                    new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
+                    /*new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
                     {
                         ["jackpotId"] = jpWin.id,
                         ["totalEarnCredit"] = jpWin.winCredit,
                         ["onJPPoolSubCredit"] = onJPPoolSubCredit,
-                       // ["jpCredit"] = jpCredit,
-                    }),
+                    }),*/
+                    new InParamsPopupJackpotGame()
+                    {
+                        jackpotId = jpWin.id,
+                        totalEarnCredit = jpWin.winCredit,
+                        onJPPoolSubCredit = onJPPoolSubCredit,
+                    },
                     (res) =>
                     {
                         isNext = true;
@@ -501,11 +506,19 @@ namespace CoinPusherRichLegend2001003
 
                 //DebugUtils.LogError($"中游戏彩金数据： JackpotWinInfo = {JsonConvert.SerializeObject(jpWin)} ");
                 PageManager.Instance.OpenPageAsync(PageName.RichLegend2001003PageGameBonus1,
+                    /*
                     new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
                     {
                         ["totalEarnCoins"] = earnCoins,
                         //["onJPPoolSubCredit"] = onJPPoolSubCredit,
                     }),
+                    */
+
+                    new InParamsPageGameBonus1()
+                    {
+                        totalEarnCoins = earnCoins
+                    },
+
                     (res) =>
                     {
                         isNext = true;
@@ -532,23 +545,36 @@ namespace CoinPusherRichLegend2001003
                 allWinCredit += earnCoins;
 
                 PageManager.Instance.OpenPageAsync(PageName.RichLegend2001003PageGameBonus2,
-                    new EventData<Dictionary<string, object>>("", new Dictionary<string, object>()
+                    /*
+                     new EventData<Dictionary<string, object>>("", new Dictionary<string, object>()
                     {
                         ["bonusResults"] = ContentModel.Instance.bonusResults[2]
                     }),
+                    */
+
+                    new InParamsPageGameBonus2()
+                    {
+                        bonusResults = ContentModel.Instance.bonusResults[2]
+                    },
+
                     (res) =>
-                {
-                    isNext = true;
-                });
+                    {
+                        isNext = true;
+                    });
 
                 yield return new WaitUntil(() => isNext == true);
                 isNext = false;
 
                 PageManager.Instance.OpenPageAsync(PageName.RichLegend2001003PopupBigWin, 
-                    new EventData<Dictionary<string,object>>("",new Dictionary<string, object>()
+                    /*new EventData<Dictionary<string,object>>("",new Dictionary<string, object>()
                     {
                         ["totalWinCpions"] = (int)earnCoins,
                     }), 
+                    */
+                    new InParamsPopupBigWin()
+                    {
+                        totalWinCpions = (int)earnCoins,
+                    },
                     (res) =>
                     {
                         isNext = true;

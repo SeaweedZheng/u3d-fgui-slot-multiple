@@ -43,7 +43,7 @@ namespace PusherEmperorsRein
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             EventCenter.Instance.AddEventListener<EventData>(PanelEvent.ON_PANEL_INPUT_EVENT, OnPanelInputEvent);
@@ -71,7 +71,7 @@ namespace PusherEmperorsRein
 
 
 
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
 
 
@@ -1284,13 +1284,21 @@ namespace PusherEmperorsRein
                 allWinCredit += (long)jpWin.winCredit;
 
                 PageManager.Instance.OpenPageAsync(PageName.PusherEmperorsReinPopupJackpotGame,
-                    new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
+                    /*new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
                     {
                         ["jackpotType"] = jpWin.name,
                         ["totalEarnCredit"] = jpWin.winCredit,
                         ["onJPPoolSubCredit"] = onJPPoolSubCredit,
-                        ["jpCredit"] = ContentModel.Instance.jpGameWhenCreditLst,
+                        //["jpCredit"] = ContentModel.Instance.jpGameWhenCreditLst,
                     }),
+                    */
+                    new InParamsPopupJackpotGame()
+                    {
+                        jackpotType = jpWin.name,
+                        totalEarnCredit = jpWin.winCredit,
+                        onJPPoolSubCredit = onJPPoolSubCredit,
+                        //jpCredit = ContentModel.Instance.jpGameWhenCreditLst,
+                    },
                     (res) =>
                     {
                         isNext = true;
@@ -1758,13 +1766,21 @@ namespace PusherEmperorsRein
 
                     DebugUtils.LogError($"中游戏彩金数据： JackpotWinInfo = {JsonConvert.SerializeObject(jpWin)} ");
                     PageManager.Instance.OpenPageAsync(PageName.PusherEmperorsReinPopupJackpotGame,
-                        new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
+                        /*new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
                         {
                             ["jackpotType"] = jpWin.name,
                             ["totalEarnCredit"] = jpWin.winCredit,
                             ["onJPPoolSubCredit"] = onJPPoolSubCredit,
                             ["jpCredit"] = jpCredit,
-                        }),
+                        }),*/
+
+                        new InParamsPopupJackpotGame()
+                        {
+                            jackpotType = jpWin.name,
+                            totalEarnCredit = jpWin.winCredit,
+                            onJPPoolSubCredit = onJPPoolSubCredit,
+                        },
+
                         (res) =>
                         {
                             isNext = true;
@@ -1799,11 +1815,16 @@ namespace PusherEmperorsRein
                 allWinCredit += winCredit;
 
                 PageManager.Instance.OpenPageAsync(PageName.PusherEmperorsReinPopupJackpotOnline,
-                    new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
+                    /*new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
                     {
                         ["toCredit"] = winCredit, ["jackpotType"] = data.jackpotId,
                         //["fromCredit"] = (long)fromCredit
-                    }),
+                    }),*/
+                    new InParamsPopupJackpotOnline()
+                    {
+                        toCredit = winCredit, 
+                        jackpotType = data.jackpotId,
+                    },
                     (res) =>
                     {
                         isNext = true;
@@ -1912,12 +1933,18 @@ namespace PusherEmperorsRein
 
 
             PageManager.Instance.OpenPageAsync(PageName.PusherEmperorsReinPopupFreeSpinTrigger,
-            new EventData<Dictionary<string, object>>("",
+            /*new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     //["autoCloseTimeS"] = 3f,
                     ["freeSpinCount"] = ContentModel.Instance.freeSpinTotalTimes,
-                }),
+                }),*/
+
+                new InParamsPopupFreeSpinTrigger()
+                {
+                    freeSpinCount = ContentModel.Instance.freeSpinTotalTimes,
+                },
+
             (ed) =>
             {
                 DebugUtils.Log("回调执行！isNext = true"); // 加日志
@@ -1978,11 +2005,17 @@ namespace PusherEmperorsRein
 
             DebugUtils.Log($"@@ 免费游戏总赢(币)： {ContentModel.Instance.freeSpinTotalWinCoins}");
             PageManager.Instance.OpenPageAsync(PageName.PusherEmperorsReinPopupFreeSpinResult,
-                new EventData<Dictionary<string, object>>("",
+                /*new EventData<Dictionary<string, object>>("",
                     new Dictionary<string, object>()
                     {
                         ["freeSpinTotalWin"] = ContentModel.Instance.freeSpinTotalWinCoins,
-                    }),
+                    } ),*/
+                    
+                    new InParamsPopupFreeSpinResult()
+                    {
+                        freeSpinTotalWin = ContentModel.Instance.freeSpinTotalWinCoins,
+                    },
+
                 (ed) =>
                 {
                     DebugUtils.Log("回调执行！isNext = true"); // 加日志
@@ -2221,11 +2254,17 @@ namespace PusherEmperorsRein
         {
             bool isNext = false;
             PageManager.Instance.OpenPageAsync(PageName.PusherEmperorsReinPopupBigWin,
-                new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
+                /*new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
                 {
                     ["baseGameWinCredit"] = winCredit, //ContentModel.Instance.baseGameWinCredit,
                     ["WinType"] = winLevelType,
-                }),
+                }),*/
+
+                new InParamsPopupBigWin()
+                {
+                    baseGameWinCredit = winCredit, //ContentModel.Instance.baseGameWinCredit,
+                    winType = winLevelType.ToString(),
+                },
                 (res) =>
                 {
                     isNext = true;
@@ -3041,13 +3080,21 @@ namespace PusherEmperorsRein
 
                 DebugUtils.LogError($"中游戏彩金数据： JackpotWinInfo = {JsonConvert.SerializeObject(jpWin)} ");
                 PageManager.Instance.OpenPageAsync(PageName.PusherEmperorsReinPopupJackpotGame,
-                    new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
+                    /*new EventData<Dictionary<string, object>>("", new Dictionary<string, object>
                     {
                         ["jackpotType"] = jpWin.name,
                         ["totalEarnCredit"] = jpWin.winCredit,
                         ["onJPPoolSubCredit"] = onJPPoolSubCredit,
                         ["jpCredit"] = jpCredit,
-                    }),
+                    }),*/
+
+                    new InParamsPopupJackpotGame()
+                    {
+                        jackpotType = jpWin.name,
+                        totalEarnCredit = jpWin.winCredit,
+                        onJPPoolSubCredit = onJPPoolSubCredit,
+                    },
+
                     (res) =>
                     {
                         isNext = true;

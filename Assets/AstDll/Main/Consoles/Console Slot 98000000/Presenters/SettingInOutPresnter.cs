@@ -1,3 +1,4 @@
+using ConsoleSlot98000000;
 using GameMaker;
 using SBoxApi;
 using System;
@@ -73,8 +74,8 @@ public class SettingInOutPresnter {
         int curValue = SBoxModel.Instance.CoinOutScaleTicketPerCredit > 1 ? -SBoxModel.Instance.CoinOutScaleTicketPerCredit :
             SBoxModel.Instance.CoinOutScaleCreditPerTicket;
 
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSlideSetting,
-            new EventData<Dictionary<string, object>>("",
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSlideSetting,
+            /*new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("Coin Out Scale(Ticket : Credit):"),
@@ -83,12 +84,23 @@ public class SettingInOutPresnter {
                     ["valueCur"] = curValue, // 1币多少分
                     ["onChangeUI"] = onChangeUI,
                     ["isUseKeyboard"] = false,
-                })
+                })*/
+            new InParamsPopupConsoleSlideSetting()
+            {
+                title = I18nMgr.T("Coin Out Scale(Ticket : Credit):"),
+                valueMin = -DefaultSettingsUtils.maxCoinOutTicketPerCredit,//50; // 1分多少票
+                valueMax = DefaultSettingsUtils.maxCoinOutCreditPerTicket,//200;// 1票多少分
+                valueCur = curValue, // 1币多少分
+                onChangeUI = onChangeUI,
+                isUseKeyboard = false,
+            }
         );
 
-        if (res.value != null)
+        if (res != null && res.code == 0)
         {
-            int data = (int)res.value;
+            var result = res as OutParamPopupConsoleSlideSetting;
+
+            int data = result.value;
             //DebugUtil.Log($"@@ 1分几票   {data["valueLeft"]};  1票多少分 {data["valueRight"]}");
 
             int perCredit2Ticket = SBoxModel.Instance.CoinOutScaleTicketPerCredit;
@@ -131,20 +143,28 @@ public class SettingInOutPresnter {
 
     async void OnClickCoinInScale()
     {
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSlideSetting,
-            new EventData<Dictionary<string, object>>("",
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSlideSetting,
+            /*new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("Coin In Scale(Coin : Credit):"),
                     ["valueMax"] = DefaultSettingsUtils.maxCoinInScale,//200;
                     ["valueMin"] = DefaultSettingsUtils.minCoinInScale,//200;
                     ["valueCur"] = SBoxModel.Instance.CoinInScale, // 1币多少分
-                })
+                })*/
+            new InParamsPopupConsoleSlideSetting()
+            {
+                title = I18nMgr.T("Coin In Scale(Coin : Credit):"),
+                valueMax = DefaultSettingsUtils.maxCoinInScale,//200;
+                valueMin = DefaultSettingsUtils.minCoinInScale,//200;
+                valueCur = SBoxModel.Instance.CoinInScale, // 1币多少分
+            }
         );
 
-        if (res.value != null)
+        if (res != null && res.code == 0)
         {
-            int data = (int)res.value;
+            var result = res as OutParamPopupConsoleSlideSetting;
+            int data = result.value;
 
             int coinInScale = data;
 
@@ -174,21 +194,29 @@ public class SettingInOutPresnter {
     async void OnClickScoreScale()
     {
 
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSlideSetting,
-            new EventData<Dictionary<string, object>>("",
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSlideSetting,
+            /*new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("Score Scale(Time : Credit):"),
                     ["valueMax"] = DefaultSettingsUtils.maxScoreUpDownScale,
                     ["valueMin"] = DefaultSettingsUtils.minScoreUpDownScale,
                     ["valueCur"] = SBoxModel.Instance.ScoreUpDownScale, // 1次多少分
-                })
+                })*/
+            new InParamsPopupConsoleSlideSetting()
+            {
+                title = I18nMgr.T("Score Scale(Time : Credit):"),
+                valueMax = DefaultSettingsUtils.maxScoreUpDownScale,
+                valueMin = DefaultSettingsUtils.minScoreUpDownScale,
+                valueCur = SBoxModel.Instance.ScoreUpDownScale, // 1次多少分
+            }
         );
 
 
-        if (res.value != null)
+        if (res != null && res.code == 0)
         {
-            int data = (int)res.value;
+            var result = res as OutParamPopupConsoleSlideSetting;
+            int data = result.value;
 
             int scoreUpDownScale = data;
 

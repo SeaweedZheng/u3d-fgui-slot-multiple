@@ -7,6 +7,11 @@ using SimpleJSON;
 
 namespace CoinPusherRichLegend2001001
 {
+    public class InParamsPageGameBonus2: InParamsBase
+    {
+        public JSONNode bonusResults;
+    }
+
     public class PageGameBonus2 : MachinePageBase
     {
         public const string pkgName = "RichLegend2001001";
@@ -65,7 +70,7 @@ namespace CoinPusherRichLegend2001001
 
         GameObject cloneButtonHand, cloneRichMainJump;
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
 
@@ -78,7 +83,7 @@ namespace CoinPusherRichLegend2001001
         }
 
 
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
 
 
@@ -143,9 +148,9 @@ namespace CoinPusherRichLegend2001001
 
             if (inParams != null)
             {
-                Dictionary<string, object> argDic = null;
-                argDic = (Dictionary<string, object>)inParams.value;
-                JSONNode node = (JSONNode)argDic["bonusResults"];
+                var inp = inParams as InParamsPageGameBonus2;
+
+                JSONNode node = inp.bonusResults;
 
                 List<int> rewardCoins = new List<int>();
                 foreach (JSONNode item in (node["rewardCoins"] as JSONArray))

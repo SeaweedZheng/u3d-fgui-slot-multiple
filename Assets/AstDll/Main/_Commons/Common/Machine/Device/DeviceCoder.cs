@@ -1,3 +1,4 @@
+using ConsoleSlot98000000;
 using GameMaker;
 using SBoxApi;
 using System;
@@ -150,6 +151,7 @@ public class DeviceCoder : MonoSingleton<DeviceCoder>
         long totalBets = data.Bets;
         long totalWins = data.Wins;
 
+        /*
         Dictionary<string, object> req = new Dictionary<string, object>()
         {
             ["A"] = $"{totalBets}", //data.Bets.ToString(),
@@ -160,10 +162,9 @@ public class DeviceCoder : MonoSingleton<DeviceCoder>
             ["Day"] = (data.RemainMinute / (60 * 24)).ToString(),//多少天
             ["Hour"] = ((data.RemainMinute % (60 * 24) / 60)).ToString(),//多少小时
             ["Minute"] = (data.RemainMinute % 60).ToString(),//多少分钟
-        };
+        };*/
 
-        EventData res = null;
-
+        OutParamsBase res = null;
 
         /*
         if (pageName == PageName.ConsoleSlot98000000PopupConsoleCoder)//(pageName == "ConsolePopupConsoleCoder")
@@ -181,7 +182,22 @@ public class DeviceCoder : MonoSingleton<DeviceCoder>
             || pageName == PageName.ConsolePusher97000000PageConsoleCoder 
             || pageName == PageName.ConsolePusher97001000PageConsoleCoder)
         {
-            res = await PageManager.Instance.OpenPageAsync(pageName, new EventData<Dictionary<string, object>>("", req));
+            res = await PageManager.Instance.OpenPageAsync(pageName, 
+                
+                //new EventData<Dictionary<string, object>>("", req)
+                
+                new InParamsPopupConsoleCoder()
+                {
+                    A = $"{totalBets}", //data.Bets.ToString(),
+                    B = $"{totalWins}", //data.Wins.ToString(),
+                    C = data.MachineId.ToString(),
+                    D = data.CoderCount.ToString(),
+                    E = data.CheckValue.ToString(),
+                    day = (data.RemainMinute / (60 * 24)).ToString(),//多少天
+                    hour = ((data.RemainMinute % (60 * 24) / 60)).ToString(),//多少小时
+                    minute = (data.RemainMinute % 60).ToString(),//多少分钟
+                }
+            );
         }
         else
         {
@@ -189,10 +205,11 @@ public class DeviceCoder : MonoSingleton<DeviceCoder>
         }
 
 
-        if (res != null && res.value != null)
+        if (res != null && res.code == 0)
         {
+            var result = res as OutParamsPopupConsoleCoder;
 
-            MachineDataManager02.Instance.RequestSetCoding(ulong.Parse((string)res.value), (res) =>
+            MachineDataManager02.Instance.RequestSetCoding(ulong.Parse(result.password), (res) =>
             {
                 OnCoder(res as SBoxPermissionsData);
             }, (err) =>

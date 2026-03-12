@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using FairyGUI;
-
+using ConsoleSlot98000000;
 public interface IVSettingLineIdMachineId
 {
     event Action onClickLineIdMachineId;
@@ -81,8 +81,8 @@ public class SettingLineIdMachineIdPresenter
             return null;
         };
 
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSetParameter002,
-                new EventData<Dictionary<string, object>>("",
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSetParameter002,
+               /* new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("Set Machine ID"),
@@ -91,14 +91,25 @@ public class SettingLineIdMachineIdPresenter
                     ["checkParam1Func"] = checkAgnetIDFunc,
                     ["checkParam2Func"] = checkMachineIDFunc,
                 }
-            ));
+                )
+                */
+                new InParamsPopupConsoleSetParameter002()
+                {
+                    title = I18nMgr.T("Set Machine ID"),
+                    paramName1 = I18nMgr.T("Agent ID:"),
+                    paramName2 = I18nMgr.T("Machine ID:"),
+                    checkParam1Func = checkAgnetIDFunc,
+                    checkParam2Func = checkMachineIDFunc,
+                }
+        );
 
 
-        if (res.value != null)
+        if (res!= null && res.code == 0)
         {
-            List<string> lst = (List<string>)res.value;
-            string machineId = lst[1];
-            string agentId = lst[0];  //machineId.Substring(0, 4);
+            var result = res as OutParamsPopupConsoleSetParameter002;
+
+            string machineId = result.paramValue2;
+            string agentId = result.paramValue1;  //machineId.Substring(0, 4);
             if (machineId == SBoxModel.Instance.MachineId)
             {
                 TipPopupHandler.Instance.OpenPopup(I18nMgr.T("The settings have not changed and do not need to be saved"));

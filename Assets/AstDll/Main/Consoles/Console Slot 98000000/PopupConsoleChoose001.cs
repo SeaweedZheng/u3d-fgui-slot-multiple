@@ -7,6 +7,19 @@ using System.Linq;
 
 namespace ConsoleSlot98000000
 {
+    public class InParamsPopupConsoleChoose001 : InParamsBase
+    {
+        public string title;
+        public Dictionary<string, string> selectLst;
+        public string selectNumber;
+        public Func<string, string> getSelectedDes;
+    }
+
+    public class OutParamsPopupConsoleChoose001 : OutParamsBase
+    {
+        public string number;
+    }
+
     public class PopupConsoleChoose001 : PageBase
     {
         public const string pkgName = "ConsoleSlot98000000";
@@ -30,7 +43,7 @@ namespace ConsoleSlot98000000
             callback();
         }
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -69,7 +82,8 @@ namespace ConsoleSlot98000000
             btnClose.onClick.Clear();
             btnClose.onClick.Add(() =>
             {
-                CloseSelf(new EventData("Exit"));
+                //CloseSelf(new EventData("Exit"));
+                CloseSelf(null);
             });
 
             gtxtTitle = this.contentPane.GetChild("title").asRichTextField;
@@ -81,6 +95,14 @@ namespace ConsoleSlot98000000
 
             if (inParams != null)
             {
+
+                var inp = inParams as InParamsPopupConsoleChoose001;
+                selectLst = inp.selectLst;
+                selectNumber = inp.selectNumber;
+                getSelectDes = inp.getSelectedDes;
+                title = inp.title;
+
+                /*
                 Dictionary<string, object> argDic = null;
 
                 argDic = (Dictionary<string, object>)inParams.value;
@@ -103,7 +125,7 @@ namespace ConsoleSlot98000000
                 if (argDic.ContainsKey("title"))
                 {
                     title = (string)argDic["title"];
-                }
+                }*/
             }
 
             gtxtTitle.text = title;
@@ -131,7 +153,12 @@ namespace ConsoleSlot98000000
 
         void OnSelectItem(string number)
         {
-            CloseSelf(new EventData<string>("Result", number));
+            //CloseSelf(new EventData<string>("Result", number));
+            CloseSelf(new OutParamsPopupConsoleChoose001()
+            {
+                number = number,
+            });
+            
         }
     }
 }

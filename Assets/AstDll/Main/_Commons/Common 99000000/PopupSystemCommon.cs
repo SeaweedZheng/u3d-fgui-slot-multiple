@@ -4,8 +4,13 @@ using System.Collections.Generic;
 using UnityEngine;
 using GameMaker;
 
+public class InParamsPopupSystemCommon : InParamsBase
+{
+    public CommonPopupInfo value;
+}
 namespace Common99000000
 {
+
     public class PopupSystemCommon : PageBase
     {
         public const string pkgName = "Common99000000";
@@ -18,7 +23,7 @@ namespace Common99000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -55,10 +60,14 @@ namespace Common99000000
         }
 
         CommonPopupInfo curInfo;
-        public void SetContent(EventData info)
+        public void SetContent(InParamsBase info)
         {
             if (info != null)
-                curInfo = info.value as CommonPopupInfo;
+            {
+                var inp = info as InParamsPopupSystemCommon;
+                curInfo = inp.value;
+            }
+
 
             btnClose.visible = false;
 

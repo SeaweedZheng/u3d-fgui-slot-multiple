@@ -1,12 +1,12 @@
 {
   "name": "Main",
-  "updated_at": 1772801624322,
+  "updated_at": 1773298299392,
   "hotfix_key": "hf_debug_android_20251216143338",
-  "hotfix_version": "1.0.248",
-  "hash": "97836e89cf28e58fc09aac31c12d727b",
+  "hotfix_version": "1.0.251",
+  "hash": "37b25f654911bf27bcaaccbcba42652c",
   "asset_bundle": {
     "manifest": {
-      "hash": "604f905edc7bf26866274641910c0ac7",
+      "hash": "0b29dc9378985a4e2bcccc5002a441aa",
       "size_bytes": 8808
     },
     "bundles": {
@@ -163,8 +163,8 @@
         "size_bytes": 6783
       },
       "consoles/console slot 98000000/fguis.unity3d": {
-        "hash": "1df5600430b6e79a6837fa17b194fd27",
-        "size_bytes": 399005
+        "hash": "977f2539d6f8aa5f4c92c3aa2e70b00d",
+        "size_bytes": 399090
       },
       "games/panel coin pusher 1001000/fguis.unity3d": {
         "hash": "87cff14985cad1f0d21a41bf5d566025",
@@ -248,13 +248,13 @@
   },
   "asset_dll": {
     "Base.dll.bytes": {
-      "hash": "cfb928fc5950a437d873d88780ca34cb",
-      "size_bytes": 181248,
+      "hash": "390a1032c7b67c04726494d0740e75f5",
+      "size_bytes": 181760,
       "level": 0
     },
     "Main.dll.bytes": {
-      "hash": "60ea5c451936ee0dd15f28e8cb799890",
-      "size_bytes": 1344000,
+      "hash": "b20a4922137773f41972a00198384176",
+      "size_bytes": 1352704,
       "level": 1
     }
   },

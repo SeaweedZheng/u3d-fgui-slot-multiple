@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using SBoxApi;
 using System;
+using ConsoleSlot98000000;
 public class TabSettingsInOutController 
 {
     GComponent owner;
@@ -121,8 +122,8 @@ public class TabSettingsInOutController
         int curValue = SBoxModel.Instance.CoinOutScaleTicketPerCredit > 1 ? -SBoxModel.Instance.CoinOutScaleTicketPerCredit :
             SBoxModel.Instance.CoinOutScaleCreditPerTicket;
 
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSlideSetting,
-            new EventData<Dictionary<string, object>>("",
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSlideSetting,
+            /*new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("Coin Out Scale(Ticket : Credit):"),
@@ -132,11 +133,22 @@ public class TabSettingsInOutController
                     ["onChangeUI"] = onChangeUI,
                     ["isUseKeyboard"] = false,
                 })
+            */
+            new InParamsPopupConsoleSlideSetting()
+            {
+                title = I18nMgr.T("Coin Out Scale(Ticket : Credit):"),
+                valueMin = -DefaultSettingsUtils.maxCoinOutTicketPerCredit,//50; // 1分多少票
+                valueMax = DefaultSettingsUtils.maxCoinOutCreditPerTicket,//200;// 1票多少分
+                valueCur = curValue, // 1币多少分
+                onChangeUI = onChangeUI,
+                isUseKeyboard = false,
+            }
         );
 
-        if (res.value != null)
+        if (res != null && res.code == 0)
         {
-            int data = (int)res.value;
+            var result = res as OutParamPopupConsoleSlideSetting;
+            int data = result.value;
             //DebugUtil.Log($"@@ 1分几票   {data["valueLeft"]};  1票多少分 {data["valueRight"]}");
 
             int perCredit2Ticket = SBoxModel.Instance.CoinOutScaleTicketPerCredit;
@@ -182,8 +194,8 @@ public class TabSettingsInOutController
 
     async void OnClickCoinInScale()
     {
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSlideSetting,
-            new EventData<Dictionary<string, object>>("",
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSlideSetting,
+           /* new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("Coin In Scale(Coin : Credit):"),
@@ -191,11 +203,20 @@ public class TabSettingsInOutController
                     ["valueMin"] = DefaultSettingsUtils.minCoinInScale,//200;
                     ["valueCur"] = SBoxModel.Instance.CoinInScale, // 1币多少分
                 })
+           */
+           new InParamsPopupConsoleSlideSetting()
+           {
+               title = I18nMgr.T("Coin In Scale(Coin : Credit):"),
+               valueMax = DefaultSettingsUtils.maxCoinInScale,//200;
+               valueMin = DefaultSettingsUtils.minCoinInScale,//200;
+               valueCur = SBoxModel.Instance.CoinInScale, // 1币多少分
+           }
         );
 
-        if (res.value != null)
+        if (res != null && res.code == 0)
         {
-            int data = (int)res.value;
+            var result = res as OutParamPopupConsoleSlideSetting;
+            int data = result.value;
 
             int coinInScale = data;
 
@@ -225,8 +246,8 @@ public class TabSettingsInOutController
     async void OnClickScoreScale()
     {
 
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSlideSetting,
-            new EventData<Dictionary<string, object>>("",
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSlideSetting,
+           /* new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("Score Scale(Time : Credit):"),
@@ -234,12 +255,22 @@ public class TabSettingsInOutController
                     ["valueMin"] = DefaultSettingsUtils.minScoreUpDownScale,
                     ["valueCur"] = SBoxModel.Instance.ScoreUpDownScale, // 1次多少分
                 })
+           */
+           new InParamsPopupConsoleSlideSetting(){
+               title = I18nMgr.T("Score Scale(Time : Credit):"),
+               valueMax = DefaultSettingsUtils.maxScoreUpDownScale,
+               valueMin = DefaultSettingsUtils.minScoreUpDownScale,
+               valueCur = SBoxModel.Instance.ScoreUpDownScale, // 1次多少分
+           }
         );
 
 
-        if (res.value != null)
+        if (res != null && res.code == 0)
         {
-            int data = (int)res.value;
+            var result = res as OutParamPopupConsoleSlideSetting;
+
+
+            int data = result.value;
 
             int scoreUpDownScale = data;
 
@@ -301,19 +332,30 @@ public class TabSettingsInOutController
         };
 
 
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleChoose001,
-            new EventData<Dictionary<string, object>>("",
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleChoose001,
+            /*new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("Choose Printer Model"),
                     ["selectLst"] = selectLst ,
                     ["selectNumber"] =  $"{SBoxModel.Instance.selectPrinterNumber}",
                     ["getSelectedDes"] = getSelectedDes,
-                }));
+                })
+            */
+            new InParamsPopupConsoleChoose001()
+            {
+                title = I18nMgr.T("Choose Printer Model"),
+                selectLst = selectLst,
+                selectNumber = $"{SBoxModel.Instance.selectPrinterNumber}",
+                getSelectedDes = getSelectedDes,
+            }
+        );
 
-        if (res.value != null)
+        if (res != null && res.code == 0)
         {
-            string selectNumber = (string)res.value;
+            var result = res as OutParamsPopupConsoleChoose001;
+
+            string selectNumber = result.number;
             int number = int.Parse(selectNumber);
             SBoxModel.Instance.selectPrinterNumber = number;
             OnPropertyChangeIsConnectPrinter();
@@ -348,19 +390,30 @@ public class TabSettingsInOutController
             return string.Format("{0} : {1}", I18nMgr.T("Manufacturer"), I18nMgr.T("Model"));
         };
 
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleChoose001,
-            new EventData<Dictionary<string, object>>("",
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleChoose001,
+            /*new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("Choose Bill Validator Model"),
                     ["selectLst"] = selectLst,
                     ["selectNumber"] = $"{SBoxModel.Instance.selectBillerNumber}",
                     ["getSelectedDes"] = getSelectedDes,
-                }));
+                })
+            */
+            new InParamsPopupConsoleChoose001()
+            {
+                title = I18nMgr.T("Choose Bill Validator Model"),
+                selectLst = selectLst,
+                selectNumber = $"{SBoxModel.Instance.selectBillerNumber}",
+                getSelectedDes = getSelectedDes,
+            }
+          );
 
-        if (res.value != null)
+        if (res != null && res.code == 0)
         {
-            string selectNumber = (string)res.value;
+            var result = res as OutParamsPopupConsoleChoose001;
+
+            string selectNumber = result.number;
             int number = int.Parse(selectNumber);
 
             SBoxModel.Instance.selectBillerNumber = number;

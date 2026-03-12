@@ -11,6 +11,21 @@ using IKeyboard = CommonConsoleCoinPusher.IKeyboard;
 
 namespace ConsoleCoinPusher97001000
 {
+    public class InParamsPageConsoleSetParameter002 : InParamsBase
+    {
+        public string title;
+        public string paramName1;
+        public string paramName2;
+        public string paramValue1;
+        public string paramValue2;
+        public bool isNumber;
+    }
+
+    public class OutParamsPageConsoleSetParameter002 : OutParamsBase
+    {
+        public string paramValue1;
+        public string paramValue2;
+    }
 
     public class PageConsoleSetParameter002 : MachinePageBase
     {
@@ -137,20 +152,24 @@ namespace ConsoleCoinPusher97001000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             if (data != null)
             {
+                var inp = data as InParamsPageConsoleSetParameter002;
+                PageTitleManager.Instance.AddPageNode(inp.title);
+                /*
                 Dictionary<string, object> argDic = (Dictionary<string, object>)data.value;
                 if (argDic.ContainsKey("title"))
                 {
                     PageTitleManager.Instance.AddPageNode((string)argDic["title"]);
                 }
+                */
             }
             base.OnOpen(name, data);
             InitParam();
         }
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             PageTitleManager.Instance.RemoveLastPageNode();
             base.OnClose(data);
@@ -267,6 +286,38 @@ namespace ConsoleCoinPusher97001000
             Dictionary<string, object> argDic = null;
             if (inParams != null)
             {
+                var inp = inParams as InParamsPageConsoleSetParameter002;
+
+
+                goMenu.GetChildAt(0).asCom.GetChild("title").asRichTextField.text = inp.paramName1;
+                goMenu.GetChildAt(1).asCom.GetChild("title").asRichTextField.text = inp.paramName2;
+
+
+                if (string.IsNullOrEmpty(inp.paramValue1))
+                {
+                    Set1 = inp.paramValue1;
+                }
+
+                if (string.IsNullOrEmpty(inp.paramValue2))
+                {
+                    Set1 = inp.paramValue2;
+                }
+
+                if (inp.isNumber)
+                {
+                    kbNumberCtrl.goOwnerKeyboard.visible = true;
+                    kbCtrl.goOwnerKeyboard.visible = false;
+
+                    curKB = kbNumberCtrl;
+                }
+                else
+                {
+                    kbNumberCtrl.goOwnerKeyboard.visible = false;
+                    kbCtrl.goOwnerKeyboard.visible = true;
+
+                    curKB = kbCtrl;
+                }
+                /*
                 argDic = (Dictionary<string, object>)inParams.value;
 
                 if (argDic.ContainsKey("parameter1"))
@@ -312,7 +363,7 @@ namespace ConsoleCoinPusher97001000
 
                     curKB = kbCtrl;
                 }
-
+                */
             }
 
 
@@ -462,6 +513,7 @@ namespace ConsoleCoinPusher97001000
             }
             else
             {
+                /*
                 CloseSelf(new EventData<Dictionary<string, object>>("",
                            new Dictionary<string, object>()
                            {
@@ -469,7 +521,12 @@ namespace ConsoleCoinPusher97001000
                                ["value2"] = Set2,
                            }
                            ));
-
+                */
+                CloseSelf(new OutParamsPageConsoleSetParameter002()
+                {
+                    paramValue1 = Set1,
+                    paramValue2 = Set2
+                });
             }
         }
 

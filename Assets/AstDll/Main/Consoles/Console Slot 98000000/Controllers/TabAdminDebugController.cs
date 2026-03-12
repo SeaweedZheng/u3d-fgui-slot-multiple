@@ -2,6 +2,7 @@ using FairyGUI;
 using System.Collections.Generic;
 using System.Reflection;
 using GameMaker;
+using ConsoleSlot98000000;
 
 public class TabAdminDebugController 
 {
@@ -164,12 +165,21 @@ public class TabAdminDebugController
 
         Dictionary<string,object> req= new Dictionary<string,object>();
 
-        PageManager.Instance.OpenPage(PageName.ConsoleSlot98000000PopupConsoleNotice, new EventData<Dictionary<string, object>>("",     
-            new Dictionary<string, object>()
+        PageManager.Instance.OpenPage(PageName.ConsoleSlot98000000PopupConsoleNotice, 
+            
+            /*
+            new EventData<Dictionary<string, object>>("",     
+                new Dictionary<string, object>()
+                {
+                    ["title"] = I18nMgr.T("Error Code Query"),
+                    ["content"] = result,
+                }
+            ), */
+            new InParamsPopupConsoleNotice()
             {
-                ["title"] = I18nMgr.T("Error Code Query"),
-                ["content"] = result,
-            }
-        ), null);
+                title = I18nMgr.T("Error Code Query"),
+                content = result,
+            },
+            null);
     }
 }

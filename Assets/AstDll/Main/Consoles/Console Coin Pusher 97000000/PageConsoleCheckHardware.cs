@@ -69,7 +69,7 @@ namespace ConsoleCoinPusher97000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             PageTitleManager.Instance.AddPageNode("Hardware Test");
             base.OnOpen(name, data);
@@ -93,7 +93,7 @@ namespace ConsoleCoinPusher97000000
             
         }
 
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             PageTitleManager.Instance.RemoveLastPageNode();
 

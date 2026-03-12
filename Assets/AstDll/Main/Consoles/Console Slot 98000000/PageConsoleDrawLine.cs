@@ -17,7 +17,7 @@ namespace ConsoleSlot98000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -25,7 +25,7 @@ namespace ConsoleSlot98000000
 
         // public override void OnTop() { DebugUtils.Log($"i am top {this.name}"); }
 
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             Stage.inst.onTouchMove.Remove(OnTouchMove);
             Stage.inst.onTouchEnd.Remove(OnTouchEnd);

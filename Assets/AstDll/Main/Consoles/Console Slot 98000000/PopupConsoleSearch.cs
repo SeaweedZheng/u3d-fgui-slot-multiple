@@ -9,30 +9,14 @@ using System;
 
 namespace ConsoleSlot98000000
 {
-    public class InParamsPopupConsoleSearch: InPrarmsBase
+
+    public class InParamsPopupConsoleSearch: InParamsBase
     {
-        public class InParamsSelectOption
-        {
-            /// <summary> 选项类型 </summary>
-            public string selectType;
-
-            /// <summary> 选项名称</summary>
-            public string selectName;
-
-            /// <summary>
-            /// 选项列表
-            /// </summary>
-            /// <remarks>
-            /// * selectContentKey - slelectContentName
-            /// </remarks>
-            public Dictionary<string,string> selectContent = new Dictionary<string,string>();
-        }
-
         /// <summary> 弹窗抬头 </summary>
         public string title = "";
 
         /// <summary> 选项集合 </summary>
-        public List<InParamsSelectOption> options = new List<InParamsSelectOption>();
+        public List<InParamItemSelectOption> options = new List<InParamItemSelectOption>();
     }
 
     public class OutParamsPopupConsoleSearch: OutParamsBase
@@ -72,7 +56,7 @@ namespace ConsoleSlot98000000
             callback();
         }
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
 
@@ -83,9 +67,9 @@ namespace ConsoleSlot98000000
             new InParamsPopupConsoleSearch()
             {
                 title = "",
-                options = new List<InParamsPopupConsoleSearch.InParamsSelectOption>()
+                options = new List<InParamItemSelectOption>()
                 {
-                    new InParamsPopupConsoleSearch.InParamsSelectOption()
+                    new InParamItemSelectOption()
                     {
                         selectType = "select",
                         selectContent = new Dictionary<string, string>()
@@ -98,7 +82,7 @@ namespace ConsoleSlot98000000
         }
 
 
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
 
             // 删除事件监听
@@ -139,7 +123,12 @@ namespace ConsoleSlot98000000
 
 
             if (inParams != null)
-            {   
+            {
+
+                var inp = inParams as InParamsPopupConsoleSearch;
+
+
+                /*
                 Dictionary<string, object> argDic = null;
                 argDic = (Dictionary<string, object>)inParams.value;
                 //title = (string)argDic["title"];
@@ -148,6 +137,7 @@ namespace ConsoleSlot98000000
                 {
                     //input = (string)argDic["content"];
                 }
+                */
             }
          
         }

@@ -1,3 +1,4 @@
+using ConsoleSlot98000000;
 using GameMaker;
 using System;
 using System.Collections;
@@ -66,17 +67,23 @@ public class SettingRemoteControlPresenter
     async void OnClickRemoteControlSetting()
     {
 
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSetParameter001,
-            new EventData<Dictionary<string, object>>("",
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSetParameter001,
+            /*new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("Configure Remote Server Connection"),
                 }
-            ));
+            ));*/
+            new InParamsPopupConsoleSetParameter001()
+            {
+                title = I18nMgr.T("Configure Remote Server Connection"),
+            }
+        );
 
-        if (res!= null && res.value != null)
+        if (res != null && res.code == 0)
         {
-            string addr = (string)res.value;
+            var result = res as OutParamsPopupConsoleSetParameter001;
+            string addr = (string)result.paramValue1;
             try
             {
                 SBoxModel.Instance.remoteControlSetting = addr;
@@ -118,8 +125,8 @@ public class SettingRemoteControlPresenter
             return null;
         };
 
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSetParameter002,
-            new EventData<Dictionary<string, object>>("",
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleSetParameter002,
+            /*new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("Set Remote Control Account"),
@@ -128,15 +135,26 @@ public class SettingRemoteControlPresenter
                     ["checkParam1Func"] = chekParam1Func,
                     ["checkParam2Func"] = chekParam2Func,
                 }
-            ));
+            )*/
+            new InParamsPopupConsoleSetParameter002()
+            {
+                title = I18nMgr.T("Set Remote Control Account"),
+                paramName1 = I18nMgr.T("Account:"),
+                paramName2 = I18nMgr.T("Password:"),
+                checkParam1Func = chekParam1Func,
+                checkParam2Func = chekParam2Func,
+            }
+            
+            );
 
-        if (res.value != null)
+        if (res != null && res.code == 0)
         {
-            List<string> lst = (List<string>)res.value;
+            var result = res as OutParamsPopupConsoleSetParameter002;
+
             try { 
 
-                SBoxModel.Instance.remoteControlAccount = lst[0];
-                SBoxModel.Instance.remoteControlPassword = lst[1];
+                SBoxModel.Instance.remoteControlAccount = result.paramValue1;
+                SBoxModel.Instance.remoteControlPassword = result.paramValue2;
 
                 OnPropertyChangeRemoteControlAccount();
             }

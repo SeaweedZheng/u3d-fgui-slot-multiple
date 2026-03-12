@@ -7,7 +7,7 @@ using UnityEngine.Events;
 using System.Reflection;
 
 
-public class InPrarmsBase { }
+public class InParamsBase { }
 public class OutParamsBase
 {
     public int code = 0;
@@ -39,13 +39,12 @@ public class PageBase : Window
     // 系统自动掉，或 自己手动调
     public UnityEvent preLoadedCallback = new UnityEvent();
 
-    protected EventData inParams;
+    //protected EventData inParams;
+    //private EventData returnParams;
 
-    private EventData returnParams;
+    protected InParamsBase inParams;
 
-    //protected InPrarmsBase inParams;
-
-    //private OutParamsBase returnParams;
+    private OutParamsBase returnParams;
 
 
     protected bool isOpen = false;
@@ -154,7 +153,7 @@ public class PageBase : Window
     /// <summary>
     /// 关闭当前窗口并弹出栈
     /// </summary>
-    protected void CloseSelf(EventData data)
+    protected void CloseSelf(OutParamsBase data)
     {
         PageManager.Instance.ClosePage(this, data);
     }
@@ -183,7 +182,7 @@ public class PageBase : Window
 
 
 
-    public virtual void OnOpen(PageName name, EventData data)
+    public virtual void OnOpen(PageName name, InParamsBase data)
     {
         this.name = Enum.GetName(typeof(PageName), name);
         pageName = name;
@@ -194,7 +193,7 @@ public class PageBase : Window
     }
 
 
-    public async Task<EventData> OnOpenAsync(PageName name, EventData data)
+    public async Task<OutParamsBase> OnOpenAsync(PageName name, InParamsBase data)
     {
         OnOpen(name, data);
         //DebugUtils.Log($"页面{name}开始等待关闭（isOpen = {isOpen}）"); // 加日志
@@ -203,7 +202,7 @@ public class PageBase : Window
     }
 
 
-    public virtual void OnClose(EventData data = null)
+    public virtual void OnClose(OutParamsBase data = null)
     {
         //DebugUtils.Log($"页面{pageName}执行OnClose，isOpen将设为false"); // 加日志
 

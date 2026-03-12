@@ -74,13 +74,13 @@ namespace ConsoleCoinPusher97000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             PageTitleManager.Instance.AddPageNode("Record");
             base.OnOpen(name, data);
             InitParam();
         }
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             PageTitleManager.Instance.RemoveLastPageNode();
             base.OnClose(data);

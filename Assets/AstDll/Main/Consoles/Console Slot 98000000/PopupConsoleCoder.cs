@@ -5,8 +5,16 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+
+
+
 namespace ConsoleSlot98000000
 {
+    public class InParamsPopupConsoleCoder : InParamsConsoleCoderBase { }
+
+    public class OutParamsPopupConsoleCoder : OutParamsConsoleCoderBase { }
+
     public class PopupConsoleCoder : PageBase
     {
         public const string pkgName = "ConsoleSlot98000000";
@@ -19,7 +27,7 @@ namespace ConsoleSlot98000000
         }
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -48,7 +56,7 @@ namespace ConsoleSlot98000000
             btnClose.onClick.Clear();
             btnClose.onClick.Add(() =>
             {
-                CloseSelf(new EventData("Exit"));
+                CloseSelf(null);//CloseSelf(new EventData("Exit"));
             });
 
 
@@ -71,9 +79,21 @@ namespace ConsoleSlot98000000
             compInputCtrl.GetFocus();
 
 
-            Dictionary<string, object> argDic = null;
+
             if (inParams != null)
             {
+                var inp = inParams as InParamsPopupConsoleCoder;
+                A = inp.A;
+                B = inp.B;
+                C = inp.C;
+                D = inp.D;
+                E = inp.E;
+                day = inp.day;
+                hour = inp.hour;
+                minute = inp.minute;
+
+                /*
+                Dictionary<string, object> argDic = null;
                 argDic = (Dictionary<string, object>)inParams.value;
                 A = (string)argDic["A"];
                 B = (string)argDic["B"];
@@ -83,6 +103,7 @@ namespace ConsoleSlot98000000
                 day = (string)argDic["Day"];
                 hour = (string)argDic["Hour"];
                 minute = (string)argDic["Minute"];
+                */
             }
 
             txtTitle.text = I18nMgr.T("Activate Code");
@@ -97,7 +118,11 @@ namespace ConsoleSlot98000000
 
         void OnClickButtonOk(string value)
         {
-            CloseSelf(new EventData<string>("Result", value));
+            //CloseSelf(new EventData<string>("Result", value));
+            CloseSelf(new OutParamsPopupConsoleCoder()
+            {
+                password = value,
+            });
         }
     }
 }

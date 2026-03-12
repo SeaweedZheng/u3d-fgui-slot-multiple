@@ -5,7 +5,6 @@ using SBoxApi;
 using System;
 
 
-
 namespace ConsoleSlot98000000
 {
     public class PageConsoleMain : PageBase
@@ -78,7 +77,7 @@ namespace ConsoleSlot98000000
             DebugUtils.Log($"i am top ConsoleMainPage {this.name}");
         }
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
 
@@ -210,19 +209,26 @@ namespace ConsoleSlot98000000
         {
             goMaskDontClick.visible = true;
 
-            EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleKeyboard001,
-                new EventData<Dictionary<string, object>>("",
+            OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleKeyboard001,
+                /*new EventData<Dictionary<string, object>>("",
                     new Dictionary<string, object>()
                     {
                         ["title"] = I18nMgr.T("Enter Password"),
                         ["isPlaintext"] = false,
-                    }));
+                    })*/
+                new InParamsPopupConsoleKeyboard001()
+                {
+                    title = I18nMgr.T("Enter Password"),
+                    isPlaintext = false,
+                }
+             );
 
             permissions = -1;
 
-            if (res != null && res.value != null)
+            if (res != null && res.code == 0)
             {
-                string pwdStr = (string)res.value;
+                var result = res as OutParamsPopupConsoleKeyboard001;
+                string pwdStr = result.value;
                 DebugUtils.Log($"键盘输入结果 ：{pwdStr}");
 
                 try
@@ -374,15 +380,15 @@ namespace ConsoleSlot98000000
 
         async void OnClickTimeDate()
         {
-            EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleCalendar);
+            OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleCalendar);
 
-            if (res != null && res.value != null)
+            if (res != null && res.code == 0)
             {
+                var result = res as OutParamsPopupConsoleCalendar;
                 try
                 {
-                    Dictionary<string, object> data = res.value as Dictionary<string, object>;
-                    long timestamp = (long)data["timestamp"];
-                    string date = (string)data["date"];
+                    long timestamp = result.timestamp;
+                    string date = result.date;
                     DebugUtils.LogError($"获得时间戳： {timestamp}  对应日期：{date}");
                 }
                 catch (Exception ex)
@@ -415,21 +421,30 @@ namespace ConsoleSlot98000000
                         return number;
                     };
 
-            EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleChoose001,
-                new EventData<Dictionary<string,object>>("",
+            OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleChoose001,
+               /* new EventData<Dictionary<string,object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("Choose Language"),
                     ["selectLst"] = selectLst,
                     ["selectNumber"] = SBoxModel.Instance.language,
                     ["getSelectedDes"] = getSelectedDes,
-                }));
+                })*/
+                new InParamsPopupConsoleChoose001()
+                {
+                    title = I18nMgr.T("Choose Language"),
+                    selectLst = selectLst,
+                    selectNumber = SBoxModel.Instance.language,
+                    getSelectedDes = getSelectedDes,
+                }
+            );
 
-            if (res != null && res.value != null)
+            if (res != null && res.code == 0)
             {
+                var result = res as OutParamsPopupConsoleChoose001;
                 try
                 {
-                    string selectNumber = (string)res.value;
+                    string selectNumber = result.number;
 
                     if (SBoxModel.Instance.language == selectNumber)
                         return;

@@ -30,7 +30,7 @@ namespace ConsoleSlot98000000
 
         }
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();

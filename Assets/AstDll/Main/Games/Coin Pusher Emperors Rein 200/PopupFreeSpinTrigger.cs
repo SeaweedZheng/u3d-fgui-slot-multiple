@@ -4,12 +4,14 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using SoundKey = PusherEmperorsRein.SoundKey;
 
 
 namespace PusherEmperorsRein
 {
-
+    public class InParamsPopupFreeSpinTrigger : InParamsBase
+    {
+        public int freeSpinCount;
+    }
     public class PopupFreeSpinTrigger : MachinePageBase
     {
         public const string pkgName = "EmperorsRein";
@@ -59,7 +61,7 @@ namespace PusherEmperorsRein
 
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             //if (GameSoundHelper.Instance.IsPlaySound(SoundKey.RegularBG))
             //{
@@ -112,21 +114,29 @@ namespace PusherEmperorsRein
             {
                 GameSoundHelper.Instance.StopSound(SoundKey.FreeSpinTriggerBG);
                 GameSoundHelper.Instance.PlayMusicSingle(SoundKey.FreeSpinBG);
-                CloseSelf(new EventData<string>("Result", "i am here 1"));
+                CloseSelf(null);//CloseSelf(new EventData<string>("Result", "i am here 1"));
 
             });
 
 
-            Dictionary<string, object> argDic = null;
+           
+
             if (inParams != null)
             {
-                argDic = (Dictionary<string, object>)inParams.value;
+
+                var inp = inParams as InParamsPopupFreeSpinTrigger;
+                this.contentPane.GetChild("n4").visible = true;
+                this.contentPane.GetChild("n4").asTextField.text = $"{inp.freeSpinCount}";
+
+                /*
+                Dictionary<string, object> argDic = (Dictionary<string, object>)inParams.value;
                 if (argDic.ContainsKey("freeSpinCount"))
                 {
                     int count = (int)argDic["freeSpinCount"];
                     this.contentPane.GetChild("n4").visible = true;
                     this.contentPane.GetChild("n4").asTextField.text = $"{count}";
                 }
+                */
             }
 
             if (!PlayerPrefsUtils.isPauseAtPopupFreeSpinTrigger)
@@ -151,7 +161,7 @@ namespace PusherEmperorsRein
         void OnButtonStart(int value)
         {
             //PageManager.Instance.ClosePage(this, new EventData<string>("Result", value));
-            CloseSelf(new EventData<int>("Result", value));
+            CloseSelf(null);//CloseSelf(new EventData<int>("Result", value));
         }
 
     }

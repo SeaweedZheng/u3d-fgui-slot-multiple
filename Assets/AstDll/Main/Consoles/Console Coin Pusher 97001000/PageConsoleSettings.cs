@@ -87,14 +87,14 @@ namespace ConsoleCoinPusher97001000
         int tabIndex;
         List<ConsoleTabMenuBase> tabs = new List<ConsoleTabMenuBase>();
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             PageTitleManager.Instance.AddPageNode("Settings");
             base.OnOpen(name, data);
             tabIndex = 0;
             InitParam();
         }
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             PageTitleManager.Instance.RemoveLastPageNode();
             base.OnClose(data);

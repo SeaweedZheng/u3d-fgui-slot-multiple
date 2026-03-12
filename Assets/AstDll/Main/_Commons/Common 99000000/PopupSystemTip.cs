@@ -4,9 +4,14 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 using GameMaker;
+using ConsoleSlot98000000;
 
 namespace Common99000000
 {
+    public class InParamsPopupSystemTip : InParamsBase
+    {
+        public string content;
+    }
     public class PopupSystemTip : PageBase
     {
         public const string pkgName = "Common99000000";
@@ -33,7 +38,7 @@ namespace Common99000000
 
 
         Color? lastModalLayerColor = null;
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
 
@@ -46,7 +51,7 @@ namespace Common99000000
             InitParam();
         }
 
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             //GRoot.inst.modalLayer.visible = true;
             if (lastModalLayerColor != null)
@@ -87,13 +92,21 @@ namespace Common99000000
         }
 
 
-        public void ShowTip(EventData data)
+        public void ShowTip(InParamsBase data)
         {
+            if (data != null)
+            {
+                var inp = data as InParamsPopupSystemTip;
+                rtxtTip.text = inp.content;
+            }
+
+            /*
             if (inParams != null)
             {
                 Dictionary<string, object> argDic = (Dictionary<string, object>)inParams.value;
                 rtxtTip.text = (string)argDic["content"];
             }
+            */
         }
 
     }

@@ -7,6 +7,17 @@ using UnityEngine;
 namespace PusherEmperorsRein
 {
 
+    public class InParamsPopupNextWin : InParamsBase
+    {
+        public string title;
+        public bool isPlaintext;
+        public string content;
+    }
+
+    public class OutParamsPopupNextWin : OutParamsBase
+    {
+        public int value;
+    }
 
     public class PopupNextWin : PageBase
     {
@@ -21,7 +32,7 @@ namespace PusherEmperorsRein
 
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             InitParam();
@@ -39,10 +50,16 @@ namespace PusherEmperorsRein
 
         public override void InitParam()
         {
-            Dictionary<string, object> argDic = null;
+   
             if (inParams != null)
             {
-                argDic = (Dictionary<string, object>)inParams.value;
+                var inp = inParams as InParamsPopupNextWin;
+                title = inp.title;
+                isPlaintext = inp.isPlaintext;
+                if(!string.IsNullOrEmpty(inp.content))
+                    inputText = inp.content;
+                /*
+                Dictionary<string, object> argDic = (Dictionary<string, object>)inParams.value;
                 title = (string)argDic["title"];
 
                 if (argDic.ContainsKey("isPlaintext"))
@@ -54,13 +71,19 @@ namespace PusherEmperorsRein
                 {
                     inputText = (string)argDic["content"];
                 }
+                */
             }
         }
 
         void End(int value)
         {
             //PageManager.Instance.ClosePage(this, new EventData<string>("Result", value));
-            CloseSelf(new EventData<int>("Result", value));
+            //CloseSelf(new EventData<int>("Result", value));
+
+            CloseSelf(new OutParamsPopupNextWin()
+            {
+                value = value
+            });
         }
     }
 }

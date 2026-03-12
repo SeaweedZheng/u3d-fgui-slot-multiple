@@ -4,8 +4,7 @@ using SBoxApi;
 using System;
 using System.Collections.Generic;
 using UnityEngine.Events;
-using UnityEngine;
-using Newtonsoft.Json;
+
 
 
 namespace ConsoleCoinPusher97000000
@@ -239,8 +238,8 @@ namespace ConsoleCoinPusher97000000
 
         async void OnClickMachineIDAndAgentID()
         {
-            EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePusher97000000PageConsoleSetParameter002,
-            new EventData<Dictionary<string, object>>("",
+            OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePusher97000000PageConsoleSetParameter002,
+            /*new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("Agent ID") + " & " + I18nMgr.T("Machine ID"),
@@ -250,17 +249,29 @@ namespace ConsoleCoinPusher97000000
                     ["parameter2Value"] = $"{SBoxModel.Instance.MachineId}",
                     ["isNumber"] = true,
                 }
-            ));
+            )*/
+            
+            new InParamsPageConsoleSetParameter002()
+            {
+                title = I18nMgr.T("Agent ID") + " & " + I18nMgr.T("Machine ID"),
+                paramName1 = I18nMgr.T("Agent ID:"),
+                paramValue1 = SBoxModel.Instance.LineId,
+                paramName2 = I18nMgr.T("Machine ID:"),
+                paramValue2 = $"{ SBoxModel.Instance.MachineId}",
+                isNumber = true,
+            }
+            );
 
             if (res == null)
                 return;
-            if (res.value != null)
+            if (res!= null && res.code == 0)
             {
-                bool isErr = true;
-                Dictionary<string, object> argDic = res.value as Dictionary<string, object>;
+                var result = res as OutParamsPageConsoleSetParameter002;
 
-                string lineIdStr = argDic["value1"].ToString();
-                string machineIdStr = argDic["value2"].ToString();
+                bool isErr = true;
+
+                string lineIdStr = result.paramValue1;
+                string machineIdStr = result.paramValue2;
 
                 if (machineIdStr.Substring(0, 4) != lineIdStr)
                 {
@@ -340,8 +351,8 @@ namespace ConsoleCoinPusher97000000
 
         async void OnClickSeatId()
         {
-            EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePusher97000000PageConsoleSetParameter001,
-            new EventData<Dictionary<string, object>>("",
+            OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePusher97000000PageConsoleSetParameter001,
+            /*new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("SeatId"),
@@ -349,24 +360,34 @@ namespace ConsoleCoinPusher97000000
                     ["parameter1Value"] = $"{SBoxModel.Instance.seatId}",
                     ["isNumber"] = true,
                 }
-            ));
+            )*/
+            new InParamsPageConsoleSetParameter001()
+            {
+                title = I18nMgr.T("SeatId"),
+                paramName1 = I18nMgr.T("SeatId:"),
+                paramValue1 = $"{ SBoxModel.Instance.seatId}",
+                isNumber = true,
+            }
+            );
 
             if (res == null) return;
 
-            if (res.value != null)
+            if (res!= null && res.code == 0)
             {
+                var result = res as OutParamsPageConsoleSetParameter001;
+
                 bool isErr = true;
 
                 try
                 {
 
-                    Dictionary<string, object> argDic = res.value as Dictionary<string, object>;
+                    //Dictionary<string, object> argDic = res.value as Dictionary<string, object>;
 
 
-                    DebugUtils.LogError($"输入内容 argDic： {JsonConvert.SerializeObject(argDic)}");
+                    //DebugUtils.LogError($"输入内容 argDic： {JsonConvert.SerializeObject(argDic)}");
 
 
-                    string seatIdStr = argDic["value1"].ToString();
+                    string seatIdStr = result.paramValue1;
 
                     DebugUtils.LogError($"输入内容： {seatIdStr}");
 
@@ -397,8 +418,8 @@ namespace ConsoleCoinPusher97000000
 
         async void OnClickGroupId()
         {
-            EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePusher97000000PageConsoleSetParameter001,
-            new EventData<Dictionary<string, object>>("",
+            OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePusher97000000PageConsoleSetParameter001,
+            /*new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("Group ID"),
@@ -406,20 +427,29 @@ namespace ConsoleCoinPusher97000000
                     ["parameter1Value"] = $"{SBoxModel.Instance.groupId}",
                     ["isNumber"] = true,
                 }
-            ));
+            )*/
+            new InParamsPageConsoleSetParameter001()
+            {
+                title = I18nMgr.T("Group ID"),
+                paramName1 = I18nMgr.T("Group ID:"),
+                paramValue1 = $"{ SBoxModel.Instance.groupId}",
+                isNumber = true,
+            }
+            );
 
             if (res == null) return;
 
-            if (res.value != null)
+            if (res!= null && res.code == 0)
             {
+                var result = res as OutParamsPageConsoleSetParameter001;
+
                 bool isErr = true;
 
                 try
                 {
 
-                    Dictionary<string, object> argDic = res.value as Dictionary<string, object>;
 
-                    string groupIdStr = argDic["value1"].ToString();
+                    string groupIdStr = result.paramValue1;
 
                     int groupId = int.Parse(groupIdStr);
 
@@ -498,8 +528,8 @@ namespace ConsoleCoinPusher97000000
                     str = "11111111";
                     break;
             }
-            EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePusher97000000PageConsoleSetParameter001,
-            new EventData<Dictionary<string, object>>("",
+            OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePusher97000000PageConsoleSetParameter001,
+            /*new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
 
@@ -508,7 +538,18 @@ namespace ConsoleCoinPusher97000000
                     ["parameter1"] = I18nMgr.T("Enter Password"),
                     ["parameter1Value"] = str,
                 }
-            ));
+            )*/
+
+                // 待完善
+                        new InParamsPageConsoleSetParameter001()
+                        {
+                            //title = I18nMgr.T("SeatId"),
+                            paramName1 = title,
+                            paramValue1 = I18nMgr.T("Enter Password"),
+                            isNumber = true,
+                        }
+
+            );
 
         }
 
@@ -543,8 +584,8 @@ namespace ConsoleCoinPusher97000000
         {
             str = SBoxModel.Instance.remoteControlSetting;
             string[] parts = str.Split(':');
-            EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePusher97000000PageConsoleSetParameter002,
-            new EventData<Dictionary<string, object>>("",
+            OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePusher97000000PageConsoleSetParameter002,
+            /*new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
                     ["title"] = I18nMgr.T("Configure Remote Server Connection"),
@@ -553,26 +594,30 @@ namespace ConsoleCoinPusher97000000
                     ["parameter2"] = I18nMgr.T("Server Port Number:"),
                     ["parameter2Value"] = parts[1],
                 }
-            ));
+            )*/
+                        new InParamsPageConsoleSetParameter002()
+                        {
+                            title = I18nMgr.T("Configure Remote Server Connection"),
+                            paramName1 = I18nMgr.T("Server IP Address:"),
+                            paramValue1 = parts[0],
+                            paramName2 = I18nMgr.T("Server Port Number:"),
+                            paramValue2 = parts[1],
+                            //isNumber = true,
+                        }
+            );
 
             if (res == null)
                 return;
-            if (res.value != null)
+            if (res!= null && res.code == 0)
             {
+                var result = res as OutParamsPageConsoleSetParameter002;
+
                 bool isErr = true;
-                Dictionary<string, object> argDic = null;
+
                 try
                 {
-                    argDic = (Dictionary<string, object>)res.value;
-                    if (argDic.ContainsKey("value1"))
-                    {
-                        if (argDic.ContainsKey("value2"))
-                        {
-                            SBoxModel.Instance.remoteControlSetting = argDic["value1"] + ":" + argDic["value2"];
-                            goOwnerMenu.GetChildAt(curIndexMenuItem).asCom.GetChild("value").asRichTextField.text = SBoxModel.Instance.remoteControlSetting;
-
-                        }
-                    }
+                    SBoxModel.Instance.remoteControlSetting = result.paramValue1 + ":" + result.paramValue2;
+                    goOwnerMenu.GetChildAt(curIndexMenuItem).asCom.GetChild("value").asRichTextField.text = SBoxModel.Instance.remoteControlSetting;
 
                     isErr = false;
                 }
@@ -589,39 +634,42 @@ namespace ConsoleCoinPusher97000000
         async void OnClickAccount()
         {
             string[] parts = new string[2] { SBoxModel.Instance.remoteControlAccount, SBoxModel.Instance.remoteControlPassword };
-            EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePusher97000000PageConsoleSetParameter002,
-            new EventData<Dictionary<string, object>>("",
-                new Dictionary<string, object>()
-                {
-                    ["title"] = I18nMgr.T("Set Remote Control Account"),
-                    ["parameter1"] = I18nMgr.T("Account:"),
-                    ["parameter1Value"] = parts[0],
-                    ["parameter2"] = I18nMgr.T("Password:"),
-                    ["parameter2Value"] = parts[1],
-                }
-            ));
+            OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsolePusher97000000PageConsoleSetParameter002,
+                             /*new EventData<Dictionary<string, object>>("",
+                                 new Dictionary<string, object>()
+                                 {
+                                     ["title"] = I18nMgr.T("Set Remote Control Account"),
+                                     ["parameter1"] = I18nMgr.T("Account:"),
+                                     ["parameter1Value"] = parts[0],
+                                     ["parameter2"] = I18nMgr.T("Password:"),
+                                     ["parameter2Value"] = parts[1],
+                                 }
+                             )*/
+
+                             new InParamsPageConsoleSetParameter002()
+                             {
+                                 title = I18nMgr.T("Set Remote Control Account"),
+                                 paramName1 = I18nMgr.T("Account:"),
+                                 paramValue1 = parts[0],
+                                 paramName2 = I18nMgr.T("Password:"),
+                                 paramValue2 = parts[1],
+                                 //isNumber = true,
+                             }
+            );
 
             if (res == null)
                 return;
-            if (res.value != null)
+            if (res!= null && res.code == 0)
             {
+                var result = res as OutParamsPageConsoleSetParameter002;
+
                 bool isErr = true;
-                Dictionary<string, object> argDic = null;
+
                 try
                 {
-                    argDic = (Dictionary<string, object>)res.value;
-                    if (argDic.ContainsKey("value1"))
-                    {
-                        SBoxModel.Instance.remoteControlAccount = argDic["value1"].ToString();
-                        if (argDic.ContainsKey("value2"))
-                        {
-                            SBoxModel.Instance.remoteControlPassword = argDic["value2"].ToString();
-                            goOwnerMenu.GetChildAt(curIndexMenuItem).asCom.GetChild("value").asRichTextField.text = SBoxModel.Instance.remoteControlAccount + "/" + SBoxModel.Instance.remoteControlPassword;
-
-                        }
-                    }
-
-
+                    SBoxModel.Instance.remoteControlAccount = result.paramValue1;  //???
+                    SBoxModel.Instance.remoteControlPassword = result.paramValue2;
+                    goOwnerMenu.GetChildAt(curIndexMenuItem).asCom.GetChild("value").asRichTextField.text = SBoxModel.Instance.remoteControlAccount + "/" + SBoxModel.Instance.remoteControlPassword;
 
 
                     isErr = false;

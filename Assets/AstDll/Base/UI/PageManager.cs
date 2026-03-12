@@ -59,7 +59,7 @@ public partial class PageManager : MonoBehaviour
     /// <summary> 页面堆栈 </summary>
     List<PageBase> pagesStack = new List<PageBase>();
 
-    public void OpenPage(PageName pageName, EventData data = null, Action<PageBase> onFinishCalllback = null)
+    public void OpenPage(PageName pageName, InParamsBase data = null, Action<PageBase> onFinishCalllback = null)
     {
         PageBase window = null;
 
@@ -239,13 +239,13 @@ public partial class PageManager : MonoBehaviour
         onCallBack?.Invoke(res);
         return res;
     }*/
-    public async void OpenPageAsync(PageName pageName, EventData data, Action<EventData> onCallBack)
+    public async void OpenPageAsync(PageName pageName, InParamsBase data, Action<OutParamsBase> onCallBack)
     {
         var res = await OpenPageAsync(pageName, data);
         onCallBack?.Invoke(res);
     }
 
-    public async Task<EventData> OpenPageAsync(PageName pageName, EventData data = null)
+    public async Task<OutParamsBase> OpenPageAsync(PageName pageName, InParamsBase data = null)
     {
         bool isNext = false;
 
@@ -260,7 +260,13 @@ public partial class PageManager : MonoBehaviour
                 return await window.OnOpenAsync(pageName, data);
             }
 
-            return new EventData("IsOpen");
+            return new OutParamsBase()
+            {
+                code = 1,
+                msg = $"page {pageName} is open",
+            };
+            
+            //return new EventData("IsOpen");
         }
 
         // 检查路径是否配置
@@ -452,7 +458,7 @@ public partial class PageManager : MonoBehaviour
     }
 
 
-    public bool ClosePage(PageName name, EventData data = null)
+    public bool ClosePage(PageName name, OutParamsBase data = null)
     {
         PageBase window = null;
         if (!pageCacheDict.TryGetValue(name, out window))
@@ -469,7 +475,7 @@ public partial class PageManager : MonoBehaviour
         return true;
     }
 
-    public bool ClosePage(PageBase window, EventData data = null)
+    public bool ClosePage(PageBase window, OutParamsBase data = null)
     {
 
         int indexStackPage = IndexOf(window);

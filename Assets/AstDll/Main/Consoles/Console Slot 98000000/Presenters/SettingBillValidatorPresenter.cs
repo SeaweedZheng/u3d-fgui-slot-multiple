@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using GameMaker;
+using ConsoleSlot98000000;
 public interface IVSettingBillValidator
 {
 
@@ -88,7 +89,8 @@ public class SettingBillValidatorPresenter
             return string.Format("{0} : {1}", I18nMgr.T("Manufacturer"), I18nMgr.T("Model"));
         };
 
-        EventData res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleChoose001,
+        OutParamsBase res = await PageManager.Instance.OpenPageAsync(PageName.ConsoleSlot98000000PopupConsoleChoose001,
+            /*
             new EventData<Dictionary<string, object>>("",
                 new Dictionary<string, object>()
                 {
@@ -96,11 +98,22 @@ public class SettingBillValidatorPresenter
                     ["selectLst"] = selectLst,
                     ["selectNumber"] = $"{SBoxModel.Instance.selectBillerNumber}",
                     ["getSelectedDes"] = getSelectedDes,
-                }));
+                })
+            */
+            new InParamsPopupConsoleChoose001()
+            {
+                title = I18nMgr.T("Choose Bill Validator Model"),
+                selectLst = selectLst,
+                selectNumber = $"{SBoxModel.Instance.selectBillerNumber}",
+                getSelectedDes = getSelectedDes,
+            }
+         );
 
-        if (res.value != null)
+        if (res != null && res.code == 0)
         {
-            string selectNumber = (string)res.value;
+            var result = res as OutParamsPopupConsoleKeyboard002;
+
+            string selectNumber = result.value;
             int number = int.Parse(selectNumber);
 
             SBoxModel.Instance.selectBillerNumber = number;

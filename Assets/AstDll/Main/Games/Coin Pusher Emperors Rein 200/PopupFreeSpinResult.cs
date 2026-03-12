@@ -6,7 +6,10 @@ using System.Collections.Generic;
 
 namespace PusherEmperorsRein
 {
-
+    public class InParamsPopupFreeSpinResult : InParamsBase
+    {
+        public long freeSpinTotalWin;
+    }
     public class PopupFreeSpinResult : MachinePageBase
     {
         public const string pkgName = "EmperorsRein";
@@ -34,7 +37,7 @@ namespace PusherEmperorsRein
 
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             base.OnOpen(name, data);
             GameSoundHelper.Instance.PlaySoundEff(SoundKey.PopupWinBgNumberAdd);
@@ -42,7 +45,7 @@ namespace PusherEmperorsRein
         }
 
 
-        public override void OnClose(EventData data = null)
+        public override void OnClose(OutParamsBase data = null)
         {
             CloseAllTask();
 
@@ -70,8 +73,17 @@ namespace PusherEmperorsRein
 
 
             // 解析数据
-            if (inParams != null && inParams?.value is Dictionary<string, object> argDic)
+            if (inParams != null)
             {
+
+                var inp = inParams as InParamsPopupFreeSpinResult;
+                CloseAllTask();
+
+                DoTaskToNumber(inp.freeSpinTotalWin);
+                DoTaskStopAddNumber();
+
+                /*
+                Dictionary<string, object> argDic = inParams?.value as Dictionary<string, object>;
                 // 解析分数
                 if (argDic.TryGetValue("freeSpinTotalWin", out var scoreVal) && scoreVal is long longScore)
                 {
@@ -85,6 +97,7 @@ namespace PusherEmperorsRein
                 {
                     DebugUtils.LogError($"【免费游戏结算弹窗】 没拿到总币数");
                 }
+                */
 
             }
         }
@@ -266,7 +279,7 @@ namespace PusherEmperorsRein
 
 
 
-        public override void OnOpen(PageName name, EventData data)
+        public override void OnOpen(PageName name, InParamsBase data)
         {
             //if (GameSoundHelper.Instance.IsPlaySound(SoundKey.FreeSpinBG))
             //{
