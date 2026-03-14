@@ -1,12 +1,12 @@
 {
   "name": "Total",
-  "updated_at": 1773298299392,
+  "updated_at": 1773491795193,
   "hotfix_key": "hf_debug_android_20251216143338",
-  "hotfix_version": "1.0.251",
-  "hash": "209b60e02c7c380daac7876e7fdd66da",
+  "hotfix_version": "1.0.255",
+  "hash": "b54b1b58e20f0c43f7cf211d84b839e7",
   "asset_bundle": {
     "manifest": {
-      "hash": "0b29dc9378985a4e2bcccc5002a441aa",
+      "hash": "5fb22e3ee7bf9146500c0a3cdbdb8dc4",
       "size_bytes": 8808
     },
     "bundles": {
@@ -163,8 +163,8 @@
         "size_bytes": 6783
       },
       "consoles/console slot 98000000/fguis.unity3d": {
-        "hash": "977f2539d6f8aa5f4c92c3aa2e70b00d",
-        "size_bytes": 399090
+        "hash": "47311544bba5b1241f6ce5e07080797b",
+        "size_bytes": 399250
       },
       "games/coin pusher emperors rein 200/abs/datas/slot_machine_config_bouns1.unity3d": {
         "hash": "1d2c4a977b07cdbf0057143f817afbcb",

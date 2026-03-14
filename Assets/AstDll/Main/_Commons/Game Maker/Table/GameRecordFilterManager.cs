@@ -163,59 +163,67 @@ public class GameRecordFilterManager : Singleton<GameRecordFilterManager>
     {
         bool isAll = select == null;
 
-
-        string gameType = select.selectedIndexGameId == SelectGameRecordFilterInfo.ALL ? null :
-            totalGameRecordFilter.gameTypes[select.selectedIndexGameId];
-
+        string gameType = null, turnType = null, hitJackpotType = null, hitBonusType = null, dateTimeStr = null;
         long? gameId = null;
-        if (select.selectedIndexGameId != SelectGameRecordFilterInfo.ALL )
+        long? startTimestampMs = null ,endTimestampMS = null;
+
+        if (!isAll)
         {
-            gameId = totalGameRecordFilter.gameIds[(int)select.selectedIndexGameId];
-        }
-  
-        string turnType = select.selectedIndexTurnType == SelectGameRecordFilterInfo.ALL ? null :
-            totalGameRecordFilter.turnTypes[select.selectedIndexTurnType];
+            gameType = select.selectedIndexGameId == SelectGameRecordFilterInfo.ALL ? null :
+                totalGameRecordFilter.gameTypes[select.selectedIndexGameId];
 
-        string hitJackpotType = select.selectedIndexHitJackpotTypes == SelectGameRecordFilterInfo.ALL ? null :
-            totalGameRecordFilter.hitJackpotTypes[select.selectedIndexHitJackpotTypes];
-
-        string hitBonusType = select.selectedIndexHitBonusTypes == SelectGameRecordFilterInfo.ALL ? null :
-            totalGameRecordFilter.hitBonusTypes[select.selectedIndexHitBonusTypes];
-
-        string dateTimeStr = select.selectedIndexDate == SelectGameRecordFilterInfo.ALL ? null :
-            totalGameRecordFilter.fullDates[select.selectedIndexDate];
-
-        long? startTimestampMs = null, endTimestampMS = null;
-
-        if (string.IsNullOrEmpty(dateTimeStr))
-        {
-            // 获取UTC时区下该日期的起始和结束毫秒级时间戳
-            if (TryGetUTCDayStartAndEndTimestamp(dateTimeStr, out long startTimestamp001, out long endTimestamp001))
+            gameId = null;
+            if (select.selectedIndexGameId != SelectGameRecordFilterInfo.ALL )
             {
-                Debug.Log($"UTC日期 {dateTimeStr} 的时间范围：");
-                Debug.Log($"UTC起始时间戳(毫秒)：{startTimestamp001} -> 对应UTC时间：{TimestampToUTCDateTime(startTimestamp001)}");
-                Debug.Log($"UTC结束时间戳(毫秒)：{endTimestamp001} -> 对应UTC时间：{TimestampToUTCDateTime(endTimestamp001)}");
+                gameId = totalGameRecordFilter.gameIds[(int)select.selectedIndexGameId];
+            }
+  
+            turnType = select.selectedIndexTurnType == SelectGameRecordFilterInfo.ALL ? null :
+                totalGameRecordFilter.turnTypes[select.selectedIndexTurnType];
 
-                startTimestampMs = startTimestamp001;
-                endTimestampMS = endTimestamp001;
+           hitJackpotType = select.selectedIndexHitJackpotTypes == SelectGameRecordFilterInfo.ALL ? null :
+                totalGameRecordFilter.hitJackpotTypes[select.selectedIndexHitJackpotTypes];
+
+            hitBonusType = select.selectedIndexHitBonusTypes == SelectGameRecordFilterInfo.ALL ? null :
+                totalGameRecordFilter.hitBonusTypes[select.selectedIndexHitBonusTypes];
+
+            dateTimeStr = select.selectedIndexDate == SelectGameRecordFilterInfo.ALL ? null :
+                totalGameRecordFilter.fullDates[select.selectedIndexDate];
+
+            if (!string.IsNullOrEmpty(dateTimeStr))
+            {
+                // 获取UTC时区下该日期的起始和结束毫秒级时间戳
+                if (TryGetUTCDayStartAndEndTimestamp(dateTimeStr, out long startTimestamp001, out long endTimestamp001))
+                {
+                    Debug.Log($"UTC日期 {dateTimeStr} 的时间范围：");
+                    Debug.Log($"UTC起始时间戳(毫秒)：{startTimestamp001} -> 对应UTC时间：{TimestampToUTCDateTime(startTimestamp001)}");
+                    Debug.Log($"UTC结束时间戳(毫秒)：{endTimestamp001} -> 对应UTC时间：{TimestampToUTCDateTime(endTimestamp001)}");
+
+                    startTimestampMs = startTimestamp001;
+                    endTimestampMS = endTimestamp001;
+                }
+                else
+                {
+                    Debug.LogError("日期格式解析失败，请检查输入的日期字符串格式");
+                }
             }
             else
             {
-                Debug.LogError("日期格式解析失败，请检查输入的日期字符串格式");
-            }
-        }
-        else
-        {
-            if (select.selectedStartTimestampMs != SelectGameRecordFilterInfo.ALL)
-            {
-                startTimestampMs = select.selectedStartTimestampMs;
-            }
+                if (select.selectedStartTimestampMs != SelectGameRecordFilterInfo.ALL)
+                {
+                    startTimestampMs = select.selectedStartTimestampMs;
+                }
 
-            if (select.selectedEndTimestampMs != SelectGameRecordFilterInfo.ALL)
-            {
-                endTimestampMS = select.selectedEndTimestampMs;
+                if (select.selectedEndTimestampMs != SelectGameRecordFilterInfo.ALL)
+                {
+                    endTimestampMS = select.selectedEndTimestampMs;
+                }
             }
         }
+
+
+
+
 
 
         return GetTotalFilterCondition(gameType, gameId, turnType, hitJackpotType, hitBonusType, startTimestampMs, endTimestampMS);
@@ -251,8 +259,23 @@ public class GameRecordFilterManager : Singleton<GameRecordFilterManager>
             DebugUtils.Log(sql);
             using (var command1 = new SqliteCommand(sql, connect))
             {
-                int totalCount = (int)command1.ExecuteScalar(); // 每页一条数据，总页数，就是总条数。
+                //int totalCount = (int)command1.ExecuteScalar(); // 【BUG】SQLite 的 COUNT(*) 函数返回值的实际类型是 long（64 位整数），而非 int（32 位整数）；
+                //onFinishCallback?.Invoke(filterCondition, totalCount);
 
+
+                // 修复核心：先转为long，再转int（或直接用long接收）
+                object result = command1.ExecuteScalar();
+
+                // 安全转换逻辑：处理DBNull/空值 + 先转long再转int
+                int totalCount = 0;
+                if (result != null && result != DBNull.Value)
+                {
+                    // 第一步：将结果转为long（SQLite COUNT(*)的原生类型）
+                    long countLong = Convert.ToInt64(result);
+                    // 第二步：再转为int（如需兼容大数值，可直接用long接收）
+                    totalCount = Convert.ToInt32(countLong);
+                }
+                DebugUtils.LogError($"【Test】filterCondition={filterCondition} ; totalCount={totalCount} ");
                 onFinishCallback?.Invoke(filterCondition, totalCount);
             }
         });
@@ -453,9 +476,19 @@ public class GameRecordFilterManager : Singleton<GameRecordFilterManager>
         }
 
 
-        if (string.IsNullOrEmpty(totalFilterCondition))
+        if (!string.IsNullOrEmpty(totalFilterCondition))
         {
-            totalFilterCondition = $" 1=1 {totalFilterCondition}";
+            //totalFilterCondition = $" 1=1 {totalFilterCondition}";
+
+            // 先去除开头的所有空格（处理 " AND..." "   AND..." 等情况）
+            totalFilterCondition = totalFilterCondition.TrimStart();
+
+            // 检查是否以 "AND" 开头（不区分大小写可选，根据需求调整）
+            if (totalFilterCondition.StartsWith("AND", StringComparison.Ordinal))
+            {
+                // 截取 "AND" 之后的部分，并再次去除开头空格（处理 "AND  xxx" 中AND后的空格）
+                return totalFilterCondition.Substring(3).TrimStart();
+            }
         }
 
         return totalFilterCondition;

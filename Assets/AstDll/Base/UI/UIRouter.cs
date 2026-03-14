@@ -71,7 +71,7 @@ public class UIRouter
             [PageName.ConsoleSlot98000000PageConsoleSettingsIOT] = new object[] { "Assets/AstBundle/Consoles/Console Slot 98000000/FGUIs", "ConsoleSlot98000000.PageConsoleSettingsIOT" },
             [PageName.ConsoleSlot98000000PageConsoleSettingsGames] = new object[] { "Assets/AstBundle/Consoles/Console Slot 98000000/FGUIs", "ConsoleSlot98000000.PageConsoleSettingsGames" },
             [PageName.ConsoleSlot98000000PopupConsoleCommon002] = new object[] { "Assets/AstBundle/Consoles/Console Slot 98000000/FGUIs", "ConsoleSlot98000000.PopupConsoleCommon002" },
-
+            [PageName.ConsoleSlot98000000PopupConsoleSearch] = new object[] { "Assets/AstBundle/Consoles/Console Slot 98000000/FGUIs", "ConsoleSlot98000000.PopupConsoleSearch" },
 
             // [Console Coin Pusher 1080x1920]推币机新后台
             [PageName.ConsolePusher97000000PageConsoleAdmin] = new object[] { "Assets/AstBundle/Consoles/Console Coin Pusher 97000000/FGUIs", "ConsoleCoinPusher97000000.PageConsoleAdmin" },
@@ -210,6 +210,7 @@ public enum PageName
     ConsoleSlot98000000PageConsoleSettingsIOT,
     ConsoleSlot98000000PageConsoleSettingsGames,
     ConsoleSlot98000000PopupConsoleCommon002,
+    ConsoleSlot98000000PopupConsoleSearch,
 
     // 推币机新后台 （1080 x 1920）
     ConsolePusher97000000PageConsoleMain,
