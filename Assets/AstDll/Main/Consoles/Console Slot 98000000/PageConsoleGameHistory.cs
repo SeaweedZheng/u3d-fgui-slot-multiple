@@ -36,6 +36,9 @@ namespace ConsoleSlot98000000
         JackpotRecordView jpRecordView = new JackpotRecordView();
         JackpotRecordPresenter jpRecordCtrl = new JackpotRecordPresenter();
 
+        MultipleGameRecordView multipleGameRecordView = new MultipleGameRecordView();
+        MultipleGameRecordPresenter multipleGameRecordPresenter = new MultipleGameRecordPresenter();
+
         IVTable tabJpRecordView => jpRecordView;
 
         public override void InitParam()
@@ -54,12 +57,14 @@ namespace ConsoleSlot98000000
                 CloseSelf(null);
             });
 
-            GList pages = this.contentPane.GetChild("tabs").asList;
+            GList tabs = this.contentPane.GetChild("tabs").asList;
 
 
+            multipleGameRecordView.InitParam(tabs.GetChild("game").asCom);
+            multipleGameRecordPresenter.InitParam(multipleGameRecordView);
 
 
-            jpRecordView.InitParam(pages.GetChild("jackpot").asCom);
+            jpRecordView.InitParam(tabs.GetChild("jackpot").asCom);
             jpRecordCtrl.InitParam(jpRecordView);
 
             jpRecordView.onChangeNavBottomTitle -= OnChangeNavButtomTitle;

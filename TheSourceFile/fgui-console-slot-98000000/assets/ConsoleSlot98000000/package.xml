@@ -279,6 +279,8 @@
     <image id="ixbzaf" name="icon_delete.png" path="/images/buttons/icons/"/>
     <component id="ixbzag" name="PopupConsoleSearch.xml" path="/" exported="true"/>
     <component id="ixbzah" name="ItemClassifySelect.xml" path="/moudules/" exported="true"/>
+    <component id="84zuai" name="ItemDateSelectResult002.xml" path="/moudules/" exported="true"/>
+    <component id="ip0jaj" name="ButtonDelete.xml" path="/components/"/>
   </resources>
   <publish name="" path="../../Assets/AstBundle/Consoles/Console Slot 98000000/FGUIs" packageCount="2" genCode="true">
     <atlas name="Default" index="0"/>

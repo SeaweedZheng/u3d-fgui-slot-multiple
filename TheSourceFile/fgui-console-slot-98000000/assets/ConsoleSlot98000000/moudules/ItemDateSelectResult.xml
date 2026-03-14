@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<component size="540,76">
+<component size="1080,76">
   <displayList>
-    <richtext id="n0_glrj" name="key" xy="40,16" size="150,42" touchable="false" fontSize="30" color="#ffffff" vAlign="middle" autoSize="shrink" singleLine="true" text="Search:"/>
-    <richtext id="n4_ixbz" name="value" xy="198,6" size="285,63" touchable="false" fontSize="30" color="#68ffd6" vAlign="middle" autoSize="shrink" text="# slot、203"/>
-    <image id="n5_ixbz" name="close" src="ixbzaf" fileName="images/buttons/icons/icon_delete.png" xy="503,38" pivot="0.5,0.5" anchor="true" scale="0.5,0.5"/>
+    <richtext id="n0_glrj" name="key" xy="40,16" size="150,42" fontSize="30" color="#ffffff" vAlign="middle" autoSize="shrink" singleLine="true" text="Search:"/>
+    <image id="n7_84zu" name="n7" src="vqlx69" fileName="images/common/circle_64.png" xy="187,6" size="705,64" color="#4a4c4b"/>
+    <richtext id="n4_ixbz" name="value" xy="220,6" size="616,63" fontSize="30" color="#68ffd6" vAlign="middle" autoSize="shrink" text="# slot、203"/>
+    <component id="n5_ixbz" name="delete" src="ip0jaj" fileName="components/ButtonDelete.xml" xy="842,22"/>
   </displayList>
   <customProperty target="key" propertyId="0" label="键"/>
   <customProperty target="value" propertyId="0" label="值"/>

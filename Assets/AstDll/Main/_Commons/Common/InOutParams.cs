@@ -29,6 +29,9 @@ public class InParamItemSelectOption
     public string selectType;
     /// <summary> 选项名称</summary>
     public string selectName;
+
+    /// <summary> 当前选择</summary>
+    public string selectKey;
     /// <summary>
     /// 选项列表
     /// </summary>
